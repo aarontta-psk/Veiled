@@ -1,35 +1,45 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.js"></script>
 </head>
+
 <body>
     <script>
         new Phaser.Game({
-        type: Phaser.AUTO,
-        width: 800,
-        heigh: 600,
-        scene: {
-            preload: preload,
-        create: create,
-        update: update
-        }
+            type: Phaser.AUTO,
+            width: 800,
+            heigh: 600,
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
         })
-        
-        function preload ()
-        {
-        }       
 
-        function create ()
-        {
+        function preload() {
+            this.load.image('sky', 'assets/sprites/sky.png');
+            this.load.image('ground', 'assets/sprites/platform.png');
+            this.load.image('star', 'assets/sprites/star.png');
+            this.load.image('bomb', 'assets/sprites/bomb.png');
+            this.load.spritesheet('dude',
+                'assets/sprites/dude.png',
+                { frameWidth: 32, frameHeight: 48 }
+            );
         }
 
-        function update ()
-        {
+        function create() {
+            this.add.image(400, 300, 'sky');
+            this.add.image(400, 300, 'star');
+        }
+
+        function update() {
         }
     </script>
 </body>
+
 </html>
