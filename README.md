@@ -128,6 +128,7 @@ Al final del juego habrá un último paso hacia la iluminación en la que debe p
 ### Items
 
 - **CLAVE**
+
 | Nombre | Efecto | Descripción |
 |--------|--------|-------------|
 | Llave | Abre una puerta | N/A |
@@ -135,6 +136,7 @@ Al final del juego habrá un último paso hacia la iluminación en la que debe p
 | N/A | N/A  | N/A |
 
 - **CONSUMIBLES**
+
 | Nombre | Efecto | Descripción |
 |--------|--------|-------------|
 | Caleidoscopio | :heavy_minus_sign: Consumo de cordura con la visión activada | N/A |
