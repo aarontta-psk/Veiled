@@ -1,4 +1,4 @@
-# The Blind's Enlightenment: Unfolded
+![The Blind's Enlightenment: Unfolded](/media/headers/h_title.png)
 
 **Emiliagos Aarabels (EAa) [2º GDV]**
 
@@ -7,7 +7,7 @@
 - Abel Moro Paje ([abelmoro@ucm.es](mailto:abelmoro@ucm.es))
 - Iago Quintas Diz ([iquintas@ucm.es](mailto:iquintas@ucm.es))
 
-## 1. Descripción
+![Descripción](/media/headers/h_contenido.png)
 
 _**The Blind's Enlightenment: Unfolded**_ es un juego de exploración y mazmorras en perspectiva isométrica, en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva.
 
@@ -17,7 +17,7 @@ Esta protagonista lleva asiduamente una venda, ya que, tras recuperarse de su ce
 
 ![Prototype_Game](/media/Prototype_Game.png)
 
-## 2. Mecánicas
+![Mecánicas](/media/headers/h_mecanicas.png)
 
 ### Movimiento
 
@@ -83,7 +83,7 @@ La **iglesia** es un punto del mapa que tiene asociado un evento que puede recup
 
 Si el jugador ha completado todos los objetivos secundarios del nivel, rezar en la iglesia le subirá hasta un nivel de cordura algo por encima del mínimo requerido para emprender el objetivo principal (indicado por un evento). Esto es para que no se pueda quedar bloqueada la partida si, tras completar todos los objetivos secundarios, se quita la venda demasiado y su cordura baja por debajo del nivel requerido para progresar, ya que podría no haber más fuentes de cordura en el nivel.
 
-## 3. Dinámicas
+![Dinámicas](/media/headers/h_dinamicas.png)
 
 ### Objetivo y conflictos
 
@@ -105,7 +105,7 @@ Cuando complete el objetivo principal, el jugador puede quedarse por el nivel, c
 
 El juego tiene una dificultad baja y una longitud relativamente corta. Se espera que cualquier jugador pueda completar el juego en menos de 2 horas (?).
 
-## 4. Contenido
+![Contenido](/media/headers/h_contenido.png)
 
 ### Niveles
 
@@ -151,17 +151,19 @@ Al final del juego habrá un último paso hacia la iluminación en la que debe p
 | N/A | Tp al centro del mapa   | N/A |
 | N/A | N/A  | N/A |
 
-## 5. Estética
+![Estética](/media/headers/h_estetica.png)
 
 [Ejemplo de efecto de sonido para cuando se baja un nivel de visión](https://www.storyblocks.com/audio/stock/big-object-falling-hit-hxbni32udhk0wxsh7x.html)
 
 [Ejemplo de efecto de sonido para cuando se sube un nivel de visión](https://www.storyblocks.com/audio/stock/chime-harmony-hexslt328dsk0wxut4d.html)
 
-## 6. Controles
+![Controles](/media/headers/h_controles.png)
 
 Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario (en los eventos y los menús hay diferentes posibilidades: si es fácil hacer soporte para el ratón, eso; si no, W y S se usarán para navegar y Espacio para seleccionar).
 
-## 7. Interfaz y Menús
+![Keybinds](/media/keybinds.png)
+
+![Interfaz y Menús](/media/headers/h_interfaz.png)
 
 ### Menús
 
@@ -178,7 +180,7 @@ Además de la interfaz principal contara con un menú simple de inventario donde
 
 ¿Otro icono desde el cual abrir un historial de eventos como un historial de diálogo de un RPG?
 
-## 8. Prototipado
+![Prototipado](/media/headers/h_prototipado.png)
 
 ### Arquitectura
 
@@ -199,7 +201,7 @@ Cordura baja menos si Fe alta. Así el jugador es capaz de usar la venda con má
 | **Recompensa** | Fe (~80 % del requisito del nivel) | Cordura (+ pequeña cant. Fe) | N/A |
 | **Requisitos** | Cordura alta  | Nada (salvo excepciones) | 100% Fe del nivel |
 
-## 9. Referencias
+![Referencias](/media/headers/h_referencias.png)
 
 - *La venda, Miguel de Unamuno, 1899. (Temática principal)*
 - *Zelda: Link's Awakening (mundo)*
