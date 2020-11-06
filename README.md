@@ -1,6 +1,6 @@
-###The Blind’s Enlightenment: Unfolded 
+# The Blind’s Enlightenment: Unfolded 
 
-Emiliagos Aarabels (EAa) [2º GDV] 
+### Emiliagos Aarabels (EAa) [2º GDV] 
 
 - Emile de Kadt (edekadt@ucm.es) 
 
@@ -10,7 +10,7 @@ Emiliagos Aarabels (EAa) [2º GDV]
 
 - Iago Quintas Diz (iquintas@ucm.es) 
 
-1. Descripción 
+## 1. Descripción 
 
 The Blind’s Enlightenment: Unfolded es un juego de exploración y mazmorras en perspectiva isométrica, en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva. 
 
@@ -20,13 +20,13 @@ VENTANA DE JUEGO (PLACEHOLDER)
 
 Insertando imagen... 
 
- 2. Mecánicas 
+## 2. Mecánicas 
 
-Movimiento 
+### Movimiento 
 
 La protagonista se moverá en 8 direcciones, siendo la velocidad de movimiento de aproximadamente de 3 casillas por segundo. 
 
-Barra de cordura 
+### Barra de cordura 
 
 El personaje tendrá un medidor que representa su cordura. Funcionará a modo de barra de vida, pues al agotarse toda la barra, el jugador se verá obligado a hacer un evento, tras el cual podrá, o bien recuperar un poco de cordura y continuar, o bien tener que reiniciar desde el último punto de guardado (iglesia). 
 
@@ -34,9 +34,9 @@ A lo largo de la partida, la cantidad de cordura especifica tendrá una serie de
 
 El progreso de la barra sigue una escala logarítmica tanto en positivo como en negativo, tal que cuando está baja las pérdidas son reducidas y cuando esté alta los incrementos son reducidos. 
 
- Percepción 
+### Percepción 
 
-3.1. Venda 
+#### 3.1. Venda 
 
 El jugador tendrá puesta constantemente una venda, que le impide ver el mapa salvo un radio de 1 casilla alrededor del personaje (el rango de sonido de sus pasos). Aun así, es posible quitarse la venda, lo que permitirá ver mayor parte del mapa y percibir colores, pero hará que disminuya la barra de cordura hasta que vuelva a ponérsela (y no incrementa al volver a ponérsela). 
 
@@ -46,11 +46,11 @@ A menos de 35% de cordura, todos estos mismos objetos se seguirán detectando, p
 
 Cuando la cordura esté por debajo del 10%, no se podrá interactuar con las memorias. Se seguirá viendo en pantalla las localizaciones de estas, pero todavía sin mostrar detalle. 
 
-3.2. Estímulos 
+#### 3.2. Estímulos 
 
 A lo largo del mapa, habrá una serie de estímulos sensoriales (sonido, olfato) que permitirán al jugador esclarecer el contorno de ciertas zonas del mapa. Estos estímulos aparecerán cada cierto  
 
-Fe 
+### Fe 
 
 La fe sirve como principal medidor de progreso del juego. Además, en cada nivel habrá un medidor de fe conseguida a lo largo del mismo (estilo barra True Jedi del Lego Star Wars) 
 
@@ -58,42 +58,42 @@ Después de cada nivel, se indica la fe obtenida y cuantas “misiones” has he
 
 Además, según tu nivel de fe obtenida, algunos eventos en los niveles siguientes tendrán nuevas opciones (acortar el evento principal, pero obteniendo la misma fe, por ejemplo). 
 
-Eventos 
+### Eventos 
 
 En el mapa, habrá esparcidos una serie de eventos de texto (por interactuar con un objeto, con una silueta, o aleatoriamente) que permitirán responder desde con 2 a 4 opciones. Hay distintos tipos: 
 
-Eventos localizados: Se encuentran en un punto concreto del mapa, se lanzan mediante interacción o posición. 
+#### Eventos localizados: Se encuentran en un punto concreto del mapa, se lanzan mediante interacción o posición. 
 
-Principales (Siluetas): Algunos eventos serán provocados por siluetas, eventos de aspecto difuso que solo son visibles con la venda puesta y teniendo encima de un cierto umbral de cordura. Estas siluetas representan memorias del pasado de la protagonista, suponiendo el objetivo principal de cada nivel. Este objetivo concluirá en un gran incremento de fe y desbloquea el siguiente nivel. 
+##### Principales (Siluetas): Algunos eventos serán provocados por siluetas, eventos de aspecto difuso que solo son visibles con la venda puesta y teniendo encima de un cierto umbral de cordura. Estas siluetas representan memorias del pasado de la protagonista, suponiendo el objetivo principal de cada nivel. Este objetivo concluirá en un gran incremento de fe y desbloquea el siguiente nivel. 
 
-Secundarios: sirven para expandir la historia, obtener recompensas (cordura, fe, consumibles) 
+##### Secundarios: sirven para expandir la historia, obtener recompensas (cordura, fe, consumibles) 
 
-Eventos no localizados: se lanzan en cualquier punto del mapa sin necesidad de interacción. 
+#### Eventos no localizados: se lanzan en cualquier punto del mapa sin necesidad de interacción. 
 
-Trigger: se lanzan al cumplir ciertos objetivos, por ejemplo, alcanzar un threshold de cordura. 
+##### Trigger: se lanzan al cumplir ciertos objetivos, por ejemplo, alcanzar un threshold de cordura. 
 
-Informativo: se lanzan para informar al jugador ya sea de un aspecto jugable (tutoriales, consejos, etc) o de historia. 
+##### Informativo: se lanzan para informar al jugador ya sea de un aspecto jugable (tutoriales, consejos, etc) o de historia. 
 
 Así, cada uno tiene un indicador de que tipo es: de avanzar en la historia, de desafío, para conseguir un objeto.... Además, algunas de estas opciones pueden tener requisitos para ser respondidas, como tener un objeto clave o tener cierto nivel de cordura. 
 
-Objetos 
+### Objetos 
 
 A lo largo de la partida se podrán conseguir objetos, que afecten a las características del jugador (número de casillas visibles, cantidad de cordura...). Estos se podrán obtener siendo encontrados en el mapa o bien como recompensa tras un evento. Cada uno tendrá una descripción que indicará que hace cada uno. Se dividen en: 
 
-Claves: Necesarios para avanzar en uno de los posibles eventos y llegar al siguiente nivel. (Ejemplo: Hacha --> Permite talar el árbol para llegar a la siguiente zona). 
+#### Claves: Necesarios para avanzar en uno de los posibles eventos y llegar al siguiente nivel. (Ejemplo: Hacha --> Permite talar el árbol para llegar a la siguiente zona). 
 
-Consumibles: De un solo uso, permiten recuperar cordura o tener efectos beneficiosos temporales. (Ejemplo: Caleidoscopio --> Disminuye el gasto de cordura con la venda quitada). También pueden lanzar eventos secundarios. 
+#### Consumibles: De un solo uso, permiten recuperar cordura o tener efectos beneficiosos temporales. (Ejemplo: Caleidoscopio --> Disminuye el gasto de cordura con la venda quitada). También pueden lanzar eventos secundarios. 
  
 
-Iglesia 
+### Iglesia 
 
 La iglesia es un punto del mapa que tiene asociado un evento que puede recuperar una parte variable de la cordura dependiendo de la fe (podrá “rezar” cada vez que su fe suba hasta 25%, por ejemplo). Además, servirá como punto de reaparición para el jugador en caso de que falle el evento de quedarse sin barra de cordura. 
 
 Si el jugador ha completado todos los objetivos secundarios del nivel, rezar en la iglesia le subirá hasta un nivel de cordura algo por encima del mínimo requerido para emprender el objetivo principal (indicado por un evento). Esto es para que no se pueda quedar bloqueada la partida si, tras completar todos los objetivos secundarios, se quita la venda demasiado y su cordura baja por debajo del nivel requerido para progresar, ya que podría no haber más fuentes de cordura en el nivel. 
 
-3. Dinámicas 
+## 3. Dinámicas 
 
-Objetivo y conflictos 
+### Objetivo y conflictos 
 
 El objetivo del juego es ir ayudando a cada silueta que hay en cada nivel, para así poder ir avanzando en los distintos niveles y llegar a alcanzar la iluminación  
 
@@ -103,7 +103,7 @@ Conforme se llena y vacía la barra de cordura, los cambios en la visión están
 
 A lo largo del nivel la barra fluctúa bastante a lo largo de una jugada completa. La principal forma de obtener este efecto es una escala logarítmica que gobierna los cambios de nivel de la barra, de tal forma que cuando esté casi llena, la progresión se hace muy lenta, y cuando esté baja, se hace más rápida. Esto tiene dos consecuencias principales: comenzar el objetivo principal del nivel requiere tener la venda puesta durante un tiempo (para no perder cordura); y, aunque haya un nivel bajo de cordura, no implica una partida perdida, pues la escala permitirá recuperar cordura rápidamente. 
 
-Comportamiento esperado 
+### Comportamiento esperado 
 
 La búsqueda de pistas y objetos que te ayuden implica más exploración, la cual puede ser realizada con o sin venda. 
 
@@ -113,23 +113,23 @@ Cuando complete el objetivo principal, el jugador puede quedarse por el nivel, c
 
 El juego tiene una dificultad baja y una longitud relativamente corta. Se espera que cualquier jugador pueda completar el juego en menos de 2 horas (?). 
 
-4. Contenido 
+## 4. Contenido 
 
-Niveles 
+### Niveles 
 
 En un principio, el juego estará divido en tres niveles principales, además del preludio y el nivel final: 
 
-Preludio: El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una “pequeña” historia con el padre antes de morir. 
+- Preludio: El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una “pequeña” historia con el padre antes de morir. 
 
-Pueblo: El jugador continuara explorando su pueblo natal interactuando con personajes de su infancia. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren. 
+- Pueblo: El jugador continuara explorando su pueblo natal interactuando con personajes de su infancia. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren. 
 
-Ciudad (¿Puerto?): El jugador regresa a su casa en la zona portuaria de la ciudad y después de confrontar a su marido, el jugador tendrá que explorar zonas alrededor de su casa completando misiones. El nivel estará centrado en el puerto, una zona más pobre de la ciudad donde la mayoría de los habitantes viven de y para la industria generada por el mismo. 
+- Ciudad (¿Puerto?): El jugador regresa a su casa en la zona portuaria de la ciudad y después de confrontar a su marido, el jugador tendrá que explorar zonas alrededor de su casa completando misiones. El nivel estará centrado en el puerto, una zona más pobre de la ciudad donde la mayoría de los habitantes viven de y para la industria generada por el mismo. 
 
-Ciudad (Centro): María se adentra en el centro de la ciudad originalmente en busca de alguien que pueda enseñarle a leer sin enfrentarse a la vergüenza de aprender con alguien conocido. El monumento central de este mapa es la iglesia. 
+- Ciudad (Centro): María se adentra en el centro de la ciudad originalmente en busca de alguien que pueda enseñarle a leer sin enfrentarse a la vergüenza de aprender con alguien conocido. El monumento central de este mapa es la iglesia. 
 
-Nivel Final: ascensión Pog SadKEK 
+- Nivel Final: ascensión Pog SadKEK 
 
-Historia 
+### Historia 
 
 María busca recuperar su fe en la misericordia de Dios, y en el proceso aprenderá a aceptar su nuevo don y a ver la belleza del mundo por un nuevo medio. 
 
@@ -151,22 +151,6 @@ Llave
 
 Abre una puerta 
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 CONSUMIBLES 
 
 NOMBRE 
@@ -187,8 +171,6 @@ Recupera cordura
 
 baby 
 
- 
-
 + velocidad + consumo de cordura 
 
 baby 
@@ -201,15 +183,11 @@ Audífono/Trompetilla
 
 uuuuuuu 
 
- 
-
 Copia de Half life 3 
 
 Objeto genérico que ayuda a resolver un evento secundario. 
 
 baby 
-
- 
 
 Permite hablar con una silueta cuando la cordura esta baja 
 
