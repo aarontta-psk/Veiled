@@ -10,7 +10,7 @@
 
 - Iago Quintas Diz ([iquintas@ucm.es](mailto:iquintas@ucm.es))
 
-1. ## Descripción
+## Descripción
 
 _The Blind&#39;s Enlightenment: Unfolded_ es un juego de exploración y mazmorras en perspectiva isométrica, en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva.
 
@@ -18,9 +18,9 @@ Esta protagonista lleva asiduamente una venda, ya que, tras recuperarse de su ce
 
 ### VENTANA DE JUEGO (PLACEHOLDER)
 
-![Prototype_Game](/Media/Prototype_Game.png)
+![Prototype_Game](/media/Prototype_Game.png)
 
-1. ## Mecánicas
+## Mecánicas
 
 ### Movimiento
 
@@ -86,7 +86,7 @@ La **iglesia** es un punto del mapa que tiene asociado un evento que puede recup
 
 Si el jugador ha completado todos los objetivos secundarios del nivel, rezar en la iglesia le subirá hasta un nivel de cordura algo por encima del mínimo requerido para emprender el objetivo principal (indicado por un evento). Esto es para que no se pueda quedar bloqueada la partida si, tras completar todos los objetivos secundarios, se quita la venda demasiado y su cordura baja por debajo del nivel requerido para progresar, ya que podría no haber más fuentes de cordura en el nivel.
 
-1. ## Dinámicas
+## Dinámicas
 
 ### Objetivo y conflictos
 
@@ -108,7 +108,7 @@ Cuando complete el objetivo principal, el jugador puede quedarse por el nivel, c
 
 El juego tiene una dificultad baja y una longitud relativamente corta. Se espera que cualquier jugador pueda completar el juego en menos de 2 horas (?).
 
-1. ## Contenido
+## Contenido
 
 ### Niveles
 
@@ -136,17 +136,17 @@ Tabla de objetos
 - **CONSUMIBLES**
 Tabla de objetos
 
-1. ## Estética
+## Estética
 
 [Ejemplo de efecto de sonido para cuando se baja un nivel de visión](https://www.storyblocks.com/audio/stock/big-object-falling-hit-hxbni32udhk0wxsh7x.html)
 
 [Ejemplo de efecto de sonido para cuando se sube un nivel de visión](https://www.storyblocks.com/audio/stock/chime-harmony-hexslt328dsk0wxut4d.html)
 
-1. ## Controles
+## Controles
 
 Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario (en los eventos y los menús hay diferentes posibilidades: si es fácil hacer soporte para el ratón, eso; si no, W y S se usarán para navegar y Espacio para seleccionar).
 
-1. ## Interfaz y Menús
+## Interfaz y Menús
 
 ### Menús
 
@@ -163,17 +163,17 @@ Además de la interfaz principal contara con un menú simple de inventario donde
 
 ¿Otro icono desde el cual abrir un historial de eventos como un historial de diálogo de un RPG?
 
-1. ## Prototipado
+## Prototipado
 
 ### Arquitectura
 
 [Modelo](https://docs.google.com/drawings/d/1-1DPUHdG_3wb9gtGyfiG3ykvNLVxsPCKqEqCn9Yzmto/edit?userstoinvite=edekadt@ucm.es&amp;ts=5f92fe7b&amp;actionButton=1)
 
-![Protoype_API](/Media/Protoype_API.png)
+![Protoype_API](/media/Protoype_API.png)
 
 ### Esquema de un nivel
 
-![Prototype_Level](/Media/Prototype_Level.png)
+![Prototype_Level](/media/Prototype_Level.png)
 
 ### Relación Fé-Cordura
 
@@ -181,7 +181,7 @@ Cordura baja menos si Fe alta. Así el jugador es capaz de usar la venda con má
 
 Tabla de cordura
 
-1. ## Referencias
+## Referencias
 
 - La venda, Miguel de Unamuno, 1899. (Temática principal)
 - Zelda: Link's Awakening (mundo)
