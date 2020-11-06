@@ -2,25 +2,22 @@
 
 **Emiliagos Aarabels (EAa) [2º GDV]**
 
-- Emile de Kadt ([edekadt@ucm.es](mailto:edekadt@ucm.es)_)_
-
+- Emile de Kadt ([edekadt@ucm.es](mailto:edekadt@ucm.es))
 - Aarón Nauzet Moreno Sosa ([aarmor01@ucm.es](mailto:aarmor01@ucm.es))
-
 - Abel Moro Paje ([abelmoro@ucm.es](mailto:abelmoro@ucm.es))
-
 - Iago Quintas Diz ([iquintas@ucm.es](mailto:iquintas@ucm.es))
 
-## Descripción
+## 1. Descripción
 
-_The Blind&#39;s Enlightenment: Unfolded_ es un juego de exploración y mazmorras en perspectiva isométrica, en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva.
+_**The Blind's Enlightenment: Unfolded**_ es un juego de exploración y mazmorras en perspectiva isométrica, en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva.
 
 Esta protagonista lleva asiduamente una venda, ya que, tras recuperarse de su ceguera, sufrió una serie de acontecimientos perturbadores, lo que le llevaron a repudiar el mundo físico visible. Esto le motiva a avanzar en su búsqueda, para poder obtener la paz interna. Para ello, deberá cumplir una serie de objetivos a modo de eventos (de texto o físicos) que le permitirán avanzar tanto en el propio mapa, como a los distintos niveles, hasta alcanzar el final.
 
-### VENTANA DE JUEGO (PLACEHOLDER)
+**Ventana de juego** (Placeholder)
 
 ![Prototype_Game](/media/Prototype_Game.png)
 
-## Mecánicas
+## 2. Mecánicas
 
 ### Movimiento
 
@@ -86,7 +83,7 @@ La **iglesia** es un punto del mapa que tiene asociado un evento que puede recup
 
 Si el jugador ha completado todos los objetivos secundarios del nivel, rezar en la iglesia le subirá hasta un nivel de cordura algo por encima del mínimo requerido para emprender el objetivo principal (indicado por un evento). Esto es para que no se pueda quedar bloqueada la partida si, tras completar todos los objetivos secundarios, se quita la venda demasiado y su cordura baja por debajo del nivel requerido para progresar, ya que podría no haber más fuentes de cordura en el nivel.
 
-## Dinámicas
+## 3. Dinámicas
 
 ### Objetivo y conflictos
 
@@ -108,7 +105,7 @@ Cuando complete el objetivo principal, el jugador puede quedarse por el nivel, c
 
 El juego tiene una dificultad baja y una longitud relativamente corta. Se espera que cualquier jugador pueda completar el juego en menos de 2 horas (?).
 
-## Contenido
+## 4. Contenido
 
 ### Niveles
 
@@ -131,22 +128,38 @@ Al final del juego habrá un último paso hacia la iluminación en la que debe p
 ### Items
 
 - **CLAVE**
-Tabla de objetos
+| Nombre | Efecto | Descripción |
+|--------|--------|-------------|
+| Llave | Abre una puerta | N/A |
+| N/A | N/A  | N/A |
+| N/A | N/A  | N/A |
 
 - **CONSUMIBLES**
-Tabla de objetos
+| Nombre | Efecto | Descripción |
+|--------|--------|-------------|
+| Caleidoscopio | :heavy_minus_sign: Consumo de cordura con la visión activada | N/A |
+| Venda de neopreno | Recupera cordura | N/A |
+| Venda ++ | :heavy_plus_sign: velocidad :heavy_plus_sign: consumo de cordura | N/A |
+| N/A | :heavy_plus_sign: radio de visión con venda | N/A |
+| N/A | Objeto genérico que ayuda a resolver un evento secundario  | N/A |
+| N/A | Permite hablar con una silueta cuando la cordura esta baja | N/A |
+| N/A | :heavy_plus_sign: Fe | N/A |
+| N/A | :heavy_minus_sign: Cordura | N/A |
+| N/A | :heavy_plus_sign: Cordura/ RNG / :heavy_minus_sign: Cordura  | N/A |
+| N/A | Tp al centro del mapa   | N/A |
+| N/A | N/A  | N/A |
 
-## Estética
+## 5. Estética
 
 [Ejemplo de efecto de sonido para cuando se baja un nivel de visión](https://www.storyblocks.com/audio/stock/big-object-falling-hit-hxbni32udhk0wxsh7x.html)
 
 [Ejemplo de efecto de sonido para cuando se sube un nivel de visión](https://www.storyblocks.com/audio/stock/chime-harmony-hexslt328dsk0wxut4d.html)
 
-## Controles
+## 6. Controles
 
 Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario (en los eventos y los menús hay diferentes posibilidades: si es fácil hacer soporte para el ratón, eso; si no, W y S se usarán para navegar y Espacio para seleccionar).
 
-## Interfaz y Menús
+## 7. Interfaz y Menús
 
 ### Menús
 
@@ -163,7 +176,7 @@ Además de la interfaz principal contara con un menú simple de inventario donde
 
 ¿Otro icono desde el cual abrir un historial de eventos como un historial de diálogo de un RPG?
 
-## Prototipado
+## 8. Prototipado
 
 ### Arquitectura
 
@@ -175,19 +188,22 @@ Además de la interfaz principal contara con un menú simple de inventario donde
 
 ![Prototype_Level](/media/Prototype_Level.png)
 
-### Relación Fé-Cordura
+### Relación Fe-Cordura
 
 Cordura baja menos si Fe alta. Así el jugador es capaz de usar la venda con más frecuencia según avanza el juego.
 
-Tabla de cordura
+| | Principal | Eventos | Nivel |
+|--------|--------|--------|-------------|
+| **Recompensa** | Fe (~80 % del requisito del nivel) | Cordura (+ pequeña cant. Fe) | N/A |
+| **Requisitos** | Cordura alta  | Nada (salvo excepciones) | 100% Fe del nivel |
 
-## Referencias
+## 9. Referencias
 
-- La venda, Miguel de Unamuno, 1899. (Temática principal)
-- Zelda: Link's Awakening (mundo)
-- Into the Breach (mapa en cuanto a apariencia)
-- Dark Souls (Iglesia)
-- Stardew Valley (mapa en cuanto a distribución)
-- Perception (Mecánica de visión)
-- Lego Games (Fe)
-- La Voluntad – Azorín (Barra de Cordura)
+- *La venda, Miguel de Unamuno, 1899. (Temática principal)*
+- *Zelda: Link's Awakening (mundo)*
+- *Into the Breach (mapa en cuanto a apariencia)*
+- *Dark Souls (Iglesia)*
+- *Stardew Valley (mapa en cuanto a distribución)*
+- *Perception (Mecánica de visión)*
+- *Lego Games (Fe)*
+- *La Voluntad – Azorín (Barra de Cordura)*
