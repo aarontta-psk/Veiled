@@ -1,36 +1,49 @@
 ﻿<!doctype html>
 <html lang="en">
-    <head> 
+    <head>
         <!-- Creación de la estructura básica -->
         <meta charset="UTF-8"> <!-- Version de HTML -->
         <!-- Superficie en la que aparece la pagina [sin contar elementos del navegador como la barra de scroll] -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Metadatos para Google [organización, y descripcion que aparece en la busqueda] -->
         <meta name="description" content="Juego de mazmorras en el que controlas a una ciega 
-                                          recuperada de su enfermedad en busca de la iluminacion.">
+                                            recuperada de su enfermedad en busca de la iluminacion.">
         <meta name="author" content="EAa (Emiliagos Aarabels)">
 
         <!-- Libreria Phaser -->
         <script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.js"></script>
 
         <!-- Titulo pagina -->
-        <title>The Blind's Enlightment: Unfold</title>
+        <title>The Blind's Enlightenment: Unfold</title>
 
         <!-- Bootstrap [programa para hacer paginas web] 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-                   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-                   crossorigin="anonymous">-->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+                    crossorigin="anonymous">-->
 
         <!-- Acceso al archivo .css ['stylesheet' para que sepa que es una hoja de estilos] -->
-        <link href="./css/videogame.css" rel="stylesheet">
+        <link href="page.css" rel="stylesheet">
     </head>
 
-    <body style="background-color:grey;"> <!-- Color de fondo del cuerpo -->
+    <body style="background-color:rgb(77, 77, 77)"> <!-- Color de fondo del cuerpo -->
+        <main role="main">
+            <!-- Se abre en otra pestaña -->
+            <a href="https://github.com/SrVonPsikerfy/TheBlindEnlightment" target="_blank" class="center">
+                <img src="./media/headers/h_title.png" alt="The Blind's Enlightenment: Unfold"
+                    style="width:800px;height:175px;">
+            </a>
+        </main>
+
+        <div id='mygame'></div> <!-- Autocentrado ventana Phaser -->
         <script>
             new Phaser.Game({
                 type: Phaser.AUTO,
                 width: 800,
                 height: 600,
+                scale: {
+                    parent: 'mygame',
+                    autoCenter: Phaser.Scale.CENTER_BOTH,
+                },
                 physics: {
                     default: 'arcade',
                     arcade: {
@@ -180,8 +193,8 @@
 
                 player.anims.play('turn');
 
-               gameOver = true;
-         }
+                gameOver = true;
+            }
         </script>
     </body>
 </html>
