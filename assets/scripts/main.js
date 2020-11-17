@@ -1,3 +1,5 @@
+import sampleEvent from './sampleEvent';
+
 new Phaser.Game({
     type: Phaser.AUTO,
     width: 800,
