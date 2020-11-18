@@ -6,7 +6,6 @@ new Phaser.Game({
     width: 800,
     height: 600,
     scale: {
-        parent: 'mygame',
         autoCenter: Phaser.Scale.CENTER_BOTH,
     },
     physics: {
