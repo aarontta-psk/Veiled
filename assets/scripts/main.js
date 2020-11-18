@@ -1,12 +1,13 @@
-import SampleEvent from './sampleEvent';
-import Player from './player';
+import SampleEvent from './sampleEvent.js';
+import Player from './player.js';
 
 new Phaser.Game({
     type: Phaser.AUTO,
     width: 800,
     height: 600,
     scale: {
-        autoCenter: Phaser.Scale.CENTER_BOTH,
+        mode: Phaser.Scale.NONE,
+        autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
     },
     physics: {
         default: 'arcade',

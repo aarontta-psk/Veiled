@@ -1,6 +1,6 @@
 export default class Player extends Phaser.Scene{
     constructor(){
-        super({key:'main'});
+        super({key:'player'});
     }
 
     preload(){
