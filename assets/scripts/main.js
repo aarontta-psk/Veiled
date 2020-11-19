@@ -1,5 +1,5 @@
 import SampleEvent from './sampleEvent.js';
-import Player from './player.js';
+import GameScene from "./gameScene.js";
 
 new Phaser.Game({
     type: Phaser.AUTO,
@@ -16,5 +16,5 @@ new Phaser.Game({
             debug: false
         }
     },
-    scene: [Player, SampleEvent],
+    scene: [GameScene, SampleEvent],
 })
