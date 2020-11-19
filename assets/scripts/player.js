@@ -4,6 +4,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.physics.add.existing(this);
         this.body.setCollideWorldBounds(); //creamos limites fisicos
+        this.body.allowGravity = false;
         this.speed = 50; //velocidad
         this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas de direccion
             up: Phaser.Input.Keyboard.KeyCodes.W,
@@ -14,27 +15,36 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }
 
     preload() {
-        this.load.spritesheet('player', 'assets/sprites/player.png',
+        this.load.spritesheet('player', './assets/sprites/player.png',
             { frameWidth: 512, frameHeight: 234 });
+    }
+
+    create() {
+        this.physics.add.sprite(30, 30, 'player')
     }
 
     update() {
         if (this.cursorsPlayer.up.isDown) this.body.setVelocityY(speed);
         else if (this.cursorsPlayer.down.isDown) this.body.setVelocityY(-speed);
         else if (this.cursorsPlayer.left.isDown) this.body.setVelocityX(-speed);
-        else this.body.setVelocityX(speed);
+        else if (this.cursorsPlayer.right.isDown) this.body.setVelocityX(speed);
+        else {
+            this.body.setVelocityX(0);
+            this.body.setVelocityY(0);
+        }
+
     }
 
-    changeFrame(value){
-        switch (value){
-            case 0: 
-            break;
-            case 1: 
-            break;
-            case 2: 
-            break;
-            case 3: 
-            break;
+    changeFrame(value) {
+        switch (value) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
         }
     }
 }
