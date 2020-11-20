@@ -1,4 +1,4 @@
-import SampleEvent from './sampleEvent.js';
+import SampleEvent from './eventScene.js';
 import GameScene from "./gameScene.js";
 
 new Phaser.Game({

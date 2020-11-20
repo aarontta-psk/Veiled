@@ -11,6 +11,8 @@ class Event extends Phaser.Scene{
     create(){
         let background = this.add.image(0, 0, 'background');
         background.setOrigin(0, 0);
+
+        let title_text = this.add.text(100, 100, 'Event text');
     }
 }
 
