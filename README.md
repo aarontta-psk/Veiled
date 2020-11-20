@@ -7,6 +7,8 @@
 - Abel Moro Paje ([abelmoro@ucm.es](mailto:abelmoro@ucm.es))
 - Iago Quintas Diz ([iquintas@ucm.es](mailto:iquintas@ucm.es))
 
+[ENLACE A PIVOTAL](https://www.pivotaltracker.com/n/projects/2467983)
+
 ![Descripción](./assets/media/headers/h_contenido.png)
 
 _**The Blind's Enlightenment: Unfolded**_ es un juego de exploración y mazmorras en perspectiva isométrica, en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva.
