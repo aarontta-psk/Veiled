@@ -9,21 +9,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas de direccion
             up: Phaser.Input.Keyboard.KeyCodes.W,
             down: Phaser.Input.Keyboard.KeyCodes.S,
-            left: Phaser.Input.Keyboard.KeyCodes.D,
-            right: Phaser.Input.Keyboard.KeyCodes.A
+            left: Phaser.Input.Keyboard.KeyCodes.A,
+            right: Phaser.Input.Keyboard.KeyCodes.D
         });
     }
 
-    preload() {
-        this.load.spritesheet('player', './assets/sprites/player.png',
-            { frameWidth: 512, frameHeight: 234 });
-    }
-
-    create() {
-        this.physics.add.sprite(30, 30, 'player')
-    }
-
-    update() {
+    preUpdate() {
         if (this.cursorsPlayer.up.isDown) this.body.setVelocityY(speed);
         else if (this.cursorsPlayer.down.isDown) this.body.setVelocityY(-speed);
         else if (this.cursorsPlayer.left.isDown) this.body.setVelocityX(-speed);
@@ -32,7 +23,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
             this.body.setVelocityX(0);
             this.body.setVelocityY(0);
         }
-
     }
 
     changeFrame(value) {
