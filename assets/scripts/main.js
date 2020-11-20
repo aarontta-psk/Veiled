@@ -1,4 +1,4 @@
-import SampleEvent from './eventScene.js';
+import eventManager from './EventManager.js';
 import GameScene from "./gameScene.js";
 
 new Phaser.Game({
@@ -16,5 +16,5 @@ new Phaser.Game({
             debug: false
         }
     },
-    scene: [GameScene, SampleEvent],
+    scene: [GameScene, eventManager],
 })
