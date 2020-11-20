@@ -1,6 +1,6 @@
-import event from './GameEvent.js';
+import event from './gameEvent.js';
 
-class EventManager extends Phaser.Scene
+export default class EventManager extends Phaser.Scene
 {
     //Esta es la escena que carga, presenta y oculta los eventos
     constructor(){
