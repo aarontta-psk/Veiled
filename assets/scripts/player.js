@@ -14,7 +14,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
         });
     }
 
-    preUpdate() {
+    preUpdate(time, delta) {
+        super.preUpdate(time,delta);
         if (this.cursorsPlayer.up.isDown) this.body.setVelocityY(speed);
         else if (this.cursorsPlayer.down.isDown) this.body.setVelocityY(-speed);
         else if (this.cursorsPlayer.left.isDown) this.body.setVelocityX(-speed);
@@ -22,19 +23,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
         else {
             this.body.setVelocityX(0);
             this.body.setVelocityY(0);
-        }
-    }
-
-    changeFrame(value) {
-        switch (value) {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
         }
     }
 }
