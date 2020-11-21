@@ -9,13 +9,13 @@ export default class GameScene extends Phaser.Scene {
         this.load.spritesheet('player', './assets/sprites/player.png',
             { frameWidth: 47, frameHeight: 60 });
         this.load.image('background', './assets/sprites/background.jpg');
-        this.load.image('vision', './assets/sprites/vision.jpg');
+        this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
     }
 
     create() {
         this.add.image(0, 0, 'background').setOrigin(0).setScale(0.5, 0.7);
-        this.vision = this.add.image(400, 300, 'vision').setOrigin(0);
+        this.vision = this.add.image(400, 300, 'vision').setVisible(false).setScale(0.4);
 
         this.player = new Player(this, 400, 500);
         this.blindfold = new Blindfold(this, 0, 0, this.vision);

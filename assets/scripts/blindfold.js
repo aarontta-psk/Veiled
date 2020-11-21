@@ -9,9 +9,9 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 		this.setVisible(false);
 		
 		this.rt = this.scene.add.renderTexture(0, 0, 800, 600);
-		this.rt.draw(this, 800, 600);
+		this.rt.draw(this, 800 * 0.5, 600 * 0.5);
 		this.rt.alpha = 0.5;
-		this.rt.erase(this.vision, x, y);
+		this.rt.erase(this.vision);
 		this.blind = true;
 	}
 	
