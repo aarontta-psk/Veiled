@@ -1,3 +1,4 @@
+import Blindfold from './blindfold.js';
 import EventManager from './eventManager.js';
 import Player from './player.js';
 
@@ -14,8 +15,10 @@ export default class GameScene extends Phaser.Scene {
 
     create() {
         this.add.image(0, 0, 'background').setOrigin(0).setScale(0.5, 0.7);
+        this.vision = this.add.image(400, 300, 'vision').setOrigin(0);
 
-        this.player = new Player(this, 400, 500, 'player');
+        this.player = new Player(this, 400, 500);
+        this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
         this.anims.create({
             key: 'idle',
@@ -47,17 +50,15 @@ export default class GameScene extends Phaser.Scene {
             frameRate: 4,
             repeat: -1
         });
+
+        this.player.blindfold().on('down', event => {
+            console.log('estoy en el evento wow');
+            this.blindfold.setBlindfold();
+        });
     }
 
-    /*this.openEvent()
-        {
-            this.scene.switch(this, EventManager);
-        }
-    */
-    update() {
+    update(time, delta) {
         if (this.player.isInteracting()) {
-            //openEvent();
-            //this.scene.switch(this, EventManager);
             this.scene.start('eventManager');
         }
     }
