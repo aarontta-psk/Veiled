@@ -15,7 +15,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
             down: Phaser.Input.Keyboard.KeyCodes.S,
             left: Phaser.Input.Keyboard.KeyCodes.A,
             right: Phaser.Input.Keyboard.KeyCodes.D,
-            interact: Phaser.Input.Keyboard.KeyCodes.E
+            interact: Phaser.Input.Keyboard.KeyCodes.E,
+            blindfold: Phaser.Input.Keyboard.KeyCodes.Space
         });
     }
 
@@ -51,5 +52,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     isInteracting(){
         return this.cursorsPlayer.interact.isDown;
+    }
+
+    blindfold(){
+        return this.cursorsPlayer.blindfold;
     }
 }
