@@ -5,12 +5,18 @@ export default class GameScene extends Phaser.Scene {
 
     preload() {
         this.load.spritesheet('player', './assets/sprites/player.png',
-            { frameWidth: 48, frameHeight: 61 });
+            { frameWidth: 47, frameHeight: 60 });
     }
 
     create() {
         this.player = new Player(this, 400, 500, 'player');
 
+        this.anims.create({
+            key: 'idle',
+            frames: this.anims.generateFrameNumbers('player', { start: 1, end: 1 }),
+            frameRate: 2,
+            repeat: -1
+        });
         this.anims.create({
             key: 'up_move',
             frames: this.anims.generateFrameNumbers('player', { start: 4, end: 7 }),
