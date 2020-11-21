@@ -7,9 +7,14 @@ export default class GameScene extends Phaser.Scene {
     preload() {
         this.load.spritesheet('player', './assets/sprites/player.png',
             { frameWidth: 47, frameHeight: 60 });
+        this.load.image('background', './assets/sprites/background.jpg');
+        this.load.image('vision', './assets/sprites/vision.jpg');
+        this.load.image('blindfold', './assets/sprites/black_background.png');
     }
 
     create() {
+        this.add.image(0, 0, 'background').setOrigin(0).setScale(0.5, 0.7);
+
         this.player = new Player(this, 400, 500, 'player');
 
         this.anims.create({
@@ -48,10 +53,9 @@ export default class GameScene extends Phaser.Scene {
         {
             this.scene.switch(this, EventManager);
         }
-*/
-    update(){
-        if (this.player.isInteracting())
-        {
+    */
+    update() {
+        if (this.player.isInteracting()) {
             //openEvent();
             //this.scene.switch(this, EventManager);
             this.scene.start('eventManager');
