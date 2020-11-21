@@ -1,6 +1,6 @@
 class Event
 {
-//Este es el evento base con todo lo que heredan los eventos individuales
+    //Este es el evento base con todo lo que heredan los eventos individuales
     
     constructor(eventText, eventOptions, eventResults)
     {

@@ -1,4 +1,4 @@
-import event from './gameEvent.js';
+import event from './gameEventModule.js';
 
 export default class EventManager extends Phaser.Scene
 {
