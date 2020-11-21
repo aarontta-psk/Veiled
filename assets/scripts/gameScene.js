@@ -44,15 +44,17 @@ export default class GameScene extends Phaser.Scene {
         });
     }
 
-    openEvent()
+    /*this.openEvent()
         {
             this.scene.switch(this, EventManager);
         }
-
+*/
     update(){
         if (this.player.isInteracting())
         {
-            openEvent();
+            //openEvent();
+            //this.scene.switch(this, EventManager);
+            this.scene.start('eventManager');
         }
     }
 }
