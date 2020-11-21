@@ -14,7 +14,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
             up: Phaser.Input.Keyboard.KeyCodes.W,
             down: Phaser.Input.Keyboard.KeyCodes.S,
             left: Phaser.Input.Keyboard.KeyCodes.A,
-            right: Phaser.Input.Keyboard.KeyCodes.D
+            right: Phaser.Input.Keyboard.KeyCodes.D,
+            interact: Phaser.Input.Keyboard.KeyCodes.E
         });
     }
 
@@ -46,5 +47,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
             this.body.setVelocityY(0);
             this.anims.play('idle', true);
         }
+    }
+
+    isInteracting(){
+        return this.cursorsPlayer.interact.isDown;
     }
 }
