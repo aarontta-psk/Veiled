@@ -1,3 +1,4 @@
+import EventManager from './eventManager.js';
 import Player from './player.js';
 
 export default class GameScene extends Phaser.Scene {
@@ -41,5 +42,17 @@ export default class GameScene extends Phaser.Scene {
             frameRate: 4,
             repeat: -1
         });
+    }
+
+    openEvent()
+        {
+            this.scene.switch(this, EventManager);
+        }
+
+    update(){
+        if (this.player.isInteracting)
+        {
+            openEvent();
+        }
     }
 }
