@@ -50,7 +50,7 @@ export default class GameScene extends Phaser.Scene {
         }
 
     update(){
-        if (this.player.isInteracting)
+        if (this.player.isInteracting())
         {
             openEvent();
         }
