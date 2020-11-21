@@ -57,4 +57,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     blindfold(){
         return this.cursorsPlayer.blindfold;
     }
+
+    getPos(){
+        return [this.x, this.y];
+    }
 }

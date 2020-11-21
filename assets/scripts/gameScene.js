@@ -15,10 +15,10 @@ export default class GameScene extends Phaser.Scene {
 
     create() {
         this.add.image(0, 0, 'background').setOrigin(0).setScale(0.5, 0.7);
-        this.vision = this.add.image(400, 300, 'vision').setVisible(false).setScale(0.4);
+        this.vision = this.add.image(400, 500, 'vision').setVisible(false).setScale(0.4);
 
         this.player = new Player(this, 400, 500);
-        this.blindfold = new Blindfold(this, 0, 0, this.vision);
+        this.blindfold = new Blindfold(this, 0, 0, this.vision).setOrigin(0);
 
         this.anims.create({
             key: 'idle',
@@ -61,5 +61,8 @@ export default class GameScene extends Phaser.Scene {
         if (this.player.isInteracting()) {
             this.scene.start('eventManager');
         }
+
+        const playerPos = this.player.getPos();
+        this.blindfold.setRenderPosition(playerPos[0], playerPos[1]);
     }
 }
