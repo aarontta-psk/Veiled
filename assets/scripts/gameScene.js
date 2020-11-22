@@ -11,10 +11,25 @@ export default class GameScene extends Phaser.Scene {
         this.load.image('background', './assets/sprites/background.jpg');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
+
+        this.load.tilemapTiledJSON('testTilemap', './assets/sprites/tilesets/testTileset_Project.json');
+        this.load.image('testTileset', './assets/sprites/tilesets/testTileset.png');
     }
 
     create() {
-        this.add.image(0, 0, 'background').setOrigin(0).setScale(0.5, 0.7);
+        this.map = this.make.tilemap({
+            key: 'testTilemap',
+            tileWidth: 32,
+            tileHeight: 32
+        });
+
+        const tileset1 = this.map.addTilesetImage('testTileset', 'testTileset');
+
+        this.ground0 = this.map.createStaticLayer('ground 0', tileset1);
+        this.ground1 = this.map.createStaticLayer('ground 1', tileset1);
+        this.walls = this.map.createStaticLayer('walls', tileset1);
+
+        //this.add.image(0, 0, 'background').setOrigin(0).setScale(0.5, 0.7);
         this.vision = this.add.image(400, 500, 'vision').setVisible(false).setScale(0.4);
 
         this.player = new Player(this, 400, 500);
@@ -55,6 +70,10 @@ export default class GameScene extends Phaser.Scene {
             console.log('estoy en el evento wow');
             this.blindfold.setBlindfold();
         });
+
+        this.walls.setCollisionBetween(1, 50);
+        this.physics.add.collider(this.player, this.walls);
+        
     }
 
     update(time, delta) {
