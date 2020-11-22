@@ -39,7 +39,10 @@ export default class GameScene extends Phaser.Scene {
         //this.add.image(0, 0, 'background').setOrigin(0).setScale(0.5, 0.7);
         this.vision = this.add.image(400, 500, 'vision').setVisible(false).setScale(0.4);
 
-        this.player = new Player(this, 400, 500);
+        this.player = new Player(this, 400, 400);
+
+        this.walls2 = this.map.createStaticLayer('walls2', tileset1);
+
         this.blindfold = new Blindfold(this, 0, 0, this.vision).setOrigin(0);
 
         this.anims.create({
@@ -78,8 +81,8 @@ export default class GameScene extends Phaser.Scene {
             this.blindfold.setBlindfold();
         });
 
-        // Colision entre las paredes y el player.
-        this.walls.setCollisionBetween(1, 50);
+        // Colision entre las paredes y el player.        
+        this.walls.setCollisionByProperty({ obstacle: true });
         this.physics.add.collider(this.player, this.walls);
     }
 
