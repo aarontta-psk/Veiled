@@ -37,13 +37,13 @@ export default class GameScene extends Phaser.Scene {
         this.walls = this.map.createStaticLayer('walls', tileset1);
 
         //this.add.image(0, 0, 'background').setOrigin(0).setScale(0.5, 0.7);
-        this.vision = this.add.image(400, 500, 'vision').setVisible(false).setScale(0.4);
+        this.vision = this.add.image(400, 400, 'vision').setVisible(false).setScale(0.4);
 
         this.player = new Player(this, 400, 400);
 
         this.walls2 = this.map.createStaticLayer('walls2', tileset1);
 
-        this.blindfold = new Blindfold(this, 0, 0, this.vision).setOrigin(0);
+        this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
         this.anims.create({
             key: 'idle',
@@ -92,6 +92,10 @@ export default class GameScene extends Phaser.Scene {
         }
 
         const playerPos = this.player.getPos();
-        this.blindfold.setRenderPosition(playerPos[0], playerPos[1]);
+        let prevVision = [this.vision.x, this.vision.y];
+        if (prevVision !== playerPos) {
+            this.vision.setPosition(playerPos[0], playerPos[1]);
+            this.blindfold.setVision(this.vision);
+        }
     }
 }
