@@ -36,33 +36,22 @@ export default class Player extends Phaser.GameObjects.Sprite {
         if (this.cursorsPlayer.right.isDown) {
             velX += this.speed;
         }
+
         this.body.setVelocity(velX, velY);
-        /*
-        if (this.cursorsPlayer.up.isDown) {
-            this.body.setVelocityY(-this.speed);
-            this.body.setVelocityX(0);
-            this.scene.player.anims.play('up_move', true);
+        
+        if(velX == 0)
+        {
+            if(velY == 0)
+                this.anims.play('idle', true);
+            else if (velY < 0)
+                this.anims.play('up_move', true); 
+            else
+                this.anims.play('down_move', true);
         }
-        else if (this.cursorsPlayer.down.isDown) {
-            this.body.setVelocityY(this.speed);
-            this.body.setVelocityX(0);
-            this.scene.player.anims.play('down_move', true);
-        }
-        else if (this.cursorsPlayer.left.isDown) {
-            this.body.setVelocityY(0);
-            this.body.setVelocityX(-this.speed);
-            this.scene.player.anims.play('left_move', true);
-        }
-        else if (this.cursorsPlayer.right.isDown) {
-            this.body.setVelocityY(0);
-            this.body.setVelocityX(this.speed);
-            this.scene.player.anims.play('right_move', true);
-        }
-        else {
-            this.body.setVelocityX(0);
-            this.body.setVelocityY(0);
-            this.anims.play('idle', true);
-        }*/
+        else if (velX < 0)
+            this.anims.play('left_move', true);
+        else 
+            this.anims.play('right_move', true);
     }
 
     isInteracting(){
