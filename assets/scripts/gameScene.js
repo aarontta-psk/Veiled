@@ -7,7 +7,7 @@ export default class GameScene extends Phaser.Scene {
 
     preload() {
         this.load.spritesheet('player', './assets/sprites/player.png',
-            { frameWidth: 47, frameHeight: 60 });
+            { frameWidth: 32, frameHeight: 41 });
         this.load.image('background', './assets/sprites/background.jpg');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
