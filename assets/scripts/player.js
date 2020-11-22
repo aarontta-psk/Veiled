@@ -23,6 +23,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     preUpdate(time, delta) {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
+        //Calculamos la velocidad
         let velX = 0, velY = 0;
         if (this.cursorsPlayer.up.isDown) {
             velY -= this.speed;
@@ -37,32 +38,38 @@ export default class Player extends Phaser.GameObjects.Sprite {
             velX += this.speed;
         }
 
+        //Normalizamos el vector
+        if (velX != 0 && velY != 0) {
+            velX /= Math.sqrt(2);
+            velY /= Math.sqrt(2)
+        }
+        //Aplicamos la velocidad al cuerpo
         this.body.setVelocity(velX, velY);
-        
-        if(velX == 0)
-        {
-            if(velY == 0)
+
+        //Reproducimos la animación que corresponda
+        if (velX == 0) {
+            if (velY == 0)
                 this.anims.play('idle', true);
             else if (velY < 0)
-                this.anims.play('up_move', true); 
+                this.anims.play('up_move', true);
             else
                 this.anims.play('down_move', true);
         }
         else if (velX < 0)
             this.anims.play('left_move', true);
-        else 
+        else
             this.anims.play('right_move', true);
     }
 
-    isInteracting(){
+    isInteracting() {
         return this.cursorsPlayer.interact.isDown;
     }
 
-    blindfold(){
+    blindfold() {
         return this.cursorsPlayer.blindfold;
     }
 
-    getPos(){
+    getPos() {
         return [this.x, this.y];
     }
 }
