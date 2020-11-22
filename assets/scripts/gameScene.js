@@ -12,19 +12,26 @@ export default class GameScene extends Phaser.Scene {
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
 
+        // Carga los datos del mapa.
         this.load.tilemapTiledJSON('testTilemap', './assets/sprites/tilesets/testTileset_Project.json');
+
+        // Carga el tileset que contiene las texturas del mapa.
         this.load.image('testTileset', './assets/sprites/tilesets/testTileset.png');
     }
 
     create() {
+
+        // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
             key: 'testTilemap',
             tileWidth: 32,
             tileHeight: 32
         });
 
+        // Asignamos el tileset (nombre en Tiled y la textura se llaman igual mia culpa)
         const tileset1 = this.map.addTilesetImage('testTileset', 'testTileset');
 
+        // Capas del mapa para asignar distintas funcionalidades
         this.ground0 = this.map.createStaticLayer('ground 0', tileset1);
         this.ground1 = this.map.createStaticLayer('ground 1', tileset1);
         this.walls = this.map.createStaticLayer('walls', tileset1);
@@ -71,9 +78,9 @@ export default class GameScene extends Phaser.Scene {
             this.blindfold.setBlindfold();
         });
 
+        // Colision entre las paredes y el player.
         this.walls.setCollisionBetween(1, 50);
         this.physics.add.collider(this.player, this.walls);
-        
     }
 
     update(time, delta) {
