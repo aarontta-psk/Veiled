@@ -16,8 +16,8 @@ class Event
         });
     }
    
-    isInteracting(){
-        return this.inputKeys.interact.isDown;
+    interact() {
+        return this.inputKeys.interact;
     }
 }
 

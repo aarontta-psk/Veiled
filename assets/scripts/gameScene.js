@@ -1,5 +1,4 @@
 import Blindfold from './blindfold.js';
-import EventManager from './eventManager.js';
 import Player from './player.js';
 
 export default class GameScene extends Phaser.Scene {
@@ -36,7 +35,6 @@ export default class GameScene extends Phaser.Scene {
         this.ground1 = this.map.createStaticLayer('ground 1', tileset1);
         this.walls = this.map.createStaticLayer('walls', tileset1);
 
-        //this.add.image(0, 0, 'background').setOrigin(0).setScale(0.5, 0.7);
         this.vision = this.add.image(400, 400, 'vision').setVisible(false).setScale(0.4);
 
         this.player = new Player(this, 400, 400);
@@ -77,8 +75,13 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.player.blindfold().on('down', event => {
-            console.log('estoy en el evento wow');
+            console.log("esto tira?");
             this.blindfold.setBlindfold();
+        });
+
+        this.player.interact().on('down', event => {
+            console.log("esto tira?");
+            this.scene.switch('eventManager');
         });
 
         // Colision entre las paredes y el player.        
@@ -87,10 +90,6 @@ export default class GameScene extends Phaser.Scene {
     }
 
     update(time, delta) {
-        if (this.player.isInteracting()) {
-            this.scene.start('eventManager');
-        }
-
         const playerPos = this.player.getPos();
         let prevVision = [this.vision.x, this.vision.y];
         if (prevVision !== playerPos) {

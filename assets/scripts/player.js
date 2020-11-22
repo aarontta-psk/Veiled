@@ -61,8 +61,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
             this.anims.play('right_move', true);
     }
 
-    isInteracting() {
-        return this.cursorsPlayer.interact.isDown;
+    interact() {
+        return this.cursorsPlayer.interact;
     }
 
     blindfold() {

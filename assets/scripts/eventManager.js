@@ -1,5 +1,5 @@
 import gameEvent from './gameEventModule.js';
-import mainScene from './gameScene.js';
+
 export default class EventManager extends Phaser.Scene {
     //Esta es la escena que carga, presenta y oculta los eventos
     constructor() {
@@ -15,11 +15,10 @@ export default class EventManager extends Phaser.Scene {
         let background = this.add.image(0, 0, 'background2');
         background.setOrigin(0, 0);
         this.gameEvent = new gameEvent('This is an event', 2, this);
-    }
 
-    update(time, delta) {
-        if (this.gameEvent.isInteracting()) {
-            this.scene.start('gameScene');
-        }
+        this.gameEvent.interact().on('down', event => {
+            console.log("esto tira?");
+            this.scene.switch('gameScene');
+        });
     }
 }
