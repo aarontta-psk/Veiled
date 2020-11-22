@@ -17,7 +17,6 @@ export default class EventManager extends Phaser.Scene {
         this.gameEvent = new gameEvent('This is an event', 2, this);
 
         this.gameEvent.interact().on('down', event => {
-            console.log("esto tira?");
             this.scene.switch('gameScene');
         });
     }

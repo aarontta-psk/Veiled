@@ -75,12 +75,10 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.player.blindfold().on('down', event => {
-            console.log("esto tira?");
             this.blindfold.setBlindfold();
         });
 
         this.player.interact().on('down', event => {
-            console.log("esto tira?");
             this.scene.switch('eventManager');
         });
 
