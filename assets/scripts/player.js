@@ -23,6 +23,21 @@ export default class Player extends Phaser.GameObjects.Sprite {
     preUpdate(time, delta) {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
+        let velX = 0, velY = 0;
+        if (this.cursorsPlayer.up.isDown) {
+            velY -= this.speed;
+        }
+        if (this.cursorsPlayer.down.isDown) {
+            velY += this.speed;
+        }
+        if (this.cursorsPlayer.left.isDown) {
+            velX -= this.speed;
+        }
+        if (this.cursorsPlayer.right.isDown) {
+            velX += this.speed;
+        }
+        this.body.setVelocity(velX, velY);
+        /*
         if (this.cursorsPlayer.up.isDown) {
             this.body.setVelocityY(-this.speed);
             this.body.setVelocityX(0);
@@ -47,7 +62,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
             this.body.setVelocityX(0);
             this.body.setVelocityY(0);
             this.anims.play('idle', true);
-        }
+        }*/
     }
 
     isInteracting(){
