@@ -188,7 +188,7 @@ Además de la interfaz principal contara con un menú simple de inventario donde
 
 [Modelo](https://docs.google.com/drawings/d/1-1DPUHdG_3wb9gtGyfiG3ykvNLVxsPCKqEqCn9Yzmto/edit?userstoinvite=edekadt@ucm.es&amp;ts=5f92fe7b&amp;actionButton=1)
 
-![Protoype_API](./assets/media/Protoype_API.png)
+![Prototype_API](./assets/media/Prototype_API.png)
 
 ### Esquema de un nivel
 
