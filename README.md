@@ -9,7 +9,7 @@
 
 [ENLACE A PIVOTAL](https://www.pivotaltracker.com/n/projects/2467983)
 
-![Descripción](./assets/media/headers/h_contenido.png)
+![Descripción](./assets/media/headers/h_descripcion.png)
 
 _**The Blind's Enlightenment: Unfolded**_ es un juego de exploración y mazmorras en perspectiva isométrica, en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva.
 
@@ -17,7 +17,7 @@ Esta protagonista lleva asiduamente una venda, ya que, tras recuperarse de su ce
 
 **Ventana de juego** (Placeholder)
 
-![Prototype_Game](./assets/media/Prototype_Game.png)
+![Game screen](./assets/media/game_screen.png)
 
 ![Mecánicas](./assets/media/headers/h_mecanicas.png)
 
@@ -188,11 +188,11 @@ Además de la interfaz principal contara con un menú simple de inventario donde
 
 [Modelo](https://docs.google.com/drawings/d/1-1DPUHdG_3wb9gtGyfiG3ykvNLVxsPCKqEqCn9Yzmto/edit?userstoinvite=edekadt@ucm.es&amp;ts=5f92fe7b&amp;actionButton=1)
 
-![Prototype_API](./assets/media/Prototype_API.png)
+![Game API](./assets/media/game_API.png)
 
 ### Esquema de un nivel
 
-![Prototype_Level](./assets/media/Prototype_Level.png)
+![Level 1](./assets/media/village_level.png)
 
 ### Relación Fe-Cordura
 
