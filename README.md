@@ -155,6 +155,11 @@ Al final del juego habrá un último paso hacia la iluminación en la que debe p
 
 ![Estética](./assets/media/headers/h_estetica.png)
 
+El juego usa una estética difusa y minimalista, con gráficos de vectores, perspectiva ortogonal y una paleta apagada.
+
+La mayor parte del arte estará creado por nosotros en la versión final.
+![Game art](./assets/media/game_art.png)
+
 [Ejemplo de efecto de sonido para cuando se baja un nivel de visión](https://www.storyblocks.com/audio/stock/big-object-falling-hit-hxbni32udhk0wxsh7x.html)
 
 [Ejemplo de efecto de sonido para cuando se sube un nivel de visión](https://www.storyblocks.com/audio/stock/chime-harmony-hexslt328dsk0wxut4d.html)
