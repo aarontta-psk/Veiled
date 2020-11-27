@@ -3,16 +3,14 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 		super(scene, x, y, 'blindfold'); //llama a la constructora de Sprite
 		this.scene.add.existing(this); //lo añades en la escena
 
-		//me guardo una referencia a la zona de vision
-		this.vision = visionZone;
 		// reveal image
 		this.setVisible(false);
 
-		//2x al render para que no se vean los bordes
 		this.rt = this.scene.add.renderTexture(0, 0, 800, 600);
 		this.rt.draw(this, 800, 600);
 		this.rt.alpha = 0.8;
-		this.rt.erase(this.vision);
+		this.rt.erase(visionZone);
+
 		this.blind = true;
 	}
 
@@ -28,9 +26,8 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 	}
 
 	setVision(visionZone) {
-		this.vision = visionZone;
 		this.rt.clear();
 		this.rt.draw(this, 800 * 0.5, 600 * 0.5);
-		this.rt.erase(this.vision);
+		this.rt.erase(visionZone);
 	}
 }

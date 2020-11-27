@@ -1,4 +1,4 @@
-img {
+img{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -8,4 +8,10 @@ body {
     background: url("./assets/media/background.jpg") no-repeat center top;
     min-height: 100%;
     background-size:cover;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
