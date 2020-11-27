@@ -1,4 +1,12 @@
 { "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"json",
+         "target":"isometricTilemap.json"
+        }
+    },
  "height":30,
  "infinite":false,
  "layers":[
@@ -54,11 +62,11 @@
         {
          "columns":10,
          "firstgid":1,
-         "image":"C:\/Users\/Abel\/Desktop\/iso-64x64-building.png",
+         "image":"isometricTileset.png",
          "imageheight":512,
          "imagewidth":640,
          "margin":0,
-         "name":"iso-64x64-building",
+         "name":"holacaracola",
          "spacing":0,
          "tilecount":80,
          "tileheight":64,
