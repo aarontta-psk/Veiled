@@ -47,7 +47,7 @@ Cuando la cordura esté por debajo del 10%, no se podrá interactuar con las mem
 
 #### Estímulos
 
-A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que permitirán al jugador esclarecer el contorno de ciertas zonas del mapa. Estos estímulos aparecerán cada cierto
+A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que permitirán al jugador esclarecer el contorno de ciertas zonas del mapa. Estos estímulos aparecerán cada cierto tiempo. ¿Sobrecarga de sentidos?
 
 ### Fe
 
@@ -83,6 +83,8 @@ A lo largo de la partida se podrán conseguir **objetos** , que afecten a las ca
 
 La **iglesia** es un punto del mapa que tiene asociado un evento que puede recuperar una parte variable de la cordura dependiendo de la fe (podrá &quot;rezar&quot; cada vez que su fe suba hasta 25%, por ejemplo). Además, servirá como punto de reaparición para el jugador en caso de que falle el evento de quedarse sin barra de cordura.
 
+**Nivel 1** --> Templo; **Nivel 2** --> Altar en la costa del puerto; **Nivel 3** --> Catedral.
+
 Si el jugador ha completado todos los objetivos secundarios del nivel, rezar en la iglesia le subirá hasta un nivel de cordura algo por encima del mínimo requerido para emprender el objetivo principal (indicado por un evento). Esto es para que no se pueda quedar bloqueada la partida si, tras completar todos los objetivos secundarios, se quita la venda demasiado y su cordura baja por debajo del nivel requerido para progresar, ya que podría no haber más fuentes de cordura en el nivel.
 
 ![Dinámicas](./assets/media/headers/h_dinamicas.png)
@@ -115,9 +117,9 @@ En un principio, el juego estará divido en **tres niveles principales** , adem�
 
 - Preludio: El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una "pequeña" historia con el padre antes de morir.
 - Pueblo: El jugador continuara explorando su pueblo natal interactuando con personajes de su infancia. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren.
-- Ciudad (¿Puerto?): El jugador regresa a su casa en la zona portuaria de la ciudad y después de confrontar a su marido, el jugador tendrá que explorar zonas alrededor de su casa completando misiones. El nivel estará centrado en el puerto, una zona más pobre de la ciudad donde la mayoría de los habitantes viven de y para la industria generada por el mismo.
+- Ciudad (Puerto): El jugador regresa a su casa en la zona portuaria de la ciudad y después de confrontar a su marido, el jugador tendrá que explorar zonas alrededor de su casa completando misiones. El nivel estará centrado en el puerto, una zona más pobre de la ciudad donde la mayoría de los habitantes viven de y para la industria generada por el mismo.
 - Ciudad (Centro): María se adentra en el centro de la ciudad originalmente en busca de alguien que pueda enseñarle a leer sin enfrentarse a la vergüenza de aprender con alguien conocido. El monumento central de este mapa es la iglesia.
-- Nivel Final: ascensión Pog SadKEK
+- Nivel Final: Tras un pequeño salto temporal, María llega a la catedral, donde el obispo le cuenta la reciente muerte de su hija. Tras hacer un paralelismo con su situación, se lee la carta de su padre. A mitad de la carta, llena de dolor, sale corriendo de la catedral, corriendo por un pasillo en el que se tiene que enfrentar a los susurros con los que ha hablado, hasta llegar al final del pasillo y encontrar la iluminación.
 
 ### Historia
 
@@ -126,6 +128,10 @@ María busca recuperar su fe en la misericordia de Dios, y en el proceso aprende
 Comenzará en su pueblo natal, justo al presenciar la muerte de su padre. A lo largo del juego, se adentrará en lugares progresivamente más desconocidos para ella, a la par que coge más confianza con su vista, permitiendo que su cordura se drene más lento mientras tenga la venda quitada. Al final de cada capítulo, se enfrentará a una silueta, una memoria de aspecto indefinido, de su pasado cegado. La silueta le guiará a través de una serie de eventos que le llevarán a una revelación personal.
 
 Al final del juego habrá un último paso hacia la iluminación en la que debe pasar por un «camino de lamentos» con la venda quitada todo el tiempo.
+
+### Eventos
+
+
 
 ### Items
 
@@ -143,14 +149,14 @@ Al final del juego habrá un último paso hacia la iluminación en la que debe p
 |--------|--------|-------------|
 | Caleidoscopio | :heavy_minus_sign: Consumo de cordura con la visión activada | N/A |
 | Venda de neopreno | Recupera cordura | N/A |
-| Venda ++ | :heavy_plus_sign: velocidad :heavy_plus_sign: consumo de cordura | N/A |
-| N/A | :heavy_plus_sign: radio de visión con venda | N/A |
+| N/A | :heavy_plus_sign: velocidad :heavy_plus_sign: consumo de cordura | N/A |
+| Trompetilla | :heavy_plus_sign: radio de visión con venda | N/A |
 | N/A | Objeto genérico que ayuda a resolver un evento secundario  | N/A |
 | N/A | Permite hablar con una silueta cuando la cordura esta baja | N/A |
-| N/A | :heavy_plus_sign: Fe | N/A |
-| N/A | :heavy_minus_sign: Cordura | N/A |
+| Estampa de Unamuno | :heavy_plus_sign: Fe | N/A |
+| Palabra ofensiva en braile | :heavy_minus_sign: Cordura | N/A |
 | N/A | :heavy_plus_sign: Cordura/ RNG / :heavy_minus_sign: Cordura  | N/A |
-| N/A | Tp al centro del mapa   | N/A |
+| Cuerda Huida | Tp al centro del mapa   | N/A |
 | N/A | N/A  | N/A |
 
 ![Estética](./assets/media/headers/h_estetica.png)
@@ -176,14 +182,14 @@ Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado 
 
 El juego ofrecerá dos menús al jugador: uno **principal** y otro de **pausa/opciones** durante el juego.
 
-- El **menú principal** se mostrará al iniciar el juego y contendrá opciones para modificar el volumen, consultar los controles, salir del juego o iniciar una nueva partida.
+- El **menú principal** se mostrará al iniciar el juego y contendrá opciones para modificar el volumen, consultar los controles, seleccionar un nivel previamente jugado o iniciar una nueva partida.
 - El **menú de pausa** se podrá acceder durante la partida y contará con opciones similares al menú principal, incluyendo una opción para volver a este o para reanudar la partida.
 
 ### Interfaz
 
 La interfaz en la pantalla de juego es muy minimalista compuesta solo de la barra de ¿CORDURA?, contador de fe, pequeños _tooltips_ al acercarse a ciertos objetos con los que el jugador puede interactuar y un pequeño icono para acceder al inventario, ¿una bolsa o una riñonera/bolsa de mano?
 
-Además de la interfaz principal contara con un menú simple de inventario donde se mostrarán lo objetos ¿notas? ¿pistas? ¿historial de eventos?
+Además de la interfaz principal contara con un overlay simple de inventario donde se mostrarán lo objetos ¿notas? ¿pistas? ¿historial de eventos?
 
 ¿Otro icono desde el cual abrir un historial de eventos como un historial de diálogo de un RPG?
 
