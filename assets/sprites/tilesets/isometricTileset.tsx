@@ -5,6 +5,11 @@
   <properties>
    <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0.280118" y="48.7406">
+    <polygon points="0,0 31.3732,15.1264 63.3067,-0.560236 31.7934,-16.527"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="1">
   <properties>
@@ -260,16 +265,31 @@
   <properties>
    <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="8.40355" y="48.7406">
+    <polygon points="-0.140059,0.280118 22.8296,-13.3056 47.34,0.140059 24.5103,11.0647"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="52">
   <properties>
    <property name="obstacle" type="bool" value="false"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="23.1097" y="43.6984" width="18.0676" height="8.96378">
+    <ellipse/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="53">
   <properties>
    <property name="obstacle" type="bool" value="false"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="21.0089" y="41.0373" width="21.9893" height="13.1656">
+    <ellipse/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="54">
   <properties>

@@ -6,7 +6,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.physics.add.existing(this);
 
-        this.body.setCollideWorldBounds(); //creamos limites fisicos
+        //this.body.setCollideWorldBounds(); //creamos limites fisicos
         this.body.allowGravity = false; //quitamos gravedad
         this.speed = 150; //velocidad
 
