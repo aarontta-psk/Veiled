@@ -6,7 +6,7 @@ export default class GameScene extends Phaser.Scene {
 
     preload() {
         // Carga el plugin para las tiles animadas
-        this.load.scenePlugin('AnimatedTiles', './assets/plugins/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');     
+        this.load.scenePlugin('AnimatedTiles', './assets/plugins/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');
 
         this.load.spritesheet('player', './assets/sprites/player.png',
             { frameWidth: 32, frameHeight: 41 });
@@ -38,16 +38,26 @@ export default class GameScene extends Phaser.Scene {
         // Esta capa es dinámica porque incluye tiles con animaciones
         this.ground1 = this.map.createDynamicLayer('ground 1', tileset);
         this.walls = this.map.createStaticLayer('walls', tileset);
-        
+
         this.vision = this.add.image(400, 400, 'vision').setVisible(false).setScale(0.4);
-        
-        this.player = new Player(this, 400, 400);
-        
+
+        // Spawnea al player en un punto definido en Tiled.
+        // En Tiled tiene que haber una capa de objetos llamada `capaObjetos`
+        for (const objeto of this.map.getObjectLayer('objectLayer').objects) {
+            // `objeto.name` u `objeto.type` nos llegan de las propiedades del
+            // objeto en Tiled
+            if (objeto.name === 'spawnPoint') {
+                this.player = new Player(this, objeto.x, objeto.y);
+            }
+        }
+
+        //this.player = new Player(this, 400, 400);
+
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
 
         // Empieza la animación de las tiles en este mapa
         this.animatedTiles.init(this.map);
-        
+
         this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
         this.cameras.main.startFollow(this.player);
