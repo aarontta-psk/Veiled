@@ -12,6 +12,8 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 		this.rt.erase(visionZone);
 
 		this.blind = true;
+
+
 	}
 
 	setBlindfold() {
@@ -25,9 +27,10 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 		}
 	}
 
-	setVision(visionZone) {
+	setVision(visionZone, x, y) {
 		this.rt.clear();
 		this.rt.draw(this, 800 * 0.5, 600 * 0.5);
+		this.rt.setPosition(x - 400, y - 300);
 		this.rt.erase(visionZone);
 	}
 }

@@ -38,7 +38,6 @@ export default class GameScene extends Phaser.Scene {
         this.ground1 = this.map.createDynamicLayer('ground 1', tileset);
         this.walls = this.map.createStaticLayer('walls', tileset);
 
-        
         // Spawnea al player en un punto definido en Tiled.
         // En Tiled tiene que haber una capa de objetos llamada 'capaObjetos'
         for (const objeto of this.map.getObjectLayer('objectLayer').objects) {
@@ -51,7 +50,7 @@ export default class GameScene extends Phaser.Scene {
 
         // Colocamos la vision en la posicion del jugador
         let posPlayer = this.player.getPos();
-        this.vision = this.add.image(posPlayer[0], posPlayer[1], 'vision').setVisible(false).setScale(0.4);
+        this.vision = this.add.image(400, 300, 'vision').setVisible(false).setScale(0.4);
 
         // Creamos un layer estático
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
@@ -111,8 +110,7 @@ export default class GameScene extends Phaser.Scene {
         const playerPos = this.player.getPos();
         let prevVision = [this.vision.x, this.vision.y];
         if (prevVision !== playerPos) {
-            this.vision.setPosition(playerPos[0], playerPos[1]);
-            this.blindfold.setVision(this.vision);
+            this.blindfold.setVision(this.vision, playerPos[0], playerPos[1]);
         }
     }
 }
