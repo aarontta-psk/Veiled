@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.4" tiledversion="1.4.3" name="testTileset" tilewidth="32" tileheight="32" tilecount="320" columns="16">
- <image source="testTileset.png" width="512" height="640"/>
+<tileset version="1.4" tiledversion="1.4.3" name="dungeon" tilewidth="32" tileheight="32" tilecount="320" columns="16">
+ <image source="dungeonTileset.png" width="512" height="640"/>
  <tile id="0">
   <properties>
    <property name="obstacle" type="bool" value="true"/>
@@ -838,7 +838,7 @@
  </tile>
  <tile id="167">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="168">
@@ -1125,16 +1125,25 @@
   <properties>
    <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="3" y="9.90909" width="24.1818" height="18.0909"/>
+  </objectgroup>
  </tile>
  <tile id="225">
   <properties>
    <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="3.18182" y="9.90909" width="23.9091" height="18.1818"/>
+  </objectgroup>
  </tile>
  <tile id="226">
   <properties>
    <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="3.09091" y="9.90909" width="24" height="18.2727"/>
+  </objectgroup>
  </tile>
  <tile id="227">
   <properties>
@@ -1220,6 +1229,12 @@
   <properties>
    <property name="obstacle" type="bool" value="false"/>
   </properties>
+  <animation>
+   <frame tileid="243" duration="400"/>
+   <frame tileid="244" duration="400"/>
+   <frame tileid="245" duration="400"/>
+   <frame tileid="243" duration="400"/>
+  </animation>
  </tile>
  <tile id="244">
   <properties>

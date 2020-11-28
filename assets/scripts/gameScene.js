@@ -12,39 +12,39 @@ export default class GameScene extends Phaser.Scene {
         this.load.image('blindfold', './assets/sprites/black_background.png');
 
         // Carga los datos del mapa.
-        this.load.tilemapTiledJSON('testTilemap', './assets/sprites/tilesets/testTileset_Project.json');
+        this.load.tilemapTiledJSON('map', './assets/sprites/tilesets/testTilemap.json');
 
         // Carga el tileset que contiene las texturas del mapa.
-        this.load.image('testTileset', './assets/sprites/tilesets/testTileset.png');
+        this.load.image('tiles', './assets/sprites/tilesets/dungeonTileset.png');
     }
 
     create() {
 
         // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
-            key: 'testTilemap',
+            key: 'map',
             tileWidth: 32,
             tileHeight: 32
         });
 
-        // Asignamos el tileset (nombre en Tiled y la textura se llaman igual mia culpa)
-        const tileset1 = this.map.addTilesetImage('testTileset', 'testTileset');
+        // Asignamos el tileset
+        const tileset = this.map.addTilesetImage('dungeon', 'tiles');
 
         // Capas del mapa para asignar distintas funcionalidades
-        this.ground0 = this.map.createStaticLayer('ground 0', tileset1);
-        this.ground1 = this.map.createStaticLayer('ground 1', tileset1);
-        this.walls = this.map.createStaticLayer('walls', tileset1);
+        this.ground0 = this.map.createStaticLayer('ground 0', tileset);
+        this.ground1 = this.map.createDynamicLayer('ground 1', tileset);
+        this.walls = this.map.createStaticLayer('walls', tileset);
 
         this.vision = this.add.image(400, 400, 'vision').setVisible(false).setScale(0.4);
 
         this.player = new Player(this, 400, 400);
-        
-        this.walls2 = this.map.createStaticLayer('walls2', tileset1);
-        
+
+        this.walls2 = this.map.createStaticLayer('walls2', tileset);
+
         this.blindfold = new Blindfold(this, 0, 0, this.vision);
-        
+
         this.cameras.main.startFollow(this.player);
-        
+
         this.anims.create({
             key: 'idle',
             frames: this.anims.generateFrameNumbers('player', { start: 1, end: 1 }),
@@ -83,7 +83,6 @@ export default class GameScene extends Phaser.Scene {
         this.player.interact().on('down', event => {
             this.scene.switch('eventManager');
         });
-
 
         // Colision entre las paredes y el player.        
         this.walls.setCollisionByProperty({ obstacle: true });
