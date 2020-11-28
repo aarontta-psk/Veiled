@@ -22,7 +22,6 @@ export default class GameScene extends Phaser.Scene {
     }
 
     create() {
-
         // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
             key: 'map',
@@ -39,20 +38,22 @@ export default class GameScene extends Phaser.Scene {
         this.ground1 = this.map.createDynamicLayer('ground 1', tileset);
         this.walls = this.map.createStaticLayer('walls', tileset);
 
-        this.vision = this.add.image(400, 400, 'vision').setVisible(false).setScale(0.4);
-
+        
         // Spawnea al player en un punto definido en Tiled.
-        // En Tiled tiene que haber una capa de objetos llamada `capaObjetos`
+        // En Tiled tiene que haber una capa de objetos llamada 'capaObjetos'
         for (const objeto of this.map.getObjectLayer('objectLayer').objects) {
-            // `objeto.name` u `objeto.type` nos llegan de las propiedades del
+            // 'objeto.name' u 'objeto.type' nos llegan de las propiedades del
             // objeto en Tiled
             if (objeto.name === 'spawnPoint') {
                 this.player = new Player(this, objeto.x, objeto.y);
             }
         }
 
-        //this.player = new Player(this, 400, 400);
+        // Colocamos la vision en la posicion del jugador
+        let posPlayer = this.player.getPos();
+        this.vision = this.add.image(posPlayer[0], posPlayer[1], 'vision').setVisible(false).setScale(0.4);
 
+        // Creamos un layer estático
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
 
         // Empieza la animación de las tiles en este mapa
@@ -101,7 +102,7 @@ export default class GameScene extends Phaser.Scene {
             this.scene.switch('eventManager');
         });
 
-        // Colision entre las paredes y el player.        
+        // Colision entre las paredes y el player
         this.walls.setCollisionByProperty({ obstacle: true });
         this.physics.add.collider(this.player, this.walls);
     }
