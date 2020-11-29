@@ -1,13 +1,15 @@
-export default class Player extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y) {
-        super(scene, x, y, 'player'); //llama a la constructora de Sprite
+export default class Player extends Phaser.Physics.Matter.Sprite {
+    constructor(world, x, y) {
+        super(world, x, y, 'player'); //llama a la constructora de Sprite
         this.setScale(0.8, 0.8); //reducimos la escala del sprite
 
         this.scene.add.existing(this); //lo añades en la escena
-        this.scene.matter.add.sprite(this);
+        this.scene.matter.add.sprite(this); //lo añado a las fisicas de Matter
+
+        console.log(this);
 
         //this.body.setCollideWorldBounds(); //creamos limites fisicos
-        this.body.allowGravity = false; //quitamos gravedad
+        //this.matter.body.allowGravity = false; //quitamos gravedad
         this.speed = 150; //velocidad
 
         this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas de direccion

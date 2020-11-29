@@ -46,7 +46,7 @@ export default class GameScene extends Phaser.Scene {
             // 'objeto.name' u 'objeto.type' nos llegan de las propiedades del
             // objeto en Tiled
             if (objeto.name === 'spawnPoint') {
-                this.player = new Player(this, objeto.x, objeto.y);
+                this.player = new Player(this.matter.world, objeto.x, objeto.y);
             }
         }
 
@@ -105,7 +105,7 @@ export default class GameScene extends Phaser.Scene {
 
         // Colision entre las paredes y el player
         this.walls.setCollisionByProperty({ obstacle: true });
-        this.physics.add.collider(this.player, this.walls);
+        //this.physics.add.collider(this.player, this.walls);
     }
 
     update(time, delta) {
