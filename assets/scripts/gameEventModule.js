@@ -6,7 +6,6 @@ class Event
     {
         this.scene = sceneRef;
         this.scene.add.existing(this);
-        this.scene.physics.add.existing(this);
         
         this.text = eventText;
         this.numOptions = eventOptions;
