@@ -9,7 +9,7 @@ new Phaser.Game({
         mode: Phaser.Scale.NONE,
         autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
     },
-    /*physics: {
+    physics: {
         default: 'matter',
         matter: {
             enableSleeping: true,
@@ -21,13 +21,13 @@ new Phaser.Game({
                 showStaticBody: true
             }
         }
-    */
-    physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 300 },
-            debug: true
-        }
     },
+    // physics: {
+    //     default: 'arcade',
+    //     arcade: {
+    //         gravity: { y: 300 },
+    //         debug: true
+    //     }
+    // },
     scene: [GameScene, EventManager],
 })

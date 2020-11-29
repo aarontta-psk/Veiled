@@ -4,7 +4,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.setScale(0.8, 0.8); //reducimos la escala del sprite
 
         this.scene.add.existing(this); //lo añades en la escena
-        this.scene.physics.add.existing(this);
+        this.scene.matter.add.sprite(this);
 
         //this.body.setCollideWorldBounds(); //creamos limites fisicos
         this.body.allowGravity = false; //quitamos gravedad
