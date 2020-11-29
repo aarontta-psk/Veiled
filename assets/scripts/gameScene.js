@@ -22,6 +22,8 @@ export default class GameScene extends Phaser.Scene {
     }
 
     create() {
+        this.matter.world.disableGravity();
+
         // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
             key: 'map',
