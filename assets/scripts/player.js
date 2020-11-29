@@ -5,14 +5,14 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this); //lo añado a las fisicas de Matter
-
+        
         console.log(this);
 
         //this.body.setCollideWorldBounds(); //creamos limites fisicos
         //this.matter.body.allowGravity = false; //quitamos gravedad
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
-        this.speed = 150; //velocidad
+        this.speed = 4; //velocidad
 
         this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas de direccion
             up: Phaser.Input.Keyboard.KeyCodes.W,
@@ -47,6 +47,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             velX /= Math.sqrt(2);
             velY /= Math.sqrt(2)
         }
+
         //Aplicamos la velocidad al cuerpo
         this.setVelocity(velX, velY);
 

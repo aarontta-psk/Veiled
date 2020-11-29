@@ -12,7 +12,7 @@ new Phaser.Game({
     physics: {
         default: 'matter',
         matter: {
-            enableSleeping: true,
+            //enableSleeping: true,
             gravity: {
                 y: 0
             },
