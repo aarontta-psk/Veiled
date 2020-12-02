@@ -1612,6 +1612,29 @@
                 }, 
                 {
                  "id":167,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":31.75,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":31.125,
+                             "x":0.75,
+                             "y":0.125
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
                  "properties":[
                         {
                          "name":"obstacle",
@@ -2138,9 +2161,9 @@
                              "rotation":0,
                              "type":"",
                              "visible":true,
-                             "width":24.1818,
+                             "width":23.9318,
                              "x":3,
-                             "y":9.90909
+                             "y":10.03409
                             }],
                      "opacity":1,
                      "type":"objectgroup",

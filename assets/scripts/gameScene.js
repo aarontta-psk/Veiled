@@ -113,21 +113,22 @@ export default class GameScene extends Phaser.Scene {
 
         // this.player.setCollidesWith(c1);
 
-        // // Colision entre las paredes y el player
+        // for (const objeto of this.map.getObjectLayer('objectLayer').objects) {
+        //     // 'objeto.name' u 'objeto.type' nos llegan de las propiedades del
+        //     // objeto en Tiled
+        //     if (objeto.obstacle) {
+        //         this.player = new Player(this.matter.world, objeto.x, objeto.y);
+        //     }
+        // }
+
+        // // cuando se inicia la colisión
+        // this.matter.world.on('collisionstart', event => {
+        //     player.setVelocity(0);
+        // });
+
+        // Colision entre las paredes y el player
         // this.walls.setCollisionByProperty({ obstacle: true });
-
-        for (const objeto of this.map.getObjectLayer('objectLayer').objects) {
-            // 'objeto.name' u 'objeto.type' nos llegan de las propiedades del
-            // objeto en Tiled
-            if (objeto.obstacle) {
-                this.player = new Player(this.matter.world, objeto.x, objeto.y);
-            }
-        }
-
-        // cuando se inicia la colisión
-        this.matter.world.on('collisionstart', event => {
-            player.setVelocity(0);
-        });
+        this.matter.world.convertTilemapLayer(walls);
     }
 
     update(time, delta) {
