@@ -127,8 +127,8 @@ export default class GameScene extends Phaser.Scene {
         // });
 
         // Colision entre las paredes y el player
-        // this.walls.setCollisionByProperty({ obstacle: true });
-        this.matter.world.convertTilemapLayer(walls);
+        this.walls.setCollisionByProperty({ obstacle: true });
+        this.matter.world.convertTilemapLayer(this.walls);
     }
 
     update(time, delta) {
