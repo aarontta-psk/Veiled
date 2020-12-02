@@ -12,7 +12,6 @@ new Phaser.Game({
     physics: {
         default: 'matter',
         matter: {
-            //enableSleeping: true,
             gravity: {
                 y: 0
             },
@@ -22,12 +21,5 @@ new Phaser.Game({
             }
         }
     },
-    // physics: {
-    //     default: 'arcade',
-    //     arcade: {
-    //         gravity: { y: 300 },
-    //         debug: true
-    //     }
-    // },
     scene: [GameScene, EventManager],
 })

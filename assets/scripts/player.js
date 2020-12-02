@@ -12,6 +12,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         //this.matter.body.allowGravity = false; //quitamos gravedad
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
+        this.setFixedRotation(0);
+
         this.speed = 4; //velocidad
 
         this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas de direccion
