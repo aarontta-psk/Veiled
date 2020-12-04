@@ -30,7 +30,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
         //Calculamos la velocidad
-        let velX = 0, velY = 0;
+        const velX = 0, velY = 0;
         if (this.cursorsPlayer.up.isDown) {
             velY -= this.speed;
         }
@@ -54,8 +54,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.setVelocity(velX, velY);
 
         //Reproducimos la animación que corresponda
-        if (velX == 0) {
-            if (velY == 0)
+        if (velX === 0) {
+            if (velY === 0)
                 this.anims.play('idle', true);
             else if (velY < 0)
                 this.anims.play('up_move', true);

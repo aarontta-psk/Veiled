@@ -3,23 +3,23 @@ import GameScene from "./gameScene.js";
 
 new Phaser.Game({
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    scale: {
+    width: 800, //ancho camara
+    height: 600, //alto camara
+    scale: { //escala en la ventana
         mode: Phaser.Scale.NONE,
         autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
     },
-    physics: {
+    physics: { //fisicas de matter
         default: 'matter',
         matter: {
             gravity: {
                 y: 0
             },
-            debug: {
+            debug: { //debug activado
                 showBody: true,
                 showStaticBody: true
             }
         }
     },
-    scene: [GameScene, EventManager],
+    scene: [GameScene, EventManager], //escenas a cargar
 })
