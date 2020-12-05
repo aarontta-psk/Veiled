@@ -17,6 +17,7 @@ class eventScene extends Phaser.Scene {
                 o.cb();
                 //si el evento continua, se llama de nuevo a la funcion
                 if(o.next !== undefined) this.layout(o.next, group);
+                else this.scene.switch(this.previousScene);
             });
         }
     }
@@ -30,7 +31,12 @@ class eventScene extends Phaser.Scene {
     
 }
 
-export default class testEvent extends eventScene {
+export default class testEvent extends eventScene {    
+    init(datos){
+        this.player = datos.thisPlayer;
+        this.previousScene = datos.thisScene;
+    }
+    
     constructor(){
         super({key: 'testEvent'});
         //array con los elementos de un evento
@@ -57,16 +63,23 @@ export default class testEvent extends eventScene {
                 ]
             },
             {
-                text: 'texto 3',
+                text: 'hacerle algo al jugador',
                 cb: () => {
                     console.log('opcion 3 pulsada');
+                    console.log("jugador modificable, se ha pasado a esta escena", this.player)
                 }
             },
             {
                 text: 'texto 4',
                 cb: () => {
                     console.log('opcion 4 pulsada');
-                }
+                },
+                next: [
+                    {
+                        text: 'ok',
+                        cb: () => {}
+                    }
+                ]
             }
         ]
     }

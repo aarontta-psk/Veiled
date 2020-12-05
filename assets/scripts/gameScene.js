@@ -101,7 +101,8 @@ export default class GameScene extends Phaser.Scene {
             this.blindfold.setBlindfold();
         });
         this.player.cursorsPlayer.interact.on('down', event => {
-            this.scene.switch('testEvent');
+            
+            this.scene.start('testEvent', {thisScene: this, thisPlayer:this.player});
         });
         this.player.cursorsPlayer.testing.on('down', event => this.respawn()) //testeo respawn
 
