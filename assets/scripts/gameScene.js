@@ -52,7 +52,7 @@ export default class GameScene extends Phaser.Scene {
         }
 
         // Colocamos la vision en la posicion del jugador
-        const [x, y] = this.player.getPos();
+        const [x, y] = [this.player.x, this.player.y];
         this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);
 
         // Creamos un layer estático
@@ -63,8 +63,9 @@ export default class GameScene extends Phaser.Scene {
 
         this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
+        let widthBg = 0, heightBg = 0, widthEnd = 960, heightEnd = 960;
         this.cameras.main.startFollow(this.player);
-        this.cameras.main.setBounds(0, 0, 960, 960);
+        this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
 
         this.anims.create({
             key: 'idle',
@@ -111,21 +112,36 @@ export default class GameScene extends Phaser.Scene {
     }
 
     update(time, delta) {
-        const playerPos = this.player.getPos();
-        const prevVision = [this.vision.x, this.vision.y];
-        if (prevVision !== playerPos) {
-            this.vision.setPosition(playerPos[0], playerPos[1]);
+        const [playerX, playerY] = [this.player.x, this.player.y];
+        const [visionX, visionY] = [this.vision.x, this.vision.y];
+
+        if (visionX !== playerX || visionY !== playerY) {
+            this.vision.setPosition(playerX, playerY);
             this.blindfold.setVision(this.vision);
         }
+        // const [playerX, playerY] = [this.player.x, this.player.y];
+        // let [newVisionX, newVisionY] = [this.vision.x, this.vision.y];
+        // if (playerX < this.cameras.main.width / 2 /*|| playerX > this.widthEnd - this.cameras.main.width / 2*/) {
+        //     newVisionX = playerX;
+        // }
+        // else newVisionX = 400;
+        // if (playerY < this.cameras.main.height / 2 /*|| playerY > this.heightEnd - this.cameras.main.height / 2*/) {
+        //     newVisionY = playerY;
+        // }
+        // else newVisionX = 300;
+        // if ([newVisionX, newVisionY] !== [this.vision.x, this.vision.y]) {
+        //     this.vision.setPosition(playerX, playerY);
+        //     this.blindfold.setVision(this.vision);
+        // }
     }
 
-newSection(){
-    this.cameras.main.removeBounds();
-    this.cameras.main.setBounds(0, 0, 1920, 1080);
-}
+    newSection() {
+        this.cameras.main.removeBounds();
+        this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
+    }
 
     //respawn basico (falta la implementacion de varias funcionalidades)
-    respawn(){
+    respawn() {
         this.player.setPosition(this.spawnpoint.x, this.spawnpoint.y);
     }
 }

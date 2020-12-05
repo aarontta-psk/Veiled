@@ -77,8 +77,4 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         else
             this.anims.play('right_move', true);
     }
-
-    getPos() {
-        return [this.x, this.y];
-    }
 }
