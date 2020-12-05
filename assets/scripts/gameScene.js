@@ -46,6 +46,7 @@ export default class GameScene extends Phaser.Scene {
             // 'objeto.name' u 'objeto.type' nos llegan de las propiedades del
             // objeto en Tiled
             if (objeto.name === 'spawnPoint') {
+                this.spawnpoint = objeto;
                 this.player = new Player(this.matter.world, objeto.x, objeto.y);
             }
         }
@@ -98,10 +99,10 @@ export default class GameScene extends Phaser.Scene {
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.blindfold.setBlindfold();
         });
-
         this.player.cursorsPlayer.interact.on('down', event => {
             this.scene.switch('eventManager');
         });
+        this.player.cursorsPlayer.testing.on('down', event => this.respawn()) //testeo respawn
 
         // Colision entre las paredes y el player
         this.walls.setCollisionByProperty({ obstacle: true });
@@ -115,5 +116,10 @@ export default class GameScene extends Phaser.Scene {
             this.vision.setPosition(playerPos[0], playerPos[1]);
             this.blindfold.setVision(this.vision);
         }
+    }
+
+    //respawn basico (falta la implementacion de varias funcionalidades)
+    respawn(){
+        this.player.setPosition(this.spawnpoint.x, this.spawnpoint.y);
     }
 }
