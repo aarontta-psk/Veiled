@@ -5,14 +5,10 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this); //lo añado a las fisicas de Matter
-        
-        console.log(this);
 
-        //this.body.setCollideWorldBounds(); //creamos limites fisicos
-        //this.matter.body.allowGravity = false; //quitamos gravedad
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
-        this.setFixedRotation(0);
+        this.setFixedRotation(0); //quitamos rotacion
 
         this.speed = 4; //velocidad
 
@@ -30,17 +26,28 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
         //Calculamos la velocidad
-        let velX = 0, velY = 0;
-        if (this.cursorsPlayer.up.isDown) {
+        let [velX, velY] = this.calculateVelocity();
+
+        //Aplicamos la velocidad al cuerpo
+        this.setVelocity(velX, velY);
+
+        //Reproducimos la animación que corresponda
+        this.changeAnims(velX, velY);
+    }
+
+    //Calculo de velocidad con respecto a input
+    calculateVelocity() {
+        let [velX, velY] = [0, 0];
+        if (this.cursorsPlayer.up.isDown) { //arriba
             velY -= this.speed;
         }
-        if (this.cursorsPlayer.down.isDown) {
+        if (this.cursorsPlayer.down.isDown) { //abajo
             velY += this.speed;
         }
-        if (this.cursorsPlayer.left.isDown) {
+        if (this.cursorsPlayer.left.isDown) { //izquierda
             velX -= this.speed;
         }
-        if (this.cursorsPlayer.right.isDown) {
+        if (this.cursorsPlayer.right.isDown) { //derecha
             velX += this.speed;
         }
 
@@ -50,10 +57,12 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             velY /= Math.sqrt(2)
         }
 
-        //Aplicamos la velocidad al cuerpo
-        this.setVelocity(velX, velY);
+        //devolvemos velocidad
+        return [velX, velY];
+    }
 
-        //Reproducimos la animación que corresponda
+    //cambio de animacion con respecto a la velocidad
+    changeAnims(velX, velY) {
         if (velX === 0) {
             if (velY === 0)
                 this.anims.play('idle', true);
@@ -66,14 +75,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             this.anims.play('left_move', true);
         else
             this.anims.play('right_move', true);
-    }
-
-    interact() {
-        return this.cursorsPlayer.interact;
-    }
-
-    blindfold() {
-        return this.cursorsPlayer.blindfold;
     }
 
     getPos() {
