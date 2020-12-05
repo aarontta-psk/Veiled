@@ -1,18 +1,31 @@
 class eventScene extends Phaser.Scene {
-    layout(options) {
+    layout(options, group) {
+        //variable para separar las opciones en el eje y
         let distancia = 200;
+        //antes de mostrar las opciones, borro las anteriores
+        group.removeAll(true);
+        //para cada opcion
         for(const o of options){
             console.log(options);
+            //añado un texto
             const t = this.add.text(50, distancia, o.text).setInteractive().setScale(2);
+            //lo añado al container para borrarlo mas adelante
+            group.add(t);
             distancia+= 100;
+            //llamo a un callback en caso de que sea pulsado
             t.on('pointerdown', () => {
                 o.cb();
+                //si el evento continua, se llama de nuevo a la funcion
+                if(o.next !== undefined) this.layout(o.next, group);
             });
         }
     }
 
     create(){
-        this.layout(this.content);
+        //creo un container que contendra las respuestas
+        let group = this.add.container();
+        //llamo al metodo que muestra las opcioens
+        this.layout(this.content, group);
     }
     
 }
@@ -24,16 +37,24 @@ export default class testEvent extends eventScene {
         this.keyImage = '';
         this.content =  [
             {
-                text: 'texto 1',
+                text: 'escribir en consola',
                 cb: () => {
                     console.log('opcion 1 pulsada');
                 }
             },
             {
-                text: 'texto 2',
+                text: 'continuacion de este evento',
                 cb: () => {
                     console.log('opcion 2 pulsada');
-                }
+                },
+                next: [
+                    {
+                        text: 'otro evento mas wow',
+                        cb: () => {
+                            console.log('texto dentro de next pulsado');
+                        }
+                    }
+                ]
             },
             {
                 text: 'texto 3',
