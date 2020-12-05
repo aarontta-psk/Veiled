@@ -64,6 +64,7 @@ export default class GameScene extends Phaser.Scene {
         this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
         this.cameras.main.startFollow(this.player);
+        this.cameras.main.setBounds(0, 0, 960, 960);
 
         this.anims.create({
             key: 'idle',
@@ -117,6 +118,11 @@ export default class GameScene extends Phaser.Scene {
             this.blindfold.setVision(this.vision);
         }
     }
+
+newSection(){
+    this.cameras.main.removeBounds();
+    this.cameras.main.setBounds(0, 0, 1920, 1080);
+}
 
     //respawn basico (falta la implementacion de varias funcionalidades)
     respawn(){
