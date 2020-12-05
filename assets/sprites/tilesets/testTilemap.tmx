@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="2">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="18">
  <editorsettings>
   <export target="testTilemap.json" format="json"/>
  </editorsettings>
@@ -1646,5 +1646,37 @@
  </layer>
  <objectgroup id="5" name="objectLayer">
   <object id="1" name="spawnPoint" x="256.5" y="415.5" width="32" height="32"/>
+  <object id="12" name="newSect" x="416" y="-31.75" width="64" height="32">
+   <properties>
+    <property name="heightBg" type="int" value="0"/>
+    <property name="heightEnd" type="int" value="0"/>
+    <property name="widthBg" type="int" value="0"/>
+    <property name="widthEnd" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="14" name="newSect" x="0.642716" y="448.032" width="64" height="32" rotation="90.1403">
+   <properties>
+    <property name="heightBg" type="int" value="0"/>
+    <property name="heightEnd" type="int" value="0"/>
+    <property name="widthBg" type="int" value="0"/>
+    <property name="widthEnd" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="15" name="newSect" x="991.784" y="448.091" width="64" height="32" rotation="90.1403">
+   <properties>
+    <property name="heightBg" type="int" value="0"/>
+    <property name="heightEnd" type="int" value="0"/>
+    <property name="widthBg" type="int" value="0"/>
+    <property name="widthEnd" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="17" name="newSect" x="416" y="959.375" width="64" height="32">
+   <properties>
+    <property name="heightBg" type="int" value="0"/>
+    <property name="heightEnd" type="int" value="0"/>
+    <property name="widthBg" type="int" value="0"/>
+    <property name="widthEnd" type="int" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
