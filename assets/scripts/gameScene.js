@@ -22,7 +22,7 @@ export default class GameScene extends Phaser.Scene {
         this.load.image('tiles', './assets/sprites/tilesets/dungeonTileset.png');
 
         // Carga los items incluidos en la escena        
-        this.load.atlas('items', 'assets/sprites/items.png?', 'assets/atlas/items.json');
+        this.load.atlas('items', 'assets/sprites/items.png?', 'assets/sprites/atlas/items.json');
     }
 
     create() {
@@ -86,9 +86,9 @@ export default class GameScene extends Phaser.Scene {
 
         this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
-        //let widthBg = 0, heightBg = 0, widthEnd = 960, heightEnd = 960;
+        // let widthBg = this.spawnpoint.properties., heightBg = 0, widthEnd = 960, heightEnd = 960;
         this.cameras.main.startFollow(this.player);
-        //this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
+        // this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
 
         this.anims.create({
             key: 'idle',
