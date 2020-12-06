@@ -1,6 +1,7 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
 import Item from './item.js';
+import Trigger from './trigger.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor() { super({ key: 'gameScene' }) };
@@ -53,6 +54,26 @@ export default class GameScene extends Phaser.Scene {
                 this.spawnpoint = objeto;
                 this.player = new Player(this.matter.world, objeto.x, objeto.y);
             }
+            else if (objeto.name === 'newSect0'){
+                this.trigger0 = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
+                this.trigger0.info = [objeto.properties[0].value, objeto.properties[1].value,
+                                      objeto.properties[2].value, objeto.properties[3].value]
+            }
+            else if (objeto.name === 'newSect1'){
+                this.trigger1 = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
+                this.trigger1.info = [objeto.properties[0].value, objeto.properties[1].value,
+                                      objeto.properties[2].value, objeto.properties[3].value]
+            }
+            else if (objeto.name === 'newSect2'){
+                this.trigger2 = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
+                this.trigger2.info = [objeto.properties[0].value, objeto.properties[1].value,
+                                      objeto.properties[2].value, objeto.properties[3].value]
+            }
+            else if (objeto.name === 'newSect3'){
+                this.trigger3 = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
+                this.trigger3.info = [objeto.properties[0].value, objeto.properties[1].value,
+                                      objeto.properties[2].value, objeto.properties[3].value]
+            }
         }
 
         // Colocamos la vision en la posicion del jugador
@@ -67,28 +88,27 @@ export default class GameScene extends Phaser.Scene {
         this.itemFrames = this.items.getFrameNames();
 
         // Creacion de objetos segun el Tilemap
-        for (const itemPos of this.map.getObjectLayer('collectable').objects) {            
-            if (itemPos.name === 'potion') {                
+        for (const itemPos of this.map.getObjectLayer('collectable').objects) {
+            if (itemPos.name === 'potion') {
                 this.potion = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0]);
             }
-
-            if (itemPos.name === 'houseKey') {                
+            else if (itemPos.name === 'houseKey') {
                 this.housekey = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1]);
             }
-
-            if (itemPos.name === 'coin') {                
+            else if (itemPos.name === 'coin') {
                 this.coin = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2]);
             }
-        }        
+        }
 
         // Empieza la animación de las tiles en este mapa
         this.animatedTiles.init(this.map);
 
         this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
-        // let widthBg = this.spawnpoint.properties., heightBg = 0, widthEnd = 960, heightEnd = 960;
+        let height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
+            width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
-        // this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
+        this.cameras.main.setBounds(widthBg, heightBg, width, height); 
 
         this.anims.create({
             key: 'idle',
@@ -126,7 +146,7 @@ export default class GameScene extends Phaser.Scene {
         });
         this.player.cursorsPlayer.interact.on('down', event => {
             //guardo la info entre escenas y cambio de escena
-            this.info = {player: this.player, prevScene: this};
+            this.info = { player: this.player, prevScene: this };
             this.scene.sleep();
             this.scene.run('testEvent', this.info);
             this.resetInputs();
@@ -135,7 +155,7 @@ export default class GameScene extends Phaser.Scene {
 
         // Colision de las paredes 
         this.walls.setCollisionByProperty({ obstacle: true });
-        this.matter.world.convertTilemapLayer(this.walls);        
+        this.matter.world.convertTilemapLayer(this.walls);
 
         this.matter.world.on('collisionactive',
             (evento, cuerpo1, cuerpo2) => {
@@ -146,17 +166,27 @@ export default class GameScene extends Phaser.Scene {
                     //tooltip true
                     //puede recogerse el item
                 }
-
-                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.housekey) {
+                else if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.housekey) {
                     console.log("overlap (houseKey)");
                     //tooltip true
                     //puede recogerse el item
                 }
-
-                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.coin) {
+                else if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.coin) {
                     console.log("overlap (coin)");
                     //tooltip true
                     //puede recogerse el item
+                }
+                else if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.trigger0) {
+                    this.newSection(this.trigger0);
+                }
+                else if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.trigger1) {
+                    this.newSection(this.trigger1);
+                }
+                else if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.trigger2) {
+                    this.newSection(this.trigger2);
+                }
+                else if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.trigger3) {
+                    this.newSection(this.trigger3);
                 }
             });
     }
@@ -186,9 +216,11 @@ export default class GameScene extends Phaser.Scene {
         // }        
     }
 
-    newSection() {
+    newSection(trigger) {
         this.cameras.main.removeBounds();
-        this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
+        const [height, y, width, x] = trigger.info;
+        //trigger.info = [this.height, this.heightBg, this.width, this.widthBg];
+        this.cameras.main.setBounds(x, y, width, height);
     }
 
     //respawn basico (falta la implementacion de varias funcionalidades)
@@ -197,7 +229,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
-    resetInputs(){
+    resetInputs() {
         // console.log(this.player.cursorsPlayer.interact.isDown);
         // this.player.cursorsPlayer.interact.reset();
         // console.log(this.player.cursorsPlayer.interact.isDown);

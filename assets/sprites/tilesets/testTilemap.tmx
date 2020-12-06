@@ -1647,37 +1647,44 @@
   <object id="20" name="houseKey" x="1232" y="1712" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="5" name="objectLayer">
-  <object id="1" name="spawnPoint" x="1216" y="1344" width="32" height="32"/>
-  <object id="12" name="newSect" x="1376" y="944" width="64" height="32">
+  <object id="1" name="spawnPoint" x="1216" y="1344" width="32" height="32">
    <properties>
-    <property name="heightBg" type="int" value="0"/>
-    <property name="heightEnd" type="int" value="0"/>
-    <property name="widthBg" type="int" value="0"/>
-    <property name="widthEnd" type="int" value="0"/>
+    <property name="height" type="int" value="960"/>
+    <property name="heightBg" type="int" value="960"/>
+    <property name="width" type="int" value="960"/>
+    <property name="widthBg" type="int" value="960"/>
    </properties>
   </object>
-  <object id="14" name="newSect" x="944" y="1408" width="32" height="64">
+  <object id="12" name="newSect0" x="1408" y="959.636" width="64" height="0.818182">
    <properties>
+    <property name="height" type="int" value="960"/>
     <property name="heightBg" type="int" value="0"/>
-    <property name="heightEnd" type="int" value="0"/>
-    <property name="widthBg" type="int" value="0"/>
-    <property name="widthEnd" type="int" value="0"/>
+    <property name="width" type="int" value="960"/>
+    <property name="widthBg" type="int" value="960"/>
    </properties>
   </object>
-  <object id="15" name="newSect" x="1904" y="1408" width="32" height="64">
+  <object id="14" name="newSect1" x="959.545" y="1440" width="1.18182" height="64">
    <properties>
-    <property name="heightBg" type="int" value="0"/>
-    <property name="heightEnd" type="int" value="0"/>
+    <property name="height" type="int" value="960"/>
+    <property name="heightBg" type="int" value="960"/>
+    <property name="width" type="int" value="960"/>
     <property name="widthBg" type="int" value="0"/>
-    <property name="widthEnd" type="int" value="0"/>
    </properties>
   </object>
-  <object id="17" name="newSect" x="1376" y="1904" width="64" height="32">
+  <object id="15" name="newSect2" x="1919.92" y="1439.92" width="0.5625" height="64">
    <properties>
-    <property name="heightBg" type="int" value="0"/>
-    <property name="heightEnd" type="int" value="0"/>
-    <property name="widthBg" type="int" value="0"/>
-    <property name="widthEnd" type="int" value="0"/>
+    <property name="height" type="int" value="960"/>
+    <property name="heightBg" type="int" value="960"/>
+    <property name="width" type="int" value="960"/>
+    <property name="widthBg" type="int" value="1920"/>
+   </properties>
+  </object>
+  <object id="17" name="newSect3" x="1408.04" y="1919.03" width="64" height="1.27273">
+   <properties>
+    <property name="height" type="int" value="960"/>
+    <property name="heightBg" type="int" value="1920"/>
+    <property name="width" type="int" value="960"/>
+    <property name="widthBg" type="int" value="960"/>
    </properties>
   </object>
  </objectgroup>

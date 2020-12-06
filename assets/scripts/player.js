@@ -1,7 +1,7 @@
 export default class Player extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y) {
         super(world, x, y, 'player'); //llama a la constructora de Sprite
-        //this.setScale(0.8, 0.8); //reducimos la escala del sprite
+        this.setScale(0.8, 0.8); //reducimos la escala del sprite
         
         this.setBody({
             type: 'fromVertices',

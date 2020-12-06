@@ -119,6 +119,27 @@
                  "height":32,
                  "id":1,
                  "name":"spawnPoint",
+                 "properties":[
+                        {
+                         "name":"height",
+                         "type":"int",
+                         "value":960
+                        }, 
+                        {
+                         "name":"heightBg",
+                         "type":"int",
+                         "value":960
+                        }, 
+                        {
+                         "name":"width",
+                         "type":"int",
+                         "value":960
+                        }, 
+                        {
+                         "name":"widthBg",
+                         "type":"int",
+                         "value":960
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -127,132 +148,132 @@
                  "y":1344
                 }, 
                 {
-                 "height":32,
+                 "height":0.818181818181756,
                  "id":12,
-                 "name":"newSect",
+                 "name":"newSect0",
                  "properties":[
+                        {
+                         "name":"height",
+                         "type":"int",
+                         "value":960
+                        }, 
                         {
                          "name":"heightBg",
                          "type":"int",
                          "value":0
                         }, 
                         {
-                         "name":"heightEnd",
+                         "name":"width",
                          "type":"int",
-                         "value":0
+                         "value":960
                         }, 
                         {
                          "name":"widthBg",
                          "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"widthEnd",
-                         "type":"int",
-                         "value":0
+                         "value":960
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":1376,
-                 "y":944
+                 "x":1408,
+                 "y":959.636363636364
                 }, 
                 {
                  "height":64,
                  "id":14,
-                 "name":"newSect",
+                 "name":"newSect1",
                  "properties":[
+                        {
+                         "name":"height",
+                         "type":"int",
+                         "value":960
+                        }, 
                         {
                          "name":"heightBg",
                          "type":"int",
-                         "value":0
+                         "value":960
                         }, 
                         {
-                         "name":"heightEnd",
+                         "name":"width",
                          "type":"int",
-                         "value":0
+                         "value":960
                         }, 
                         {
                          "name":"widthBg",
-                         "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"widthEnd",
                          "type":"int",
                          "value":0
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":32,
-                 "x":944,
-                 "y":1408
+                 "width":1.18181818181802,
+                 "x":959.545454545455,
+                 "y":1440
                 }, 
                 {
                  "height":64,
                  "id":15,
-                 "name":"newSect",
+                 "name":"newSect2",
                  "properties":[
+                        {
+                         "name":"height",
+                         "type":"int",
+                         "value":960
+                        }, 
                         {
                          "name":"heightBg",
                          "type":"int",
-                         "value":0
+                         "value":960
                         }, 
                         {
-                         "name":"heightEnd",
+                         "name":"width",
                          "type":"int",
-                         "value":0
+                         "value":960
                         }, 
                         {
                          "name":"widthBg",
                          "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"widthEnd",
-                         "type":"int",
-                         "value":0
+                         "value":1920
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":32,
-                 "x":1904,
-                 "y":1408
+                 "width":0.5625,
+                 "x":1919.92045454545,
+                 "y":1439.92045454545
                 }, 
                 {
-                 "height":32,
+                 "height":1.27272727272702,
                  "id":17,
-                 "name":"newSect",
+                 "name":"newSect3",
                  "properties":[
+                        {
+                         "name":"height",
+                         "type":"int",
+                         "value":960
+                        }, 
                         {
                          "name":"heightBg",
                          "type":"int",
-                         "value":0
+                         "value":1920
                         }, 
                         {
-                         "name":"heightEnd",
+                         "name":"width",
                          "type":"int",
-                         "value":0
+                         "value":960
                         }, 
                         {
                          "name":"widthBg",
                          "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"widthEnd",
-                         "type":"int",
-                         "value":0
+                         "value":960
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":1376,
-                 "y":1904
+                 "x":1408.04347826087,
+                 "y":1919.03162055336
                 }],
          "opacity":1,
          "type":"objectgroup",
