@@ -1,4 +1,8 @@
 class eventScene extends Phaser.Scene {
+    init(data){
+        this.info = data;
+    }
+
     layout(options, group) {
         //variable para separar las opciones en el eje y
         let distancia = 200;
@@ -17,12 +21,16 @@ class eventScene extends Phaser.Scene {
                 o.cb();
                 //si el evento continua, se llama de nuevo a la funcion
                 if(o.next !== undefined) this.layout(o.next, group);
-                else this.scene.switch(this.previousScene);
+                else{
+                    this.scene.stop();
+                    this.scene.run(this.info.prevScene.scene.key);
+                }
             });
         }
     }
 
     create(){
+        // this.info = this.scene.get('gameScene').info;
         //creo un container que contendra las respuestas
         let group = this.add.container();
         //llamo al metodo que muestra las opcioens
@@ -31,12 +39,7 @@ class eventScene extends Phaser.Scene {
     
 }
 
-export default class testEvent extends eventScene {    
-    init(datos){
-        this.player = datos.thisPlayer;
-        this.previousScene = datos.thisScene;
-    }
-    
+export default class testEvent extends eventScene {      
     constructor(){
         super({key: 'testEvent'});
         //array con los elementos de un evento
@@ -66,7 +69,8 @@ export default class testEvent extends eventScene {
                 text: 'hacerle algo al jugador',
                 cb: () => {
                     console.log('opcion 3 pulsada');
-                    console.log("jugador modificable, se ha pasado a esta escena", this.player)
+                    console.log("jugador modificable, se ha pasado a esta escena", this.info.player)
+                    this.info.player.speed = 10;
                 }
             },
             {

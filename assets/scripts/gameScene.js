@@ -101,8 +101,11 @@ export default class GameScene extends Phaser.Scene {
             this.blindfold.setBlindfold();
         });
         this.player.cursorsPlayer.interact.on('down', event => {
+            //guardo la info entre escenas y cambio de escena
+            this.info = {player: this.player, prevScene: this};
             
-            this.scene.start('testEvent', {thisScene: this, thisPlayer:this.player});
+            this.scene.sleep();
+            this.scene.run('testEvent', this.info);
         });
         this.player.cursorsPlayer.testing.on('down', event => this.respawn()) //testeo respawn
 
@@ -112,6 +115,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     update(time, delta) {
+        console.log(this.player.cursorsPlayer.interact.isDown);
         const playerPos = this.player.getPos();
         const prevVision = [this.vision.x, this.vision.y];
         if (prevVision !== playerPos) {
