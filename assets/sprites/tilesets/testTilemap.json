@@ -74,35 +74,35 @@
                 {
                  "height":32,
                  "id":18,
-                 "name":"item",
+                 "name":"potion",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":192,
-                 "y":160
+                 "x":208,
+                 "y":144
                 }, 
                 {
                  "height":32,
                  "id":19,
-                 "name":"item",
+                 "name":"coin",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":576,
-                 "y":544
+                 "x":560,
+                 "y":528
                 }, 
                 {
                  "height":32,
                  "id":20,
-                 "name":"item",
+                 "name":"houseKey",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":288,
-                 "y":736
+                 "x":272,
+                 "y":752
                 }],
          "opacity":1,
          "type":"objectgroup",

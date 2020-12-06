@@ -65,9 +65,21 @@ export default class GameScene extends Phaser.Scene {
         // Creacion de items a partir del atlas
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
-        this.potion = new Item(this.matter.world, 200, 600, this.itemFrames[0]);
-        this.housekey = new Item(this.matter.world, 200, 500, this.itemFrames[1]);
-        this.coin = new Item(this.matter.world, 200, 300, this.itemFrames[2]);
+
+        // Creacion de objetos segun el Tilemap
+        for (const itemPos of this.map.getObjectLayer('collectable').objects) {            
+            if (itemPos.name === 'potion') {                
+                this.potion = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0]);
+            }
+
+            if (itemPos.name === 'houseKey') {                
+                this.housekey = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1]);
+            }
+
+            if (itemPos.name === 'coin') {                
+                this.coin = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2]);
+            }
+        }        
 
         // Empieza la animación de las tiles en este mapa
         this.animatedTiles.init(this.map);
@@ -119,19 +131,26 @@ export default class GameScene extends Phaser.Scene {
 
         // Colision de las paredes 
         this.walls.setCollisionByProperty({ obstacle: true });
-        this.matter.world.convertTilemapLayer(this.walls);
-
-        const col1 = this.matter.world.nextCategory();
-        this.player.setCollisionCategory(col1);
-        this.potion.setCollisionCategory(col1);
-        this.potion.setCollidesWith(col1);
+        this.matter.world.convertTilemapLayer(this.walls);        
 
         this.matter.world.on('collisionactive',
             (evento, cuerpo1, cuerpo2) => {
                 //console.log(cuerpo1.gameObject);
                 //console.log(cuerpo2.gameObject);
+                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.potion) {
+                    console.log("overlap (potion)");
+                    //tooltip true
+                    //puede recogerse el item
+                }
+
+                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.housekey) {
+                    console.log("overlap (potion)");
+                    //tooltip true
+                    //puede recogerse el item
+                }
+
                 if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.coin) {
-                    console.log("eureka");
+                    console.log("overlap (potion)");
                     //tooltip true
                     //puede recogerse el item
                 }
