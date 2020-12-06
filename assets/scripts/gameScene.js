@@ -125,7 +125,11 @@ export default class GameScene extends Phaser.Scene {
             this.blindfold.setBlindfold();
         });
         this.player.cursorsPlayer.interact.on('down', event => {
-            this.scene.switch('eventManager');
+            //guardo la info entre escenas y cambio de escena
+            this.info = {player: this.player, prevScene: this};
+            this.scene.sleep();
+            this.scene.run('testEvent', this.info);
+            this.resetInputs();
         });
         this.player.cursorsPlayer.testing.on('down', event => this.respawn()) //testeo respawn
 
@@ -190,5 +194,24 @@ export default class GameScene extends Phaser.Scene {
     //respawn basico (falta la implementacion de varias funcionalidades)
     respawn() {
         this.player.setPosition(this.spawnpoint.x, this.spawnpoint.y);
+    }
+
+    //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
+    resetInputs(){
+        // console.log(this.player.cursorsPlayer.interact.isDown);
+        // this.player.cursorsPlayer.interact.reset();
+        // console.log(this.player.cursorsPlayer.interact.isDown);
+        // esto no funciona porque las keys no estan en un array
+        // for(const property of this.player.cursorsPlayer){
+        //     property.reset();
+        // }
+        //hasta que vea como hacerlo lo hago uno por uno
+        this.player.cursorsPlayer.up.reset();
+        this.player.cursorsPlayer.down.reset();
+        this.player.cursorsPlayer.left.reset();
+        this.player.cursorsPlayer.right.reset();
+        this.player.cursorsPlayer.interact.reset();
+        this.player.cursorsPlayer.blindfold.reset();
+        this.player.cursorsPlayer.testing.reset();
     }
 }
