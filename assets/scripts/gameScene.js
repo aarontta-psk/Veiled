@@ -19,6 +19,9 @@ export default class GameScene extends Phaser.Scene {
 
         // Carga el tileset que contiene las texturas del mapa.
         this.load.image('tiles', './assets/sprites/tilesets/dungeonTileset.png');
+
+        // Carga los items incluidos en la escena        
+        this.load.atlas('items','assets/sprites/items.png?','assets/atlas/items.json');
     }
 
     create() {
@@ -57,6 +60,12 @@ export default class GameScene extends Phaser.Scene {
 
         // Creamos un layer estático
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
+        
+        this.items=this.textures.get('items');
+        this.itemFrames= this.items.getFrameNames();
+        this.add.image(200,500,'items',this.itemFrames[0]);
+        this.add.image(200,300,'items',this.itemFrames[1]);
+        this.add.image(500,300,'items',this.itemFrames[2]);            
 
         // Empieza la animación de las tiles en este mapa
         this.animatedTiles.init(this.map);
