@@ -64,7 +64,12 @@ export default class GameScene extends Phaser.Scene {
             }
         }
 
-        // Añado un npc de prueba en un array
+        for (const objeto of this.triggersToSect) {
+            objeto.info2 = [this.spawnpoint .properties[0].value, this.spawnpoint.properties[1].value,
+            this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
+        }
+
+        // // Añado un npc de prueba en un array
         this.npcs = [
             //paso el sprite del player porque de momento no tenemos otro
             this.testNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 20,
@@ -83,7 +88,7 @@ export default class GameScene extends Phaser.Scene {
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
 
         // Creacion de items a partir del atlas
-        let item = {}; let heldItem = false;
+        let item = {};
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
 
@@ -146,20 +151,10 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.player.cursorsPlayer.interact.on('down', event => {
-            if (!heldItem) {
-                // //guardo la info entre escenas y cambio de escena
-                // this.info = { player: this.player, prevScene: this };
-                // this.scene.sleep();
-                // this.scene.run('testEvent', this.info);
-                // this.resetInputs();
-            }
-            else {
                 this.player.inventory.addObject(item);
                 item.destroy();
-                heldItem = false;
                 item = {};
                 console.log(item);
-            }
         });
         this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
@@ -170,22 +165,21 @@ export default class GameScene extends Phaser.Scene {
         this.matter.world.on('collisionstart',
             (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
-                    heldItem = true;
                     if (cuerpo2.gameObject === this.potion)
                         item = this.potion;
                     else if (cuerpo2.gameObject === this.housekey)
                         item = this.housekey;
                     else if (cuerpo2.gameObject === this.coin)
                         item = this.coin;
-                    else heldItem = false;
                 }
             });
 
         this.matter.world.on('collisionend',
             (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
-                    item = {}; //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
-                    heldItem = false;
+                    //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
+                    if(cuerpo2.gameObject === this.coin || cuerpo2.gameObject === this.housekey
+                        || cuerpo2.gameObject === this.potion) item = {}; 
 
                     //buscamos si sale de un trigger de seccion
                     let i = 0;
@@ -202,7 +196,7 @@ export default class GameScene extends Phaser.Scene {
                 console.log("overlapping a npc");
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 if(this.player.cursorsPlayer.interact.isDown){
-                    this.changeScene(cuerpo2.gameObject.myScene)
+                    this.changeScene(cuerpo2.gameObject.myScene);
                 }
             }
         })
@@ -237,8 +231,10 @@ export default class GameScene extends Phaser.Scene {
     //transicion a nueva seccion
     newSection(trigger) {
         this.cameras.main.removeBounds();
-        const [height, y, width, x] = trigger.info;
+        let [height, y, width, x] = trigger.info;
+        if(trigger.hasPassed) [height, y, width, x] = trigger.info2;
         this.cameras.main.setBounds(x, y, width, height);
+        trigger.hasPassed = !trigger.hasPassed;
     }
 
     //respawn basico (falta la implementacion de varias funcionalidades)
@@ -248,9 +244,7 @@ export default class GameScene extends Phaser.Scene {
 
     //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
     resetInputs() {
-        // console.log(this.player.cursorsPlayer.interact.isDown);
         // this.player.cursorsPlayer.interact.reset();
-        // console.log(this.player.cursorsPlayer.interact.isDown);
         // esto no funciona porque las keys no estan en un array
         // for(const property of this.player.cursorsPlayer){
         //     property.reset();
