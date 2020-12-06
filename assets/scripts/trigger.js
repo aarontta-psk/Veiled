@@ -1,6 +1,6 @@
 export default class Trigger extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y, width, height){
-        super(world, x, y, 'player');  
+        super(world, x, y, '');  
 
         this.setBody({
             type: 'rectangle',
@@ -10,8 +10,8 @@ export default class Trigger extends Phaser.Physics.Matter.Sprite {
 
         this.scene.add.existing(this);
         this.scene.matter.add.sprite(this);
+        this.setVisible(false);
         this.setStatic(true);
         this.setSensor(true);
-        this.setVisible(false);
     }
 }

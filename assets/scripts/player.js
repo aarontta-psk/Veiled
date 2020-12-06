@@ -1,3 +1,5 @@
+import Inventory from './inventory.js';
+
 export default class Player extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y) {
         super(world, x, y, 'player'); //llama a la constructora de Sprite
@@ -16,6 +18,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.setFixedRotation(0); //quitamos rotacion
 
         this.speed = 4; //velocidad
+
+        this.inventory = new Inventory();
 
         this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas de direccion
             up: Phaser.Input.Keyboard.KeyCodes.W,
