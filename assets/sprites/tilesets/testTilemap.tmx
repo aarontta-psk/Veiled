@@ -1130,7 +1130,7 @@
     <property name="obstacle" type="bool" value="true"/>
    </properties>
    <objectgroup draworder="index" id="2">
-    <object id="1" x="3" y="10.0341" width="23.9318" height="18.0909"/>
+    <object id="1" x="3" y="10" width="24" height="18"/>
    </objectgroup>
   </tile>
   <tile id="225">
@@ -1138,7 +1138,7 @@
     <property name="obstacle" type="bool" value="true"/>
    </properties>
    <objectgroup draworder="index" id="2">
-    <object id="1" x="3.18182" y="9.90909" width="23.9091" height="18.1818"/>
+    <object id="1" x="3" y="10" width="24" height="18"/>
    </objectgroup>
   </tile>
   <tile id="226">
@@ -1146,7 +1146,7 @@
     <property name="obstacle" type="bool" value="true"/>
    </properties>
    <objectgroup draworder="index" id="2">
-    <object id="1" x="3.09091" y="9.90909" width="24" height="18.2727"/>
+    <object id="1" x="3" y="10" width="24" height="18"/>
    </objectgroup>
   </tile>
   <tile id="227">
@@ -1642,13 +1642,13 @@
   </data>
  </layer>
  <objectgroup id="6" name="collectable">
-  <object id="18" name="item" x="207.455" y="175.909" width="64" height="64"/>
-  <object id="19" name="item" x="591" y="527.667" width="64" height="64"/>
-  <object id="20" name="item" x="303.667" y="752.667" width="64" height="64"/>
+  <object id="18" name="item" x="192" y="160" width="32" height="32"/>
+  <object id="19" name="item" x="576" y="544" width="32" height="32"/>
+  <object id="20" name="item" x="288" y="736" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="5" name="objectLayer">
-  <object id="1" name="spawnPoint" x="256.5" y="415.5" width="32" height="32"/>
-  <object id="12" name="newSect" x="416" y="-31.75" width="64" height="32">
+  <object id="1" name="spawnPoint" x="256" y="384" width="32" height="32"/>
+  <object id="12" name="newSect" x="416" y="-32" width="64" height="32">
    <properties>
     <property name="heightBg" type="int" value="0"/>
     <property name="heightEnd" type="int" value="0"/>
@@ -1656,7 +1656,7 @@
     <property name="widthEnd" type="int" value="0"/>
    </properties>
   </object>
-  <object id="14" name="newSect" x="0.642716" y="448.032" width="64" height="32" rotation="90.1403">
+  <object id="14" name="newSect" x="-32" y="448" width="32" height="64">
    <properties>
     <property name="heightBg" type="int" value="0"/>
     <property name="heightEnd" type="int" value="0"/>
@@ -1664,7 +1664,7 @@
     <property name="widthEnd" type="int" value="0"/>
    </properties>
   </object>
-  <object id="15" name="newSect" x="991.784" y="448.091" width="64" height="32" rotation="90.1403">
+  <object id="15" name="newSect" x="960" y="448" width="32" height="64">
    <properties>
     <property name="heightBg" type="int" value="0"/>
     <property name="heightEnd" type="int" value="0"/>
@@ -1672,7 +1672,7 @@
     <property name="widthEnd" type="int" value="0"/>
    </properties>
   </object>
-  <object id="17" name="newSect" x="416" y="959.375" width="64" height="32">
+  <object id="17" name="newSect" x="416" y="960" width="64" height="32">
    <properties>
     <property name="heightBg" type="int" value="0"/>
     <property name="heightEnd" type="int" value="0"/>
