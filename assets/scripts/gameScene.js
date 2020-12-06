@@ -144,13 +144,13 @@ export default class GameScene extends Phaser.Scene {
                 }
 
                 if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.housekey) {
-                    console.log("overlap (potion)");
+                    console.log("overlap (houseKey)");
                     //tooltip true
                     //puede recogerse el item
                 }
 
                 if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.coin) {
-                    console.log("overlap (potion)");
+                    console.log("overlap (coin)");
                     //tooltip true
                     //puede recogerse el item
                 }
