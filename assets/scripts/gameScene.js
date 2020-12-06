@@ -1,5 +1,6 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
+import Item from './item.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor() { super({ key: 'gameScene' }) };
@@ -61,11 +62,12 @@ export default class GameScene extends Phaser.Scene {
         // Creamos un layer estático
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
         
+        // Creacion de items a partir del atlas
         this.items=this.textures.get('items');
         this.itemFrames= this.items.getFrameNames();
-        this.add.image(200,500,'items',this.itemFrames[0]);
-        this.add.image(200,300,'items',this.itemFrames[1]);
-        this.add.image(500,300,'items',this.itemFrames[2]);            
+        this.potion= new Item (this.matter.world,200,600,this.itemFrames[0]);
+        this.housekey= new Item (this.matter.world,200,500,this.itemFrames[1]);
+        this.coin= new Item (this.matter.world,200,300,this.itemFrames[2]);           
 
         // Empieza la animación de las tiles en este mapa
         this.animatedTiles.init(this.map);
