@@ -86,9 +86,9 @@ export default class GameScene extends Phaser.Scene {
 
         this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
-        let widthBg = 0, heightBg = 0, widthEnd = 960, heightEnd = 960;
+        //let widthBg = 0, heightBg = 0, widthEnd = 960, heightEnd = 960;
         this.cameras.main.startFollow(this.player);
-        this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
+        //this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
 
         this.anims.create({
             key: 'idle',
