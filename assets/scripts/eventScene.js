@@ -70,7 +70,7 @@ export class testEvent extends eventScene {
                 cb: () => {
                     console.log('opcion 3 pulsada');
                     console.log("jugador modificable, se ha pasado a esta escena", this.info.player)
-                    this.info.player.speed = 10;
+                    this.info.player.speed = 1;
                 }
             },
             {
