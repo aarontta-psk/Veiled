@@ -1,6 +1,7 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
 import Item from './item.js';
+import Npc from './npc.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor() { super({ key: 'gameScene' }) };
@@ -54,6 +55,15 @@ export default class GameScene extends Phaser.Scene {
                 this.player = new Player(this.matter.world, objeto.x, objeto.y);
             }
         }
+
+        // Añado un npc de prueba en un array
+        this.npcs = [
+            //paso el sprite del player porque de momento no tenemos otro
+            this.testNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 20,
+                 this.spawnpoint.y + 200, this.scene.get('testEvent')),
+            this.anotherTestNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 80,
+                this.spawnpoint.y + 400, this.scene.get('anotherTestEvent'))
+        ];
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
@@ -124,13 +134,7 @@ export default class GameScene extends Phaser.Scene {
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.blindfold.setBlindfold();
         });
-        this.player.cursorsPlayer.interact.on('down', event => {
-            //guardo la info entre escenas y cambio de escena
-            this.info = {player: this.player, prevScene: this};
-            this.scene.sleep();
-            this.scene.run('testEvent', this.info);
-            this.resetInputs();
-        });
+        
         this.player.cursorsPlayer.testing.on('down', event => this.respawn()) //testeo respawn
 
         // Colision de las paredes 
@@ -157,6 +161,18 @@ export default class GameScene extends Phaser.Scene {
                     console.log("overlap (coin)");
                     //tooltip true
                     //puede recogerse el item
+                }
+
+                // console.log("a", Npc);
+                // console.log(cuerpo2.gameObject);
+                if (cuerpo1.gameObject === this.player &&
+                    cuerpo2.gameObject.type === this.npcs[0].type){
+                    //mensaje informativo
+                    console.log("overlapping a npc");
+                    //si se esta pulsando la tecla de interactuar, se llama al evento del npc
+                    if(this.player.cursorsPlayer.interact.isDown){
+                        this.changeScene(cuerpo2.gameObject.myScene)
+                    }
                 }
             });
     }
@@ -213,5 +229,16 @@ export default class GameScene extends Phaser.Scene {
         this.player.cursorsPlayer.interact.reset();
         this.player.cursorsPlayer.blindfold.reset();
         this.player.cursorsPlayer.testing.reset();
+    }
+
+    //metodo para cambiar de escena pasando informacion y sin detener la escena actual
+    changeScene(newScene){
+        //guardo la info entre escenas y cambio de escena
+        this.infoNextScene = {player: this.player, prevScene: this};
+
+        this.scene.sleep();
+        this.scene.run(newScene, this.infoNextScene);
+        //evito que se queden pillado el input al cambiar de escena
+        this.resetInputs();
     }
 }

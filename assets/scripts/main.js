@@ -1,6 +1,6 @@
 import EventManager from './eventManager.js';
 import GameScene from "./gameScene.js";
-import EventScene from "./eventScene.js";
+import {testEvent,anotherTestEvent} from "./eventScene.js";
 
 new Phaser.Game({
     type: Phaser.AUTO,
@@ -22,5 +22,5 @@ new Phaser.Game({
             }
         }
     },
-    scene: [GameScene, EventScene], //escenas a cargar
+    scene: [GameScene, testEvent, anotherTestEvent], //escenas a cargar
 })
