@@ -7,8 +7,8 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 		this.setVisible(false);
 		
 		this.rt = this.scene.add.renderTexture(0, 0, 800, 600);
-		this.rt.setScrollFactor(0); //hacemos 
-		this.rt.draw(this, 800, 600);
+		this.rt.setScrollFactor(0); //hacemos que la textura haga scroll con la camara
+		this.rt.draw(this, 800 * 0.5, 600 * 0.5);
 		this.rt.alpha = 0.8;
 		this.rt.erase(visionZone);
 

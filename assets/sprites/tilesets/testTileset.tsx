@@ -1126,7 +1126,7 @@
    <property name="obstacle" type="bool" value="true"/>
   </properties>
   <objectgroup draworder="index" id="2">
-   <object id="1" x="3" y="9.90909" width="24.1818" height="18.0909"/>
+   <object id="1" x="3" y="10" width="24" height="18"/>
   </objectgroup>
  </tile>
  <tile id="225">
@@ -1134,7 +1134,7 @@
    <property name="obstacle" type="bool" value="true"/>
   </properties>
   <objectgroup draworder="index" id="2">
-   <object id="1" x="3.18182" y="9.90909" width="23.9091" height="18.1818"/>
+   <object id="1" x="3" y="10" width="24" height="18"/>
   </objectgroup>
  </tile>
  <tile id="226">
@@ -1142,7 +1142,7 @@
    <property name="obstacle" type="bool" value="true"/>
   </properties>
   <objectgroup draworder="index" id="2">
-   <object id="1" x="3.09091" y="9.90909" width="24" height="18.2727"/>
+   <object id="1" x="3" y="10" width="24" height="18"/>
   </objectgroup>
  </tile>
  <tile id="227">

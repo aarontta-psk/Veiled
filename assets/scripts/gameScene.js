@@ -1,5 +1,6 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
+import Item from './item.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor() { super({ key: 'gameScene' }) };
@@ -19,6 +20,9 @@ export default class GameScene extends Phaser.Scene {
 
         // Carga el tileset que contiene las texturas del mapa.
         this.load.image('tiles', './assets/sprites/tilesets/dungeonTileset.png');
+
+        // Carga los items incluidos en la escena        
+        this.load.atlas('items', 'assets/sprites/items.png?', 'assets/atlas/items.json');
     }
 
     create() {
@@ -52,19 +56,39 @@ export default class GameScene extends Phaser.Scene {
         }
 
         // Colocamos la vision en la posicion del jugador
-        const [x, y] = this.player.getPos();
+        const [x, y] = [this.player.x, this.player.y];
         this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);
 
         // Creamos un layer estático
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
+
+        // Creacion de items a partir del atlas
+        this.items = this.textures.get('items');
+        this.itemFrames = this.items.getFrameNames();
+
+        // Creacion de objetos segun el Tilemap
+        for (const itemPos of this.map.getObjectLayer('collectable').objects) {            
+            if (itemPos.name === 'potion') {                
+                this.potion = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0]);
+            }
+
+            if (itemPos.name === 'houseKey') {                
+                this.housekey = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1]);
+            }
+
+            if (itemPos.name === 'coin') {                
+                this.coin = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2]);
+            }
+        }        
 
         // Empieza la animación de las tiles en este mapa
         this.animatedTiles.init(this.map);
 
         this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
+        //let widthBg = 0, heightBg = 0, widthEnd = 960, heightEnd = 960;
         this.cameras.main.startFollow(this.player);
-        this.cameras.main.setBounds(0, 0, 960, 960);
+        //this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
 
         this.anims.create({
             key: 'idle',
@@ -109,28 +133,66 @@ export default class GameScene extends Phaser.Scene {
         });
         this.player.cursorsPlayer.testing.on('down', event => this.respawn()) //testeo respawn
 
-        // Colision entre las paredes y el player
+        // Colision de las paredes 
         this.walls.setCollisionByProperty({ obstacle: true });
-        this.matter.world.convertTilemapLayer(this.walls);
+        this.matter.world.convertTilemapLayer(this.walls);        
+
+        this.matter.world.on('collisionactive',
+            (evento, cuerpo1, cuerpo2) => {
+                //console.log(cuerpo1.gameObject);
+                //console.log(cuerpo2.gameObject);
+                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.potion) {
+                    console.log("overlap (potion)");
+                    //tooltip true
+                    //puede recogerse el item
+                }
+
+                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.housekey) {
+                    console.log("overlap (houseKey)");
+                    //tooltip true
+                    //puede recogerse el item
+                }
+
+                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.coin) {
+                    console.log("overlap (coin)");
+                    //tooltip true
+                    //puede recogerse el item
+                }
+            });
     }
+
 
     update(time, delta) {
-        console.log(this.player.cursorsPlayer.interact.isDown);
-        const playerPos = this.player.getPos();
-        const prevVision = [this.vision.x, this.vision.y];
-        if (prevVision !== playerPos) {
-            this.vision.setPosition(playerPos[0], playerPos[1]);
+        const [playerX, playerY] = [this.player.x, this.player.y];
+        const [visionX, visionY] = [this.vision.x, this.vision.y];
+
+        if (visionX !== playerX || visionY !== playerY) {
+            this.vision.setPosition(playerX, playerY);
             this.blindfold.setVision(this.vision);
         }
+        // const [playerX, playerY] = [this.player.x, this.player.y];
+        // let [newVisionX, newVisionY] = [this.vision.x, this.vision.y];
+        // if (playerX < this.cameras.main.width / 2 /*|| playerX > this.widthEnd - this.cameras.main.width / 2*/) {
+        //     newVisionX = playerX;
+        // }
+        // else newVisionX = 400;
+        // if (playerY < this.cameras.main.height / 2 /*|| playerY > this.heightEnd - this.cameras.main.height / 2*/) {
+        //     newVisionY = playerY;
+        // }
+        // else newVisionX = 300;
+        // if ([newVisionX, newVisionY] !== [this.vision.x, this.vision.y]) {
+        //     this.vision.setPosition(playerX, playerY);
+        //     this.blindfold.setVision(this.vision);
+        // }        
     }
 
-newSection(){
-    this.cameras.main.removeBounds();
-    this.cameras.main.setBounds(0, 0, 1920, 1080);
-}
+    newSection() {
+        this.cameras.main.removeBounds();
+        this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
+    }
 
     //respawn basico (falta la implementacion de varias funcionalidades)
-    respawn(){
+    respawn() {
         this.player.setPosition(this.spawnpoint.x, this.spawnpoint.y);
     }
 
