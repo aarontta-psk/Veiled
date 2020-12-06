@@ -1,11 +1,16 @@
 export default class Player extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y) {
         super(world, x, y, 'player'); //llama a la constructora de Sprite
-        this.setScale(0.8, 0.8); //reducimos la escala del sprite
+        //this.setScale(0.8, 0.8); //reducimos la escala del sprite
+        
+        this.setBody({
+            type: 'fromVertices',
+            verts: [{x: 5,y: 30},{x: 27,y: 30},{x: 27,y: 50},{x: 5,y: 50}]         
+        });       
 
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this); //lo añado a las fisicas de Matter
-
+        
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
         this.setFixedRotation(0); //quitamos rotacion
