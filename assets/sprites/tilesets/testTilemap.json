@@ -68,6 +68,50 @@
         }, 
         {
          "draworder":"topdown",
+         "id":6,
+         "name":"collectable",
+         "objects":[
+                {
+                 "height":64,
+                 "id":18,
+                 "name":"item",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":207.454545454545,
+                 "y":175.909090909091
+                }, 
+                {
+                 "height":64,
+                 "id":19,
+                 "name":"item",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":591,
+                 "y":527.666666666667
+                }, 
+                {
+                 "height":64,
+                 "id":20,
+                 "name":"item",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":303.666666666667,
+                 "y":752.666666666667
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":5,
          "name":"objectLayer",
          "objects":[
@@ -139,12 +183,12 @@
                          "type":"int",
                          "value":0
                         }],
-                 "rotation":90.140321943057,
+                 "rotation":90.1403,
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":0.642716434546536,
-                 "y":448.03170544979
+                 "x":0.642716,
+                 "y":448.032
                 }, 
                 {
                  "height":32,
@@ -175,8 +219,8 @@
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":991.784090909091,
-                 "y":448.090909090909
+                 "x":991.784,
+                 "y":448.091
                 }, 
                 {
                  "height":32,
@@ -216,8 +260,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":6,
- "nextobjectid":18,
+ "nextlayerid":7,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
@@ -1740,29 +1784,6 @@
                 }, 
                 {
                  "id":167,
-                 "objectgroup":
-                    {
-                     "draworder":"index",
-                     "id":2,
-                     "name":"",
-                     "objects":[
-                            {
-                             "height":31.75,
-                             "id":1,
-                             "name":"",
-                             "rotation":0,
-                             "type":"",
-                             "visible":true,
-                             "width":31.125,
-                             "x":0.75,
-                             "y":0.125
-                            }],
-                     "opacity":1,
-                     "type":"objectgroup",
-                     "visible":true,
-                     "x":0,
-                     "y":0
-                    },
                  "properties":[
                         {
                          "name":"obstacle",
