@@ -150,7 +150,7 @@
                 {
                  "height":0.818181818181756,
                  "id":12,
-                 "name":"newSect0",
+                 "name":"newSect",
                  "properties":[
                         {
                          "name":"height",
@@ -182,7 +182,7 @@
                 {
                  "height":64,
                  "id":14,
-                 "name":"newSect1",
+                 "name":"newSect",
                  "properties":[
                         {
                          "name":"height",
@@ -214,7 +214,7 @@
                 {
                  "height":64,
                  "id":15,
-                 "name":"newSect2",
+                 "name":"newSect",
                  "properties":[
                         {
                          "name":"height",
@@ -246,7 +246,7 @@
                 {
                  "height":1.27272727272702,
                  "id":17,
-                 "name":"newSect3",
+                 "name":"newSect",
                  "properties":[
                         {
                          "name":"height",
