@@ -2,6 +2,7 @@ import Blindfold from './blindfold.js';
 import Player from './player.js';
 import Item from './item.js';
 import Npc from './npc.js';
+import Trigger from './trigger.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor() { super({ key: 'gameScene' }) };
@@ -23,7 +24,7 @@ export default class GameScene extends Phaser.Scene {
         this.load.image('tiles', './assets/sprites/tilesets/dungeonTileset.png');
 
         // Carga los items incluidos en la escena        
-        this.load.atlas('items', 'assets/sprites/items.png?', 'assets/atlas/items.json');
+        this.load.atlas('items', 'assets/sprites/items.png?', 'assets/sprites/atlas/items.json');
     }
 
     create() {
@@ -45,6 +46,7 @@ export default class GameScene extends Phaser.Scene {
         this.ground1 = this.map.createDynamicLayer('ground 1', tileset);
         this.walls = this.map.createStaticLayer('walls', tileset);
 
+        this.triggersToSect = [];
         // Spawnea al player en un punto definido en Tiled.
         // En Tiled tiene que haber una capa de objetos llamada 'capaObjetos'
         for (const objeto of this.map.getObjectLayer('objectLayer').objects) {
@@ -54,16 +56,24 @@ export default class GameScene extends Phaser.Scene {
                 this.spawnpoint = objeto;
                 this.player = new Player(this.matter.world, objeto.x, objeto.y);
             }
+            else if (objeto.name === 'newSect') {
+                let trigger = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
+                trigger.info = [objeto.properties[0].value, objeto.properties[1].value,
+                objeto.properties[2].value, objeto.properties[3].value];
+                this.triggersToSect.push(trigger);
+            }
         }
 
         // Añado un npc de prueba en un array
         this.npcs = [
             //paso el sprite del player porque de momento no tenemos otro
             this.testNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 20,
-                 this.spawnpoint.y + 200, this.scene.get('testEvent')),
+                this.spawnpoint.y + 200, this.scene.get('testEvent')),
             this.anotherTestNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 80,
                 this.spawnpoint.y + 400, this.scene.get('anotherTestEvent'))
         ];
+
+        console.log(this.triggersToSect);
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
@@ -73,32 +83,32 @@ export default class GameScene extends Phaser.Scene {
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
 
         // Creacion de items a partir del atlas
+        let item = {}; let heldItem = false;
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
 
         // Creacion de objetos segun el Tilemap
-        for (const itemPos of this.map.getObjectLayer('collectable').objects) {            
-            if (itemPos.name === 'potion') {                
+        for (const itemPos of this.map.getObjectLayer('collectable').objects) {
+            if (itemPos.name === 'potion') {
                 this.potion = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0]);
             }
-
-            if (itemPos.name === 'houseKey') {                
+            else if (itemPos.name === 'houseKey') {
                 this.housekey = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1]);
             }
-
-            if (itemPos.name === 'coin') {                
+            else if (itemPos.name === 'coin') {
                 this.coin = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2]);
             }
-        }        
+        }
 
         // Empieza la animación de las tiles en este mapa
         this.animatedTiles.init(this.map);
 
         this.blindfold = new Blindfold(this, 0, 0, this.vision);
 
-        //let widthBg = 0, heightBg = 0, widthEnd = 960, heightEnd = 960;
+        let height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
+            width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
-        //this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
+        this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
         this.anims.create({
             key: 'idle',
@@ -134,47 +144,69 @@ export default class GameScene extends Phaser.Scene {
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.blindfold.setBlindfold();
         });
-        
-        this.player.cursorsPlayer.testing.on('down', event => this.respawn()) //testeo respawn
+
+        this.player.cursorsPlayer.interact.on('down', event => {
+            if (!heldItem) {
+                // //guardo la info entre escenas y cambio de escena
+                // this.info = { player: this.player, prevScene: this };
+                // this.scene.sleep();
+                // this.scene.run('testEvent', this.info);
+                // this.resetInputs();
+            }
+            else {
+                this.player.inventory.addObject(item);
+                item.destroy();
+                heldItem = false;
+                item = {};
+                console.log(item);
+            }
+        });
+        this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
         // Colision de las paredes 
         this.walls.setCollisionByProperty({ obstacle: true });
-        this.matter.world.convertTilemapLayer(this.walls);        
+        this.matter.world.convertTilemapLayer(this.walls);
 
-        this.matter.world.on('collisionactive',
+        this.matter.world.on('collisionstart',
             (evento, cuerpo1, cuerpo2) => {
-                //console.log(cuerpo1.gameObject);
-                //console.log(cuerpo2.gameObject);
-                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.potion) {
-                    console.log("overlap (potion)");
-                    //tooltip true
-                    //puede recogerse el item
-                }
-
-                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.housekey) {
-                    console.log("overlap (houseKey)");
-                    //tooltip true
-                    //puede recogerse el item
-                }
-
-                if (cuerpo1.gameObject === this.player && cuerpo2.gameObject === this.coin) {
-                    console.log("overlap (coin)");
-                    //tooltip true
-                    //puede recogerse el item
-                }
-
-                // console.log("a", Npc);
-                // console.log(cuerpo2.gameObject);
-                if (cuerpo1.gameObject === this.player &&
-                    cuerpo2.gameObject.type === this.npcs[0].type){
-                    //mensaje informativo
-                    console.log("overlapping a npc");
-                    //si se esta pulsando la tecla de interactuar, se llama al evento del npc
-                    if(this.player.cursorsPlayer.interact.isDown){
-                        this.changeScene(cuerpo2.gameObject.myScene)
-                    }
+                if (cuerpo1.gameObject === this.player) {
+                    heldItem = true;
+                    if (cuerpo2.gameObject === this.potion)
+                        item = this.potion;
+                    else if (cuerpo2.gameObject === this.housekey)
+                        item = this.housekey;
+                    else if (cuerpo2.gameObject === this.coin)
+                        item = this.coin;
+                    else heldItem = false;
                 }
             });
+
+        this.matter.world.on('collisionend',
+            (evento, cuerpo1, cuerpo2) => {
+                if (cuerpo1.gameObject === this.player) {
+                    item = {}; //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
+                    heldItem = false;
+
+                    //buscamos si sale de un trigger de seccion
+                    let i = 0;
+                    while (i < this.triggersToSect.length && cuerpo2.gameObject !== this.triggersToSect[i])
+                        i++;
+                    if (i !== this.triggersToSect.length) this.newSection(this.triggersToSect[i]);
+                }
+            });
+
+        this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
+            if (cuerpo1.gameObject === this.player &&
+                cuerpo2.gameObject.type === this.npcs[0].type){
+                //mensaje informativo
+                console.log("overlapping a npc");
+                //si se esta pulsando la tecla de interactuar, se llama al evento del npc
+                if(this.player.cursorsPlayer.interact.isDown){
+                    this.changeScene(cuerpo2.gameObject.myScene)
+                }
+            }
+        })
+
     }
 
 
@@ -202,9 +234,11 @@ export default class GameScene extends Phaser.Scene {
         // }        
     }
 
-    newSection() {
+    //transicion a nueva seccion
+    newSection(trigger) {
         this.cameras.main.removeBounds();
-        this.cameras.main.setBounds(widthBg, heightBg, widthEnd, heightEnd);
+        const [height, y, width, x] = trigger.info;
+        this.cameras.main.setBounds(x, y, width, height);
     }
 
     //respawn basico (falta la implementacion de varias funcionalidades)
@@ -213,7 +247,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
-    resetInputs(){
+    resetInputs() {
         // console.log(this.player.cursorsPlayer.interact.isDown);
         // this.player.cursorsPlayer.interact.reset();
         // console.log(this.player.cursorsPlayer.interact.isDown);
@@ -232,9 +266,9 @@ export default class GameScene extends Phaser.Scene {
     }
 
     //metodo para cambiar de escena pasando informacion y sin detener la escena actual
-    changeScene(newScene){
+    changeScene(newScene) {
         //guardo la info entre escenas y cambio de escena
-        this.infoNextScene = {player: this.player, prevScene: this};
+        this.infoNextScene = { player: this.player, prevScene: this };
 
         this.scene.sleep();
         this.scene.run(newScene, this.infoNextScene);

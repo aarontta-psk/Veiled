@@ -4,8 +4,8 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
 
         this.setBody({
             type: 'rectangle',
-            width: 45,
-            height:45         
+            width: 30,
+            height: 30         
         });  
 
         this.scene.add.existing(this);
