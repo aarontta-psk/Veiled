@@ -180,8 +180,7 @@ export default class GameScene extends Phaser.Scene {
                     let i = 0;
                     while (i < this.triggersToSect.length && cuerpo2.gameObject !== this.triggersToSect[i])
                         i++;
-
-                    this.newSection(this.triggersToSect[i]);
+                    if(i === this.triggersToSect.length) this.newSection(this.triggersToSect[i]);
                 }
             });
     }
@@ -211,6 +210,7 @@ export default class GameScene extends Phaser.Scene {
         // }        
     }
 
+    //transicion a nueva seccion
     newSection(trigger) {
         this.cameras.main.removeBounds();
         const [height, y, width, x] = trigger.info;
