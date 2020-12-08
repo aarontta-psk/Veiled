@@ -84,7 +84,7 @@ export default class GameScene extends Phaser.Scene {
         
         */
 
-        console.log(this.triggersToSect);
+        //console.log(this.triggersToSect);
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
@@ -163,6 +163,14 @@ export default class GameScene extends Phaser.Scene {
                 console.log(item);
         });
         this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
+
+        this.player.cursorsPlayer.die.on('down', event => {
+            this.player.die();
+        });
+
+        this.player.cursorsPlayer.setRespawn.on('down', event => {
+            this.player.setSpawn(this.player.x, this.player.y);
+        });
 
         // Colision de las paredes 
         this.walls.setCollisionByProperty({ obstacle: true });

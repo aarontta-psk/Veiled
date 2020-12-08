@@ -30,12 +30,10 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             right: Phaser.Input.Keyboard.KeyCodes.D,
             interact: Phaser.Input.Keyboard.KeyCodes.E,
             blindfold: Phaser.Input.Keyboard.KeyCodes.SPACE,
-            testing: Phaser.Input.Keyboard.KeyCodes.CTRL
-        });
 
-        this.cursorsDebug = this.scene.input.keyboard.addKeys({ //teclas de prueba de métodos
             die: Phaser.Input.Keyboard.KeyCodes.L,
             setRespawn: Phaser.Input.Keyboard.KeyCodes.O,
+            testing: Phaser.Input.Keyboard.KeyCodes.CTRL
         });
     }
 
@@ -96,6 +94,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
     setSpawn(posX, posY) {
         this.spawnPoint = [posX, posY];
+        console.log ('it dozunt heurt');
+        //console.log('Spawn set: ' + this.spawnPoint);
     }
 
     die()

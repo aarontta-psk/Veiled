@@ -1,4 +1,4 @@
-export default class Npc extends Phaser.Physics.Matter.Sprite{/*
+export default class Npc extends Phaser.Physics.Matter.Sprite{
     constructor(key, world, x, y, myScene, path) {
         super(world, x, y, key); //llama a la constructora de Sprite
 
@@ -73,5 +73,5 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{/*
             this.anims.play('left_move', true);
         else
             this.anims.play('right_move', true);
-    }*/
+    }
 }
