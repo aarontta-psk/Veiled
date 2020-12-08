@@ -1,7 +1,7 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
 import Item from './item.js';
-import Npc from './npc.js';
+//import Npc from './npc.js';
 import Trigger from './trigger.js';
 
 export default class GameScene extends Phaser.Scene {
@@ -68,6 +68,9 @@ export default class GameScene extends Phaser.Scene {
             objeto.info2 = [this.spawnpoint .properties[0].value, this.spawnpoint.properties[1].value,
             this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
         }
+/*
+
+
 
         // // Añado un npc de prueba en un array
         this.npcs = [
@@ -77,6 +80,9 @@ export default class GameScene extends Phaser.Scene {
             this.anotherTestNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 80,
                 this.spawnpoint.y + 400, this.scene.get('anotherTestEvent'))
         ];
+        
+        
+        */
 
         console.log(this.triggersToSect);
 
@@ -190,6 +196,8 @@ export default class GameScene extends Phaser.Scene {
             });
 
         this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
+            /*
+            
             if (cuerpo1.gameObject === this.player &&
                 cuerpo2.gameObject.type === this.npcs[0].type){
                 //mensaje informativo
@@ -199,8 +207,9 @@ export default class GameScene extends Phaser.Scene {
                     this.changeScene(cuerpo2.gameObject.myScene);
                 }
             }
-        })
 
+            */
+        })
     }
 
 
