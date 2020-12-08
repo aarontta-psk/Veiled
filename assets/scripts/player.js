@@ -94,13 +94,14 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
     setSpawn(posX, posY) {
         this.spawnPoint = [posX, posY];
-        console.log ('it dozunt heurt');
-        //console.log('Spawn set: ' + this.spawnPoint);
+        console.log('Spawn set: ' + this.spawnPoint);
     }
 
     die()
     {
         this.setPosition(this.spawnPoint[0], this.spawnPoint[1]);
         this.setVelocity(0, 0);
+        
+        console.log('Spawn set: ' + this.spawnPoint);
     }
 }
