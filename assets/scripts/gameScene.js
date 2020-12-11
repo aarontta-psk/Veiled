@@ -89,7 +89,7 @@ export default class GameScene extends Phaser.Scene {
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
 
         // Creacion de items a partir del atlas
-        let item = {};
+        let item = undefined;
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
 
@@ -152,10 +152,12 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.player.cursorsPlayer.interact.on('down', event => {
-            this.player.inventory.addObject(item);
-            item.destroy();
-            item = {};
-            console.log(item);
+            if(item !== undefined){
+                this.player.inventory.addObject(item);
+                item.destroy();
+                item = undefined;
+                console.log(item);
+            }
         });
         this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
