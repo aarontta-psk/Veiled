@@ -2,14 +2,12 @@ export default class Boot extends Phaser.Scene {
     constructor() { super({ key: 'boot' }) };
 
     preload() {
-        // Carga el plugin para las tiles animadas
-        this.load.scenePlugin('AnimatedTiles', './assets/plugins/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');
-
         this.load.spritesheet('player', './assets/sprites/player.png',
             { frameWidth: 32, frameHeight: 41 });
         this.load.image('background', './assets/sprites/background.jpg');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
+        this.load.image('invBack', './assets/sprites/inventoryBar.png');
 
         // Carga los datos del mapa.
         this.load.tilemapTiledJSON('map', './assets/sprites/tilesets/testTilemap.json');

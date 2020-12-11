@@ -3,10 +3,11 @@ import Player from './player.js';
 import Item from './item.js';
 //import Npc from './npc.js';
 import Trigger from './trigger.js';
+import GUI from './gui.js'
 
 export default class GameScene extends Phaser.Scene {
     constructor() { super({ key: 'gameScene' }) };
-    
+
     preload() {
         // Carga el plugin para las tiles animadas
         this.load.scenePlugin('AnimatedTiles', './assets/plugins/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');
