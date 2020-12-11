@@ -6,25 +6,10 @@ import Trigger from './trigger.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor() { super({ key: 'gameScene' }) };
-
+    
     preload() {
         // Carga el plugin para las tiles animadas
         this.load.scenePlugin('AnimatedTiles', './assets/plugins/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');
-
-        this.load.spritesheet('player', './assets/sprites/player.png',
-            { frameWidth: 32, frameHeight: 41 });
-        this.load.image('background', './assets/sprites/background.jpg');
-        this.load.image('vision', './assets/sprites/black_circle.png');
-        this.load.image('blindfold', './assets/sprites/black_background.png');
-
-        // Carga los datos del mapa.
-        this.load.tilemapTiledJSON('map', './assets/sprites/tilesets/testTilemap.json');
-
-        // Carga el tileset que contiene las texturas del mapa.
-        this.load.image('tiles', './assets/sprites/tilesets/dungeonTileset.png');
-
-        // Carga los items incluidos en la escena        
-        this.load.atlas('items', 'assets/sprites/items.png?', 'assets/sprites/atlas/items.json');
     }
 
     create() {
@@ -89,7 +74,7 @@ export default class GameScene extends Phaser.Scene {
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
 
         // Creacion de items a partir del atlas
-        let item = undefined;
+        let item = undefined; //undefined para la comprobacion del evento de interaccion
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
 
