@@ -264,19 +264,9 @@ export default class GameScene extends Phaser.Scene {
 
     //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
     resetInputs() {
-        // this.player.cursorsPlayer.interact.reset();
-        // esto no funciona porque las keys no estan en un array
-        // for(const property of this.player.cursorsPlayer){
-        //     property.reset();
-        // }
-        //hasta que vea como hacerlo lo hago uno por uno
-        this.player.cursorsPlayer.up.reset();
-        this.player.cursorsPlayer.down.reset();
-        this.player.cursorsPlayer.left.reset();
-        this.player.cursorsPlayer.right.reset();
-        this.player.cursorsPlayer.interact.reset();
-        this.player.cursorsPlayer.blindfold.reset();
-        this.player.cursorsPlayer.testing.reset();
+        for(const property in this.player.cursorsPlayer){
+            this.player.cursorsPlayer[property].reset();
+        }
     }
 
     //metodo para cambiar de escena pasando informacion y sin detener la escena actual
