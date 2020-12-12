@@ -8,6 +8,8 @@ export default class Boot extends Phaser.Scene {
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
         this.load.image('invBack', './assets/sprites/inventoryBar.png');
+        this.load.image('pauseMenu', './assets/sprites/pauseMenu.png');
+
 
         // Carga los datos del mapa.
         this.load.tilemapTiledJSON('map', './assets/sprites/tilesets/testTilemap.json');

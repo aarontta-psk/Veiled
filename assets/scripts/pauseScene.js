@@ -7,10 +7,6 @@ export default class pauseScene extends Phaser.Scene{
         super({ key: 'pauseScene' });
     }
 
-    preload(){
-        this.load.image('pauseMenu', './assets/sprites/pauseMenu.png');
-    }
-
     create(){
         this.add.image(0,0, 'pauseMenu').setOrigin(0);
         this.add.text(this.cameras.main.centerX - 120, this.cameras.main.centerY - 150, 'MENU DE PAUSA').setScale(2).setOrigin(0);
