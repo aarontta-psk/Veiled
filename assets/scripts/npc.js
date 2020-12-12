@@ -17,13 +17,13 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         this.npcEvent = npcEvent;
 
         this.path = path;   //array de puntos del recorrido tres valores: x, y, t(el tiempo de pausa cuando se llega al punto)
-        const px = path.x;
-        const py = path.y;
-        const pathPause = path.pause;
+        this.px = path.x;
+        this.py = path.y;
+        this.pathPause = path.pause;
         this.nextPathPoint = 0;    //el indice del array de puntos del recorrido al que nos dirigimos siguiente
 
         this.state = 'moving';   //still, moving
-        this.dest = {x: px[this.nextPathPoint], y: py[this.nextPathPoint]};
+        this.dest = {x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint]};
     }
 
     preUpdate(time, delta) {
@@ -50,7 +50,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         {
             this.state = 'still';
             this.setVelocity(0, 0);
-            var timer = this.scene.time.delayedCall(pathPause[this.nextPathPoint], this.nextPath(), this);
+            var timer = this.scene.time.delayedCall(this.pathPause[this.nextPathPoint], this.nextPath(), this);
         }
 
         //Reproducimos la animación que corresponda
@@ -63,7 +63,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         this.nextPathPoint++;
         if (this.nextPathPoint === this.path.length)
             this.nextPathPoint = 0;
-        this.dest = {'x': px[this.nextPathPoint], 'y': py[this.nextPathPoint]};
+        this.dest = {x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint]};
         this.state = 'moving';
     }
 
