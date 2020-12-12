@@ -76,9 +76,13 @@ export default class GameScene extends Phaser.Scene {
         this.npcs = [
             //paso el sprite del player porque de momento no tenemos otro
             this.testNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 20,
-                this.spawnpoint.y + 200, this.scene.get('testEvent')),
-            this.anotherTestNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 80,
-                this.spawnpoint.y + 400, this.scene.get('anotherTestEvent'))
+                this.spawnpoint.y + 200, this.scene.get('testEvent'), 
+                {
+                    //path
+                    'x': [1200, 1300, 1100],
+                    'y': [1200, 1300, 1100],
+                    'pause': [1000, 1000, 1000]
+                }),
         ];
         
         

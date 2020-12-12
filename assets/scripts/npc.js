@@ -17,23 +17,70 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         this.myScene = myScene;
 
         this.path = path;   //array de puntos del recorrido tres valores: x, y, t(el tiempo de pausa cuando se llega al punto)
+
+        this.px = path.x;
+        this.py = path.y;
+        this.pathPause = path.pause;
+        console.log(this.pathPause);
         this.nextPathPoint = 0;    //el indice del array de puntos del recorrido al que nos dirigimos siguiente
 
-        this.state = 'still';   //still, moving
-        this.stopTimer = scene.time.addEvent(timer);     //contador de tiempo cuando se para
+        this.speed = 1.5;
+        this.state = 'moving';   //still, moving
+        this.dest = {x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint]};
     }
 
     preUpdate(time, delta) {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
+        if (this.state = 'moving')
+        {
+            this.move();
+        }
+    }
 
-        //Calculamos la velocidad
-        let [velX, velY] = this.calculateVelocity();
+    move()
+    {
+        let [velX, velY] = [0, 0];
 
-        //Aplicamos la velocidad al cuerpo
-        this.setVelocity(velX, velY);
+
+        console.log('NPC state: ' + this.state + ', speed: ' + velX + ', ' + velY + '\nDestination: '+ this.dest.x + 
+        ', ' + this.dest.y + '\nDistance to destination: ' + 
+        Phaser.Math.Distance.Between(this.x, this.dest.x, this.y, this.dest.y));
+
+        
+
+        if (Phaser.Math.Distance.Between(this.x, this.dest.x, this.y, this.dest.y) > 1)
+        {
+            //Calculamos la velocidad
+            [velX, velY] = this.calculateVelocity();
+
+            //Aplicamos la velocidad al cuerpo
+            this.setVelocity(velX*this.speed, velY*this.speed);
+        }
+        else
+        {
+            this.state = 'still';
+            this.setVelocity(0, 0);
+            console.log(this.nextPathPoint);
+            var timer = this.scene.time.delayedCall(this.pathPause[this.nextPathPoint], this.nextPath(), this);
+        }
 
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
+        
+    }
+
+    nextPath()
+    {
+        this.nextPathPoint++;
+        if (this.nextPathPoint >= this.px.length)
+            this.nextPathPoint = 0;
+        this.dest.x = this.px[this.nextPathPoint];
+        this.dest.y = this.py[this.nextPathPoint];
+        this.state = 'moving';
+
+
+        let [velX, velY] = this.calculateVelocity();
+        this.setVelocity(velX, velY);
     }
 
     //Calculo de velocidad con respecto a camino definido
