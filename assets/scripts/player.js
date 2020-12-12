@@ -22,6 +22,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.sanity = 100; //cordura
 
         this.decay = 0.2; //velocidad base a la que pierde la cordura
+        
+        this.sanityLogThreshold = 20; //umbral a partir del cual aplicamos la pérdida logarítmica
 
         this.inventory = new Inventory();
 
@@ -56,7 +58,11 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         //Ajustamos la cordura
         if (!this.scene.blindfold.blind)
         {
+            if (this.sanity > this.sanityLogThreshold)
                 this.sanity -= this.decay;
+            else
+                //Esta fórmula hace que la función sea derivable y el decay nunca baje por debajo del 10% del valor inicial
+                this.sanity -= (this.decay*this.sanity/this.sanityLogThreshold)*0.9 + this.decay*0.1;
         }
         if (this.sanity < 0.1)
             this.die();
