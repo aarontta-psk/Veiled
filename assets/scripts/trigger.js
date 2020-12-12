@@ -15,5 +15,6 @@ export default class Trigger extends Phaser.Physics.Matter.Sprite {
         this.setSensor(true);
 
         this.info = [];
+        this.data = [];
     }
 }

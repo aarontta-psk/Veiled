@@ -40,30 +40,31 @@ export default class GameScene extends Phaser.Scene {
             // objeto en Tiled
             if (objeto.name === 'spawnPoint') {
                 this.spawnpoint = objeto;
-                this.player = new Player(this.matter.world, objeto.x, objeto.y);
+                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto);
             }
             else if (objeto.name === 'newSect') {
                 let trigger = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
                 trigger.info = [objeto.properties[0].value, objeto.properties[1].value,
                 objeto.properties[2].value, objeto.properties[3].value];
+                trigger.data = trigger.info;
                 this.triggersToSect.push(trigger);
             }
         }
 
-        
+
         this.gui = new GUI(this, 0, 0, this.player);
 
         for (const objeto of this.triggersToSect) {
-            objeto.info2 = [this.spawnpoint .properties[0].value, this.spawnpoint.properties[1].value,
+            objeto.info2 = [this.spawnpoint.properties[0].value, this.spawnpoint.properties[1].value,
             this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
         }
-        
+
 
         // Añado un npc de prueba en un array
         this.npcs = [
             //paso el sprite del player porque de momento no tenemos otro
             this.testNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 20,
-                this.spawnpoint.y + 200, this.scene.get('testEvent'), 
+                this.spawnpoint.y + 200, this.scene.get('testEvent'),
                 {
                     //path
                     'x': [0, 1],
@@ -104,7 +105,7 @@ export default class GameScene extends Phaser.Scene {
         this.animatedTiles.init(this.map);
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
-    
+
         const height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
             width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
@@ -146,7 +147,7 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.player.cursorsPlayer.interact.on('down', event => {
-            if(item !== undefined){
+            if (item !== undefined) {
                 this.player.inventory.addObject(item);
                 this.gui.updateInventory();
                 item.destroy();
@@ -159,19 +160,15 @@ export default class GameScene extends Phaser.Scene {
         });
         this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
-        this.player.cursorsPlayer.die.on('down', event => {
-            this.player.die();
-        });
-
         this.player.cursorsPlayer.startTimer.on('down', event => {
             console.log('Timer started')
-        var timer = this.time.delayedCall(2000, this.player.onTimer(), this.player)
-        /*var timer = this.time.addEvent({
-            delay: 50000,
-            callback: this.player.onTimer(),
-            //callbackScope: thisArg,
-            loop: true
-        });*/
+            var timer = this.time.delayedCall(2000, this.player.onTimer(), this.player)
+            /*var timer = this.time.addEvent({
+                delay: 50000,
+                callback: this.player.onTimer(),
+                //callbackScope: thisArg,
+                loop: true
+            });*/
         });
 
         this.player.cursorsPlayer.pause.on('down', event => {
@@ -239,7 +236,7 @@ export default class GameScene extends Phaser.Scene {
 
         if (visionX !== playerX || visionY !== playerY) {
             this.blindfold.setVision(this.vision, playerX, playerY);
-        }    
+        }
     }
 
     //transicion a nueva seccion
@@ -247,9 +244,9 @@ export default class GameScene extends Phaser.Scene {
         const bounds = this.cameras.main.getBounds();
         if (this.hasChangedSection([this.player.x, this.player.y], bounds)) {
             this.cameras.main.removeBounds();
-            const [height, y, width, x] = trigger.info;
+            const [height, y, width, x] = trigger.data;
             this.cameras.main.setBounds(x, y, width, height);
-            trigger.info = [bounds.height, bounds.y, bounds.width, bounds.x]
+            trigger.data = [bounds.height, bounds.y, bounds.width, bounds.x]
         }
     }
 
@@ -257,14 +254,9 @@ export default class GameScene extends Phaser.Scene {
         return !(x > bounds.x && x < (bounds.x + bounds.width) && y > bounds.y && y < (bounds.y + bounds.height))
     }
 
-    //respawn basico (falta la implementacion de varias funcionalidades)
-    respawn() {
-        this.player.setPosition(this.spawnpoint.x, this.spawnpoint.y);
-    }
-
     //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
     resetInputs() {
-        for(const property in this.player.cursorsPlayer){
+        for (const property in this.player.cursorsPlayer) {
             this.player.cursorsPlayer[property].reset();
         }
     }
@@ -278,5 +270,10 @@ export default class GameScene extends Phaser.Scene {
         this.scene.run(newScene, this.infoNextScene);
         //evito que se queden pillado el input al cambiar de escena
         this.resetInputs();
+    }
+
+    readjustTriggers() {
+        for (const trigger of this.triggersToSect)
+            trigger.data = trigger.info;
     }
 }

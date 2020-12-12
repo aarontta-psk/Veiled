@@ -9,7 +9,7 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 
 		this.rt.draw(this);
 		this.rt.alpha = 0.8;
-		
+
 		this.blind = true;
 	}
 
@@ -24,29 +24,24 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 		}
 	}
 
+	setVision(visionZone, playerX, playerY) {
+		//si la camara se está moviendo en ambos ejes,
+		if (this.prevWorldX !== Math.round(this.scene.cameras.main.worldView.x) ||
+			this.prevWorldY !== Math.round(this.scene.cameras.main.worldView.y)) {
 
+			this.prevWorldX = Math.round(this.scene.cameras.main.worldView.x);
+			this.prevWorldY = Math.round(this.scene.cameras.main.worldView.y);
 
-		
-		setVision(visionZone, playerX, playerY) {
-			//si la camara se está moviendo en ambos ejes,
-			if(this.prevWorldX !== Math.round(this.scene.cameras.main.worldView.x) ||
-				this.prevWorldY !== Math.round(this.scene.cameras.main.worldView.y)){
+			const [PosRtX, PosRtY] = [this.scene.cameras.main.worldView.x, this.scene.cameras.main.worldView.y];
+			this.rt.setPosition(PosRtX, PosRtY - 200);
+		}
+		//si no se mueve
+		if (this.prevWorldX === Math.round(this.scene.cameras.main.worldView.x) &&
+			this.prevWorldY === Math.round(this.scene.cameras.main.worldView.y)) {
+			this.rt.clear();
 
-				this.prevWorldX = Math.round(this.scene.cameras.main.worldView.x);
-				this.prevWorldY = Math.round(this.scene.cameras.main.worldView.y);
-
-				const [PosRtX, PosRtY] = [this.scene.cameras.main.worldView.x, this.scene.cameras.main.worldView.y];
-				this.rt.setPosition(PosRtX,PosRtY - 200);
-			}
-			//si no se mueve
-			if (this.prevWorldX === Math.round(this.scene.cameras.main.worldView.x) &&
-			this.prevWorldY === Math.round(this.scene.cameras.main.worldView.y)){
-				this.rt.clear();
-
-				console.log("son iguales")
-				this.rt.draw(this);
-				this.rt.erase(visionZone, playerX-this.scene.cameras.main.worldView.x, playerY-this.scene.cameras.main.worldView.y + 200);
-
-			}
+			this.rt.draw(this);
+			this.rt.erase(visionZone, playerX - this.scene.cameras.main.worldView.x, playerY - this.scene.cameras.main.worldView.y + 200);
+		}
 	}
 }

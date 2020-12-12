@@ -1,7 +1,7 @@
 import Inventory from './inventory.js';
 
 export default class Player extends Phaser.Physics.Matter.Sprite {
-    constructor(world, x, y) {
+    constructor(world, x, y, spawnPoint) {
         super(world, x, y, 'player'); //llama a la constructora de Sprite
         this.setScale(0.8, 0.8); //reducimos la escala del sprite
 
@@ -22,12 +22,15 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.sanity = 100; //cordura
 
         this.decay = 0.2; //velocidad base a la que pierde la cordura
-        
+
         this.sanityLogThreshold = 20; //umbral a partir del cual aplicamos la pérdida logarítmica
 
         this.inventory = new Inventory();
 
-        this.spawnPoint = [0, 0];
+        this.spawnPoint = { x: x, y: y };
+
+        this.spawnBounds = [spawnPoint.properties[3].value, spawnPoint.properties[1].value,
+                spawnPoint.properties[2].value, spawnPoint.properties[0].value]
 
         this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas de direccion
             up: Phaser.Input.Keyboard.KeyCodes.W,
@@ -38,7 +41,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             invToggle: Phaser.Input.Keyboard.KeyCodes.Q,
             blindfold: Phaser.Input.Keyboard.KeyCodes.SPACE,
 
-            die: Phaser.Input.Keyboard.KeyCodes.L,
             startTimer: Phaser.Input.Keyboard.KeyCodes.O,
             testing: Phaser.Input.Keyboard.KeyCodes.CTRL,
             pause: Phaser.Input.Keyboard.KeyCodes.ESC
@@ -58,18 +60,15 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.changeAnims(velX, velY);
 
         //Ajustamos la cordura
-        if (!this.scene.blindfold.blind)
-        {
+        if (!this.scene.blindfold.blind) {
             if (this.sanity > this.sanityLogThreshold)
                 this.sanity -= this.decay;
             else
                 //Esta fórmula hace que la función sea derivable y el decay nunca baje por debajo del 10% del valor inicial
-                this.sanity -= (this.decay*this.sanity/this.sanityLogThreshold)*0.9 + this.decay*0.1;
+                this.sanity -= (this.decay * this.sanity / this.sanityLogThreshold) * 0.9 + this.decay * 0.1;
         }
         if (this.sanity < 0.1)
             this.die();
-
-        //console.log('sanity:' + this.sanity);
     }
 
     //Calculo de velocidad con respecto a input
@@ -114,22 +113,17 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             this.anims.play('right_move', true);
     }
 
-    setSpawn(posX, posY) {
-        this.spawnPoint = [posX, posY];
-        console.log('Spawn set: ' + this.spawnPoint);
-    }
-
-    die()
-    {
-        this.setPosition(this.spawnPoint[0], this.spawnPoint[1]);
+    die() {
+        this.setPosition(this.spawnPoint.x, this.spawnPoint.y);
         this.setVelocity(0, 0);
-        
+
+        this.scene.readjustTriggers();
+        this.scene.cameras.main.setBounds(this.spawnBounds[0], this.spawnBounds[1], this.spawnBounds[2], this.spawnBounds[3])
+
         this.sanity = this.sanityLogThreshold;
-        console.log('Respawned at: ' + this.spawnPoint);
     }
 
-    onTimer()
-    {
+    onTimer() {
         console.log('DING DING DING');
     }
 
