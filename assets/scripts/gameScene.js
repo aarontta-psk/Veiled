@@ -276,4 +276,9 @@ export default class GameScene extends Phaser.Scene {
         for (const trigger of this.triggersToSect)
             trigger.data = trigger.info;
     }
+
+    deathBlindfold() {
+        this.blindfold.setBlindfold();
+        this.blindfold.setVision(this.vision, this.player.x, this.player.y);
+    }
 }

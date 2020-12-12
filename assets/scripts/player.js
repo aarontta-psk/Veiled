@@ -30,7 +30,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.spawnPoint = { x: x, y: y };
 
         this.spawnBounds = [spawnPoint.properties[3].value, spawnPoint.properties[1].value,
-                spawnPoint.properties[2].value, spawnPoint.properties[0].value]
+        spawnPoint.properties[2].value, spawnPoint.properties[0].value]
 
         this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas de direccion
             up: Phaser.Input.Keyboard.KeyCodes.W,
@@ -118,7 +118,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.setVelocity(0, 0);
 
         this.scene.readjustTriggers();
-        this.scene.cameras.main.setBounds(this.spawnBounds[0], this.spawnBounds[1], this.spawnBounds[2], this.spawnBounds[3])
+        this.scene.cameras.main.setBounds(this.spawnBounds[0], this.spawnBounds[1], this.spawnBounds[2], this.spawnBounds[3]);
+        this.scene.deathBlindfold();
 
         this.sanity = this.sanityLogThreshold;
     }
