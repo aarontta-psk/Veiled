@@ -57,7 +57,7 @@ export default class GameScene extends Phaser.Scene {
             objeto.info2 = [this.spawnpoint .properties[0].value, this.spawnpoint.properties[1].value,
             this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
         }
-        
+
 
         // Añado un npc de prueba en un array
         this.npcs = [
@@ -66,9 +66,9 @@ export default class GameScene extends Phaser.Scene {
                 this.spawnpoint.y + 200, this.scene.get('testEvent'), 
                 {
                     //path
-                    'x': [0, 1],
-                    'y': [0, 1],
-                    'pause': [1, 1]
+                    'x': [0, 1, 10],
+                    'y': [0, 1, 20],
+                    'pause': [1000, 1000, 1000]
                 }),
         ];
 
