@@ -155,6 +155,10 @@ export default class GameScene extends Phaser.Scene {
             this.player.setSpawn(this.player.x, this.player.y);
         });
 
+        this.player.cursorsPlayer.pause.on('down', event => {
+            this.changeScene('pauseScene');
+        });
+
         // Colision de las paredes 
         this.walls.setCollisionByProperty({ obstacle: true });
         this.matter.world.convertTilemapLayer(this.walls);

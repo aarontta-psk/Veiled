@@ -33,7 +33,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
             die: Phaser.Input.Keyboard.KeyCodes.L,
             setRespawn: Phaser.Input.Keyboard.KeyCodes.O,
-            testing: Phaser.Input.Keyboard.KeyCodes.CTRL
+            testing: Phaser.Input.Keyboard.KeyCodes.CTRL,
+            pause: Phaser.Input.Keyboard.KeyCodes.ESC
         });
     }
 
