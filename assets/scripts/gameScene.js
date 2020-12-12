@@ -68,7 +68,6 @@ export default class GameScene extends Phaser.Scene {
             objeto.info2 = [this.spawnpoint .properties[0].value, this.spawnpoint.properties[1].value,
             this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
         }
-/*
 
 
 
@@ -85,8 +84,6 @@ export default class GameScene extends Phaser.Scene {
                 }),
         ];
         
-        
-        */
 
         //console.log(this.triggersToSect);
 
