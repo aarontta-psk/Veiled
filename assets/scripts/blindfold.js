@@ -2,16 +2,14 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 	constructor(scene, x, y, visionZone) {
 		super(scene, x, y, 'blindfold'); //llama a la constructora de Sprite
 		this.scene.add.existing(this); //lo añades en la escena
+		this.setScale(3);
 
-		// reveal image
+		this.rt = this.scene.add.renderTexture(x, y, 940, 970);
 		this.setVisible(false);
-		
-		this.rt = this.scene.add.renderTexture(0, 0, 800, 600);
-		this.rt.setScrollFactor(0); //hacemos que la textura haga scroll con la camara
-		this.rt.draw(this, 800 * 0.5, 600 * 0.5);
-		this.rt.alpha = 0.8;
-		this.rt.erase(visionZone);
 
+		this.rt.draw(this);
+		this.rt.alpha = 0.8;
+		
 		this.blind = true;
 	}
 
@@ -26,9 +24,29 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 		}
 	}
 
-	setVision(visionZone) {
-		this.rt.clear();
-		this.rt.draw(this, 800 * 0.5, 600 * 0.5);
-		this.rt.erase(visionZone);
+
+
+		
+		setVision(visionZone, playerX, playerY) {
+			//si la camara se está moviendo en ambos ejes,
+			if(this.prevWorldX !== Math.round(this.scene.cameras.main.worldView.x) ||
+				this.prevWorldY !== Math.round(this.scene.cameras.main.worldView.y)){
+
+				this.prevWorldX = Math.round(this.scene.cameras.main.worldView.x);
+				this.prevWorldY = Math.round(this.scene.cameras.main.worldView.y);
+
+				const [PosRtX, PosRtY] = [this.scene.cameras.main.worldView.x, this.scene.cameras.main.worldView.y];
+				this.rt.setPosition(PosRtX,PosRtY - 200);
+			}
+			//si no se mueve
+			if (this.prevWorldX === Math.round(this.scene.cameras.main.worldView.x) &&
+			this.prevWorldY === Math.round(this.scene.cameras.main.worldView.y)){
+				this.rt.clear();
+
+				console.log("son iguales")
+				this.rt.draw(this);
+				this.rt.erase(visionZone, playerX-this.scene.cameras.main.worldView.x, playerY-this.scene.cameras.main.worldView.y + 200);
+
+			}
 	}
 }

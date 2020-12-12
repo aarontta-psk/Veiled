@@ -95,8 +95,8 @@ export default class GameScene extends Phaser.Scene {
         // Empieza la animación de las tiles en este mapa
         this.animatedTiles.init(this.map);
 
-        this.blindfold = new Blindfold(this, 0, 0, this.vision);
-
+        this.blindfold = new Blindfold(this, 940, 970, this.vision);
+    
         let height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
             width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
@@ -209,9 +209,9 @@ export default class GameScene extends Phaser.Scene {
         const [visionX, visionY] = [this.vision.x, this.vision.y];
 
         if (visionX !== playerX || visionY !== playerY) {
-            this.vision.setPosition(playerX, playerY);
-            this.blindfold.setVision(this.vision);
+            this.blindfold.setVision(this.vision, playerX, playerY);
         }
+
         // const [playerX, playerY] = [this.player.x, this.player.y];
         // let [newVisionX, newVisionY] = [this.vision.x, this.vision.y];
         // if (playerX < this.cameras.main.width / 2 /*|| playerX > this.widthEnd - this.cameras.main.width / 2*/) {
