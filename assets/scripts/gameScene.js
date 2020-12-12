@@ -149,7 +149,7 @@ export default class GameScene extends Phaser.Scene {
                 console.log(item);
             }
         });
-        this.player.cursorsPlayer.inventory.on('down', event => {
+        this.player.cursorsPlayer.invToggle.on('down', event => {
             this.gui.toggleInventory();
         });
         this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
