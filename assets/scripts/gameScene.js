@@ -1,7 +1,7 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
 import Item from './item.js';
-//import Npc from './npc.js';
+import Npc from './npc.js';
 import Trigger from './trigger.js';
 
 export default class GameScene extends Phaser.Scene {
@@ -68,21 +68,25 @@ export default class GameScene extends Phaser.Scene {
             objeto.info2 = [this.spawnpoint .properties[0].value, this.spawnpoint.properties[1].value,
             this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
         }
-/*
 
 
 
-        // // Añado un npc de prueba en un array
+
+        // Añado un npc de prueba en un array
         this.npcs = [
             //paso el sprite del player porque de momento no tenemos otro
             this.testNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 20,
-                this.spawnpoint.y + 200, this.scene.get('testEvent')),
-            this.anotherTestNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 80,
-                this.spawnpoint.y + 400, this.scene.get('anotherTestEvent'))
+                this.spawnpoint.y + 200, this.scene.get('testEvent'), 
+                {
+                    //path
+                    'x': [0, 1],
+                    'y': [0, 1],
+                    'pause': [1, 1]
+                }),
         ];
         
         
-        */
+        
 
         //console.log(this.triggersToSect);
 
@@ -168,8 +172,15 @@ export default class GameScene extends Phaser.Scene {
             this.player.die();
         });
 
-        this.player.cursorsPlayer.setRespawn.on('down', event => {
-            this.player.setSpawn(this.player.x, this.player.y);
+        this.player.cursorsPlayer.startTimer.on('down', event => {
+            console.log('Timer started')
+        var timer = this.time.delayedCall(2000, this.player.onTimer(), this.player)
+        /*var timer = this.time.addEvent({
+            delay: 50000,
+            callback: this.player.onTimer(),
+            //callbackScope: thisArg,
+            loop: true
+        });*/
         });
 
         // Colision de las paredes 

@@ -1,5 +1,5 @@
 export default class Npc extends Phaser.Physics.Matter.Sprite{
-    constructor(key, world, x, y, myScene, path) {
+    constructor(key, world, x, y, npcEvent, path) {
         super(world, x, y, key); //llama a la constructora de Sprite
 
         this.scene.add.existing(this); //lo añades en la escena
@@ -14,40 +14,65 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         this.setStatic(true);
         this.setSensor(true);
         //se guarda una referencia a la escena de evento de este Npc
-        this.myScene = myScene;
+        this.npcEvent = npcEvent;
 
         this.path = path;   //array de puntos del recorrido tres valores: x, y, t(el tiempo de pausa cuando se llega al punto)
+        const px = path.x;
+        const py = path.y;
+        const pathPause = path.pause;
         this.nextPathPoint = 0;    //el indice del array de puntos del recorrido al que nos dirigimos siguiente
 
         this.state = 'still';   //still, moving
-        this.stopTimer = scene.time.addEvent(timer);     //contador de tiempo cuando se para
+        this.dest = {'x': px[this.nextPathPoint], 'y': py[this.nextPathPoint]};
     }
 
     preUpdate(time, delta) {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
-        //Calculamos la velocidad
-        let [velX, velY] = this.calculateVelocity();
+        if (this.state = 'moving')
+        {
+            this.move();
+        }
+    }
 
-        //Aplicamos la velocidad al cuerpo
-        this.setVelocity(velX, velY);
+    move()
+    {
+        let [velX, velY] = [0, 0];
+        if (Phaser.Math.Distance.Between(this.x, this.dest.x, this.y, this.dest.y) > 0.1)
+        {
+            //Calculamos la velocidad
+            [velX, velY] = this.calculateVelocity();
+
+            //Aplicamos la velocidad al cuerpo
+            this.setVelocity(velX, velY);
+        }
+        else
+        {
+            this.state = 'still';
+            this.setVelocity(0, 0);
+            var timer = this.scene.time.delayedCall(pathPause[this.nextPathPoint], this.nextPath(), this);
+        }
 
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
+    }
+
+    nextPath()
+    {
+        this.nextPathPoint++;
+        if (this.nextPathPoint === this.path.length)
+            this.nextPathPoint = 0;
+        this.dest = {'x': px[this.nextPathPoint], 'y': py[this.nextPathPoint]};
+        this.state = 'moving';
     }
 
     //Calculo de velocidad con respecto a camino definido
     calculateVelocity() {
         let [velX, velY] = [0, 0];
 
-        if (this.state === 'moving')
-        {
-            this.stopTimer.Start()
-            
-        }
         //Calculo de dirección al siguiente punto del recorrido
 
-        let [destX, destY] = [path[this.nextPathPoint][0], path[this.nextPathPoint][1]];
+        let [destX, destY] = [this.dest.x, this.dest.y];
 
         //Normalizamos el vector
         if (velX != 0 && velY != 0) {

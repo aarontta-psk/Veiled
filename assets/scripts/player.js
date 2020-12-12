@@ -38,7 +38,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             blindfold: Phaser.Input.Keyboard.KeyCodes.SPACE,
 
             die: Phaser.Input.Keyboard.KeyCodes.L,
-            setRespawn: Phaser.Input.Keyboard.KeyCodes.O,
+            startTimer: Phaser.Input.Keyboard.KeyCodes.O,
             testing: Phaser.Input.Keyboard.KeyCodes.CTRL
         });
     }
@@ -67,7 +67,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         if (this.sanity < 0.1)
             this.die();
 
-        console.log('sanity:' + this.sanity);
+        //console.log('sanity:' + this.sanity);
     }
 
     //Calculo de velocidad con respecto a input
@@ -125,4 +125,10 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.sanity = this.sanityLogThreshold;
         console.log('Respawned at: ' + this.spawnPoint);
     }
+
+    onTimer()
+    {
+        console.log('DING DING DING');
+    }
+
 }
