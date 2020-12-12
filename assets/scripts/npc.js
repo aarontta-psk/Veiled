@@ -11,7 +11,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         });
         this.scene.add.existing(this);
         this.scene.matter.add.sprite(this);
-        this.setStatic(true);
+        this.setStatic(false);
         this.setSensor(true);
         //se guarda una referencia a la escena de evento de este Npc
         this.npcEvent = npcEvent;
@@ -22,8 +22,8 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         const pathPause = path.pause;
         this.nextPathPoint = 0;    //el indice del array de puntos del recorrido al que nos dirigimos siguiente
 
-        this.state = 'still';   //still, moving
-        this.dest = {'x': px[this.nextPathPoint], 'y': py[this.nextPathPoint]};
+        this.state = 'moving';   //still, moving
+        this.dest = {x: px[this.nextPathPoint], y: py[this.nextPathPoint]};
     }
 
     preUpdate(time, delta) {
@@ -55,6 +55,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
 
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
+        console.log('NPC state: ' + this.state + ', speed: ' + velX + ', ' + velY);
     }
 
     nextPath()
@@ -72,13 +73,14 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
 
         //Calculo de dirección al siguiente punto del recorrido
 
-        let [destX, destY] = [this.dest.x, this.dest.y];
+        velX = this.dest.x - this.x;
+        velY = this.dest.y - this.y;
 
         //Normalizamos el vector
-        if (velX != 0 && velY != 0) {
-            velX /= Math.sqrt(2);
-            velY /= Math.sqrt(2)
-        }
+
+        let modulus = Math.sqrt(Math.pow(velX, 2) + Math.pow(velY, 2));
+        velX /= modulus;
+        velY /= modulus;
 
         //devolvemos velocidad
         return [velX, velY];
