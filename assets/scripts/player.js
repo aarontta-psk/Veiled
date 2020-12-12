@@ -19,6 +19,10 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         this.speed = 3; //velocidad
 
+        this.sanity = 100; //cordura
+
+        this.decay = 0.2; //velocidad base a la que pierde la cordura
+
         this.inventory = new Inventory();
 
         this.spawnPoint = [0, 0];
@@ -48,6 +52,16 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
+
+        //Ajustamos la cordura
+        if (!this.scene.blindfold.blind)
+        {
+                this.sanity -= this.decay;
+        }
+        if (this.sanity < 0.1)
+            this.die();
+
+        console.log('sanity:' + this.sanity);
     }
 
     //Calculo de velocidad con respecto a input
@@ -102,6 +116,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.setPosition(this.spawnPoint[0], this.spawnPoint[1]);
         this.setVelocity(0, 0);
         
-        console.log('Spawn set: ' + this.spawnPoint);
+        this.sanity = this.sanityLogThreshold;
+        console.log('Respawned at: ' + this.spawnPoint);
     }
 }
