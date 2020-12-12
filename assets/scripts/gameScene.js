@@ -49,6 +49,9 @@ export default class GameScene extends Phaser.Scene {
                 this.triggersToSect.push(trigger);
             }
         }
+
+        this.gui = new GUI(this, 0, 0, this.player);
+
         /*
         
         
@@ -97,7 +100,7 @@ export default class GameScene extends Phaser.Scene {
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
     
-        let height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
+        const height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
             width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(widthBg, heightBg, width, height);
@@ -140,10 +143,14 @@ export default class GameScene extends Phaser.Scene {
         this.player.cursorsPlayer.interact.on('down', event => {
             if(item !== undefined){
                 this.player.inventory.addObject(item);
+                this.gui.updateInventory();
                 item.destroy();
                 item = undefined;
                 console.log(item);
             }
+        });
+        this.player.cursorsPlayer.inventory.on('down', event => {
+            this.gui.toggleInventory();
         });
         this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
@@ -220,22 +227,7 @@ export default class GameScene extends Phaser.Scene {
 
         if (visionX !== playerX || visionY !== playerY) {
             this.blindfold.setVision(this.vision, playerX, playerY);
-        }
-
-        // const [playerX, playerY] = [this.player.x, this.player.y];
-        // let [newVisionX, newVisionY] = [this.vision.x, this.vision.y];
-        // if (playerX < this.cameras.main.width / 2 /*|| playerX > this.widthEnd - this.cameras.main.width / 2*/) {
-        //     newVisionX = playerX;
-        // }
-        // else newVisionX = 400;
-        // if (playerY < this.cameras.main.height / 2 /*|| playerY > this.heightEnd - this.cameras.main.height / 2*/) {
-        //     newVisionY = playerY;
-        // }
-        // else newVisionX = 300;
-        // if ([newVisionX, newVisionY] !== [this.vision.x, this.vision.y]) {
-        //     this.vision.setPosition(playerX, playerY);
-        //     this.blindfold.setVision(this.vision);
-        // }        
+        }    
     }
 
     //transicion a nueva seccion
@@ -243,7 +235,7 @@ export default class GameScene extends Phaser.Scene {
         const bounds = this.cameras.main.getBounds();
         if (this.hasChangedSection([this.player.x, this.player.y], bounds)) {
             this.cameras.main.removeBounds();
-            let [height, y, width, x] = trigger.info;
+            const [height, y, width, x] = trigger.info;
             this.cameras.main.setBounds(x, y, width, height);
             trigger.info = [bounds.height, bounds.y, bounds.width, bounds.x]
         }
