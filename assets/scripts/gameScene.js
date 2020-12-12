@@ -156,7 +156,13 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.player.cursorsPlayer.pause.on('down', event => {
-            this.changeScene('pauseScene');
+            //guardo la info entre escenas y cambio de escena
+            this.infoNextScene = { player: this.player, prevScene: this };
+
+            this.scene.pause();
+            this.scene.run('pauseScene', this.infoNextScene);
+            //evito que se queden pillado el input al cambiar de escena
+            this.resetInputs();
         });
 
         // Colision de las paredes 
