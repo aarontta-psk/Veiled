@@ -3,6 +3,7 @@ import Player from './player.js';
 import Item from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
+import GUI from './gui.js'
 
 export default class GameScene extends Phaser.Scene {
     constructor() { super({ key: 'gameScene' }) };
@@ -10,21 +11,6 @@ export default class GameScene extends Phaser.Scene {
     preload() {
         // Carga el plugin para las tiles animadas
         this.load.scenePlugin('AnimatedTiles', './assets/plugins/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');
-
-        this.load.spritesheet('player', './assets/sprites/player.png',
-            { frameWidth: 32, frameHeight: 41 });
-        this.load.image('background', './assets/sprites/background.jpg');
-        this.load.image('vision', './assets/sprites/black_circle.png');
-        this.load.image('blindfold', './assets/sprites/black_background.png');
-
-        // Carga los datos del mapa.
-        this.load.tilemapTiledJSON('map', './assets/sprites/tilesets/testTilemap.json');
-
-        // Carga el tileset que contiene las texturas del mapa.
-        this.load.image('tiles', './assets/sprites/tilesets/dungeonTileset.png');
-
-        // Carga los items incluidos en la escena        
-        this.load.atlas('items', 'assets/sprites/items.png?', 'assets/sprites/atlas/items.json');
     }
 
     create() {
@@ -64,13 +50,14 @@ export default class GameScene extends Phaser.Scene {
             }
         }
 
+        
+        this.gui = new GUI(this, 0, 0, this.player);
+
         for (const objeto of this.triggersToSect) {
             objeto.info2 = [this.spawnpoint .properties[0].value, this.spawnpoint.properties[1].value,
             this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
         }
-
-
-
+        
 
         // Añado un npc de prueba en un array
         this.npcs = [
@@ -84,9 +71,7 @@ export default class GameScene extends Phaser.Scene {
                     'pause': [1, 1]
                 }),
         ];
-        
-        
-        
+
 
         //console.log(this.triggersToSect);
 
@@ -98,7 +83,7 @@ export default class GameScene extends Phaser.Scene {
         this.walls2 = this.map.createStaticLayer('walls2', tileset);
 
         // Creacion de items a partir del atlas
-        let item = {};
+        let item = undefined; //undefined para la comprobacion del evento de interaccion
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
 
@@ -118,9 +103,9 @@ export default class GameScene extends Phaser.Scene {
         // Empieza la animación de las tiles en este mapa
         this.animatedTiles.init(this.map);
 
-        this.blindfold = new Blindfold(this, 0, 0, this.vision);
-
-        let height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
+        this.blindfold = new Blindfold(this, 940, 970, this.vision);
+    
+        const height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
             width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(widthBg, heightBg, width, height);
@@ -161,10 +146,16 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.player.cursorsPlayer.interact.on('down', event => {
+            if(item !== undefined){
                 this.player.inventory.addObject(item);
+                this.gui.updateInventory();
                 item.destroy();
-                item = {};
+                item = undefined;
                 console.log(item);
+            }
+        });
+        this.player.cursorsPlayer.invToggle.on('down', event => {
+            this.gui.toggleInventory();
         });
         this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
@@ -181,6 +172,16 @@ export default class GameScene extends Phaser.Scene {
             //callbackScope: thisArg,
             loop: true
         });*/
+        });
+
+        this.player.cursorsPlayer.pause.on('down', event => {
+            //guardo la info entre escenas y cambio de escena
+            this.infoNextScene = { player: this.player, prevScene: this };
+
+            this.scene.pause();
+            this.scene.run('pauseScene', this.infoNextScene);
+            //evito que se queden pillado el input al cambiar de escena
+            this.resetInputs();
         });
 
         // Colision de las paredes 
@@ -203,8 +204,8 @@ export default class GameScene extends Phaser.Scene {
             (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
-                    if(cuerpo2.gameObject === this.coin || cuerpo2.gameObject === this.housekey
-                        || cuerpo2.gameObject === this.potion) item = {}; 
+                    if (cuerpo2.gameObject === this.coin || cuerpo2.gameObject === this.housekey
+                        || cuerpo2.gameObject === this.potion) item = {};
 
                     //buscamos si sale de un trigger de seccion
                     let i = 0;
@@ -237,32 +238,23 @@ export default class GameScene extends Phaser.Scene {
         const [visionX, visionY] = [this.vision.x, this.vision.y];
 
         if (visionX !== playerX || visionY !== playerY) {
-            this.vision.setPosition(playerX, playerY);
-            this.blindfold.setVision(this.vision);
-        }
-        // const [playerX, playerY] = [this.player.x, this.player.y];
-        // let [newVisionX, newVisionY] = [this.vision.x, this.vision.y];
-        // if (playerX < this.cameras.main.width / 2 /*|| playerX > this.widthEnd - this.cameras.main.width / 2*/) {
-        //     newVisionX = playerX;
-        // }
-        // else newVisionX = 400;
-        // if (playerY < this.cameras.main.height / 2 /*|| playerY > this.heightEnd - this.cameras.main.height / 2*/) {
-        //     newVisionY = playerY;
-        // }
-        // else newVisionX = 300;
-        // if ([newVisionX, newVisionY] !== [this.vision.x, this.vision.y]) {
-        //     this.vision.setPosition(playerX, playerY);
-        //     this.blindfold.setVision(this.vision);
-        // }        
+            this.blindfold.setVision(this.vision, playerX, playerY);
+        }    
     }
 
     //transicion a nueva seccion
     newSection(trigger) {
-        this.cameras.main.removeBounds();
-        let [height, y, width, x] = trigger.info;
-        if(trigger.hasPassed) [height, y, width, x] = trigger.info2;
-        this.cameras.main.setBounds(x, y, width, height);
-        trigger.hasPassed = !trigger.hasPassed;
+        const bounds = this.cameras.main.getBounds();
+        if (this.hasChangedSection([this.player.x, this.player.y], bounds)) {
+            this.cameras.main.removeBounds();
+            const [height, y, width, x] = trigger.info;
+            this.cameras.main.setBounds(x, y, width, height);
+            trigger.info = [bounds.height, bounds.y, bounds.width, bounds.x]
+        }
+    }
+
+    hasChangedSection([x, y], bounds) {
+        return !(x > bounds.x && x < (bounds.x + bounds.width) && y > bounds.y && y < (bounds.y + bounds.height))
     }
 
     //respawn basico (falta la implementacion de varias funcionalidades)
@@ -272,19 +264,9 @@ export default class GameScene extends Phaser.Scene {
 
     //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
     resetInputs() {
-        // this.player.cursorsPlayer.interact.reset();
-        // esto no funciona porque las keys no estan en un array
-        // for(const property of this.player.cursorsPlayer){
-        //     property.reset();
-        // }
-        //hasta que vea como hacerlo lo hago uno por uno
-        this.player.cursorsPlayer.up.reset();
-        this.player.cursorsPlayer.down.reset();
-        this.player.cursorsPlayer.left.reset();
-        this.player.cursorsPlayer.right.reset();
-        this.player.cursorsPlayer.interact.reset();
-        this.player.cursorsPlayer.blindfold.reset();
-        this.player.cursorsPlayer.testing.reset();
+        for(const property in this.player.cursorsPlayer){
+            this.player.cursorsPlayer[property].reset();
+        }
     }
 
     //metodo para cambiar de escena pasando informacion y sin detener la escena actual
