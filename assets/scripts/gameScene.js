@@ -234,7 +234,7 @@ export default class GameScene extends Phaser.Scene {
         const [playerX, playerY] = [this.player.x, this.player.y];
         const [visionX, visionY] = [this.vision.x, this.vision.y];
 
-        if (visionX !== playerX || visionY !== playerY) {
+        if ((playerX === this.spawnpoint.x && playerY === this.spawnpoint.y) || (visionX !== playerX || visionY !== playerY)) {
             this.blindfold.setVision(this.vision, playerX, playerY);
         }
     }
