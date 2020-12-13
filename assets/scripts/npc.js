@@ -38,7 +38,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
     move()
     {
         let [velX, velY] = [0, 0];
-        if (Phaser.Math.Distance.Between(this.x, this.dest.x, this.y, this.dest.y) > 3)
+        if (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y) > 3)
         {
             //Calculamos la velocidad
             [velX, velY] = this.calculateVelocity();
@@ -55,17 +55,20 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
 
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
+
+
         console.log('NPC state: ' + this.state + 
         '\nSpeed: ' + velX + ', ' + velY + 
         '\nDestination(' + this.nextPathPoint + '): ' + this.dest.x + ', ' + this.dest.y +
-        '\nPosition: ' + this.x + ', ' + this.y);
+        '\nPosition: ' + this.x + ', ' + this.y + 
+        '\nDistance to destination: ' + (Phaser.Math.Distance.Between(this.x, this.dest.x, this.y, this.dest.y)));
+        
     }
 
     nextPath()
     {
         this.nextPathPoint++;
-        if (this.nextPathPoint >= this.px.length)
-            this.nextPathPoint = 0;
+        this.nextPathPoint%= this.px.length;
         this.dest = {x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint]};
         this.state = 'moving';
     }
