@@ -93,17 +93,32 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
 
     //cambio de animacion con respecto a la velocidad
     changeAnims(velX, velY) {
-        if (velX === 0) {
-            if (velY === 0)
+            if (velX === 0){
+                if (velY=== 0)
                 this.anims.play('idle', true);
             else if (velY < 0)
                 this.anims.play('up_move', true);
             else
                 this.anims.play('down_move', true);
-        }
-        else if (velX < 0)
-            this.anims.play('left_move', true);
-        else
-            this.anims.play('right_move', true);
+            }
+                else if (velX < 0)
+                {
+                    if (velY > -velX)
+                    this.anims.play('down_move', true);
+                    else if (velY < velX)
+                    this.anims.play('up_move', true);
+                    else
+                    this.anims.play('left_move', true);
+                }
+                else
+                {
+                    if (velY > velX)
+                    this.anims.play('down_move', true);
+                    else if (velY < -velX)
+                    this.anims.play('up_move', true);
+                    else
+                    this.anims.play('right_move', true);
+                }
+        
     }
 }
