@@ -67,8 +67,8 @@ export default class GameScene extends Phaser.Scene {
                 this.spawnpoint.y + 200, this.scene.get('testEvent'),
                 {
                     //path
-                    'x': [1300, 1200, 1400],
-                    'y': [1300, 1200, 1400],
+                    'x': [1500, 1200, 1400],
+                    'y': [1500, 1400, 1200],
                     'pause': [1000, 1000, 1000]
                 }),
         ];
