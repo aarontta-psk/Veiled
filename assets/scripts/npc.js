@@ -2,17 +2,19 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
     constructor(key, world, x, y, npcEvent, path) {
         super(world, x, y, key); //llama a la constructora de Sprite
 
+        this.setScale(0.8);
         this.scene.add.existing(this); //lo añades en la escena
 
         this.setBody({
             type: 'rectangle',
-            width: 45,
-            height:45         
+            width: 60,
+            height:60         
         });
         this.scene.add.existing(this);
         this.scene.matter.add.sprite(this);
         this.setStatic(false);
         this.setSensor(true);
+
         //se guarda una referencia a la escena de evento de este Npc
         this.npcEvent = npcEvent;
 
@@ -31,11 +33,11 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
 
         if (this.state === 'moving')
         {
-            this.move();
+            this.move(delta);
         }
     }
 
-    move()
+    move(delta)
     {
         let [velX, velY] = [0, 0];
 
@@ -45,7 +47,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
             [velX, velY] = this.calculateVelocity();
 
             //Aplicamos la velocidad al cuerpo
-            this.setVelocity(velX, velY);
+            this.setVelocity(velX * delta, velY * delta);
         }
         else
         {
