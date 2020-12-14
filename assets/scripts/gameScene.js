@@ -212,20 +212,16 @@ export default class GameScene extends Phaser.Scene {
                 }
             });
 
-        this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
-            /*
-            
+        this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {    
             if (cuerpo1.gameObject === this.player &&
                 cuerpo2.gameObject.type === this.npcs[0].type){
                 //mensaje informativo
                 console.log("overlapping a npc");
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
-                if(this.player.cursorsPlayer.interact.isDown){
-                    this.changeScene(cuerpo2.gameObject.myScene);
+                if(this.player.cursorsPlayer.talk.isDown){
+                    this.changeScene(cuerpo2.gameObject.npcEvent);
                 }
             }
-
-            */
         })
     }
 

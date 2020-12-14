@@ -36,7 +36,6 @@ class eventScene extends Phaser.Scene {
         //llamo al metodo que muestra las opcioens
         this.layout(this.content, group);
     }
-
 }
 
 export class testEvent extends eventScene {
