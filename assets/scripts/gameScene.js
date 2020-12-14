@@ -202,7 +202,7 @@ export default class GameScene extends Phaser.Scene {
                 if (cuerpo1.gameObject === this.player) {
                     //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
                     if (cuerpo2.gameObject === this.coin || cuerpo2.gameObject === this.housekey
-                        || cuerpo2.gameObject === this.potion) item = {};
+                        || cuerpo2.gameObject === this.potion) item = undefined;
 
                     //buscamos si sale de un trigger de seccion
                     let i = 0;
@@ -218,7 +218,7 @@ export default class GameScene extends Phaser.Scene {
                 //mensaje informativo
                 console.log("overlapping a npc");
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
-                if(this.player.cursorsPlayer.talk.isDown){
+                if(this.player.cursorsPlayer.interact.isDown){
                     this.changeScene(cuerpo2.gameObject.npcEvent);
                 }
             }
