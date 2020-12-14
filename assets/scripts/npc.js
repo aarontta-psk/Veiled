@@ -29,7 +29,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
     preUpdate(time, delta) {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
-        if (this.state = 'moving')
+        if (this.state === 'moving')
         {
             this.move();
         }
@@ -51,23 +51,23 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         {
             this.state = 'still';
             this.setVelocity(0, 0);
-            var timer = this.scene.time.delayedCall(this.pathPause[this.nextPathPoint], this.nextPath(), this);
+            var timer = this.scene.time.delayedCall(this.pathPause[this.nextPathPoint], this.nextPath, [], this);
         }
 
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
         
-        console.log('NPC state: ' + this.state + 
+        /*console.log('NPC state: ' + this.state + 
         '\nSpeed: ' + velX + ', ' + velY + 
         '\nDestination(' + this.nextPathPoint + '): ' + this.dest.x + ', ' + this.dest.y +
         '\nPosition: ' + this.x + ', ' + this.y + 
-        '\nDistance to destination: ' + (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y)));
+        '\nDistance to destination: ' + (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y)));*/
     }
 
     nextPath()
     {
         this.nextPathPoint++;
-        this.nextPathPoint%= this.px.length;
+        this.nextPathPoint%= this.path.x.length;
         this.dest = {x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint]};
         this.state = 'moving';
     }
