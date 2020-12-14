@@ -9,18 +9,18 @@ class eventScene extends Phaser.Scene {
         //antes de mostrar las opciones, borro las anteriores
         group.removeAll(true);
         //para cada opcion
-        for (const o of options) {
+        for (const actOptions of options) {
             console.log(options);
             //añado un texto
-            const t = this.add.text(50, distancia, o.text).setInteractive().setScale(2);
+            const optionText = this.add.text(50, distancia, actOptions.text).setInteractive().setScale(2);
             //lo añado al container para borrarlo mas adelante
-            group.add(t);
+            group.add(optionText);
             distancia += 100;
             //llamo a un callback en caso de que sea pulsado
-            t.on('pointerdown', () => {
-                o.cb();
+            optionText.on('pointerdown', () => {
+                actOptions.cb();
                 //si el evento continua, se llama de nuevo a la funcion
-                if (o.next !== undefined) this.layout(o.next, group);
+                if (actOptions.next !== undefined) this.layout(actOptions.next, group);
                 else {
                     this.scene.stop();
                     this.scene.run(this.info.prevScene.scene.key);
