@@ -54,7 +54,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         let [velX, velY] = this.calculateVelocity();
 
         //Aplicamos la velocidad al cuerpo
-        this.setVelocity(velX, velY);
+        this.setVelocity(velX * delta, velY * delta);
 
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);

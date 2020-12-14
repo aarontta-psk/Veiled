@@ -33,11 +33,11 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
 
         if (this.state === 'moving')
         {
-            this.move();
+            this.move(delta);
         }
     }
 
-    move()
+    move(delta)
     {
         let [velX, velY] = [0, 0];
 
@@ -47,7 +47,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
             [velX, velY] = this.calculateVelocity();
 
             //Aplicamos la velocidad al cuerpo
-            this.setVelocity(velX, velY);
+            this.setVelocity(velX * delta, velY * delta);
         }
         else
         {
