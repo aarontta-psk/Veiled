@@ -31,6 +31,8 @@ class eventScene extends Phaser.Scene {
 
     create() {
         // this.info = this.scene.get('gameScene').info;
+
+        this.completed = false;
         //creo un container que contendra las respuestas
         let group = this.add.container();
         //llamo al metodo que muestra las opcioens

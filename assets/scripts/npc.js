@@ -53,7 +53,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         {
             this.state = 'still';
             this.setVelocity(0, 0);
-            var timer = this.scene.time.delayedCall(this.pathPause[this.nextPathPoint], this.nextPath, [], this);
+            this.scene.time.delayedCall(this.pathPause[this.nextPathPoint], this.nextPath, [], this);
         }
 
         //Reproducimos la animación que corresponda
