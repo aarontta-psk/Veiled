@@ -1,5 +1,5 @@
 export default class Item extends Phaser.Physics.Matter.Sprite {
-    constructor(world, x, y, frame, player, name) {
+    constructor(world, x, y, frame, player) {
         super(world, x, y, 'items', frame);
 
         this.name = name;
@@ -19,20 +19,16 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
             this.doSomething(player);
         });
         this.on('pointerover', () => {
-            console.log("hovering over item, ", name + ": " + this.description);
+            console.log("hovering over item, ", this.name + ": " + this.description);
         });
     }
-
-    // doSomething() {
-    //     this.setScale(2.0, 2.0);
-    // }
-
 }
 
 export class potionItem extends Item{
-    constructor(world, x, y, frame, player, name){
-        super(world, x, y, frame, player, name);
-        this.description = "It recovers sanity"
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player);
+        this.name = "potion";
+        this.description = "It recovers sanity";
     }
 
     doSomething(player) {
