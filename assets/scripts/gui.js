@@ -25,10 +25,13 @@ export default class GUI extends Phaser.GameObjects.Container {
     }
 
     addItem(item){
-        //lo coloco en la interfaz
+        //se coloca en la interfaz
         item.setPosition(65 + (this.inventoryRef.objects.length * 90), 560).setVisible(false).setScrollFactor(0);
-        //lo hago interactuable
+        //se hace interactuable
         item.setInteractive();
         console.log(this.inventoryRef.objects.length, "elems array");
+        //se cierra el inventario para que se muestre correctamente
+        this.isVisible = true;
+        this.toggleInventory();
     }
 }
