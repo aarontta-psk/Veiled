@@ -1,6 +1,6 @@
 export default class Item extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y, frame) {
-        super(world, x, y, 'items', frame)
+        super(world, x, y, 'items', frame);
 
         this.setBody({
             type: 'rectangle',
@@ -14,7 +14,17 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
         this.setSensor(true);
     }
 
-    doSomething() {
-        this.setScale(2.0, 2.0);
-    }
+    // doSomething() {
+    //     this.setScale(2.0, 2.0);
+    // }
+}
+
+// export class potionItem extends Item{
+//     constructor(world, x, y, frame){
+//         super(world, x, y, frame);
+//     }
+
+//     doSomething() {
+//         this.setScale(2.0, 2.0);
+//     }
 }

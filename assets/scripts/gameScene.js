@@ -148,11 +148,12 @@ export default class GameScene extends Phaser.Scene {
 
         this.player.cursorsPlayer.interact.on('down', event => {
             if (item !== undefined) {
+                this.gui.addItem(item);
                 this.player.inventory.addObject(item);
-                this.gui.updateInventory();
-                item.destroy();
+                console.log(item.x,item.y, "item");
                 item = undefined;
                 console.log(item);
+                console.log(this.player.inventory)
             }
         });
         this.player.cursorsPlayer.invToggle.on('down', event => {
@@ -214,7 +215,7 @@ export default class GameScene extends Phaser.Scene {
 
         this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {    
             if (cuerpo1.gameObject === this.player &&
-                cuerpo2.gameObject.type === this.npcs[0].type){
+                cuerpo2.gameObject instanceof Npc){
                 //mensaje informativo
                 console.log("overlapping a npc");
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
@@ -223,6 +224,7 @@ export default class GameScene extends Phaser.Scene {
                 }
             }
         })
+
     }
 
 
