@@ -2,8 +2,6 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y, frame, player) {
         super(world, x, y, 'items', frame);
 
-        this.name = name;
-
         this.setBody({
             type: 'rectangle',
             width: 30,
@@ -16,7 +14,12 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
         this.setSensor(true);
 
         this.on('pointerdown', () => {
+            //se hace su efecto
             this.doSomething(player);
+            //se borra del inventario
+            player.inventory.removeObject(this);
+            //se destruye (y desaparece de GUI)
+            this.destroy();
         });
         this.on('pointerover', () => {
             console.log("hovering over item, ", this.name + ": " + this.description);
