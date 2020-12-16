@@ -1,6 +1,6 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item from './item.js';
+import Item,{potionItem} from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js'
@@ -91,7 +91,7 @@ export default class GameScene extends Phaser.Scene {
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             if (itemPos.name === 'potion') {
-                this.potion = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0]);
+                this.potion = new potionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player, itemPos.name);
             }
             else if (itemPos.name === 'houseKey') {
                 this.housekey = new Item(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1]);
