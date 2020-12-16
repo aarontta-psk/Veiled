@@ -70,6 +70,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         }
         if (this.sanity < 0.1)
             this.die();
+        // console.log("sanity",this.sanity);
     }
 
     //Calculo de velocidad con respecto a input

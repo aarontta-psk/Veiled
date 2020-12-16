@@ -30,8 +30,8 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
 export class potionItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player);
-        this.name = "potion";
-        this.description = "It recovers sanity";
+        this.name = "pocion";
+        this.description = "Recupera cordura";
     }
 
     doSomething(player) {
@@ -40,3 +40,29 @@ export class potionItem extends Item{
         console.log("pocion usada", player.sanity);
     }
 }
+
+export class kaleidoscopeItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player);
+        this.name = "caleidoscopio";
+        this.description = "Reduce el gasto de cordura con la venda quitada";
+    }
+
+    doSomething(player) {
+        //aumento el tiempo que tarda en disminuir la cordura
+        player.decay = 0.05;
+    }
+}
+
+//plantilla
+// export class NAME extends Item{
+//     constructor(world, x, y, frame, player){
+//         super(world, x, y, frame, player);
+//         this.name = "";
+//         this.description = "";
+//     }
+
+//     doSomething(player) {
+
+//     }
+// }
