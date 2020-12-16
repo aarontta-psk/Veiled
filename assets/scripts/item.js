@@ -27,4 +27,4 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
 //     doSomething() {
 //         this.setScale(2.0, 2.0);
 //     }
-}
+// }
