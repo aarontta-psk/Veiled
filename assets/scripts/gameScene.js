@@ -149,8 +149,8 @@ export default class GameScene extends Phaser.Scene {
 
         this.player.cursorsPlayer.interact.on('down', event => {
             if (item !== undefined) {
-                this.gui.addItem(item);
                 this.player.inventory.addObject(item);
+                this.gui.addItem(item);
                 console.log(item.x,item.y, "item");
                 item = undefined;
                 console.log(item);
