@@ -51,7 +51,6 @@ export default class GameScene extends Phaser.Scene {
             }
         }
 
-
         this.gui = new GUI(this, 0, 0, this.player);
 
         for (const objeto of this.triggersToSect) {

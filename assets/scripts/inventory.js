@@ -16,6 +16,6 @@ export default class Inventory {
 
     removeObject(object) {
         //si se encuentra un objeto del mismo tipo, se borra
-        this.objects.splice(this.objects.indexOf(object), 1);
+        this.objects.splice(this.objects.indexOf(object), 1);       
     }
 }

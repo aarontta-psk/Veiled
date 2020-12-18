@@ -22,7 +22,7 @@ export default class GUI extends Phaser.GameObjects.Container {
 
     addItem(item){
         //se coloca en la interfaz
-        item.setPosition(65 + ((this.inventoryRef.objects.length - 1) * 90), 560).setVisible(false).setScrollFactor(0);
+        item.setPosition(65 + ((this.inventoryRef.objects.length - 1) * 90), 560).setScrollFactor(0);
         //se hace interactuable
         item.setInteractive();
         console.log(this.inventoryRef.objects.length, "elems array");
@@ -34,5 +34,10 @@ export default class GUI extends Phaser.GameObjects.Container {
             console.log(item);
             item.setVisible(this.isVisible);
         }
+    }
+
+    relocateInventory(){
+        for (const item of this.inventoryRef.objects) 
+            item.setPosition(65 + ((this.inventoryRef.objects.length - 1) * 90), 560);
     }
 }
