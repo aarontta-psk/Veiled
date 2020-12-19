@@ -16,13 +16,6 @@ export default class GameScene extends Phaser.Scene {
 
     create() {
         this.matter.world.disableGravity();
-        
-        // Cargamos las webfonts que se van a usar
-        WebFont.load({
-            google: {
-                families: [ 'Neucha' ]
-            }
-        });
 
         // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
@@ -238,19 +231,11 @@ export default class GameScene extends Phaser.Scene {
 
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
-
-
-        this.booleanojaja = 0;
     }
 
 
     update(time, delta) {
-        // Contador super feo e ilegal hasta que sepamos hacer pantalla de carga (creemos que es eso)
-        if(this.booleanojaja >= 200){
-            this.gui.updateKeyBinds();
-        }
-        else this.booleanojaja+=delta;
-        console.log(this.booleanojaja);
+
         //actualizacion zona de vision
         const [playerX, playerY] = [this.player.x, this.player.y];
         const [visionX, visionY] = [this.vision.x, this.vision.y];

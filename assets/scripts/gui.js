@@ -8,19 +8,19 @@ export default class GUI extends Phaser.GameObjects.Container {
 
         //Keybinds
         this.keybindQ = this.scene.add.image(773, 95, 'keybindQ').setScrollFactor(0).setScale(0.6);
-        this.keybindQText = this.scene.add.text(665, 85, '', {
+        this.keybindQText = this.scene.add.text(665, 85, 'INVENTORY', {
             fontFamily: 'Neucha',
             color: '#ffffff'
         }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
         this.add(this.keybindQ);
         this.keybindE = this.scene.add.image(773, 135, 'keybindE').setScrollFactor(0).setScale(0.6);
-        this.keybindEText = this.scene.add.text(675, 125, '', {
+        this.keybindEText = this.scene.add.text(675, 125, 'INTERACT', {
             fontFamily: 'Neucha',
             color: '#ffffff'
         }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
         this.add(this.keybindE);
         this.keybindSpace = this.scene.add.image(743, 30, 'keybindSpace').setScrollFactor(0).setScale(0.5);
-        this.keybindSpaceText = this.scene.add.text(699, 50, '', {
+        this.keybindSpaceText = this.scene.add.text(699, 50, 'BLINDFOLD', {
             fontFamily: 'Neucha',
             color: '#ffffff'
         }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
@@ -46,12 +46,6 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.sanityBar = this.scene.add.image(150, 30, 'sanityBar').setScrollFactor(0);
         this.add(this.sanityBar);
         this.sanityTop = 100;
-    }
-
-    updateKeyBinds(){
-        this.keybindEText.setText("INTERACT");
-        this.keybindSpaceText.setText("BLINDFOLD");
-        this.keybindQText.setText("INVENTORY");
     }
 
     //activar/desactivar inventario

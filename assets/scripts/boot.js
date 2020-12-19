@@ -16,7 +16,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('mainMenu', './assets/sprites/ui/main_menu.png')
         this.load.image('mainMenuPlay', './assets/sprites/ui/play_button.png');
         this.load.image('mainMenuOptions', './assets/sprites/ui/settings_button.png');
-        
+
         // Carga de datos de interfaz
         this.load.image('invBack', './assets/sprites/ui/inventory_bar.png');
         this.load.image('sanityBar', './assets/sprites/ui/sanity.png');
@@ -39,7 +39,14 @@ export default class Boot extends Phaser.Scene {
     }
 
     create() {
-        //inicializacion de la escena de juego
+        // Cargamos las webfonts que se van a usar
+        WebFont.load({
+            google: {
+                families: ['Neucha']
+            },
+        });
+
+        // Inicializacion de la escena de juego
         this.scene.start('mainMenuScene');
     }
 }
