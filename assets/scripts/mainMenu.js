@@ -14,8 +14,8 @@ export default class mainMenu extends Phaser.Scene{
         play.on('pointerover', event => {play.setScale(1.2);});
         options.on('pointerover', event => {options.setScale(1.2);});
         //pointerout
-        play.on('pointerout', event => {play.setScale(0.8);});
-        options.on('pointerout', event => {options.setScale(0.8);});
+        play.on('pointerout', event => {play.setScale(1);});
+        options.on('pointerout', event => {options.setScale(1);});
         //pointerdown
         play.on('pointerdown', event => {this.scene.start('gameScene');});
         options.on('pointerdown', event => {console.log('Opciones pulsado. Hay que implementar las opciones')});

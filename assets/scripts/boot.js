@@ -10,7 +10,9 @@ export default class Boot extends Phaser.Scene {
         this.load.image('blindfold', './assets/sprites/black_background.png');
 
         // Carga de datos de menus
-        this.load.image('pauseMenu', './assets/sprites/pauseMenu.png');
+        this.load.image('pauseMenu', './assets/sprites/pauseMenu/pauseMenu.png');
+        this.load.image('pauseMenuResume', './assets/sprites/pauseMenu/pauseMenuResume.png');
+        this.load.image('pauseMenuToMainMenu', './assets/sprites/pauseMenu/pauseMenuToMainMenu.png');
         this.load.image('mainMenu', './assets/sprites/mainMenu/mainMenu.png')
         this.load.image('mainMenuPlay', './assets/sprites/mainMenu/mainMenuPlay.png');
         this.load.image('mainMenuOptions', './assets/sprites/mainMenu/mainMenuOptions.png');
