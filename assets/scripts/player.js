@@ -23,7 +23,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.decay = 0.2; //velocidad base a la que pierde la cordura
         this.sanityLogThreshold = 20; //umbral a partir del cual aplicamos la pérdida logarítmica
 
-        this.inventory = new Inventory();
+        this.inventory = new Inventory(this.scene);
 
         this.spawnPoint = { x: x, y: y };
         this.spawnBounds = [spawnPoint.properties[3].value, spawnPoint.properties[1].value,
@@ -117,9 +117,9 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     }
 
     addSanity(sanityBoost){
-        sanity += sanityBoost;
-        if (sanity>100)
-        sanity = 100;
+        this.sanity += sanityBoost;
+        if (this.sanity>100)
+        this.sanity = 100;
     }
 
     //reaparicion tras muerte
