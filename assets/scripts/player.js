@@ -20,15 +20,12 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.speed = 3; //velocidad
 
         this.sanity = 100; //cordura
-
         this.decay = 0.2; //velocidad base a la que pierde la cordura
-
         this.sanityLogThreshold = 20; //umbral a partir del cual aplicamos la pérdida logarítmica
 
         this.inventory = new Inventory();
 
         this.spawnPoint = { x: x, y: y };
-
         this.spawnBounds = [spawnPoint.properties[3].value, spawnPoint.properties[1].value,
         spawnPoint.properties[2].value, spawnPoint.properties[0].value]
 
@@ -60,17 +57,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
 
-        //Ajustamos la cordura
-        if (!this.scene.blindfold.blind) {
-            if (this.sanity > this.sanityLogThreshold)
-                this.sanity -= this.decay;
-            else
-                //Esta fórmula hace que la función sea derivable y el decay nunca baje por debajo del 10% del valor inicial
-                this.sanity -= (this.decay * this.sanity / this.sanityLogThreshold) * 0.9 + this.decay * 0.1;
-        }
-        if (this.sanity < 0.1)
-            this.die();
-        // console.log("sanity",this.sanity);
+        //Actualizamos cordura
+        this.updateSanity();
     }
 
     //Calculo de velocidad con respecto a input
@@ -115,6 +103,21 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             this.anims.play('right_move', true);
     }
 
+    //actualizacion de la cordura
+    updateSanity() {
+        //Ajustamos la cordura
+        if (!this.scene.blindfold.blind) {
+            if (this.sanity > this.sanityLogThreshold)
+                this.sanity -= this.decay;
+            else
+                //Esta fórmula hace que la función sea derivable y el decay nunca baje por debajo del 10% del valor inicial
+                this.sanity -= (this.decay * this.sanity / this.sanityLogThreshold) * 0.9 + this.decay * 0.1;
+        }
+        if (this.sanity < 0.1)
+            this.die();
+    }
+
+    //reaparicion tras muerte
     die() {
         this.setPosition(this.spawnPoint.x, this.spawnPoint.y);
         this.setVelocity(0, 0);
@@ -125,9 +128,4 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         this.sanity = this.sanityLogThreshold;
     }
-
-    onTimer() {
-        console.log('DING DING DING');
-    }
-
 }

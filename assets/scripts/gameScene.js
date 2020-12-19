@@ -231,12 +231,16 @@ export default class GameScene extends Phaser.Scene {
 
 
     update(time, delta) {
+        //actualizacion zona de vision
         const [playerX, playerY] = [this.player.x, this.player.y];
         const [visionX, visionY] = [this.vision.x, this.vision.y];
 
         if ((playerX === this.spawnpoint.x && playerY === this.spawnpoint.y) || (visionX !== playerX || visionY !== playerY)) {
             this.blindfold.setVision(this.vision, playerX, playerY);
         }
+
+        //actualizacion barra de cordura
+        this.gui.updateSanityBar(this.player.sanity);
     }
 
     //transicion a nueva seccion
