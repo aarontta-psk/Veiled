@@ -18,4 +18,11 @@ export default class Inventory {
         //si se encuentra un objeto del mismo tipo, se borra
         this.objects.splice(this.objects.indexOf(object), 1);       
     }
+
+    contains(name) {
+        let i = 0;
+        while(i < this.objects.length && this.objects[i].name != name) i++;
+
+        return i != this.objects.length;
+    }
 }

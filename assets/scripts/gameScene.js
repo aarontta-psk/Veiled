@@ -14,14 +14,14 @@ export default class GameScene extends Phaser.Scene {
     }
 
     create() {
+        this.matter.world.disableGravity();
+        
         // Cargamos las webfonts que se van a usar
         WebFont.load({
             google: {
                 families: [ 'Neucha' ]
             }
         });
-
-        this.matter.world.disableGravity();
 
         // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
@@ -85,9 +85,6 @@ export default class GameScene extends Phaser.Scene {
                 }),
         ];
 
-
-        //console.log(this.triggersToSect);
-
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
         this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);
@@ -115,7 +112,6 @@ export default class GameScene extends Phaser.Scene {
                 this.coin = new kaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
             }
         }      
-
         //this.animatedTiles.init(this.map);
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
