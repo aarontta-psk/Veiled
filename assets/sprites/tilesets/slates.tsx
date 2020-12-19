@@ -3398,7 +3398,7 @@
  </tile>
  <tile id="673">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="674">
