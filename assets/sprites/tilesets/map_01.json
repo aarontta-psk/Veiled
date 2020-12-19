@@ -10583,7 +10583,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -10592,7 +10592,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -10601,7 +10601,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -10610,7 +10610,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -11104,7 +11104,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -11113,7 +11113,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -11122,7 +11122,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -11131,7 +11131,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -11638,7 +11638,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -11647,7 +11647,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -11656,7 +11656,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -11665,7 +11665,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -12155,7 +12155,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -12164,7 +12164,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -12173,7 +12173,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -12182,7 +12182,7 @@
                         {
                          "name":"obstacle",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {

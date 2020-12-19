@@ -5621,22 +5621,22 @@
  </tile>
  <tile id="1108">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1109">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1110">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1111">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1112">
@@ -5907,22 +5907,22 @@
  </tile>
  <tile id="1164">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1165">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1166">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1167">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1168">
@@ -6198,22 +6198,22 @@
  </tile>
  <tile id="1220">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1221">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1222">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1223">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1224">
@@ -6483,22 +6483,22 @@
  </tile>
  <tile id="1276">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1277">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1278">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1279">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="1280">
