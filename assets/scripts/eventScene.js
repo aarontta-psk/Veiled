@@ -9,23 +9,33 @@ class eventScene extends Phaser.Scene {
         //antes de mostrar las opciones, borro las anteriores
         group.removeAll(true);
         //para cada opcion
-        for (const actOptions of options) {
+        for (const actOption of options) {
             console.log(options);
             //añado un texto
-            const optionText = this.add.text(50, distancia, actOptions.text,{fontFamily: 'Neucha'}).setInteractive().setResolution(2).setScale(2);
+            const optionText = this.add.text(50, distancia, actOption.text,{fontFamily: 'Neucha'}).setInteractive().setResolution(2).setScale(2);
             //lo añado al container para borrarlo mas adelante
             group.add(optionText);
             distancia += 100;
+            
+                
             //llamo a un callback en caso de que sea pulsado
             optionText.on('pointerdown', () => {
-                actOptions.cb();
-                //si el evento continua, se llama de nuevo a la funcion
-                if (actOptions.next !== undefined) this.layout(actOptions.next, group);
-                else {
-                    this.scene.stop();
-                    this.scene.run(this.info.prevScene.scene.key);
+                if (actOption.condition === undefined || (actOption.condition !== undefined && actOption.condition(this)))
+                {   
+                    actOption.cb();
+                    //si el evento continua, se llama de nuevo a la funcion
+                    if (actOption.next !== undefined) this.layout(actOption.next, group);
+                    else {
+                        this.scene.stop();
+                        this.scene.run(this.info.prevScene.scene.key);
+                    }
+                }
+                else
+                {
+                    optionText.setText(actOption.failedText);
                 }
             });
+            
         }
     }
 
@@ -55,6 +65,10 @@ export class testEvent extends eventScene {
         this.backgroundImage = 'background';
         this.content = [
             {
+                condition: function(ref){
+                    return (ref.info.player.inventory.contains('pocion'))
+                },
+                failedText: 'No tienes la llave.',
                 text: 'escribir en consola',
                 cb: () => {
                     console.log('opcion 1 pulsada');
