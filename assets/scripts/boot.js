@@ -11,6 +11,9 @@ export default class Boot extends Phaser.Scene {
 
         // Carga de datos de menus
         this.load.image('pauseMenu', './assets/sprites/pauseMenu.png');
+        this.load.image('mainMenu', './assets/sprites/mainMenu/mainMenu.png')
+        this.load.image('mainMenuPlay', './assets/sprites/mainMenu/mainMenuPlay.png');
+        this.load.image('mainMenuOptions', './assets/sprites/mainMenu/mainMenuOptions.png');
         
         // Carga de datos de interfaz
         this.load.image('invBack', './assets/sprites/ui/inventory_bar.png');
@@ -35,6 +38,6 @@ export default class Boot extends Phaser.Scene {
 
     create() {
         //inicializacion de la escena de juego
-        this.scene.start('gameScene');
+        this.scene.start('mainMenuScene');
     }
 }

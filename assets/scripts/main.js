@@ -2,6 +2,7 @@ import Boot from "./boot.js"
 import GameScene from "./gameScene.js";
 import {testEvent, anotherTestEvent} from "./eventScene.js";
 import PauseScene from "./pauseScene.js";
+import MainMenu from "./mainMenu.js";
 
 new Phaser.Game({
     type: Phaser.AUTO,
@@ -23,5 +24,5 @@ new Phaser.Game({
             }
         }
     },
-    scene: [Boot, GameScene, testEvent, anotherTestEvent, PauseScene], //escenas a cargar
+    scene: [Boot, MainMenu, GameScene, testEvent, anotherTestEvent, PauseScene], //escenas a cargar
 })
