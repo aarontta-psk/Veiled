@@ -12,7 +12,7 @@ class eventScene extends Phaser.Scene {
         for (const actOptions of options) {
             console.log(options);
             //añado un texto
-            const optionText = this.add.text(50, distancia, actOptions.text).setInteractive().setScale(2);
+            const optionText = this.add.text(50, distancia, actOptions.text,{fontFamily: 'Neucha'}).setInteractive().setResolution(2).setScale(2);
             //lo añado al container para borrarlo mas adelante
             group.add(optionText);
             distancia += 100;
@@ -35,7 +35,11 @@ class eventScene extends Phaser.Scene {
         this.completed = false;
 
         //imprimo la imagen de fondo
-        this.add.image(0, 0, this.background).setOrigin(0, 0);
+        this.background = this.add.image(0, 0, this.backgroundImage);
+        this.background.displayHeight = this.sys.game.canvas.height;//game.config.displayHeight;
+        this.background.displayWidth = this.sys.game.canvas.width;//game.config.displayWidth;
+        this.background.setOrigin(0,0);
+        
 
         //creo un container que contendra las respuestas
         let group = this.add.container();
@@ -48,7 +52,7 @@ export class testEvent extends eventScene {
     constructor() {
         super({ key: 'testEvent' });
         //array con los elementos de un evento
-        this.backgroundDirectory = './assets/sprites/city.png';
+        this.backgroundImage = 'background';
         this.content = [
             {
                 text: 'escribir en consola',

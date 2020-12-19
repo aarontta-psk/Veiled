@@ -14,7 +14,7 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
         this.setSensor(true);
 
         this.on('pointerover', () => {
-            console.log("hovering over item, ", this.name + ": " + this.description);
+            this.scene.gui.setInfoText(this.name + ": " + this.description);
         });
 
         if(isUsable){
