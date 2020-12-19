@@ -8,19 +8,19 @@ export default class GUI extends Phaser.GameObjects.Container {
 
         //Keybinds
         this.keybindQ = this.scene.add.image(773, 95, 'keybindQ').setScrollFactor(0).setScale(0.6);
-        this.keybindQText = this.scene.add.text(665,85,'INVENTORY',{
+        this.keybindQText = this.scene.add.text(665, 85, 'INVENTORY', {
             fontFamily: 'Neucha',
             color: '#ffffff'
         }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
         this.add(this.keybindQ);
         this.keybindE = this.scene.add.image(773, 135, 'keybindE').setScrollFactor(0).setScale(0.6);
-        this.keybindQText = this.scene.add.text(675,125,'INTERACT',{
+        this.keybindQText = this.scene.add.text(675, 125, 'INTERACT', {
             fontFamily: 'Neucha',
             color: '#ffffff'
         }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
         this.add(this.keybindE);
         this.keybindSpace = this.scene.add.image(743, 30, 'keybindSpace').setScrollFactor(0).setScale(0.5);
-        this.keybindQText = this.scene.add.text(699,50,'BLINDFOLD',{
+        this.keybindQText = this.scene.add.text(699, 50, 'BLINDFOLD', {
             fontFamily: 'Neucha',
             color: '#ffffff'
         }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
@@ -34,7 +34,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.backgroundInventory.setVisible(this.isVisible);
 
         //Texto del Item seleccionado
-        this.text = this.scene.add.text(30,505,'',{
+        this.text = this.scene.add.text(30, 505, '', {
             fontFamily: 'Neucha',
             color: '#ffffff',
         }).setResolution(2).setScale(1.3).setScrollFactor(0);
@@ -81,15 +81,16 @@ export default class GUI extends Phaser.GameObjects.Container {
             item.setPosition(65 + (i * 90), 560);
             i++;
         }
+        this.text.setText('');
     }
 
     //modificacion del texto del item seleccionado en GUI
-    setInfoText(text){
+    setInfoText(text) {
         this.text.setText(text);
     }
 
-    updateSanityBar(sanity){ 
-        this.sanityBar.scaleX = (sanity/this.sanityTop)/2;
+    updateSanityBar(sanity) {
+        this.sanityBar.scaleX = (sanity / this.sanityTop) / 2;
         this.sanityBar.setPosition(100, 30);
     }
 }
