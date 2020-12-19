@@ -37,6 +37,7 @@ export default class GameScene extends Phaser.Scene {
 
         // Capas del mapa para asignar distintas funcionalidades
         this.map_zones = this.map.createStaticLayer('map_zones', tileset);
+        this.map_limits = this.map.createStaticLayer('map_limits', tileset);
         this.ground_01 = this.map.createStaticLayer('ground_01', tileset);
         this.ground_02 = this.map.createStaticLayer('ground_02', tileset);
         this.ground_03 = this.map.createStaticLayer('ground_03', tileset);
@@ -44,8 +45,7 @@ export default class GameScene extends Phaser.Scene {
         // Esta capa es dinámica porque incluye tiles con animaciones        
         
         this.building_02 = this.map.createStaticLayer('building_02', tileset);        
-        this.forest_01 = this.map.createStaticLayer('forest_01', tileset);
-        this.forest_02 = this.map.createStaticLayer('forest_02', tileset);
+        
 
         this.triggersToSect = [];
         // Spawnea al player en un punto definido en Tiled.
@@ -94,6 +94,8 @@ export default class GameScene extends Phaser.Scene {
         // Creamos un layer estático
         this.roof_01 = this.map.createStaticLayer('roof_01', tileset);
         this.animated = this.map.createDynamicLayer('animated', tileset);
+        this.forest_01 = this.map.createStaticLayer('forest_01', tileset);
+        this.forest_02 = this.map.createStaticLayer('forest_02', tileset);
        
 
         // Creacion de items a partir del atlas
@@ -197,6 +199,9 @@ export default class GameScene extends Phaser.Scene {
         // Colision de las paredes 
         this.building_01.setCollisionByProperty({ obstacle: true });
         this.matter.world.convertTilemapLayer(this.building_01);
+
+        this.map_limits.setCollisionByProperty({ obstacle: true });
+        this.matter.world.convertTilemapLayer(this.map_limits);
 
         this.matter.world.on('collisionstart',
             (evento, cuerpo1, cuerpo2) => {
