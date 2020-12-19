@@ -28,22 +28,22 @@ export default class GUI extends Phaser.GameObjects.Container {
 
         //Inventario
         this.inventoryRef = player.inventory;
-        this.backgroundInventory = this.scene.add.image(300, 560, 'invBack').setScale(0.8, 0.6).setScrollFactor(0);
+        this.backgroundInventory = this.scene.add.image(140, 560, 'invBack').setScrollFactor(0);
         this.add(this.backgroundInventory);
         this.isVisible = false;
         this.backgroundInventory.setVisible(this.isVisible);
 
         //Texto del Item seleccionado
-        this.text = this.scene.add.text(30, 505, '', {
+        this.text = this.scene.add.text(15, 505, '', {
             fontFamily: 'Neucha',
             color: '#ffffff',
         }).setResolution(2).setScale(1.3).setScrollFactor(0);
         this.text.depth = 11;
 
         //Barra cordura
-        this.sanityBack = this.scene.add.image(100, 30, 'sanityBarBack').setScrollFactor(0).setScale(0.5);
+        this.sanityBack = this.scene.add.image(150, 30, 'sanityBarBack').setScrollFactor(0);
         this.add(this.sanityBack);
-        this.sanityBar = this.scene.add.image(100, 30, 'sanityBar').setScrollFactor(0).setScale(0.5);
+        this.sanityBar = this.scene.add.image(150, 30, 'sanityBar').setScrollFactor(0);
         this.add(this.sanityBar);
         this.sanityTop = 100;
     }
@@ -58,7 +58,7 @@ export default class GUI extends Phaser.GameObjects.Container {
     //agregacion de un item añadido al inventario
     addItem(item) {
         //se coloca en la interfaz
-        item.setPosition(65 + ((this.inventoryRef.objects.length - 1) * 90), 560).setScrollFactor(0);
+        item.setPosition(35 + ((this.inventoryRef.objects.length - 1) * 42), 560).setScrollFactor(0);
         //se hace interactuable
         item.setInteractive();
         console.log(this.inventoryRef.objects.length, "elems array");
@@ -78,7 +78,7 @@ export default class GUI extends Phaser.GameObjects.Container {
     relocateInventory() {
         let i = 0;
         for (const item of this.inventoryRef.objects) {
-            item.setPosition(65 + (i * 90), 560);
+            item.setPosition(35 + (i * 42), 560);
             i++;
         }
         this.text.setText('');
@@ -90,7 +90,6 @@ export default class GUI extends Phaser.GameObjects.Container {
     }
 
     updateSanityBar(sanity) {
-        this.sanityBar.scaleX = (sanity / this.sanityTop) / 2;
-        this.sanityBar.setPosition(100, 30);
+        this.sanityBar.scaleX = sanity / this.sanityTop;
     }
 }
