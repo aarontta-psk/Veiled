@@ -1,6 +1,6 @@
 import Boot from "./boot.js"
 import GameScene from "./gameScene.js";
-import {testEvent, anotherTestEvent} from "./eventScene.js";
+import {testEvent, anotherTestEvent, painterEvent_0, painterEvent_1} from "./eventScene.js";
 import PauseScene from "./pauseScene.js";
 import MainMenu from "./mainMenu.js";
 
@@ -24,5 +24,5 @@ new Phaser.Game({
             }
         }
     },
-    scene: [Boot, MainMenu, GameScene, testEvent, anotherTestEvent, PauseScene], //escenas a cargar
+    scene: [Boot, MainMenu, GameScene, testEvent, anotherTestEvent, PauseScene, painterEvent_0, painterEvent_1], //escenas a cargar
 })

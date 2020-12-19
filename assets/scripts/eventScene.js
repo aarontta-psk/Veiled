@@ -9,8 +9,8 @@ class eventScene extends Phaser.Scene {
         //antes de mostrar las opciones, borro las anteriores
         group.removeAll(true);
 
-        this.add.text(50, 50, options[0].text, {fontFamily: 'Neucha', align: 'right'}).setResolution(1.2).setScale(1.2).setAlign('left'); 
-
+        const mainText = this.add.text(50, 50, options[0].text, {fontFamily: 'Neucha', align: 'right'}).setResolution(1.2).setScale(1.2).setAlign('left'); 
+        group.add(mainText);
         //para cada opcion
         for (let i = 1; i < options.length; i++) {
             console.log(options);
@@ -145,7 +145,7 @@ export class anotherTestEvent extends eventScene {
 
 export class painterEvent_0 extends eventScene {
     constructor() {
-        super({ key: 'testEvent' });
+        super({ key: 'painterEvent_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'background';
         this.content = [
@@ -158,6 +158,9 @@ export class painterEvent_0 extends eventScene {
                 next: [
                     {
                         text: 'Una breve conversación trivial lleva a la artista a envolverse un poco en temas de teoría de color. Comienza a intentar explicar el amarillo como a alguien ciego, y se sorprende mucho cuando le comentas con una leve sonrisa burlona que conoces los colores.',
+                    },
+                    {
+                        text: 'Continuar',
                         cb: () => {
                             this.info.player.addSanity(15);
                             this.completed = true;
@@ -166,7 +169,7 @@ export class painterEvent_0 extends eventScene {
                 ]
             },
             {
-                text: 'Quitar la venda y evaluar el cuadro',
+                text: 'Quitar la venda para evaluar el cuadro',
                 cb: () => {
                     this.info.player.addSanity(15);
                     this.completed = true;
@@ -178,7 +181,7 @@ export class painterEvent_0 extends eventScene {
 
 export class painterEvent_1 extends eventScene {
     constructor() {
-        super({ key: 'testEvent' });
+        super({ key: 'painterEvent_1' });
         //array con los elementos de un evento
         this.backgroundImage = 'background';
         this.content = [
@@ -191,6 +194,9 @@ export class painterEvent_1 extends eventScene {
                 next: [
                     {
                         text: 'Das una crítica increíblemente positiva sobre el cuadro, sin ser realmente específico en ningún detalle, pero no obstante inundando a la joven artista con positividad. Esta está encantada con cada mención, y te regala un boceto en agradecimiento.',
+                    },
+                    {
+                        text: 'Agradecer y aceptar regalo',
                         cb: () => {
                             this.info.player.inventory.collect('boceto');
                             this.completed = true;
@@ -204,6 +210,9 @@ export class painterEvent_1 extends eventScene {
                 next: [
                     {
                         text: 'Das una crítica mayoritariamente positiva sobre el cuadro, centrándote en la gama de colores tan vistosa y agradable. La artista se sonroja un poco, parece que esto era de lo que más orgullosa estaba. En este tono te confiesa que la inspiración para su estilo lo debe en parte a un caleidoscopio, el cual te regala como agradecimiento.',
+                    },
+                    {
+                        text: 'Agradecer y aceptar regalo',
                         cb: () => {
                             this.info.player.inventory.collect('caleidoscopio');
                             this.completed = true;
@@ -217,8 +226,11 @@ export class painterEvent_1 extends eventScene {
                 next: [
                     {
                         text: 'Sin dejar que la amoción del momento te abrume, das tu opición más sincera sobre el cuadro, describiendo como te gusta la gama de colores, pero remarcando cómo las líneas del contorno tan marcadas mancillan el efecto de dichos colores. La artista no se lo toma mal, y con una sonrisa te da las gracias- sinceridad a cambio de sinceridad.',
+                    },
+                    {
+                        text: 'Animar y despedir',
                         cb: () => {
-                            this.info.player.addSanity(20);
+                            this.info.player.addSanity(25);
                             this.completed = true;
                         }
                     }
