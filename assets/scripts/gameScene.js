@@ -174,17 +174,6 @@ export default class GameScene extends Phaser.Scene {
         });
         this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
-        this.player.cursorsPlayer.startTimer.on('down', event => {
-            console.log('Timer started')
-            var timer = this.time.delayedCall(2000, this.player.onTimer(), this.player)
-            /*var timer = this.time.addEvent({
-                delay: 50000,
-                callback: this.player.onTimer(),
-                //callbackScope: thisArg,
-                loop: true
-            });*/
-        });
-
         this.player.cursorsPlayer.pause.on('down', event => {
             //guardo la info entre escenas y cambio de escena
             this.infoNextScene = { player: this.player, prevScene: this };

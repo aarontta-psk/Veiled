@@ -39,7 +39,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             invToggle: Phaser.Input.Keyboard.KeyCodes.Q,
             blindfold: Phaser.Input.Keyboard.KeyCodes.SPACE,
 
-            startTimer: Phaser.Input.Keyboard.KeyCodes.O,
             testing: Phaser.Input.Keyboard.KeyCodes.CTRL,
             pause: Phaser.Input.Keyboard.KeyCodes.ESC
         });
