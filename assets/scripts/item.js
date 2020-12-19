@@ -16,7 +16,9 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
         this.on('pointerover', () => {
             this.scene.gui.setInfoText(this.name + ": " + this.description);
         });
-
+        this.on('pointerout', () => {
+            this.scene.gui.setInfoText("");
+        });
         if(isUsable){
             this.on('pointerdown', () => {
                 //se hace su efecto

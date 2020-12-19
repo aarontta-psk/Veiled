@@ -119,7 +119,7 @@ export default class GameScene extends Phaser.Scene {
         const height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
             width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
-        //wdthis.cameras.main.setBounds(widthBg, heightBg, width, height);
+        //this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
         this.anims.create({
             key: 'idle',

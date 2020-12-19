@@ -7,11 +7,23 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.depth = 10;
 
         //Keybinds
-        this.keybindQ = this.scene.add.image(550, 30, 'keybindQ').setScrollFactor(0).setScale(0.8);
+        this.keybindQ = this.scene.add.image(773, 95, 'keybindQ').setScrollFactor(0).setScale(0.6);
+        this.keybindQText = this.scene.add.text(665,85,'INVENTORY',{
+            fontFamily: 'Neucha',
+            color: '#ffffff'
+        }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
         this.add(this.keybindQ);
-        this.keybindE = this.scene.add.image(600, 30, 'keybindE').setScrollFactor(0).setScale(0.8);
+        this.keybindE = this.scene.add.image(773, 135, 'keybindE').setScrollFactor(0).setScale(0.6);
+        this.keybindQText = this.scene.add.text(675,125,'INTERACT',{
+            fontFamily: 'Neucha',
+            color: '#ffffff'
+        }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
         this.add(this.keybindE);
-        this.keybindSpace = this.scene.add.image(700, 30, 'keybindSpace').setScrollFactor(0).setScale(0.8);
+        this.keybindSpace = this.scene.add.image(743, 30, 'keybindSpace').setScrollFactor(0).setScale(0.5);
+        this.keybindQText = this.scene.add.text(699,50,'BLINDFOLD',{
+            fontFamily: 'Neucha',
+            color: '#ffffff'
+        }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
         this.add(this.keybindSpace);
 
         //Inventario
