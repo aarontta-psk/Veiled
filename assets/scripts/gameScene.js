@@ -115,15 +115,14 @@ export default class GameScene extends Phaser.Scene {
             else if (itemPos.name === 'coin') {
                 this.coin = new kaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
             }
-        }      
-        //this.animatedTiles.init(this.map);
+        }
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
 
         const height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
             width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
-        //this.cameras.main.setBounds(widthBg, heightBg, width, height);
+        this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
         this.anims.create({
             key: 'idle',
@@ -269,7 +268,7 @@ export default class GameScene extends Phaser.Scene {
             this.cameras.main.removeBounds();
             const [height, y, width, x] = trigger.data;
             this.cameras.main.setBounds(x, y, width, height);
-            trigger.data = [bounds.height, bounds.y, bounds.width, bounds.x]
+            trigger.data = [bounds.height, bounds.y, bounds.width, bounds.x];
         }
     }
 
