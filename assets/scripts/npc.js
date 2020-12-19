@@ -1,5 +1,5 @@
 export default class Npc extends Phaser.Physics.Matter.Sprite{
-    constructor(key, world, x, y, npcEvent, path) {
+    constructor(key, world, x, y, npcEvents, path) {
         super(world, x, y, key); //llama a la constructora de Sprite
 
         this.setScale(0.8);
@@ -16,7 +16,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         this.setSensor(true);
 
         //se guarda una referencia a la escena de evento de este Npc
-        this.npcEvent = npcEvent;
+        this.npcEvents = npcEvents;
 
         this.path = path;   //array de puntos del recorrido tres valores: x, y, t(el tiempo de pausa cuando se llega al punto)
         this.px = path.x;
@@ -95,32 +95,43 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
 
     //cambio de animacion con respecto a la velocidad
     changeAnims(velX, velY) {
-            if (velX === 0){
-                if (velY=== 0)
-                this.anims.play('idle', true);
-            else if (velY < 0)
-                this.anims.play('up_move', true);
+    if (velX === 0){
+        if (velY=== 0)
+        this.anims.play('idle', true);
+    else if (velY < 0)
+        this.anims.play('up_move', true);
+    else
+        this.anims.play('down_move', true);
+    }
+        else if (velX < 0)
+        {
+            if (velY > -velX)
+            this.anims.play('down_move', true);
+            else if (velY < velX)
+            this.anims.play('up_move', true);
             else
-                this.anims.play('down_move', true);
-            }
-                else if (velX < 0)
-                {
-                    if (velY > -velX)
-                    this.anims.play('down_move', true);
-                    else if (velY < velX)
-                    this.anims.play('up_move', true);
-                    else
-                    this.anims.play('left_move', true);
-                }
-                else
-                {
-                    if (velY > velX)
-                    this.anims.play('down_move', true);
-                    else if (velY < -velX)
-                    this.anims.play('up_move', true);
-                    else
-                    this.anims.play('right_move', true);
-                }
+            this.anims.play('left_move', true);
+        }
+        else
+        {
+            if (velY > velX)
+            this.anims.play('down_move', true);
+            else if (velY < -velX)
+            this.anims.play('up_move', true);
+            else
+            this.anims.play('right_move', true);
+        }
         
+    }
+
+    nextEvent()
+    {
+        let i = 0;
+        while (i<this.npcEvents.length && this.npcEvents[i].completed == true) i++;
+                    
+        if (i<this.npcEvents.length)
+            return this.npcEvents[i];
+        else
+            return null;
     }
 }

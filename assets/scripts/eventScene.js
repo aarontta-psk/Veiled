@@ -33,9 +33,13 @@ class eventScene extends Phaser.Scene {
         // this.info = this.scene.get('gameScene').info;
 
         this.completed = false;
+
+        //imprimo la imagen de fondo
+        this.add.image(0, 0, this.background).setOrigin(0, 0);
+
         //creo un container que contendra las respuestas
         let group = this.add.container();
-        //llamo al metodo que muestra las opcioens
+        //llamo al metodo que muestra las opciones
         this.layout(this.content, group);
     }
 }
@@ -44,7 +48,7 @@ export class testEvent extends eventScene {
     constructor() {
         super({ key: 'testEvent' });
         //array con los elementos de un evento
-        this.keyImage = '';
+        this.backgroundDirectory = './assets/sprites/city.png';
         this.content = [
             {
                 text: 'escribir en consola',
@@ -75,14 +79,16 @@ export class testEvent extends eventScene {
                 }
             },
             {
-                text: 'texto 4',
+                text: 'completar evento',
                 cb: () => {
                     console.log('opcion 4 pulsada');
                 },
                 next: [
                     {
                         text: 'ok',
-                        cb: () => { }
+                        cb: () => {
+                            this.completed = true;
+                         }
                     }
                 ]
             }
@@ -104,7 +110,9 @@ export class anotherTestEvent extends eventScene {
                 next: [
                     {
                         text: 'gracias por el dato crack',
-                        cb: () => {}
+                        cb: () => {
+                            this.completed = true;
+                        }
                     }
                 ]
             }

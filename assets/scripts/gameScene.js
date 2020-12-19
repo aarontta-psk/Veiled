@@ -70,7 +70,7 @@ export default class GameScene extends Phaser.Scene {
         this.npcs = [
             //paso el sprite del player porque de momento no tenemos otro
             this.testNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 20,
-                this.spawnpoint.y + 200, this.scene.get('testEvent'),
+                this.spawnpoint.y + 200, [this.scene.get('testEvent'), this.scene.get('anotherTestEvent')],
                 {
                     //path
                     'x': [1500, 1200, 1400],
@@ -227,7 +227,9 @@ export default class GameScene extends Phaser.Scene {
                 console.log("overlapping a npc");
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 if(this.player.cursorsPlayer.interact.isDown){
-                    this.changeScene(cuerpo2.gameObject.npcEvent);
+                    let npcEvent = cuerpo2.gameObject.nextEvent();
+                    if (npcEvent != null)
+                        this.changeScene(npcEvent);
                 }
             }
         })

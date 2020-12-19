@@ -2,13 +2,17 @@ export default class Boot extends Phaser.Scene {
     constructor() { super({ key: 'boot' }) };
 
     preload() {
+        // Carga de datos de juego
         this.load.spritesheet('player', './assets/sprites/player.png',
             { frameWidth: 32, frameHeight: 41 });
         this.load.image('background', './assets/sprites/background.jpg');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
+
+        // Carga de datos de menus
         this.load.image('pauseMenu', './assets/sprites/pauseMenu.png');
         
+        // Carga de datos de interfaz
         this.load.image('invBack', './assets/sprites/ui/inventory_bar.png');
         this.load.image('sanityBar', './assets/sprites/ui/sanity.png');
         this.load.image('sanityBarBack', './assets/sprites/ui/sanity_back.png');
@@ -27,6 +31,7 @@ export default class Boot extends Phaser.Scene {
     }
 
     create() {
+        //inicializacion de la escena de juego
         this.scene.start('gameScene');
     }
 }
