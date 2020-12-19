@@ -61,6 +61,17 @@ export class kaleidoscopeItem extends Item{
         player.decay = 0.05;
     }
 }
+
+export class sketchItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, true);
+        this.name = "sketch";
+        this.description = "Un boceto abstracto con una gama de colores cálidos";
+    }
+
+    doSomething(player) {
+    }
+}
 //#endregion
 
 //#region KeyItems (isUsable=false)
