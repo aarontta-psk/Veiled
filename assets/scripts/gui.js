@@ -7,20 +7,25 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.depth = 10;
 
         //Keybinds
-        this.keybindQ = this.scene.add.image(450, 30, 'keybindQ').setScrollFactor(0);
+        this.keybindQ = this.scene.add.image(550, 30, 'keybindQ').setScrollFactor(0).setScale(0.8);
         this.add(this.keybindQ);
-        this.keybindE = this.scene.add.image(550, 30, 'keybindE').setScrollFactor(0);
+        this.keybindE = this.scene.add.image(600, 30, 'keybindE').setScrollFactor(0).setScale(0.8);
         this.add(this.keybindE);
-        this.keybindSpace = this.scene.add.image(700, 30, 'keybindSpace').setScrollFactor(0);
+        this.keybindSpace = this.scene.add.image(700, 30, 'keybindSpace').setScrollFactor(0).setScale(0.8);
         this.add(this.keybindSpace);
 
         //Inventario
         this.inventoryRef = player.inventory;
         this.backgroundInventory = this.scene.add.image(300, 560, 'invBack').setScale(0.8, 0.6).setScrollFactor(0);
         this.add(this.backgroundInventory);
-
         this.isVisible = false;
         this.backgroundInventory.setVisible(this.isVisible);
+
+        //Barra cordura
+        this.sanityBack = this.scene.add.image(100, 30, 'sanityBarBack').setScrollFactor(0).setScale(0.5);
+        this.add(this.sanityBack);
+        this.sanityBar = this.scene.add.image(100, 30, 'sanityBar').setScrollFactor(0).setScale(0.5);
+        this.add(this.sanityBar);
     }
 
     toggleInventory() {
@@ -46,7 +51,10 @@ export default class GUI extends Phaser.GameObjects.Container {
     }
 
     relocateInventory() {
-        for (const item of this.inventoryRef.objects)
-            item.setPosition(65 + ((this.inventoryRef.objects.length - 1) * 90), 560);
+        let i = 0;
+        for (const item of this.inventoryRef.objects) {
+            item.setPosition(65 + (i * 90), 560);
+            i++;
+        }
     }
 }
