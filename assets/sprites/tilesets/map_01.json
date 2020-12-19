@@ -228,8 +228,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1392,
-                 "y":2128
+                 "x":2848,
+                 "y":4224
                 }, 
                 {
                  "height":0.818182,
@@ -370,19 +370,19 @@
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
- "tileheight":32,
+ "tileheight":64,
  "tilesets":[
         {
          "columns":56,
          "firstgid":1,
-         "image":"slatesTileset.png",
-         "imageheight":736,
-         "imagewidth":1792,
+         "image":"slates64Tileset.png",
+         "imageheight":1472,
+         "imagewidth":3584,
          "margin":0,
          "name":"slates",
          "spacing":0,
          "tilecount":1288,
-         "tileheight":32,
+         "tileheight":64,
          "tiles":[
                 {
                  "id":0,
@@ -12270,9 +12270,9 @@
                          "value":false
                         }]
                 }],
-         "tilewidth":32
+         "tilewidth":64
         }],
- "tilewidth":32,
+ "tilewidth":64,
  "type":"map",
  "version":1.4,
  "width":90

@@ -26,9 +26,11 @@ export default class GameScene extends Phaser.Scene {
         // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
             key: 'map',
-            tileWidth: 32,
-            tileHeight: 32
+            tileWidth: 64,
+            tileHeight: 64
         });
+
+        
 
         // Asignamos el tileset
         const tileset = this.map.addTilesetImage('slates', 'tiles');
