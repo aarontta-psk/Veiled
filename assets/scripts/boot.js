@@ -28,6 +28,9 @@ export default class Boot extends Phaser.Scene {
 
         // Carga los items incluidos en la escena        
         this.load.atlas('items', 'assets/sprites/items.png?', 'assets/sprites/atlas/items.json');
+
+        // Carga el codigo para usar webfonts
+        this.load.script('webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
     }
 
     create() {

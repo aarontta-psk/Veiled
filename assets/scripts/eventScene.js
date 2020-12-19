@@ -12,7 +12,7 @@ class eventScene extends Phaser.Scene {
         for (const actOptions of options) {
             console.log(options);
             //añado un texto
-            const optionText = this.add.text(50, distancia, actOptions.text).setInteractive().setScale(2);
+            const optionText = this.add.text(50, distancia, actOptions.text,{fontFamily: 'Neucha'}).setInteractive().setResolution(2).setScale(2);
             //lo añado al container para borrarlo mas adelante
             group.add(optionText);
             distancia += 100;
