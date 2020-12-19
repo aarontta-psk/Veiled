@@ -65,6 +65,7 @@ export class kaleidoscopeItem extends Item{
 export class sketchItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
+        this.setActive(false).setVisible(false);
         this.name = "boceto";
         this.description = "Un boceto abstracto con una gama de colores cálidos";
     }
