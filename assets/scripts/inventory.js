@@ -1,7 +1,8 @@
 
 export default class Inventory {
 
-    constructor() {
+    constructor(mainScene) {
+        this.mainScene = mainScene;
         this.MAX_SIZE = 6;
         this.objects = [];
     }
@@ -11,6 +12,7 @@ export default class Inventory {
             this.objects.push(object);
             //el objeto se mostrara encima de la casilla cuando se muestre en el inventario
             object.depth = 11;
+            console.log('Object added: ' + object.name);
         }
     }
 
@@ -28,8 +30,9 @@ export default class Inventory {
 
     collect(name)
     {
+        const items = this.mainScene.itemContainer;
         let i = 0;
-        while(i < this.objects.length && this.objects[i].name != name) i++;
-        this.addObject(this.objects[i]);
+        while(i < items.length && items[i].name != name) i++;
+        this.addObject(items[i]);
     }
 }

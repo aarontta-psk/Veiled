@@ -86,6 +86,14 @@ export default class GameScene extends Phaser.Scene {
                     'y': [1500, 1400, 1200],
                     'pause': [1000, 1000, 1000]
                 }),
+            this.painterNpc = new Npc('player', this.matter.world, 4350,
+                3350, [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')],
+                {
+                    //path
+                    'x': [4350, 4200, 4210],
+                    'y': [3350, 3300, 3250],
+                    'pause': [1000, 1000, 1000]
+                }),
         ];
 
         // Colocamos la vision en la posicion del jugador
@@ -103,21 +111,27 @@ export default class GameScene extends Phaser.Scene {
         let item = undefined; //undefined para la comprobacion del evento de interaccion
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
+        this.itemContainer = [];
+
 
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             if (itemPos.name === 'potion') {
                 this.potion = new potionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
+                this.itemContainer.push(this.potion);
             }
             else if (itemPos.name === 'houseKey') {
                 this.housekey = new keyItem1(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1], this.player);
+                this.itemContainer.push(this.housekey);
             }
             //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
             else if (itemPos.name === 'coin') {
                 this.coin = new kaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
+                this.itemContainer.push(this.coin);
             }
             else if (itemPos.name === 'sketch') {
                 this.sketch = new sketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
+                this.itemContainer.push(this.sketch);
             }
         }
 
