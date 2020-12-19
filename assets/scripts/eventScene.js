@@ -9,7 +9,7 @@ class eventScene extends Phaser.Scene {
         //antes de mostrar las opciones, borro las anteriores
         group.removeAll(true);
 
-        this.add.text(50, 50, options[0].text, {fontFamily: 'Neucha', align: 'right'}).setResolution(2).setScale(2).setAlign('left'); 
+        this.add.text(50, 50, options[0].text, {fontFamily: 'Neucha', align: 'right'}).setResolution(1.2).setScale(1.2).setAlign('left'); 
 
         //para cada opcion
         for (let i = 1; i < options.length; i++) {
@@ -134,6 +134,91 @@ export class anotherTestEvent extends eventScene {
                     {
                         text: 'gracias por el dato crack',
                         cb: () => {
+                            this.completed = true;
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+export class painterEvent_0 extends eventScene {
+    constructor() {
+        super({ key: 'testEvent' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'background';
+        this.content = [
+            {
+                text: 'Notas, entre las fragancias del bosque cercano, el olor a colores pastel. Al acercarte, una persona se torna hacia ti. -¡Ay, no esperaba visitas! -Una voz femenina exclama- La gente no suele venir por aquí, así que suelo venir cuando quiero pintar. Sinceramente, me habría venido bien que alguien me criticase mi trabajo, pero ¡qué quisquillosa es el destino para acabar aquí tú de todas personas! Bueno, parece que tendré que esperar a otro día para encontrar a mi crítico, pero de mientras, cuéntame un poco, ¿qué te trae por estas zonas?'
+            },
+            {
+                text: 'Conversar con la artista',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Una breve conversación trivial lleva a la artista a envolverse un poco en temas de teoría de color. Comienza a intentar explicar el amarillo como a alguien ciego, y se sorprende mucho cuando le comentas con una leve sonrisa burlona que conoces los colores.',
+                        cb: () => {
+                            this.info.player.addSanity(15);
+                            this.completed = true;
+                        }
+                    }
+                ]
+            },
+            {
+                text: 'Quitar la venda y evaluar el cuadro',
+                cb: () => {
+                    this.info.player.addSanity(15);
+                    this.completed = true;
+                }
+            },
+        ]
+    }
+}
+
+export class painterEvent_1 extends eventScene {
+    constructor() {
+        super({ key: 'testEvent' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'background';
+        this.content = [
+            {
+                text: 'La pintora se queda incrédula un segundo, pero se alegra notablemente al darse cuenta de lo que esto significa. La inmensa cantidad de luz del día soleado te hace doler los ojos, pero al pasar un momento te ajustas y ves los dos paisajes, el de pastel un reflejo de la realidad, pero más saturado en sus colores, dándole un toque surreal.'
+            },
+            {
+                text: 'Adular',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Das una crítica increíblemente positiva sobre el cuadro, sin ser realmente específico en ningún detalle, pero no obstante inundando a la joven artista con positividad. Esta está encantada con cada mención, y te regala un boceto en agradecimiento.',
+                        cb: () => {
+                            this.info.player.inventory.collect('boceto');
+                            this.completed = true;
+                        }
+                    }
+                ]
+            },
+            {
+                text: 'Crítica positiva',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Das una crítica mayoritariamente positiva sobre el cuadro, centrándote en la gama de colores tan vistosa y agradable. La artista se sonroja un poco, parece que esto era de lo que más orgullosa estaba. En este tono te confiesa que la inspiración para su estilo lo debe en parte a un caleidoscopio, el cual te regala como agradecimiento.',
+                        cb: () => {
+                            this.info.player.inventory.collect('caleidoscopio');
+                            this.completed = true;
+                        }
+                    }
+                ]
+            },
+            {
+                text: 'Crítica analítica',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Sin dejar que la amoción del momento te abrume, das tu opición más sincera sobre el cuadro, describiendo como te gusta la gama de colores, pero remarcando cómo las líneas del contorno tan marcadas mancillan el efecto de dichos colores. La artista no se lo toma mal, y con una sonrisa te da las gracias- sinceridad a cambio de sinceridad.',
+                        cb: () => {
+                            this.info.player.addSanity(20);
                             this.completed = true;
                         }
                     }
