@@ -17,10 +17,10 @@ export default class Boot extends Phaser.Scene {
         this.load.image('keybindSpace', './assets/sprites/ui/key_Space.png');
 
         // Carga los datos del mapa.
-        this.load.tilemapTiledJSON('map', './assets/sprites/tilesets/testTilemap.json');
+        this.load.tilemapTiledJSON('map', './assets/sprites/tilesets/map_01.json');
 
         // Carga el tileset que contiene las texturas del mapa.
-        this.load.image('tiles', './assets/sprites/tilesets/dungeonTileset.png');
+        this.load.image('tiles', './assets/sprites/tilesets/slatesTileset.png');
 
         // Carga los items incluidos en la escena        
         this.load.atlas('items', 'assets/sprites/items.png?', 'assets/sprites/atlas/items.json');

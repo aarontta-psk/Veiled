@@ -24,13 +24,20 @@ export default class GameScene extends Phaser.Scene {
         });
 
         // Asignamos el tileset
-        const tileset = this.map.addTilesetImage('dungeon', 'tiles');
+        const tileset = this.map.addTilesetImage('slates', 'tiles');
 
         // Capas del mapa para asignar distintas funcionalidades
-        this.ground0 = this.map.createStaticLayer('ground 0', tileset);
-        // Esta capa es dinámica porque incluye tiles con animaciones
-        this.ground1 = this.map.createDynamicLayer('ground 1', tileset);
-        this.walls = this.map.createStaticLayer('walls', tileset);
+        this.ground_01 = this.map.createStaticLayer('ground_01', tileset);
+        this.ground_02 = this.map.createStaticLayer('ground_02', tileset);
+        this.ground_03 = this.map.createStaticLayer('ground_03', tileset);
+        this.building_01 = this.map.createStaticLayer('building_01', tileset);
+        // Esta capa es dinámica porque incluye tiles con animaciones        
+        this.animated = this.map.createDynamicLayer('animated', tileset);
+        this.building_02 = this.map.createStaticLayer('building_02', tileset);
+        this.roof_01 = this.map.createStaticLayer('roof_01', tileset);
+        this.forest_01 = this.map.createStaticLayer('forest_01', tileset);
+        this.forest_02 = this.map.createStaticLayer('forest_02', tileset);
+
 
         this.triggersToSect = [];
         // Spawnea al player en un punto definido en Tiled.
@@ -80,7 +87,7 @@ export default class GameScene extends Phaser.Scene {
         this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);
 
         // Creamos un layer estático
-        this.walls2 = this.map.createStaticLayer('walls2', tileset);
+        //this.walls2 = this.map.createStaticLayer('walls2', tileset);
 
         // Creacion de items a partir del atlas
         let item = undefined; //undefined para la comprobacion del evento de interaccion
@@ -102,14 +109,14 @@ export default class GameScene extends Phaser.Scene {
         }
 
         // Empieza la animación de las tiles en este mapa
-        this.animatedTiles.init(this.map);
+        //this.animatedTiles.init(this.map);
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
 
         const height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
             width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
-        this.cameras.main.setBounds(widthBg, heightBg, width, height);
+        //this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
         this.anims.create({
             key: 'idle',
@@ -183,8 +190,8 @@ export default class GameScene extends Phaser.Scene {
         });
 
         // Colision de las paredes 
-        this.walls.setCollisionByProperty({ obstacle: true });
-        this.matter.world.convertTilemapLayer(this.walls);
+        //this.walls.setCollisionByProperty({ obstacle: true });
+        this.matter.world.convertTilemapLayer(this.building_01);
 
         this.matter.world.on('collisionstart',
             (evento, cuerpo1, cuerpo2) => {
