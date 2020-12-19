@@ -33,14 +33,17 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.add(this.sanityBack);
         this.sanityBar = this.scene.add.image(100, 30, 'sanityBar').setScrollFactor(0).setScale(0.5);
         this.add(this.sanityBar);
+        this.sanityTop = 100;
     }
 
+    //activar/desactivar inventario
     toggleInventory() {
         this.isVisible = !this.isVisible;
         this.backgroundInventory.setVisible(this.isVisible);
         this.updateInventory();
     }
 
+    //agregacion de un item añadido al inventario
     addItem(item) {
         //se coloca en la interfaz
         item.setPosition(65 + ((this.inventoryRef.objects.length - 1) * 90), 560).setScrollFactor(0);
@@ -50,6 +53,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.updateInventory();
     }
 
+    //actualizacion (dinamica) de items en la interfaz
     updateInventory() {
         for (const item of this.inventoryRef.objects) {
             console.log(item);
@@ -58,6 +62,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.text.setText('');
     }
 
+    //recolocacion dinamica de items (en caso de que se elimine uno)
     relocateInventory() {
         let i = 0;
         for (const item of this.inventoryRef.objects) {
@@ -66,7 +71,13 @@ export default class GUI extends Phaser.GameObjects.Container {
         }
     }
 
+    //modificacion del texto del item seleccionado en GUI
     setInfoText(text){
         this.text.setText(text);
+    }
+
+    updateSanityBar(sanity){ 
+        this.sanityBar.scaleX = (sanity/this.sanityTop)/2;
+        this.sanityBar.setPosition(100, 30);
     }
 }
