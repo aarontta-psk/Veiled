@@ -117,6 +117,12 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             this.die();
     }
 
+    addSanity(sanityBoost){
+        sanity += sanityBoost;
+        if (sanity>100)
+        sanity = 100;
+    }
+
     //reaparicion tras muerte
     die() {
         this.setPosition(this.spawnPoint.x, this.spawnPoint.y);
