@@ -201,6 +201,17 @@
                  "width":32,
                  "x":2496,
                  "y":2960
+                }, 
+                {
+                 "height":32,
+                 "id":21,
+                 "name":"sketch",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2592,
+                 "y":2960
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -348,7 +359,7 @@
          "y":0
         }],
  "nextlayerid":18,
- "nextobjectid":21,
+ "nextobjectid":22,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",

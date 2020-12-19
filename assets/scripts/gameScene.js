@@ -1,6 +1,6 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item,{potionItem, kaleidoscopeItem, keyItem1} from './item.js';
+import {potionItem, kaleidoscopeItem, keyItem1, sketchItem} from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js'
@@ -115,6 +115,9 @@ export default class GameScene extends Phaser.Scene {
             //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
             else if (itemPos.name === 'coin') {
                 this.coin = new kaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
+            }
+            else if (itemPos.name === 'sketch') {
+                this.sketch = new sketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
             }
         }
 
