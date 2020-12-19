@@ -28,7 +28,7 @@ export default class pauseScene extends Phaser.Scene {
         });
 
         exit.on('pointerdown', event => {
-            this.scene.start('mainMenuScene');
+            console.log("This button will change the scene to the main menu in the future.");
         });
     }
 }
