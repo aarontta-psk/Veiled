@@ -25,4 +25,11 @@ export default class Inventory {
 
         return i != this.objects.length;
     }
+
+    collect(name)
+    {
+        let i = 0;
+        while(i < this.objects.length && this.objects[i].name != name) i++;
+        this.addObject(this.objects[i]);
+    }
 }
