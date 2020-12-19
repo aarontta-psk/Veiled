@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="32" tileheight="32" infinite="0" nextlayerid="17" nextobjectid="21">
  <editorsettings>
-  <export target="testTilemap.json" format="json"/>
+  <export target="map_01.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" source="slates.tsx"/>
  <layer id="7" name="ground_01" width="90" height="90">
@@ -68,7 +68,7 @@
     <property name="widthBg" type="int" value="960"/>
    </properties>
   </object>
-  <object id="12" name="newSect" x="1408" y="959.636" width="64" height="0.818182">
+  <object id="12" name="newSect" x="1920" y="2456" width="64" height="0.818182">
    <properties>
     <property name="height" type="int" value="960"/>
     <property name="heightBg" type="int" value="0"/>
@@ -76,7 +76,7 @@
     <property name="widthBg" type="int" value="960"/>
    </properties>
   </object>
-  <object id="14" name="newSect" x="959.545" y="1440" width="1.18182" height="64">
+  <object id="14" name="newSect" x="1872" y="2536" width="1.18182" height="64">
    <properties>
     <property name="height" type="int" value="960"/>
     <property name="heightBg" type="int" value="960"/>
@@ -84,7 +84,7 @@
     <property name="widthBg" type="int" value="0"/>
    </properties>
   </object>
-  <object id="15" name="newSect" x="1919.92" y="1439.92" width="0.5625" height="64">
+  <object id="15" name="newSect" x="2024" y="2520" width="0.5625" height="64">
    <properties>
     <property name="height" type="int" value="960"/>
     <property name="heightBg" type="int" value="960"/>
@@ -92,7 +92,7 @@
     <property name="widthBg" type="int" value="1920"/>
    </properties>
   </object>
-  <object id="17" name="newSect" x="1408.04" y="1919.03" width="64" height="1.27273">
+  <object id="17" name="newSect" x="1904" y="2656" width="64" height="1.27273">
    <properties>
     <property name="height" type="int" value="960"/>
     <property name="heightBg" type="int" value="1920"/>
