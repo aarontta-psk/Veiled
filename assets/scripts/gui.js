@@ -21,6 +21,13 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.isVisible = false;
         this.backgroundInventory.setVisible(this.isVisible);
 
+        //Texto del Item seleccionado
+        this.text = this.scene.add.text(30,505,'',{
+            fontFamily: 'Neucha',
+            color: '#ffffff',
+        }).setResolution(2).setScale(1.3).setScrollFactor(0);
+        this.text.depth = 11;
+
         //Barra cordura
         this.sanityBack = this.scene.add.image(100, 30, 'sanityBarBack').setScrollFactor(0).setScale(0.5);
         this.add(this.sanityBack);
@@ -48,6 +55,7 @@ export default class GUI extends Phaser.GameObjects.Container {
             console.log(item);
             item.setVisible(this.isVisible);
         }
+        this.text.setText('');
     }
 
     relocateInventory() {
@@ -56,5 +64,9 @@ export default class GUI extends Phaser.GameObjects.Container {
             item.setPosition(65 + (i * 90), 560);
             i++;
         }
+    }
+
+    setInfoText(text){
+        this.text.setText(text);
     }
 }

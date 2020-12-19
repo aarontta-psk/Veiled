@@ -14,6 +14,13 @@ export default class GameScene extends Phaser.Scene {
     }
 
     create() {
+        // Cargamos las webfonts que se van a usar
+        WebFont.load({
+            google: {
+                families: [ 'Neucha' ]
+            }
+        });
+
         this.matter.world.disableGravity();
 
         // Creamos un mapa a partir de los datos en cache
@@ -225,8 +232,7 @@ export default class GameScene extends Phaser.Scene {
                         this.changeScene(npcEvent);
                 }
             }
-        })
-
+        }) 
     }
 
 
