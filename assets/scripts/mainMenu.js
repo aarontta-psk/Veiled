@@ -1,9 +1,10 @@
-export default class mainMenu extends Phaser.Scene{
+export default class mainMenuScene extends Phaser.Scene{
     
     constructor(){
         super({ key: 'mainMenuScene' });
     }
     create(){
+        this.scene.bringToTop();
         //imagen de fondo
         this.add.image(0,0, 'mainMenu').setOrigin(0);
         //botones

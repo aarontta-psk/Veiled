@@ -6,7 +6,8 @@ import Trigger from './trigger.js';
 import GUI from './gui.js'
 
 export default class GameScene extends Phaser.Scene {
-    constructor() { super({ key: 'gameScene' }) };
+    constructor() { 
+        super({ key: 'gameScene' }) };
 
     preload() {
         // Carga el plugin para las tiles animadas
@@ -61,7 +62,7 @@ export default class GameScene extends Phaser.Scene {
                 let trigger = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
                 trigger.info = [objeto.properties[0].value, objeto.properties[1].value,
                 objeto.properties[2].value, objeto.properties[3].value];
-                trigger.data = trigger.info;
+                trigger.newBounds = trigger.info;
                 this.triggersToSect.push(trigger);
             }
         }
@@ -255,9 +256,9 @@ export default class GameScene extends Phaser.Scene {
         const bounds = this.cameras.main.getBounds();
         if (this.hasChangedSection([this.player.x, this.player.y], bounds)) {
             this.cameras.main.removeBounds();
-            const [height, y, width, x] = trigger.data;
+            const [height, y, width, x] = trigger.newBounds;
             this.cameras.main.setBounds(x, y, width, height);
-            trigger.data = [bounds.height, bounds.y, bounds.width, bounds.x];
+            trigger.newBounds = [bounds.height, bounds.y, bounds.width, bounds.x];
         }
     }
 
@@ -285,7 +286,7 @@ export default class GameScene extends Phaser.Scene {
 
     readjustTriggers() {
         for (const trigger of this.triggersToSect)
-            trigger.data = trigger.info;
+            trigger.newBounds = trigger.info;
     }
 
     deathBlindfold() {
