@@ -27,10 +27,10 @@
  </tile>
  <tile id="666">
   <animation>
-   <frame tileid="666" duration="400"/>
-   <frame tileid="778" duration="400"/>
-   <frame tileid="890" duration="400"/>
-   <frame tileid="1002" duration="400"/>
+   <frame tileid="666" duration="100"/>
+   <frame tileid="778" duration="100"/>
+   <frame tileid="890" duration="100"/>
+   <frame tileid="1002" duration="100"/>
   </animation>
  </tile>
  <tile id="667">
