@@ -799,8 +799,11 @@
  </tile>
  <tile id="156">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="28" y="0" width="10" height="22"/>
+  </objectgroup>
  </tile>
  <tile id="157">
   <properties>
