@@ -265,14 +265,27 @@ export class doctorEvent_0 extends eventScene {
         this.backgroundImage = 'background';
         this.content = [
             {
-                text:   'El olor a tabaco viejo te alerta a la presencia del doctor Abel, sentado como de costumbre en el portal de su casa, perdido en sus pensamientos. No es hasta que le saludas que se alerta a tu presencia, pero cuando lo hace, su sonrisa es audible. Se levanta y, antes de que puedas reaccionar, te envuelve en un abrazo. Tras calmarse un poco el aire, os envolvéis en una larga conversación para poneos al día. El doctor consigue resumir en breve más de una década de ocurrencias en el pueblo, y luego escucha pacientemente mientras le relatas la reciente milagrosa recuperación de tu vista.\nSe queda pensativo un tiempo antes de ofrecerte su consejo: \n¿Y tú rechazas este milagro? Entendible. Me imagino que muchos harían lo mismo, o peor. Pero te veo ahora con esta venda, y no puedo dejar de pensar que realmente no has perdido nada.'
+                text:   'El olor a tabaco viejo te alerta a la presencia del doctor Abel, sentado como de costumbre en\n' + 
+                        'el portal de su casa, perdido en sus pensamientos. No es hasta que le saludas que se alerta\n' + 
+                        'a tu presencia, pero cuando lo hace, su sonrisa es audible. Se levanta y, antes de que puedas\n' + 
+                        'reaccionar, te envuelve en un abrazo. Tras calmarse un poco el aire, os envolvéis en una larga\n' + 
+                        'conversación para poneos al día. El doctor consigue resumir en breve más de una década de\n' + 
+                        'ocurrencias en el pueblo, y luego escucha pacientemente mientras le relatas la reciente milagrosa\n' + 
+                        'recuperación de tu vista.\nSe queda pensativo un tiempo antes de ofrecerte su consejo: \n\n' + 
+                        '-¿Y tú rechazas este milagro? Entendible. Me imagino que muchos harían lo mismo, o peor.\n' + 
+                        'Pero te veo ahora con esta venda, y no puedo dejar de pensar que realmente no has perdido nada.'
             },
             {
                 text: 'Estar de acuerdo',
                 cb: () => {},
                 next: [
                     {
-                        text:   '-¿Ves? -responde el doctor- Realmente no necesitabas que te dijera yo esto, me imagino que habrías llegado a la misma conclusión tú sola. Y si tú prefieres mantenerte para siempre en las tinieblas, estoy seguro de que volveras a ser tan feliz como siempre fuiste. Pero te urgiría, aunque sea muy poco a poco, a que al menos probases quitártela, por unos momentos a la vez, y te permitas aprender a valorar la belleza del mundo visual. Y si te disgusta o te decepciona, siempre podrás ponerte la venda y volver a la oscuridad.'
+                        text:   '-¿Ves? -responde el doctor- Realmente no necesitabas que te dijera yo esto, me imagino que habrías\n' + 
+                                'llegado a la misma conclusión tú sola. Y si tú prefieres mantenerte para siempre en las tinieblas,\n' + 
+                                'estoy seguro de que volveras a ser tan feliz como siempre fuiste. Pero te urgiría, aunque sea muy\n' + 
+                                'poco a poco, a que al menos probases quitártela, por unos momentos a la vez, y te permitas aprender\n' + 
+                                'a valorar la belleza del mundo visual. Y si te disgusta o te decepciona, siempre podrás ponerte la\n' + 
+                                'venda y volver a la oscuridad.'
                     },
                     {
                         text: 'Continuar',
@@ -289,7 +302,12 @@ export class doctorEvent_0 extends eventScene {
                 cb: () => {},
                 next: [
                     {
-                        text: '-Digo que, aunque no te sientas cómoda con este mundo visual, siempre podrás simplemente ponerte de nuevo la venda y volver a la oscuridad. Así, que, si tu decides, puedes continuar con tu vida como antes. Y si tú quieres vivir así, eso está bien, pero te aconsejaría también que te atrevas, aunque solo por momentos, a quitárte esa tela y permitirte conocer al mundo en el que vivimos los demás. Creo que tú tienes ahora una oportunidad única para experimentar dos realidades, con el poder en tus manos para moverte entre ellas.',
+                        text: '-Digo que, aunque no te sientas cómoda con este mundo visual, siempre podrás simplemente ponerte\n' + 
+                        'de nuevo la venda y volver a la oscuridad. Así, que, si tu decides, puedes continuar con tu vida como\n' + 
+                        'antes. Y si tú quieres vivir así, eso está bien, pero te aconsejaría también que te atrevas, aunque solo\n' + 
+                        'por momentos, a quitárte esa tela y permitirte conocer al mundo en el que vivimos los demás.\n\n' + 
+                        'Creo que tú tienes ahora una oportunidad única para experimentar dos realidades, con el poder en tus manos\n' + 
+                        'para moverte entre ellas.',
                     },
                     {
                         text: '',
