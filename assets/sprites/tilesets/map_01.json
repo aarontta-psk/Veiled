@@ -191,8 +191,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2400,
-                 "y":2960
+                 "x":3232,
+                 "y":3296
                 }, 
                 {
                  "height":32,
@@ -202,19 +202,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2304,
-                 "y":2960
-                }, 
-                {
-                 "height":32,
-                 "id":20,
-                 "name":"houseKey",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2496,
-                 "y":2960
+                 "x":1376,
+                 "y":2080
                 }, 
                 {
                  "height":32,
