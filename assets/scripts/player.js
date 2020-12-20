@@ -63,6 +63,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         //Actualizamos cordura
         this.updateSanity();
+
+        //console.log(this.x, this.y);
     }
 
     //Calculo de velocidad con respecto a input

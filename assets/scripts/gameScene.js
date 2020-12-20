@@ -66,22 +66,31 @@ export default class GameScene extends Phaser.Scene {
         // Añado un npc de prueba en un array
         this.npcs = [
             //paso el sprite del player porque de momento no tenemos otro
-            this.testNpc = new Npc('doctor', this.matter.world, this.spawnpoint.x + 20,
+            /*this.testNpc = new Npc('doctor', this.matter.world, this.spawnpoint.x + 20,
                 this.spawnpoint.y + 200, [this.scene.get('testEvent'), this.scene.get('anotherTestEvent')],
                 {
                     //path
-                    'x': [1500, 1200, 1400],
-                    'y': [1500, 1400, 1200],
-                    'pause': [1000, 1000, 1000]
-                }),
-            this.painterNpc = new Npc('painter', this.matter.world, 4350,
-                3350, [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')],
+                    'x': [this.spawnpoint.x + 20],
+                    'y': [this.spawnpoint.y + 200],
+                    'pause': [1000]
+                }),*/
+            this.painterNpc = new Npc('painter', this.matter.world, 3872,
+            3552, [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')],
                 {
                     //path
-                    'x': [4350, 4200, 4210],
-                    'y': [3350, 3300, 3250],
-                    'pause': [1000, 1000, 1000]
+                    'x': [3872, 3744, 3872, 3680],
+                    'y': [3552, 3552, 3552, 3680],
+                    'pause': [1000, 1000, 1000, 1000]
                 }),
+            this.doctorNpc = new Npc('doctor', this.matter.world, 4256,
+                2208, [this.scene.get('doctorEvent_0')],
+                {
+                    //path
+                    'x': [4256, 4256, 4000],
+                    'y': [2208, 2336, 2336],
+                    'pause': [8000, 10, 1000]
+                })
+            
         ];
 
         // Colocamos la vision en la posicion del jugador
