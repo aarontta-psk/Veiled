@@ -87,7 +87,7 @@
     <property name="widthBg" type="int" value="708"/>
    </properties>
   </object>
-  <object id="15" name="newSect" x="3456" y="2912" width="1" height="192">
+  <object id="15" name="newSect" x="3456" y="2976" width="1" height="192">
    <properties>
     <property name="height" type="int" value="1984"/>
     <property name="heightBg" type="int" value="1856"/>
