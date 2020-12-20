@@ -99,7 +99,7 @@ export default class GameScene extends Phaser.Scene {
        
 
         // Creacion de items a partir del atlas
-        let item = undefined; //undefined para la comprobacion del evento de interaccion
+        this.item = undefined; //undefined para la comprobacion del evento de interaccion
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
         this.itemContainer = [];
