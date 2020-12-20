@@ -3,8 +3,14 @@ export default class Boot extends Phaser.Scene {
 
     preload() {
         // Carga de datos de juego
-        this.load.spritesheet('player', './assets/sprites/player.png',
-            { frameWidth: 32, frameHeight: 41 });
+        this.load.spritesheet('player', './assets/sprites/player_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('lumberjack', './assets/sprites/lumberjack_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('painter', './assets/sprites/painter_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('doctor', './assets/sprites/doctor_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
         this.load.image('background', './assets/sprites/background.jpg');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');

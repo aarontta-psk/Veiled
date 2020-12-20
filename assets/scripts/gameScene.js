@@ -141,25 +141,25 @@ export default class GameScene extends Phaser.Scene {
         });
         this.anims.create({
             key: 'up_move',
-            frames: this.anims.generateFrameNumbers('player', { start: 4, end: 7 }),
+            frames: this.anims.generateFrameNumbers('player', { start: 9, end: 17 }),
             frameRate: 4,
             repeat: -1
         });
         this.anims.create({
             key: 'down_move',
-            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
+            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 8 }),
             frameRate: 4,
             repeat: -1
         });
         this.anims.create({
             key: 'left_move',
-            frames: this.anims.generateFrameNumbers('player', { start: 12, end: 15 }),
+            frames: this.anims.generateFrameNumbers('player', { start: 27, end: 35 }),
             frameRate: 4,
             repeat: -1
         });
         this.anims.create({
             key: 'right_move',
-            frames: this.anims.generateFrameNumbers('player', { start: 8, end: 11 }),
+            frames: this.anims.generateFrameNumbers('player', { start: 18, end: 26 }),
             frameRate: 4,
             repeat: -1
         });
