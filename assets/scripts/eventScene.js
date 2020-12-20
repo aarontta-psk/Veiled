@@ -5,7 +5,7 @@ class eventScene extends Phaser.Scene {
 
     layout(options, group) {
         //variable para separar las opciones en el eje y
-        let distancia = 300;
+        let distancia = 340;
         //antes de mostrar las opciones, borro las anteriores
         group.removeAll(true);
 
@@ -15,7 +15,7 @@ class eventScene extends Phaser.Scene {
         for (let i = 1; i < options.length; i++) {
             console.log(options);
             //añado un texto
-            const optionText = this.add.text(50, distancia, options[i].text,{fontFamily: 'Neucha'}).setInteractive().setResolution(2).setScale(2);
+            const optionText = this.add.text(44, distancia, options[i].text,{fontFamily: 'Neucha'}).setInteractive().setResolution(1.6).setScale(1.6);
             //lo añado al container para borrarlo mas adelante
             group.add(optionText);
             distancia += 75;
@@ -288,7 +288,7 @@ export class doctorEvent_0 extends eventScene {
                                 'venda y volver a la oscuridad.'
                     },
                     {
-                        text: 'Continuar',
+                        text: 'Asentir y despedirte del viejo doctor',
                         cb: () => {
                             this.info.player.addSanity(15);
                             //this.info.player.enableBlindfold();
@@ -306,11 +306,11 @@ export class doctorEvent_0 extends eventScene {
                         'de nuevo la venda y volver a la oscuridad. Así, que, si tu decides, puedes continuar con tu vida como\n' + 
                         'antes. Y si tú quieres vivir así, eso está bien, pero te aconsejaría también que te atrevas, aunque solo\n' + 
                         'por momentos, a quitárte esa tela y permitirte conocer al mundo en el que vivimos los demás.\n\n' + 
-                        'Creo que tú tienes ahora una oportunidad única para experimentar dos realidades, con el poder en tus manos\n' + 
-                        'para moverte entre ellas.',
+                        'Creo que tú tienes ahora una oportunidad única para experimentar dos realidades, con el poder en\n' + 
+                        'tus manos para moverte entre ellas.',
                     },
                     {
-                        text: '',
+                        text: 'Dar las gracias y aceptar consejo',
                         cb: () => {
                             this.info.player.addSanity(15);
                             //this.info.player.enableBlindfold();
