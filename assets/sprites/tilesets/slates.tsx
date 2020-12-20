@@ -523,8 +523,11 @@
  </tile>
  <tile id="104">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="22" y="18" width="24" height="36"/>
+  </objectgroup>
  </tile>
  <tile id="105">
   <properties>
@@ -533,13 +536,20 @@
  </tile>
  <tile id="106">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="22" y="16" width="24" height="40"/>
+  </objectgroup>
  </tile>
  <tile id="107">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="2" y="12" width="24" height="42"/>
+   <object id="2" x="34" y="14" width="24" height="38"/>
+  </objectgroup>
  </tile>
  <tile id="108">
   <properties>
@@ -3764,22 +3774,22 @@
  </tile>
  <tile id="736">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="737">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="738">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="739">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="740">
@@ -4071,22 +4081,22 @@
  </tile>
  <tile id="792">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="793">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="794">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="795">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="796">
@@ -4357,22 +4367,22 @@
  </tile>
  <tile id="848">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="849">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="850">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="851">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="852">
@@ -4637,22 +4647,22 @@
  </tile>
  <tile id="904">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="905">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="906">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="907">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="908">
@@ -5217,13 +5227,19 @@
  </tile>
  <tile id="1020">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="2" x="22" y="12" width="24" height="29"/>
+  </objectgroup>
  </tile>
  <tile id="1021">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="22" y="12" width="24" height="29"/>
+  </objectgroup>
  </tile>
  <tile id="1022">
   <properties>
@@ -5483,12 +5499,12 @@
  </tile>
  <tile id="1072">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="1073">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="1074">
@@ -5714,18 +5730,29 @@
  </tile>
  <tile id="1117">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="18" y="19" width="26" height="27"/>
+  </objectgroup>
  </tile>
  <tile id="1118">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="10" y="19" width="24" height="25"/>
+   <object id="2" x="31" y="22" width="19" height="20"/>
+  </objectgroup>
  </tile>
  <tile id="1119">
   <properties>
-   <property name="obstacle" type="bool" value="false"/>
+   <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="14" y="21" width="20" height="21"/>
+   <object id="2" x="40" y="14" width="16" height="14"/>
+  </objectgroup>
  </tile>
  <tile id="1120">
   <properties>
@@ -5769,12 +5796,12 @@
  </tile>
  <tile id="1128">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="1129">
   <properties>
-   <property name="obstacle" type="bool" value="true"/>
+   <property name="obstacle" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="1130">
@@ -6057,11 +6084,17 @@
   <properties>
    <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="55" y="31" width="9" height="11"/>
+  </objectgroup>
  </tile>
  <tile id="1185">
   <properties>
    <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="2" x="0" y="31" width="9" height="11"/>
+  </objectgroup>
  </tile>
  <tile id="1186">
   <properties>

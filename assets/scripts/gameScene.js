@@ -203,6 +203,9 @@ export default class GameScene extends Phaser.Scene {
         this.building_03.setCollisionByProperty({ obstacle: true });
         this.matter.world.convertTilemapLayer(this.building_03);
 
+        this.forest_02.setCollisionByProperty({ obstacle: true });
+        this.matter.world.convertTilemapLayer(this.forest_02);
+
         this.matter.world.on('collisionstart',
             (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
