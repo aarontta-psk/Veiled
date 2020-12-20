@@ -33,6 +33,7 @@ export default class Inventory {
         const items = this.mainScene.itemContainer;
         let i = 0;
         while(i < items.length && items[i].name != name) i++;
-        this.addObject(items[i]);
+        //this.addObject(items[i]);
+        this.mainScene.insertItem(items[i]);
     }
 }
