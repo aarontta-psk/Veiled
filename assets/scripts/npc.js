@@ -100,7 +100,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
     else if (velY < 0)
         this.anims.play('up_move_' + this.frame.texture.key, true);
     else
-        this.anims.play('down_move' + this.frame.texture.key, true);
+        this.anims.play('down_move_' + this.frame.texture.key, true);
     }
         else if (velX < 0)
         {
