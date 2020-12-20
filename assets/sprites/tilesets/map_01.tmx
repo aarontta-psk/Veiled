@@ -67,7 +67,6 @@
  <objectgroup id="6" name="collectable">
   <object id="18" name="potion" x="3232" y="3296" width="32" height="32"/>
   <object id="19" name="coin" x="1376" y="2080" width="32" height="32"/>
-  <object id="20" name="houseKey" x="3936" y="3168" width="32" height="32"/>
   <object id="21" name="sketch" x="2592" y="2960" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="5" name="objectLayer">

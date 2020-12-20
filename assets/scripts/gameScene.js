@@ -109,17 +109,13 @@ export default class GameScene extends Phaser.Scene {
                 this.potion = new potionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
                 this.itemContainer.push(this.potion);
             }
-            else if (itemPos.name === 'houseKey') {
-                this.housekey = new keyItem1(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1], this.player);
-                this.itemContainer.push(this.housekey);
-            }
             //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
             else if (itemPos.name === 'coin') {
                 this.coin = new kaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
                 this.itemContainer.push(this.coin);
             }
             else if (itemPos.name === 'sketch') {
-                this.sketch = new sketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
+                this.sketch = new sketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1], this.player);
                 this.itemContainer.push(this.sketch);
             }
         }

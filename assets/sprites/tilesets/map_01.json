@@ -207,17 +207,6 @@
                 }, 
                 {
                  "height":32,
-                 "id":20,
-                 "name":"houseKey",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":3936,
-                 "y":3168
-                }, 
-                {
-                 "height":32,
                  "id":21,
                  "name":"sketch",
                  "rotation":0,
