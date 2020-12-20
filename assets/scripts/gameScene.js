@@ -29,15 +29,13 @@ export default class GameScene extends Phaser.Scene {
         // Asignamos el tileset
         const tileset = this.map.addTilesetImage('slates', 'tiles');
 
-        // Capas del mapa para asignar distintas funcionalidades
+        // Creamos layers por debajo del jugador (probablemente deberiamos establecer una profundidad para que todo quede más limpio)
         this.map_zones = this.map.createStaticLayer('map_zones', tileset);
         this.map_limits = this.map.createStaticLayer('map_limits', tileset);
         this.ground_01 = this.map.createStaticLayer('ground_01', tileset);
         this.ground_02 = this.map.createStaticLayer('ground_02', tileset);
         this.ground_03 = this.map.createStaticLayer('ground_03', tileset);
-        this.building_01 = this.map.createStaticLayer('building_01', tileset);
-        // Esta capa es dinámica porque incluye tiles con animaciones        
-        
+        this.building_01 = this.map.createStaticLayer('building_01', tileset);        
         this.building_02 = this.map.createStaticLayer('building_02', tileset);        
         
 
@@ -67,7 +65,6 @@ export default class GameScene extends Phaser.Scene {
             this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
         }
 
-
         // Añado un npc de prueba en un array
         this.npcs = [
             //paso el sprite del player porque de momento no tenemos otro
@@ -93,7 +90,8 @@ export default class GameScene extends Phaser.Scene {
         const [x, y] = [this.player.x, this.player.y];
         this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);
 
-        // Creamos un layer estático
+        // Creamos más layers por encima del jugador (probablemente deberiamos establecer una profundidad para que todo quede más limpio)
+        this.building_03 = this.map.createStaticLayer('building_03', tileset);
         this.roof_01 = this.map.createStaticLayer('roof_01', tileset);
         this.animated = this.map.createDynamicLayer('animated', tileset);
         this.forest_01 = this.map.createStaticLayer('forest_01', tileset);
@@ -195,12 +193,15 @@ export default class GameScene extends Phaser.Scene {
             this.resetInputs();
         });
 
-        // Colision de las paredes 
+        // Añadimos colision a las layers del tilemap que lo necesitan
         this.building_01.setCollisionByProperty({ obstacle: true });
         this.matter.world.convertTilemapLayer(this.building_01);
 
         this.map_limits.setCollisionByProperty({ obstacle: true });
         this.matter.world.convertTilemapLayer(this.map_limits);
+
+        this.building_03.setCollisionByProperty({ obstacle: true });
+        this.matter.world.convertTilemapLayer(this.building_03);
 
         this.matter.world.on('collisionstart',
             (evento, cuerpo1, cuerpo2) => {
