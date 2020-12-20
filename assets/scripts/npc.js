@@ -2,7 +2,6 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
     constructor(key, world, x, y, npcEvents, path) {
         super(world, x, y, key); //llama a la constructora de Sprite
 
-        this.setScale(0.8);
         this.scene.add.existing(this); //lo añades en la escena
 
         this.setBody({
