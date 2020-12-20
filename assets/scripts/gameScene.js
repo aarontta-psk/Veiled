@@ -169,14 +169,7 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.player.cursorsPlayer.interact.on('down', event => {
-            if (item !== undefined) {
-                this.player.inventory.addObject(item);
-                this.gui.addItem(item);
-                console.log(item.x,item.y, "item");
-                item = undefined;
-                console.log(item);
-                console.log(this.player.inventory)
-            }
+           this.insertItem(this.item);
         });
         this.player.cursorsPlayer.invToggle.on('down', event => {
             this.gui.toggleInventory();
@@ -210,11 +203,11 @@ export default class GameScene extends Phaser.Scene {
             (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     if (cuerpo2.gameObject === this.potion)
-                        item = this.potion;
+                        this.item = this.potion;
                     else if (cuerpo2.gameObject === this.housekey)
-                        item = this.housekey;
+                        this.item = this.housekey;
                     else if (cuerpo2.gameObject === this.coin)
-                        item = this.coin;
+                        this.item = this.coin;
                 }
             });
 
@@ -223,7 +216,7 @@ export default class GameScene extends Phaser.Scene {
                 if (cuerpo1.gameObject === this.player) {
                     //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
                     if (cuerpo2.gameObject === this.coin || cuerpo2.gameObject === this.housekey
-                        || cuerpo2.gameObject === this.potion) item = undefined;
+                        || cuerpo2.gameObject === this.potion) this.item = undefined;
 
                     //buscamos si sale de un trigger de seccion
                     let i = 0;
@@ -308,4 +301,16 @@ export default class GameScene extends Phaser.Scene {
         this.blindfold.setBlindfold();
         this.blindfold.setVision(this.vision, this.player.x, this.player.y);
     }   
+
+    insertItem(itemToInsert)
+    {
+        if (itemToInsert !== undefined) {
+            this.player.inventory.addObject(itemToInsert);
+            this.gui.addItem(itemToInsert);
+            console.log(itemToInsert.x,itemToInsert.y, "item");
+            itemToInsert = undefined;
+            console.log(itemToInsert);
+            console.log(this.player.inventory)
+        }
+    }
 }
