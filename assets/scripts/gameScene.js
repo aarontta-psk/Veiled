@@ -24,8 +24,6 @@ export default class GameScene extends Phaser.Scene {
             tileHeight: 64
         });
 
-        
-
         // Asignamos el tileset
         const tileset = this.map.addTilesetImage('slates', 'tiles');
 
@@ -68,7 +66,7 @@ export default class GameScene extends Phaser.Scene {
         // Añado un npc de prueba en un array
         this.npcs = [
             //paso el sprite del player porque de momento no tenemos otro
-            this.testNpc = new Npc('player', this.matter.world, this.spawnpoint.x + 20,
+            this.testNpc = new Npc('doctor', this.matter.world, this.spawnpoint.x + 20,
                 this.spawnpoint.y + 200, [this.scene.get('testEvent'), this.scene.get('anotherTestEvent')],
                 {
                     //path
@@ -76,7 +74,7 @@ export default class GameScene extends Phaser.Scene {
                     'y': [1500, 1400, 1200],
                     'pause': [1000, 1000, 1000]
                 }),
-            this.painterNpc = new Npc('player', this.matter.world, 4350,
+            this.painterNpc = new Npc('painter', this.matter.world, 4350,
                 3350, [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')],
                 {
                     //path
@@ -133,36 +131,10 @@ export default class GameScene extends Phaser.Scene {
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
-        this.anims.create({
-            key: 'idle',
-            frames: this.anims.generateFrameNumbers('player', { start: 1, end: 1 }),
-            frameRate: 1,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'up_move',
-            frames: this.anims.generateFrameNumbers('player', { start: 9, end: 17 }),
-            frameRate: 4,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'down_move',
-            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 8 }),
-            frameRate: 4,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'left_move',
-            frames: this.anims.generateFrameNumbers('player', { start: 27, end: 35 }),
-            frameRate: 4,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'right_move',
-            frames: this.anims.generateFrameNumbers('player', { start: 18, end: 26 }),
-            frameRate: 4,
-            repeat: -1
-        });
+        //creacion de animaciones
+        this.createAnims('player');
+        this.createAnims('painter');
+        this.createAnims('doctor');
 
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.blindfold.setBlindfold();
@@ -312,5 +284,39 @@ export default class GameScene extends Phaser.Scene {
             console.log(itemToInsert);
             console.log(this.player.inventory)
         }
+    }
+
+    //metodo generalizado de creacion de animaciones de movimiento por defecto
+    createAnims(key) {
+        this.anims.create({
+            key: 'idle_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
+            frameRate: 1,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'up_move_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 9, end: 17 }),
+            frameRate: 4,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'down_move_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 0, end: 8 }),
+            frameRate: 4,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'left_move_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 27, end: 35 }),
+            frameRate: 4,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'right_move_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 18, end: 26 }),
+            frameRate: 4,
+            repeat: -1
+        });
     }
 }
