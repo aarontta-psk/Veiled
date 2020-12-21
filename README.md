@@ -1,5 +1,5 @@
 ![Veiled](./assets/media/headers/h_title_bg.png)
-![Veiledsss](./assets/media/features/npc.gif)
+
 **Emiliagos Aarabels (EAa) [2º GDV]**
 
 - Emile de Kadt ([edekadt@ucm.es](mailto:edekadt@ucm.es))
@@ -30,6 +30,8 @@ El personaje tendrá un medidor que representa su **cordura**. Funcionará a mod
 A lo largo de la partida, la cantidad de cordura especifica tendrá una serie de efectos en el jugador, como comenzar a percibir alucinaciones visuales y sonoras (que irán empeorando cuanto menor sea la cordura), además de pequeños impedimentos sensoriales, con el fin de recordarle que no puede mantenerse todo el rato sin venda.
 
 El progreso de la barra sigue una escala logarítmica tanto en positivo como en negativo, tal que cuando está baja las pérdidas son reducidas y cuando esté alta los incrementos son reducidos.
+
+![Cordura](./assets/media/features/sanity.gif)
 
 ### Percepción
 
@@ -69,6 +71,12 @@ En el mapa, habrá esparcidos una serie de **eventos de texto** (por interactuar
   - Informativo: se lanzan para informar al jugador ya sea de un aspecto jugable (tutoriales, consejos, etc) o de historia.
 
 Así, cada uno tiene un indicador de que tipo es: de avanzar en la historia, de desafío, para conseguir un objeto.... Además, algunas de estas opciones pueden tener requisitos para ser respondidas, como tener un objeto clave o tener cierto nivel de cordura.
+
+### NPCs
+
+Los niveles contarán con varios NPCs interactuables, que recorren un camino prestablecido, y que al interactuar con ellos activarán algún tipo de evento, ya sea principal, secundario o simplemente dialogo.
+
+![Veiledsss](./assets/media/features/npc.gif)
 
 ### Objetos
 
@@ -129,7 +137,19 @@ Al final del juego habrá un último paso hacia la iluminación en la que debe p
 
 ### Eventos
 
+Ejemplo de una evento de texto sencillo
 
+![Evento de texto](./assets/media/features/text_event.gif)
+
+### NPCs
+
+#### Nivel 01
+
+- **Doctor**: posición en el mapa, evento, sprite
+
+- **Pintora**: posición en el mapa, evento, sprite
+
+- **Leñador**: posición en el mapa, evento, sprite
 
 ### Items
 
@@ -185,9 +205,11 @@ El juego ofrecerá dos menús al jugador: uno **principal** y otro de **pausa/op
 
 ### Interfaz
 
-La interfaz en la pantalla de juego es muy minimalista compuesta solo de la barra de ¿CORDURA?, contador de fe, pequeños _tooltips_ al acercarse a ciertos objetos con los que el jugador puede interactuar y un pequeño icono para acceder al inventario, ¿una bolsa o una riñonera/bolsa de mano?
+La interfaz en la pantalla de juego es muy minimalista compuesta solo de la barra de ¿CORDURA?, contador de fe, pequeños _tooltips_ al acercarse a ciertos objetos con los que el jugador puede interactuar.
 
-Además de la interfaz principal contara con un overlay simple de inventario donde se mostrarán lo objetos ¿notas? ¿pistas? ¿historial de eventos?
+Además de la interfaz principal contara con un overlay simple de inventario donde se mostrarán lo objetos recolectados por el juagador durante la partida.
+
+![Inventario](./assets/media/features/inventory.gif)
 
 ¿Otro icono desde el cual abrir un historial de eventos como un historial de diálogo de un RPG?
 
@@ -197,9 +219,11 @@ Además de la interfaz principal contara con un overlay simple de inventario don
 
 ![Game API](./assets/media/game_API.png)
 
-### Esquema de un nivel
+### Nivel 1
 
 ![Level 1](./assets/media/village_level.png)
+
+![Level 1 new](./assets/media/village_level_new.png)
 
 ### Relación Fe-Cordura
 
