@@ -47,7 +47,7 @@ Cuando la cordura esté por debajo del 10%, no se podrá interactuar con las mem
 
 #### Estímulos
 
-A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que permitirán al jugador esclarecer el contorno de ciertas zonas del mapa. Estos estímulos aparecerán cada cierto tiempo. ¿Sobrecarga de sentidos?
+A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que, en algunas zonas del mapa, generarán una señal según el tipo de sentido al que apele. Esto permitirá distinguir zonas especificas del mapa, como por ejemplo la granja.
 
 ### Fe
 
