@@ -1,13 +1,14 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import {potionItem, kaleidoscopeItem, keyItem1, sketchItem} from './item.js';
+import { potionItem, kaleidoscopeItem, keyItem1, sketchItem } from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js'
 
 export default class GameScene extends Phaser.Scene {
-    constructor() { 
-        super({ key: 'gameScene' }) };
+    constructor() {
+        super({ key: 'gameScene' })
+    };
 
     preload() {
         // Carga el plugin para las tiles animadas
@@ -33,9 +34,9 @@ export default class GameScene extends Phaser.Scene {
         this.ground_01 = this.map.createStaticLayer('ground_01', tileset);
         this.ground_02 = this.map.createStaticLayer('ground_02', tileset);
         this.ground_03 = this.map.createStaticLayer('ground_03', tileset);
-        this.building_01 = this.map.createStaticLayer('building_01', tileset);        
-        this.building_02 = this.map.createStaticLayer('building_02', tileset);        
-        
+        this.building_01 = this.map.createStaticLayer('building_01', tileset);
+        this.building_02 = this.map.createStaticLayer('building_02', tileset);
+
 
         this.triggersToSect = [];
         // Spawnea al player en un punto definido en Tiled.
@@ -75,7 +76,7 @@ export default class GameScene extends Phaser.Scene {
                     'pause': [1000]
                 }),*/
             this.painterNpc = new Npc('painter', this.matter.world, 3872,
-            3552, [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')],
+                3552, [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')],
                 {
                     //path
                     'x': [3872, 3744, 3872, 3680],
@@ -90,7 +91,7 @@ export default class GameScene extends Phaser.Scene {
                     'y': [2208, 2336, 2336],
                     'pause': [8000, 10, 1000]
                 })
-            
+
         ];
 
         // Colocamos la vision en la posicion del jugador
@@ -103,7 +104,7 @@ export default class GameScene extends Phaser.Scene {
         this.animated = this.map.createDynamicLayer('animated', tileset);
         this.forest_01 = this.map.createStaticLayer('forest_01', tileset);
         this.forest_02 = this.map.createStaticLayer('forest_02', tileset);
-       
+
 
         // Creacion de items a partir del atlas
         this.item = undefined; //undefined para la comprobacion del evento de interaccion
@@ -146,7 +147,7 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.player.cursorsPlayer.interact.on('down', event => {
-           this.insertItem(this.item);
+            this.insertItem(this.item);
         });
         this.player.cursorsPlayer.invToggle.on('down', event => {
             this.gui.toggleInventory();
@@ -203,13 +204,13 @@ export default class GameScene extends Phaser.Scene {
                 }
             });
 
-        this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {    
+        this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
             if (cuerpo1.gameObject === this.player &&
-                cuerpo2.gameObject instanceof Npc){
+                cuerpo2.gameObject instanceof Npc) {
                 //mensaje informativo
                 console.log("overlapping a npc");
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
-                if(this.player.cursorsPlayer.interact.isDown){
+                if (this.player.cursorsPlayer.interact.isDown) {
                     let npcEvent = cuerpo2.gameObject.nextEvent();
                     if (npcEvent != null)
                         this.changeScene(npcEvent);
@@ -277,14 +278,13 @@ export default class GameScene extends Phaser.Scene {
     deathBlindfold() {
         this.blindfold.setBlindfold();
         this.blindfold.setVision(this.vision, this.player.x, this.player.y);
-    }   
+    }
 
-    insertItem(itemToInsert)
-    {
+    insertItem(itemToInsert) {
         if (itemToInsert !== undefined) {
             this.player.inventory.addObject(itemToInsert);
             this.gui.addItem(itemToInsert);
-            console.log(itemToInsert.x,itemToInsert.y, "item");
+            console.log(itemToInsert.x, itemToInsert.y, "item");
             itemToInsert = undefined;
             console.log(itemToInsert);
             console.log(this.player.inventory)
