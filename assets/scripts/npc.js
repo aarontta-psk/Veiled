@@ -1,4 +1,4 @@
-export default class Npc extends Phaser.Physics.Matter.Sprite{
+export default class Npc extends Phaser.Physics.Matter.Sprite {
     constructor(key, world, x, y, npcEvents, path) {
         super(world, x, y, key); //llama a la constructora de Sprite
 
@@ -7,7 +7,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         this.setBody({
             type: 'rectangle',
             width: 60,
-            height:60         
+            height: 60
         });
         this.scene.add.existing(this);
         this.scene.matter.add.sprite(this);
@@ -24,32 +24,28 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         this.nextPathPoint = 0;    //el indice del array de puntos del recorrido al que nos dirigimos siguiente
 
         this.state = 'moving';   //still, moving
-        this.dest = {x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint]};
+        this.dest = { x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint] };
     }
 
     preUpdate(time, delta) {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
-        if (this.state === 'moving')
-        {
+        if (this.state === 'moving') {
             this.move();
         }
     }
 
-    move()
-    {
+    move() {
         let [velX, velY] = [0, 0];
 
-        if (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y) > 3)
-        {
+        if (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y) > 3) {
             //Calculamos la velocidad
             [velX, velY] = this.calculateVelocity();
 
             //Aplicamos la velocidad al cuerpo
             this.setVelocity(velX, velY);
         }
-        else
-        {
+        else {
             this.state = 'still';
             this.setVelocity(0, 0);
             this.scene.time.delayedCall(this.pathPause[this.nextPathPoint], this.nextPath, null, this);
@@ -57,7 +53,7 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
 
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
-        
+
         /*console.log('NPC state: ' + this.state + 
         '\nSpeed: ' + velX + ', ' + velY + 
         '\nDestination(' + this.nextPathPoint + '): ' + this.dest.x + ', ' + this.dest.y +
@@ -65,11 +61,10 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
         '\nDistance to destination: ' + (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y)));*/
     }
 
-    nextPath()
-    {
+    nextPath() {
         this.nextPathPoint++;
-        this.nextPathPoint%= this.path.x.length;
-        this.dest = {x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint]};
+        this.nextPathPoint %= this.path.x.length;
+        this.dest = { x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint] };
         this.state = 'moving';
     }
 
@@ -94,41 +89,38 @@ export default class Npc extends Phaser.Physics.Matter.Sprite{
 
     //cambio de animacion con respecto a la velocidad
     changeAnims(velX, velY) {
-    if (velX === 0){
-        if (velY=== 0)
-        this.anims.play('idle_' + this.frame.texture.key, true);
-    else if (velY < 0)
-        this.anims.play('up_move_' + this.frame.texture.key, true);
-    else
-        this.anims.play('down_move_' + this.frame.texture.key, true);
-    }
-        else if (velX < 0)
-        {
+        if (velX === 0) {
+            if (velY === 0)
+                this.anims.play('idle_' + this.frame.texture.key, true);
+            else if (velY < 0)
+                this.anims.play('up_move_' + this.frame.texture.key, true);
+            else
+                this.anims.play('down_move_' + this.frame.texture.key, true);
+        }
+        else if (velX < 0) {
             if (velY > -velX)
-            this.anims.play('down_move_' + this.frame.texture.key, true);
+                this.anims.play('down_move_' + this.frame.texture.key, true);
             else if (velY < velX)
-            this.anims.play('up_move_' + this.frame.texture.key, true);
+                this.anims.play('up_move_' + this.frame.texture.key, true);
             else
-            this.anims.play('left_move_' + this.frame.texture.key, true);
+                this.anims.play('left_move_' + this.frame.texture.key, true);
         }
-        else
-        {
+        else {
             if (velY > velX)
-            this.anims.play('down_move_' + this.frame.texture.key, true);
+                this.anims.play('down_move_' + this.frame.texture.key, true);
             else if (velY < -velX)
-            this.anims.play('up_move_' + this.frame.texture.key, true);
+                this.anims.play('up_move_' + this.frame.texture.key, true);
             else
-            this.anims.play('right_move_' + this.frame.texture.key, true);
+                this.anims.play('right_move_' + this.frame.texture.key, true);
         }
-        
+
     }
 
-    nextEvent()
-    {
+    nextEvent() {
         let i = 0;
-        while (i<this.npcEvents.length && this.npcEvents[i].completed == true) i++;
-                    
-        if (i<this.npcEvents.length)
+        while (i < this.npcEvents.length && this.npcEvents[i].completed == true) i++;
+
+        if (i < this.npcEvents.length)
             return this.npcEvents[i];
         else
             return null;
