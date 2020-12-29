@@ -3,7 +3,8 @@ import Player from './player.js';
 import { potionItem, kaleidoscopeItem, keyItem1, sketchItem } from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
-import GUI from './gui.js'
+import GUI from './gui.js';
+import Stimulus from './stimulus.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -220,6 +221,22 @@ export default class GameScene extends Phaser.Scene {
 
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
+
+        //this.testStimulus = new Stimulus(this.matter.world, 'player', {});
+        let particles = this.add.particles('player');
+
+        let emitter = particles.createEmitter({
+            x: this.player.x,
+            y: this.player.y,
+            frame: 0,
+            quantity: 1,
+            frequency: 200,
+            angle: { min: 0, max: 30 },
+            speed: 200,
+            gravityY: 100,
+            lifespan: { min: 1000, max: 2000 },
+            particleClass: Stimulus
+        });
     }
 
 
