@@ -39,11 +39,10 @@ export class soundStimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
 }
 
 export class smellStimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
-    constructor(manager, position){
+    constructor(manager, position, color){
         super(manager);
-        
-        let circ = new Phaser.Geom.Circle(0, 0, 50);
 
+    let circ = new Phaser.Geom.Circle(0, 0, 30);
     manager.createEmitter({
         x : position.x,
         y : position.y,
@@ -51,12 +50,12 @@ export class smellStimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
         scale : 0.05,
         frame : 0,
         quantity : 1,
-        frequency : 2000,
+        frequency : 3000,
         speed : 5,
         gravityY : 0, 
         lifespan : { min: 2000, max: 3000 },
         emitZone: { type: 'random', source: circ },
-        tint: 0xBDECB6
+        tint: color
     });
     }
 }

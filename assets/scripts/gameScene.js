@@ -223,9 +223,9 @@ export default class GameScene extends Phaser.Scene {
         this.animatedTiles.init(this.map);
 
         //PRUEBAS DE ESTIMULOS
-        //let particles = this.add.particles('smellCloud');
+        let particles = this.add.particles('smellCloud');
         //new soundStimulus(particles, {x: this.player.x, y: this.player.y});
-        //new smellStimulus(particles, {x: this.player.x, y: this.player.y});
+        new smellStimulus(particles, {x: this.player.x, y: this.player.y}, 0xBDECB6);
     }
 
 
