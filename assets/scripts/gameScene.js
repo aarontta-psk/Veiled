@@ -19,6 +19,12 @@ export default class GameScene extends Phaser.Scene {
     create() {
         this.matter.world.disableGravity();
 
+        //sonidos
+        this.themeSong = this.sound.add('mainTheme', {
+            mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
+        });
+        this.themeSong.play();
+
         // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
             key: 'map',
