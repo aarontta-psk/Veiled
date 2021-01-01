@@ -4,7 +4,7 @@ import { potionItem, kaleidoscopeItem, keyItem1, sketchItem } from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
-import Stimulus from './stimulus.js';
+import { soundStimulus, smellStimulus } from './stimulus.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -222,9 +222,10 @@ export default class GameScene extends Phaser.Scene {
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
 
-        let particles = this.add.particles('player');
-
-        new Stimulus(particles, {x: this.player.x, y: this.player.y});
+        //PRUEBAS DE ESTIMULOS
+        //let particles = this.add.particles('smellCloud');
+        //new soundStimulus(particles, {x: this.player.x, y: this.player.y});
+        //new smellStimulus(particles, {x: this.player.x, y: this.player.y});
     }
 
 
@@ -299,6 +300,11 @@ export default class GameScene extends Phaser.Scene {
     //metodo generalizado de creacion de animaciones de movimiento por defecto
     createAnims(key) {
         this.anims.create({
+            key: 'idle_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
+            frameRate: 1,
+            repeat: -1
+        }); this.anims.create({
             key: 'idle_' + key,
             frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
             frameRate: 1,

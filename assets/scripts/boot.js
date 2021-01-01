@@ -14,6 +14,10 @@ export default class Boot extends Phaser.Scene {
         this.load.image('background', './assets/sprites/ui/event_menu.png');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
+        this.load.spritesheet('soundCircle', './assets/sprites/sound_circle.png',
+        { frameWidth: 860, frameHeight: 904 });
+        this.load.spritesheet('smellCloud', './assets/sprites/smell_cloud.png',
+        { frameWidth: 1000, frameHeight: 649 });
 
         // Carga de datos de menus
         this.load.image('pauseMenu', './assets/sprites/ui/pause_menu.png');
