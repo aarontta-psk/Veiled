@@ -12,8 +12,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.setBody({
             type: 'rectangle',
             width: 25,
-            height: 48         
-        });  
+            height: 48
+        });
 
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this); //lo añado a las fisicas de Matter
@@ -40,12 +40,12 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             left: Phaser.Input.Keyboard.KeyCodes.A,
             right: Phaser.Input.Keyboard.KeyCodes.D,
             interact: Phaser.Input.Keyboard.KeyCodes.E,
-            talk: Phaser.Input.Keyboard.KeyCodes.T,
             invToggle: Phaser.Input.Keyboard.KeyCodes.Q,
             blindfold: Phaser.Input.Keyboard.KeyCodes.SPACE,
+            pause: Phaser.Input.Keyboard.KeyCodes.ESC,
 
-            testing: Phaser.Input.Keyboard.KeyCodes.CTRL,
-            pause: Phaser.Input.Keyboard.KeyCodes.ESC
+            talk: Phaser.Input.Keyboard.KeyCodes.T,
+            testing: Phaser.Input.Keyboard.KeyCodes.CTRL
         });
     }
 
@@ -63,8 +63,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         //Actualizamos cordura
         this.updateSanity();
-
-        //console.log(this.x, this.y);
     }
 
     //Calculo de velocidad con respecto a input
@@ -96,16 +94,16 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     //cambio de animacion con respecto a la velocidad
     changeAnims(velX, velY) {
         if (velX === 0) {
-            if (velY === 0)
+            if (velY === 0) //quieto
                 this.anims.play('idle_' + this.frame.texture.key, true);
-            else if (velY < 0)
+            else if (velY < 0) //arriba
                 this.anims.play('up_move_' + this.frame.texture.key, true);
-            else
+            else //abajo
                 this.anims.play('down_move_' + this.frame.texture.key, true);
         }
-        else if (velX < 0)
+        else if (velX < 0) //izquierda
             this.anims.play('left_move_' + this.frame.texture.key, true);
-        else
+        else //derecha
             this.anims.play('right_move_' + this.frame.texture.key, true);
     }
 
@@ -119,14 +117,14 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
                 //Esta fórmula hace que la función sea derivable y el decay nunca baje por debajo del 10% del valor inicial
                 this.sanity -= (this.decay * this.sanity / this.sanityLogThreshold) * 0.9 + this.decay * 0.1;
         }
-        if (this.sanity < 0.1)
-            this.die();
+        if (this.sanity < 0.1) //si se gasta la cordura
+            this.die(); //muere
     }
 
-    addSanity(sanityBoost){
+    //metodo para añadir ocrdura (item)
+    addSanity(sanityBoost) {
         this.sanity += sanityBoost;
-        if (this.sanity>100)
-        this.sanity = 100;
+        if (this.sanity > 100) this.sanity = 100;
     }
 
     //reaparicion tras muerte
