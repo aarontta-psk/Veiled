@@ -4,6 +4,11 @@ export default class mainMenuScene extends Phaser.Scene{
         super({ key: 'mainMenuScene' });
     }
     create(){
+        this.menuSong = this.sound.add('menuSong', {
+            mute: false, volume: 0.2, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
+        });
+        this.menuSong.play();
+
         this.scene.bringToTop();
         //imagen de fondo
         this.add.image(0,0, 'mainMenu').setOrigin(0);
@@ -20,7 +25,10 @@ export default class mainMenuScene extends Phaser.Scene{
         play.on('pointerout', event => {play.setScale(1);});
         options.on('pointerout', event => {options.setScale(1);});
         //pointerdown
-        play.on('pointerdown', event => {this.scene.start('gameScene');});
+        play.on('pointerdown', event => {
+            this.menuSong.stop();
+            this.scene.start('gameScene');
+        });
         options.on('pointerdown', event => {console.log('Opciones pulsado. Hay que implementar las opciones')});
     }
 }
