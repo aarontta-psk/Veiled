@@ -1,7 +1,7 @@
 import Inventory from './inventory.js';
 
 export default class Player extends Phaser.Physics.Matter.Sprite {
-    constructor(world, x, y, spawnPoint) {
+    constructor(world, x, y, spawnPoint, startingFaith) {
         super(world, x, y, 'player'); //llama a la constructora de Sprite
 
         /*this.setBody({
@@ -27,6 +27,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.sanity = 100; //cordura
         this.decay = 0.2; //velocidad base a la que pierde la cordura
         this.sanityLogThreshold = 20; //umbral a partir del cual aplicamos la pérdida logarítmica
+
+        this.faith = startingFaith //al instanciarse en el nivel, tiene que recibir la de del nivel anterior
 
         this.inventory = new Inventory(this.scene);
 
@@ -125,6 +127,10 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     addSanity(sanityBoost) {
         this.sanity += sanityBoost;
         if (this.sanity > 100) this.sanity = 100;
+    }
+
+    addFaith(faithBoost){
+        this.faith += this.faithBoost;
     }
 
     //reaparicion tras muerte
