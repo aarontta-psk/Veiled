@@ -65,9 +65,11 @@ export default class GUI extends Phaser.GameObjects.Container {
     }
 
     //mostrar brevemente la barra de fe
-    viewFaith(){
+    viewFaith(faith){
         this.faithBack.setVisible(true);
         this.faithBar.setVisible(true);
+        this.faithBar.scaleX = faith / this.faithTop;
+        console.log('faith: ' + faith + 'faithtop: ' + this.faithTop);
         this.scene.time.delayedCall(4000, this.hideFaith, null, this);
     }
 

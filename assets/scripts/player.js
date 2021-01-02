@@ -49,6 +49,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             talk: Phaser.Input.Keyboard.KeyCodes.T,
             testing: Phaser.Input.Keyboard.KeyCodes.CTRL
         });
+
+        console.log('faith: ' + this.faith);
     }
 
     preUpdate(time, delta) {
@@ -123,15 +125,21 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             this.die(); //muere
     }
 
-    //metodo para añadir ocrdura (item)
+    //metodo para añadir cordura (item)
     addSanity(sanityBoost) {
         this.sanity += sanityBoost;
         if (this.sanity > 100) this.sanity = 100;
     }
 
     addFaith(faithBoost){
-        this.faith += this.faithBoost;
-        this.scene.gui.viewFaith();
+        
+        console.log('faith before boost: ' + this.faith);
+        console.log('faith boost: ' + faithBoost);
+
+        this.faith += faithBoost;
+        this.scene.gui.viewFaith(this.faith);
+
+        console.log('faith after boost: ' + this.faith);
     }
 
     //reaparicion tras muerte
