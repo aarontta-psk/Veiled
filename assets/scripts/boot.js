@@ -50,6 +50,7 @@ export default class Boot extends Phaser.Scene {
 
         // Carga de sonidos
         this.load.audio('mainTheme', './assets/audio/music/theme.mp3');
+        this.load.audio('menuSong', './assets/audio/music/menuSong.mp3');
     }
 
     create() {
