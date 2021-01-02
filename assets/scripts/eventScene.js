@@ -211,6 +211,7 @@ export class painterEvent_1 extends eventScene {
                         text: 'Agradecer y aceptar regalo',
                         cb: () => {
                             this.info.player.inventory.collect('boceto');
+                            this.info.player.addFaith(20);
                             this.completed = true;
                         }
                     }
@@ -230,6 +231,7 @@ export class painterEvent_1 extends eventScene {
                         text: 'Agradecer y aceptar regalo',
                         cb: () => {
                             this.info.player.inventory.collect('caleidoscopio');
+                            this.info.player.addFaith(20);
                             this.completed = true;
                         }
                     }
@@ -249,6 +251,7 @@ export class painterEvent_1 extends eventScene {
                         text: 'Animar y despedir',
                         cb: () => {
                             this.info.player.addSanity(30);
+                            this.info.player.addFaith(20);
                             this.completed = true;
                         }
                     }
@@ -291,6 +294,7 @@ export class doctorEvent_0 extends eventScene {
                         text: 'Asentir y despedirte del viejo doctor',
                         cb: () => {
                             this.info.player.addSanity(15);
+                            this.info.player.addFaith(20);
                             //this.info.player.enableBlindfold();
                             this.completed = true;
                         }
@@ -313,6 +317,7 @@ export class doctorEvent_0 extends eventScene {
                         text: 'Dar las gracias y aceptar consejo',
                         cb: () => {
                             this.info.player.addSanity(15);
+                            this.info.player.addFaith(20);
                             //this.info.player.enableBlindfold();
                             this.completed = true;
                         }

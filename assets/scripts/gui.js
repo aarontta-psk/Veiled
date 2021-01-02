@@ -46,6 +46,15 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.sanityBar = this.scene.add.image(150, 30, 'sanityBar').setScrollFactor(0);
         this.add(this.sanityBar);
         this.sanityTop = 100;
+
+        //Barra fe
+        this.faithBack = this.scene.add.image(150, 80, 'sanityBarBack').setScrollFactor(0);
+        this.add(this.faithBack);
+        this.faithBar = this.scene.add.image(150, 80, 'sanityBar').setScrollFactor(0);
+        this.add(this.faithBar);
+        //Fe maxima = 80*nivel completado + 20*evento secundario (3 por nivel) = 240 + 180 = 420 (noice)
+        this.faithTop = 420;
+        this.hideFaith();
     }
 
     //activar/desactivar inventario
@@ -53,6 +62,18 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.isVisible = !this.isVisible;
         this.backgroundInventory.setVisible(this.isVisible);
         this.updateInventory();
+    }
+
+    //mostrar brevemente la barra de fe
+    viewFaith(){
+        this.faithBack.setVisible(true);
+        this.faithBar.setVisible(true);
+        this.scene.time.delayedCall(4000, this.hideFaith, null, this);
+    }
+
+    hideFaith(){
+        this.faithBack.setVisible(false);
+        this.faithBar.setVisible(false);
     }
 
     //agregacion de un item añadido al inventario
