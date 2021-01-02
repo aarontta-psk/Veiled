@@ -132,14 +132,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     }
 
     addFaith(faithBoost){
-        
-        console.log('faith before boost: ' + this.faith);
-        console.log('faith boost: ' + faithBoost);
-
         this.faith += faithBoost;
         this.scene.gui.viewFaith(this.faith);
-
-        console.log('faith after boost: ' + this.faith);
     }
 
     //reaparicion tras muerte

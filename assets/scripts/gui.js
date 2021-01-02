@@ -50,7 +50,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         //Barra fe
         this.faithBack = this.scene.add.image(150, 80, 'sanityBarBack').setScrollFactor(0);
         this.add(this.faithBack);
-        this.faithBar = this.scene.add.image(150, 80, 'sanityBar').setScrollFactor(0);
+        this.faithBar = this.scene.add.image(150, 80, 'faithBar').setScrollFactor(0);
         this.add(this.faithBar);
         //Fe maxima = 80*nivel completado + 20*evento secundario (3 por nivel) = 240 + 180 = 420 (noice)
         this.faithTop = 420;
@@ -69,7 +69,6 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.faithBack.setVisible(true);
         this.faithBar.setVisible(true);
         this.faithBar.scaleX = faith / this.faithTop;
-        console.log('faith: ' + faith + 'faithtop: ' + this.faithTop);
         this.scene.time.delayedCall(4000, this.hideFaith, null, this);
     }
 
