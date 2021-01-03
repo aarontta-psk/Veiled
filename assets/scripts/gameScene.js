@@ -145,9 +145,9 @@ export default class GameScene extends Phaser.Scene {
         this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
         //creacion de animaciones
-        this.createAnims('player');
-        this.createAnims('painter');
-        this.createAnims('doctor');
+        this.createAnims('player', 1);
+        this.createAnims('painter', 4);
+        this.createAnims('doctor', 4);
 
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.blindfold.setBlindfold();
@@ -236,7 +236,6 @@ export default class GameScene extends Phaser.Scene {
 
 
     update(time, delta) {
-
         //actualizacion zona de vision
         const [playerX, playerY] = [this.player.x, this.player.y];
         const [visionX, visionY] = [this.vision.x, this.vision.y];
@@ -260,6 +259,7 @@ export default class GameScene extends Phaser.Scene {
         }
     }
 
+    //bool interseccion
     hasChangedSection([x, y], bounds) {
         return !(x > bounds.x && x < (bounds.x + bounds.width) && y > bounds.y && y < (bounds.y + bounds.height))
     }
@@ -304,40 +304,40 @@ export default class GameScene extends Phaser.Scene {
     }
 
     //metodo generalizado de creacion de animaciones de movimiento por defecto
-    createAnims(key) {
+    createAnims(key, speed) {
         this.anims.create({
             key: 'idle_' + key,
             frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
-            frameRate: 1,
+            frameRate: speed,
             repeat: -1
         }); this.anims.create({
             key: 'idle_' + key,
             frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
-            frameRate: 1,
+            frameRate: speed,
             repeat: -1
         });
         this.anims.create({
             key: 'up_move_' + key,
             frames: this.anims.generateFrameNumbers(key, { start: 9, end: 17 }),
-            frameRate: 4,
+            frameRate: speed,
             repeat: -1
         });
         this.anims.create({
             key: 'down_move_' + key,
             frames: this.anims.generateFrameNumbers(key, { start: 0, end: 8 }),
-            frameRate: 4,
+            frameRate: speed,
             repeat: -1
         });
         this.anims.create({
             key: 'left_move_' + key,
             frames: this.anims.generateFrameNumbers(key, { start: 27, end: 35 }),
-            frameRate: 4,
+            frameRate: speed,
             repeat: -1
         });
         this.anims.create({
             key: 'right_move_' + key,
             frames: this.anims.generateFrameNumbers(key, { start: 18, end: 26 }),
-            frameRate: 4,
+            frameRate: speed,
             repeat: -1
         });
     }
