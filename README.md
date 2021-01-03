@@ -21,7 +21,7 @@ Esta protagonista lleva asiduamente una venda, ya que, tras recuperarse de su ce
 
 ### Movimiento
 
-La protagonista se moverá en **8 direcciones** , siendo la velocidad de movimiento de aproximadamente de 3 casillas por segundo.
+La protagonista se moverá en **8 direcciones**, siendo la velocidad de movimiento de aproximadamente de 3 casillas por segundo.
 
 ### Barra de cordura
 
@@ -47,7 +47,7 @@ Cuando la cordura esté por debajo del 10%, no se podrá interactuar con las mem
 
 #### Estímulos
 
-A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que, en algunas zonas del mapa, generarán una señal según el tipo de sentido al que apele. Esto permitirá distinguir zonas especificas del mapa, como por ejemplo la granja.
+A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que, en algunas zonas del mapa, generarán una señal según el tipo de sentido al que apele. Esto permitirá distinguir zonas especificas del mapa, como, por ejemplo, la granja.
 
 ### Fe
 
@@ -62,13 +62,13 @@ Además, según tu nivel de fe obtenida, algunos eventos en los niveles siguient
 En el mapa, habrá esparcidos una serie de **eventos de texto** (por interactuar con un objeto, con una silueta, o aleatoriamente) que permitirán responder desde con 2 a 4 opciones. Hay distintos tipos:
 
 - **Eventos localizados:** Se encuentran en un punto concreto del mapa, se lanzan mediante interacción o posición.
-  - Principales (Siluetas): Algunos eventos serán provocados por _siluetas_, eventos de aspecto difuso que solo son visibles con la venda puesta y teniendo encima de un cierto umbral de cordura. Estas siluetas representan memorias del pasado de la protagonista, suponiendo el objetivo principal de cada nivel. Este objetivo concluirá en un gran incremento de fe y desbloquea el siguiente nivel.
+  - Principales: Serán aquellos que avanzarán la trama principal de juego, y, por tanto, del nivel. Estos serán activados por los diferentes NPCs del nivel (hermano, marido, etc), y serán recordados por la silueta, un ente que aparece solo al tener la venda puesta, y que recordará al jugador que evento debe hacer. Esta linea de eventos concluirá en un gran incremento de fe y desbloqueará el siguiente nivel.
   - Secundarios: sirven para expandir la historia, obtener recompensas (cordura, fe, consumibles)
 
 - **Eventos no localizados:** se lanzan en cualquier punto del mapa sin necesidad de interacción.
 
   - Trigger: se lanzan al cumplir ciertos objetivos, por ejemplo, alcanzar un _threshold_ de cordura.
-  - Informativo: se lanzan para informar al jugador ya sea de un aspecto jugable (tutoriales, consejos, etc) o de historia.
+  - Informativo: se lanzan para informar al jugador ya sea de un aspecto jugable (tutoriales, consejos, etc) o de historia (conversaciones).
 
 Así, cada uno tiene un indicador de que tipo es: de avanzar en la historia, de desafío, para conseguir un objeto.... Además, algunas de estas opciones pueden tener requisitos para ser respondidas, como tener un objeto clave o tener cierto nivel de cordura.
 
@@ -97,7 +97,7 @@ Si el jugador ha completado todos los objetivos secundarios del nivel, rezar en 
 
 ### Objetivo y conflictos
 
-El **objetivo** del juego es ir ayudando a cada silueta que hay en cada nivel, para así poder ir avanzando en los distintos niveles y llegar a alcanzar la iluminación
+El **objetivo** del juego es ir completando los eventos principales del nivel (indicados por la silueta), para así poder ir avanzando en los distintos niveles y llegar a alcanzar la iluminación
 
 Explorar con la venda puesta será más difícil, pero no drenará la cordura. Algunos objetos o pistas serán imposibles de encontrar con la venda puesta. Sin embargo, explorar sin la venda será mucho más rápido y eficiente, pero más arriesgado, ya que perderás cordura.
 
@@ -190,7 +190,7 @@ La mayor parte del arte estará creado por nosotros en la versión final.
 
 ![Controles](./assets/media/headers/h_controles.png)
 
-Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario (en los eventos y los menús hay diferentes posibilidades: si es fácil hacer soporte para el ratón, eso; si no, W y S se usarán para navegar y Espacio para seleccionar).
+Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario. Para los menus y eventos, se podrá interactuar utilizando el ratón, clicando en las posibles opciones que se presentan.
 
 ![Keybinds](./assets/media/keybinds.png)
 
