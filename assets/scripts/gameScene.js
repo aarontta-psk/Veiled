@@ -74,15 +74,6 @@ export default class GameScene extends Phaser.Scene {
 
         // Añado un npc de prueba en un array
         this.npcs = [
-            //paso el sprite del player porque de momento no tenemos otro
-            /*this.testNpc = new Npc('doctor', this.matter.world, this.spawnpoint.x + 20,
-                this.spawnpoint.y + 200, [this.scene.get('testEvent'), this.scene.get('anotherTestEvent')],
-                {
-                    //path
-                    'x': [this.spawnpoint.x + 20],
-                    'y': [this.spawnpoint.y + 200],
-                    'pause': [1000]
-                }),*/
             this.painterNpc = new Npc('painter', this.matter.world, 3872,
                 3552, [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')],
                 {
@@ -99,7 +90,6 @@ export default class GameScene extends Phaser.Scene {
                     'y': [2208, 2336, 2336],
                     'pause': [8000, 10, 1000]
                 })
-
         ];
 
         this.silhouette = new Silhouette(this.matter.world, 400, 200, [this.scene.get('testEvent')])
@@ -115,14 +105,11 @@ export default class GameScene extends Phaser.Scene {
         this.forest_01 = this.map.createStaticLayer('forest_01', tileset);
         this.forest_02 = this.map.createStaticLayer('forest_02', tileset);
 
-
         // Creacion de items a partir del atlas
         this.item = undefined; //undefined para la comprobacion del evento de interaccion
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
         this.itemContainer = [];
-
-
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             if (itemPos.name === 'potion') {
@@ -159,7 +146,7 @@ export default class GameScene extends Phaser.Scene {
         this.player.cursorsPlayer.interact.on('down', event => {
             if (this.item != undefined) 
                 this.insertItem(this.item);
-            else if (this.blindfold.blind){
+            else if (this.blindfold.blind && this.player.sanity > 40 && !this.playerIsColliding){
                 let silEvent = this.silhouette.nextEvent();
                 if (silEvent != null)
                     this.changeScene(silEvent);
@@ -194,37 +181,38 @@ export default class GameScene extends Phaser.Scene {
         this.matter.world.convertTilemapLayer(this.forest_02);
 
         this.matter.world.on('collisionstart',
-            (evento, cuerpo1, cuerpo2) => {
-                if (cuerpo1.gameObject === this.player) {
-                    if (cuerpo2.gameObject === this.potion)
-                        this.item = this.potion;
-                    else if (cuerpo2.gameObject === this.housekey)
-                        this.item = this.housekey;
-                    else if (cuerpo2.gameObject === this.coin)
-                        this.item = this.coin;
-                }
-            });
-
+        (evento, cuerpo1, cuerpo2) => {
+            if (cuerpo1.gameObject === this.player) {
+                if (cuerpo2.gameObject === this.potion)
+                this.item = this.potion;
+                else if (cuerpo2.gameObject === this.housekey)
+                this.item = this.housekey;
+                else if (cuerpo2.gameObject === this.coin)
+                this.item = this.coin;
+            }
+        });
+        
         this.matter.world.on('collisionend',
-            (evento, cuerpo1, cuerpo2) => {
-                if (cuerpo1.gameObject === this.player) {
-                    //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
-                    if (cuerpo2.gameObject === this.coin || cuerpo2.gameObject === this.housekey
-                        || cuerpo2.gameObject === this.potion) this.item = undefined;
-
+        (evento, cuerpo1, cuerpo2) => {
+            if (cuerpo1.gameObject === this.player) {
+                //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
+                if (cuerpo2.gameObject === this.coin || cuerpo2.gameObject === this.housekey
+                    || cuerpo2.gameObject === this.potion) this.item = undefined;
+                    
                     //buscamos si sale de un trigger de seccion
                     let i = 0;
                     while (i < this.triggersToSect.length && cuerpo2.gameObject !== this.triggersToSect[i])
-                        i++;
+                    i++;
                     if (i !== this.triggersToSect.length) this.newSection(this.triggersToSect[i]);
                 }
             });
-
+            
+        this.playerIsColliding = false;
         this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
             if (cuerpo1.gameObject === this.player &&
                 cuerpo2.gameObject instanceof Npc) {
-                //mensaje informativo
-                console.log("overlapping a npc");
+                //booleano de control
+                this.playerIsColliding = true;
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 if (this.player.cursorsPlayer.interact.isDown) {
                     let npcEvent = cuerpo2.gameObject.nextEvent();
@@ -232,6 +220,8 @@ export default class GameScene extends Phaser.Scene {
                         this.changeScene(npcEvent);
                 }
             }
+            else
+                this.playerIsColliding = false;
         })
 
         // Inicia la animacíon de las tiles

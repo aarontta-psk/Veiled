@@ -1,21 +1,18 @@
-export default class Npc extends Phaser.Physics.Matter.Sprite {
-    constructor(key, world, x, y, npcEvents, path) {
-        super(world, x, y, key); //llama a la constructora de Sprite
+import EventHandler from './eventHandler.js'
 
-        this.scene.add.existing(this); //lo añades en la escena
+export default class Npc extends EventHandler{
+    constructor(key, world, x, y, npcEvents, path) {
+        super(world, x, y, key, npcEvents); //llama a la constructora de Sprite
 
         this.setBody({
             type: 'rectangle',
             width: 60,
             height: 60
         });
-        this.scene.add.existing(this);
+        this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this);
         this.setStatic(false);
         this.setSensor(true);
-
-        //se guarda una referencia a la escena de evento de este Npc
-        this.npcEvents = npcEvents;
 
         this.path = path;   //array de puntos del recorrido tres valores: x, y, t(el tiempo de pausa cuando se llega al punto)
         this.px = path.x;
@@ -113,16 +110,5 @@ export default class Npc extends Phaser.Physics.Matter.Sprite {
             else
                 this.anims.play('right_move_' + this.frame.texture.key, true);
         }
-
-    }
-
-    nextEvent() {
-        let i = 0;
-        while (i < this.npcEvents.length && this.npcEvents[i].completed == true) i++;
-
-        if (i < this.npcEvents.length)
-            return this.npcEvents[i];
-        else
-            return null;
     }
 }
