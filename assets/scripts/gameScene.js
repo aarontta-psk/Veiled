@@ -18,13 +18,13 @@ export default class GameScene extends Phaser.Scene {
     }
 
     create() {
+        this.scene.bringToTop();
         this.matter.world.disableGravity();
 
         //sonidos
-        this.themeSong = this.sound.add('mainTheme', {
+        this.sound.play('mainTheme', {
             mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
         });
-        this.themeSong.play();
 
         // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
@@ -274,7 +274,8 @@ export default class GameScene extends Phaser.Scene {
     changeScene(newScene) {
         //guardo la info entre escenas y cambio de escena
         this.infoNextScene = { player: this.player, prevScene: this };
-
+        //paro la musica
+        this.sound.stopAll();
         this.scene.sleep();
         this.scene.run(newScene, this.infoNextScene);
         //evito que se queden pillado el input al cambiar de escena

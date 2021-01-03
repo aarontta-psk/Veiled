@@ -1,15 +1,17 @@
+import options from './options.js'
 export default class mainMenuScene extends Phaser.Scene{
-    
+    init(data){
+        this.sound = data.soundManager;
+    }
+
     constructor(){
         super({ key: 'mainMenuScene' });
     }
     create(){
-        this.menuSong = this.sound.add('menuSong', {
+        this.scene.bringToTop();
+        this.sound.play('menuSong',  {
             mute: false, volume: 0.2, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
         });
-        this.menuSong.play();
-
-        this.scene.bringToTop();
         //imagen de fondo
         this.add.image(0,0, 'mainMenu').setOrigin(0);
         //botones
@@ -26,9 +28,12 @@ export default class mainMenuScene extends Phaser.Scene{
         options.on('pointerout', event => {options.setScale(1);});
         //pointerdown
         play.on('pointerdown', event => {
-            this.menuSong.stop();
+            this.sound.stopAll();
             this.scene.start('gameScene');
         });
-        options.on('pointerdown', event => {console.log('Opciones pulsado. Hay que implementar las opciones')});
+        options.on('pointerdown', event => {
+            this.scene.stop();
+            this.scene.run('optionsScene', {soundManager: this.sound});
+        });
     }
 }

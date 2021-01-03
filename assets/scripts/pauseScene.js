@@ -8,6 +8,7 @@ export default class pauseScene extends Phaser.Scene {
     }
 
     create() {
+        this.scene.bringToTop();
         let background = this.add.image(0, 0, 'pauseMenu').setOrigin(0);
         background.setPosition(this.cameras.main.centerX - background.width/2, this.cameras.main.centerY - background.height/2);
 
@@ -27,6 +28,7 @@ export default class pauseScene extends Phaser.Scene {
             this.scene.run(this.info.prevScene.scene.key);
         });
         exit.on('pointerdown', event => {
+            this.sound.stopAll();
             this.scene.start('mainMenuScene');
         });
     }
