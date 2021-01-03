@@ -145,7 +145,7 @@ export default class GameScene extends Phaser.Scene {
         this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
         //creacion de animaciones
-        this.createAnims('player', 1);
+        this.createAnims('player', 8);
         this.createAnims('painter', 4);
         this.createAnims('doctor', 4);
 
