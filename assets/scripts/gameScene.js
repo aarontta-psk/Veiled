@@ -1,10 +1,11 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import { potionItem, kaleidoscopeItem, keyItem1, sketchItem } from './item.js';
+import { potionItem, kaleidoscopeItem, sketchItem } from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
 import { soundStimulus, smellStimulus } from './stimulus.js';
+import Silhouette from './silhouette.js'
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -101,6 +102,8 @@ export default class GameScene extends Phaser.Scene {
 
         ];
 
+        this.silhouette = new Silhouette(this.matter.world, 400, 200, [this.scene.get('testEvent')])
+
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
         this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);
@@ -151,9 +154,16 @@ export default class GameScene extends Phaser.Scene {
 
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.blindfold.setBlindfold();
+            this.silhouette.setVisible(this.blindfold.blind);
         });
         this.player.cursorsPlayer.interact.on('down', event => {
-            this.insertItem(this.item);
+            if (this.item != undefined) 
+                this.insertItem(this.item);
+            else if (this.blindfold.blind){
+                let silEvent = this.silhouette.nextEvent();
+                if (silEvent != null)
+                    this.changeScene(silEvent);
+            }
         });
         this.player.cursorsPlayer.invToggle.on('down', event => {
             this.gui.toggleInventory();
@@ -230,7 +240,7 @@ export default class GameScene extends Phaser.Scene {
         //PRUEBAS DE ESTIMULOS
         let particles = this.add.particles('smellCloud');
         //new soundStimulus(particles, {x: this.player.x, y: this.player.y});
-        new smellStimulus(particles, {x: this.player.x, y: this.player.y}, 0xBDECB6);
+        new smellStimulus(particles, { x: this.player.x, y: this.player.y }, 0xBDECB6);
     }
 
 
