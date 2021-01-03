@@ -11,7 +11,7 @@ export default class Inventory {
         if (this.objects.length < this.MAX_SIZE) {
             this.objects.push(object);
             //el objeto se mostrara encima de la casilla cuando se muestre en el inventario
-            object.depth = 11;
+            object.setDepth(11);
             console.log('Object added: ' + object.name);
         }
     }

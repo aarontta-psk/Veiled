@@ -152,7 +152,6 @@ export default class GameScene extends Phaser.Scene {
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.blindfold.setBlindfold();
         });
-
         this.player.cursorsPlayer.interact.on('down', event => {
             this.insertItem(this.item);
         });
