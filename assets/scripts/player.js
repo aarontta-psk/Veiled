@@ -29,6 +29,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.sanityLogThreshold = 20; //umbral a partir del cual aplicamos la pérdida logarítmica
 
         this.faith = startingFaith //al instanciarse en el nivel, tiene que recibir la de del nivel anterior
+        this.numCompletedEvents = 0;
 
         this.inventory = new Inventory(this.scene);
 
