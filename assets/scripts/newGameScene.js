@@ -28,4 +28,19 @@ export default class GameScene extends Phaser.Scene {
             tileHeight: 64
         });
     }
+
+    onBlindChange(){
+
+        this.blindfold.setBlindfold();
+        this.silhouette.setVisible(this.blindfold.blind);
+
+        this.npcs.array.forEach(element => {
+            element.setVisible(!this.blindfold.blind);
+            element.setActive(!this.blindfold.blind);
+        });
+        this.stimuli.array.forEach(element => {
+            element.setVisible(this.blindfold.blind);
+            element.setActive(this.blindfold.blind);
+        });
+    }    
 }
