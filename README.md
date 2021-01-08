@@ -184,7 +184,7 @@ El juego usa una estética difusa y minimalista, con gráficos de vectores, pers
 La mayor parte del arte estará creado por nosotros en la versión final.
 ![Game art](./assets/media/game_art.png)
 
-Música Menu Principal: - In The Light - David Renda
+Música Menu Principal: In The Light - David Renda
 
 [Ejemplo de efecto de sonido para cuando se baja un nivel de visión](https://www.storyblocks.com/audio/stock/big-object-falling-hit-hxbni32udhk0wxsh7x.html)
 
