@@ -106,11 +106,6 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.text.setText('');
     }
 
-    //modificacion del texto del item seleccionado en GUI
-    setInfoText(text) {
-        this.text.setText(text);
-    }
-
     updateSanityBar(sanity) {
         this.sanityBar.scaleX = sanity / this.sanityTop;
     }
