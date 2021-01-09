@@ -140,8 +140,7 @@ export default class GameScene extends Phaser.Scene {
         this.createAnims('doctor', 4);
 
         this.player.cursorsPlayer.blindfold.on('down', event => {
-            this.blindfold.setBlindfold();
-            this.silhouette.setVisible(this.blindfold.blind);
+            this.onBlindChange();
         });
         this.player.cursorsPlayer.interact.on('down', event => {
             if (this.item != undefined) 
@@ -304,6 +303,16 @@ export default class GameScene extends Phaser.Scene {
             console.log(this.player.inventory)
         }
     }
+
+    onBlindChange(){
+
+        this.blindfold.setBlindfold();
+        this.silhouette.setVisible(this.blindfold.blind);
+        for (let i = 0; i<this.npcs.length; i++)
+        {
+            this.npcs[i].setVisible(!this.blindfold.blind);
+        }
+    }    
 
     //metodo generalizado de creacion de animaciones de movimiento por defecto
     createAnims(key, speed) {

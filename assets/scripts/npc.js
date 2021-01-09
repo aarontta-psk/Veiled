@@ -22,6 +22,7 @@ export default class Npc extends EventHandler{
 
         this.state = 'moving';   //still, moving
         this.dest = { x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint] };
+        this.setVisible(false); //tiene que empezar invisible, porque la venda empezará puesta
     }
 
     preUpdate(time, delta) {
