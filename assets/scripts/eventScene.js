@@ -39,7 +39,8 @@ class eventScene extends Phaser.Scene {
                         else{
                             //en caso contrario volvemos a la escena anterior
                             this.scene.stop();
-                            this.scene.run(this.info.prevScene.scene.key);
+                            // this.scene.resume(this.info.prevScene.scene.key);
+                            this.scene.wake(this.info.prevScene.scene.key);
                         }
                     }
                 }
@@ -409,12 +410,14 @@ export class deathEvent_0 extends eventScene {
             {
                 text: 'Morir',
                 cb: () => {
+                    this.info.player.setDead();
                     this.completeEvent(0,0);
                 }
             },
             {
                 text: 'No Morir',
                 cb: () => {
+                    this.info.player.setAlive();
                     this.completeEvent(0,0);
                 }
             }

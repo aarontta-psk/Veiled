@@ -231,17 +231,27 @@ export default class GameScene extends Phaser.Scene {
         })
 
         this.scene.scene.cameras.main.on('camerafadeoutcomplete', event => {
-            if(this.player.death){
+            if(this.player.death === this.player.deathState.CheckDeath){
                 this.changeScene('deathEvent_0');
                 this.cameras.main.fadeIn(2000);
-                this.player.die();
                 this.player.enableInputs(true);
             }
-            console.log("outcomplete")
+            console.log("outComplete")
         });
 
         this.scene.scene.cameras.main.on('camerafadeincomplete', event => {
-            console.log("incomplete")
+            console.log("inComplete")
+        });
+
+        this.events.on('wake', event => {
+            console.log('morir');
+            if (this.player !== undefined && this.player.death === this.player.deathState.Dead){
+                this.player.die();
+            }
+            else {
+                this.player.addSanity(this.player.maxSanity / 2);
+                this.deathBlindfold();
+            }
         });
 
         // Inicia la animacíon de las tiles
@@ -296,7 +306,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     deathBlindfold() {
-        this.blindfold.setBlindfold();
+        this.blindfold.setBlindfoldOn(true);
         this.blindfold.setVision(this.vision, this.player.x, this.player.y);
     }
 

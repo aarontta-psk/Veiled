@@ -18,6 +18,11 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 		this.blind = !this.blind;
 	}
 
+	setBlindfoldOn(boolean) {
+		this.rt.setVisible(boolean);
+		this.blind = boolean;
+	}
+
 	setVision(visionZone, playerX, playerY) {
 		//si la camara se está moviendo en ambos ejes,
 		if (this.prevWorldX !== Math.round(this.scene.cameras.main.worldView.x) ||
