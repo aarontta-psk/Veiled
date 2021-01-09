@@ -215,7 +215,7 @@ export default class GameScene extends Phaser.Scene {
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 if (this.player.cursorsPlayer.interact.isDown) {
                     let npcEvent = cuerpo2.gameObject.nextEvent();
-                    if (npcEvent != null)
+                    if (npcEvent != null && cuerpo2.gameObject.visible)
                         this.changeScene(npcEvent);
                 }
             }
