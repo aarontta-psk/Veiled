@@ -129,15 +129,17 @@ export default class NewGameScene extends Phaser.Scene {
     onBlindChange(){
 
         this.blindfold.setBlindfold();
-        this.silhouette.setVisible(this.blindfold.blind);
-
-        this.npcs.array.forEach(element => {
-            element.setVisible(!this.blindfold.blind);
-            element.setActive(!this.blindfold.blind);
-        });
-        this.stimuli.array.forEach(element => {
-            element.setVisible(this.blindfold.blind);
-            element.setActive(this.blindfold.blind);
-        });
-    }    
+        this.silhouette.toggle(this.blindfold.blind);
+        for (let i = 0; i<this.npcs.length; i++)
+        {
+            this.npcs[i].setVisible(!this.blindfold.blind);
+        }
+        for (let i = 0; i<this.stimuli.length; i++)
+        {
+            if (this.blindfold.blind)
+                this.stimuli[i].emitter.start();
+            else
+                this.stimuli[i].emitter.stop();
+        }
+    }   
 }
