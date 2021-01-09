@@ -13,7 +13,7 @@ class eventScene extends Phaser.Scene {
         group.add(mainText);
         //para cada opcion
         for (let i = 1; i < options.length; i++) {
-            console.log(options);
+            //console.log(options);
             //añado un texto
             const optionText = this.add.text(44, distancia, options[i].text, { fontFamily: 'Neucha' }).setInteractive().setResolution(1.6).setScale(1.6);
             //lo añado al container para borrarlo mas adelante
@@ -271,6 +271,23 @@ export class painterEvent_1 extends eventScene {
     }
 }
 
+export class painterEvent_2 extends eventScene {
+    constructor() {
+        super({ key: 'painterEvent_2' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'background';
+        this.content = [
+            {
+                text: '-Creo que seguiré pintando hasta que anochezca.'
+            },
+            {
+                text: 'Sonreírle y continuar',
+                cb: () => { },
+            }
+        ]
+    }
+}
+
 export class doctorEvent_0 extends eventScene {
     constructor() {
         super({ key: 'doctorEvent_0' });
@@ -331,6 +348,25 @@ export class doctorEvent_0 extends eventScene {
                 ]
 
             },
+        ]
+    }
+}
+
+export class doctorEvent_1 extends eventScene {
+    constructor() {
+        super({ key: 'doctorEvent_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'background';
+        this.content = [
+            {
+                text: 'El doctor suelta una risita cuando te vuelves a acercar \n' +
+                '-No necesitas oír más a este viejo. Si en realidad yo sé muy poco, solo que hablo mucho. ¡Ja! Ese es \n' + 
+                'el secreto para que te llamen sabio.'
+            },
+            {
+                text: 'Reír al comentario y continuar',
+                cb: () => { },
+            }
         ]
     }
 }
