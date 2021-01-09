@@ -22,7 +22,7 @@ export class soundStimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
     constructor(manager, position){
         super(manager);
         
-    manager.createEmitter({
+    this.emitter = manager.createEmitter({
         x : position.x,
         y : position.y,
         alpha : { start: 1, end: 0 },
@@ -43,7 +43,7 @@ export class smellStimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
         super(manager);
 
     let circ = new Phaser.Geom.Circle(0, 0, 30);
-    manager.createEmitter({
+    this.emitter = manager.createEmitter({
         x : position.x,
         y : position.y,
         alpha : { start: 1, end: 0 },

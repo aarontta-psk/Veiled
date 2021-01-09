@@ -92,6 +92,13 @@ export default class GameScene extends Phaser.Scene {
                 })
         ];
 
+        //PRUEBAS DE ESTIMULOS
+        let smellParticle = this.add.particles('smellCloud');
+        this.stimuli=[
+            //new soundStimulus(particles, {x: this.player.x, y: this.player.y}),
+            new smellStimulus(smellParticle, { x: this.player.x, y: this.player.y }, 0xBDECB6)
+        ];
+
         this.silhouette = new Silhouette(this.matter.world, 750, 550, [this.scene.get('testEvent')])
 
         // Colocamos la vision en la posicion del jugador
@@ -225,13 +232,6 @@ export default class GameScene extends Phaser.Scene {
 
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
-
-        //PRUEBAS DE ESTIMULOS
-        let smellParticle = this.add.particles('smellCloud');
-        this.stimuli=[
-            //new soundStimulus(particles, {x: this.player.x, y: this.player.y}),
-            new smellStimulus(smellParticle, { x: this.player.x, y: this.player.y }, 0xBDECB6)
-        ];
     }
 
 
@@ -311,6 +311,13 @@ export default class GameScene extends Phaser.Scene {
         for (let i = 0; i<this.npcs.length; i++)
         {
             this.npcs[i].setVisible(!this.blindfold.blind);
+        }
+        for (let i = 0; i<this.stimuli.length; i++)
+        {
+            if (this.blindfold.blind)
+                this.stimuli[i].emitter.start();
+            else
+                this.stimuli[i].emitter.stop();
         }
     }    
 
