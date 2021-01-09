@@ -28,6 +28,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.sanity = this.maxSanity; //cordura
         this.decay = 0.2; //velocidad base a la que pierde la cordura
         this.sanityLogThreshold = 20; //umbral a partir del cual aplicamos la pérdida logarítmica
+        this.death = false;
 
         this.faith = startingFaith //al instanciarse en el nivel, tiene que recibir la de del nivel anterior
         this.numCompletedEvents = 0;
@@ -123,8 +124,14 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
                 //Esta fórmula hace que la función sea derivable y el decay nunca baje por debajo del 10% del valor inicial
                 this.sanity -= (this.decay * this.sanity / this.sanityLogThreshold) * 0.9 + this.decay * 0.1;
         }
-        if (this.sanity < 0.1) //si se gasta la cordura
-            this.die(); //muere
+        if (this.sanity < 0.1 && !this.death) {//si se gasta la cordura
+            this.enableInputs(false);
+            this.scene.cameras.main.fadeOut(2000);
+            this.death = true;
+            // this.scene.scene.pause();
+            // this.scene.scene.run('deathTransitionScene');
+            //this.die(); //muere
+        }
     }
 
     //metodo para añadir cordura (item)
@@ -152,5 +159,22 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.scene.deathBlindfold();
 
         this.sanity = this.sanityLogThreshold;
+        this.death = false;
+    }
+
+    //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
+    resetInputs() {
+        for (const property in this.cursorsPlayer) {
+            this.cursorsPlayer[property].reset();
+        }
+    }
+
+    //metodo para desactivar el input al morir
+    enableInputs(boolean) {
+        this.resetInputs();
+        for (const property in this.cursorsPlayer) {
+            this.cursorsPlayer[property].enabled = boolean;
+        }
+        this.anims.play('idle_' + this.frame.texture.key, true);
     }
 }

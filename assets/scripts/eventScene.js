@@ -4,6 +4,7 @@ class eventScene extends Phaser.Scene {
     }
 
     layout(options, group) {
+        this.scene.bringToTop();
         //variable para separar las opciones en el eje y
         let distancia = 340;
         //antes de mostrar las opciones, borro las anteriores
@@ -38,7 +39,6 @@ class eventScene extends Phaser.Scene {
                         else{
                             //en caso contrario volvemos a la escena anterior
                             this.scene.stop();
-                            this.info.prevScene.scene.scene.sound.resumeAll();
                             this.scene.run(this.info.prevScene.scene.key);
                         }
                     }
@@ -390,6 +390,32 @@ export class maxFaithEvent_0 extends eventScene {
                     this.info.player.numCompletedEvents--;
                     this.scene.stop();
                     this.scene.run('infoLevel', { player: this.info.player })
+                }
+            }
+        ]
+    }
+}
+
+//Evento de paso de nivel
+export class deathEvent_0 extends eventScene {
+    constructor() {
+        super({ key: 'deathEvent_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'background';
+        this.content = [
+            {
+                text: 'No te sientes bien. Te sientes perdida y confusa.'
+            },
+            {
+                text: 'Morir',
+                cb: () => {
+                    this.completeEvent(0,0);
+                }
+            },
+            {
+                text: 'No Morir',
+                cb: () => {
+                    this.completeEvent(0,0);
                 }
             }
         ]

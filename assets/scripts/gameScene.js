@@ -173,7 +173,7 @@ export default class GameScene extends Phaser.Scene {
             this.scene.pause();
             this.scene.run('pauseScene', this.infoNextScene);
             //evito que se queden pillado el input al cambiar de escena
-            this.resetInputs();
+            this.player.resetInputs();
         });
 
         // Añadimos colision a las layers del tilemap que lo necesitan
@@ -230,6 +230,20 @@ export default class GameScene extends Phaser.Scene {
                 this.playerIsColliding = false;
         })
 
+        this.scene.scene.cameras.main.on('camerafadeoutcomplete', event => {
+            if(this.player.death){
+                this.changeScene('deathEvent_0');
+                this.cameras.main.fadeIn(2000);
+                this.player.die();
+                this.player.enableInputs(true);
+            }
+            console.log("outcomplete")
+        });
+
+        this.scene.scene.cameras.main.on('camerafadeincomplete', event => {
+            console.log("incomplete")
+        });
+
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
     }
@@ -264,23 +278,16 @@ export default class GameScene extends Phaser.Scene {
         return !(x > bounds.x && x < (bounds.x + bounds.width) && y > bounds.y && y < (bounds.y + bounds.height))
     }
 
-    //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
-    resetInputs() {
-        for (const property in this.player.cursorsPlayer) {
-            this.player.cursorsPlayer[property].reset();
-        }
-    }
-
     //metodo para cambiar de escena pasando informacion y sin detener la escena actual
     changeScene(newScene) {
         //guardo la info entre escenas y cambio de escena
-        this.infoNextScene = { player: this.player, prevScene: this };
+        this.infoNextScene = { player: this.player, prevScene: this};
         //paro la musica
         this.sound.stopAll();
         this.scene.sleep();
         this.scene.run(newScene, this.infoNextScene);
         //evito que se queden pillado el input al cambiar de escena
-        this.resetInputs();
+        this.player.resetInputs();
     }
 
     readjustTriggers() {
