@@ -57,6 +57,11 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.hideFaith();
     }
 
+    //modificacion del texto del item seleccionado en GUI
+    setInfoText(text) {
+        this.text.setText(text);
+    }    
+
     //activar/desactivar inventario
     toggleInventory() {
         this.isVisible = !this.isVisible;

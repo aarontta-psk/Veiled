@@ -34,7 +34,7 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
 }
 
 //#region UsableItems (isUsable=true)
-export class potionItem extends Item{
+export class PotionItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
         this.name = "pocion";
@@ -49,7 +49,7 @@ export class potionItem extends Item{
 }
 
 
-export class kaleidoscopeItem extends Item{
+export class KaleidoscopeItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
         this.name = "caleidoscopio";
@@ -62,19 +62,91 @@ export class kaleidoscopeItem extends Item{
     }
 }
 
+export class StampItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, true);
+        this.name = "estampita";
+        this.description = "Aumenta la fe";
+    }
+
+    doSomething(player) {
+        player.addFaith(10);
+    }
+}
+
+export class BlessingItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, true);
+        this.name = "Bendición";
+        this.description = "Aumenta bastante la fe";
+    }
+
+    doSomething(player) {
+        player.addFaith(30);
+    }
+}
+
+export class OffensiveWordItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, true);
+        this.name = "Palabra en braile";
+        this.description = "Una palabra escrita en braile que aun no has leido";
+    }
+
+    doSomething(player) {
+        player.addSanity(-20);
+    }
+}
+
+export class PositiveWordItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, true);
+        this.name = "Palabra en braile";;
+        this.description = "Una palabra escrita en braile que aun no has leido";
+    }
+
+    doSomething(player) {
+        player.addSanity(20);
+    }
+}
+
+export class BetterBlindFold extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, true);
+        this.name = "Venda de tela";;
+        this.description = "Una venda de mejor calidad que aumenta la cordura máxima";
+    }
+
+    doSomething(player) {
+        player.setMaxSanity(player.maxSanity+30);
+    }
+}
+
+export class SacredFireItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, true);
+        this.name = "Fuego sagrado";;
+        this.description = "Al mirarlo detenidamente tu cordura maxima disminuye, pero aumenta bastante tu fe";
+    }
+
+    doSomething(player) {
+        player.setMaxSanity(player.maxSanity - 30);
+        player.addFaith(40);
+    }
+}
 
 //#endregion
 
 //#region KeyItems (isUsable=false)
 //objeto clave de prueba
-export class keyItem1 extends Item{
+export class KeyItem1 extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
         this.name = "objeto clave 1";
         this.description = "Prueba de como seria un objeto clave";
     }
 }
-export class sketchItem extends Item{
+export class SketchItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
         this.setActive(false).setVisible(false);

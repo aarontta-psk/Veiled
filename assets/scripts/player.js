@@ -24,7 +24,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         this.speed = 3; //velocidad
 
-        this.sanity = 100; //cordura
+        this.maxSanity = 100;
+        this.sanity = this.maxSanity; //cordura
         this.decay = 0.2; //velocidad base a la que pierde la cordura
         this.sanityLogThreshold = 20; //umbral a partir del cual aplicamos la pérdida logarítmica
 
@@ -129,7 +130,11 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     //metodo para añadir cordura (item)
     addSanity(sanityBoost) {
         this.sanity += sanityBoost;
-        if (this.sanity > 100) this.sanity = 100;
+        if (this.sanity > this.maxSanity) this.sanity = 100;
+    }
+
+    setMaxSanity(newMax){
+        this.maxSanity = newMax;
     }
 
     addFaith(faithBoost){

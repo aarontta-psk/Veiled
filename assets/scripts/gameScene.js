@@ -1,6 +1,6 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import { potionItem, kaleidoscopeItem, sketchItem } from './item.js';
+import Item, { PotionItem, KaleidoscopeItem, SketchItem, StampItem, BlessingItem, PositiveWordItem, OffensiveWordItem, SacredFireItem  } from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
@@ -120,16 +120,19 @@ export default class GameScene extends Phaser.Scene {
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             if (itemPos.name === 'potion') {
-                this.potion = new potionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
+                this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
                 this.itemContainer.push(this.potion);
+                //TESTEO DE ITEMS, NO BORRAR
+                // this.TESTING = new StampItem(this.matter.world, this.player.x, this.player.y, this.itemFrames[0], this.player);
+                // this.itemContainer.push(this.TESTING);
             }
             //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
             else if (itemPos.name === 'coin') {
-                this.coin = new kaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
+                this.coin = new KaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
                 this.itemContainer.push(this.coin);
             }
             else if (itemPos.name === 'sketch') {
-                this.sketch = new sketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1], this.player);
+                this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1], this.player);
                 this.itemContainer.push(this.sketch);
             }
         }
@@ -189,12 +192,9 @@ export default class GameScene extends Phaser.Scene {
         this.matter.world.on('collisionstart',
         (evento, cuerpo1, cuerpo2) => {
             if (cuerpo1.gameObject === this.player) {
-                if (cuerpo2.gameObject === this.potion)
-                this.item = this.potion;
-                else if (cuerpo2.gameObject === this.housekey)
-                this.item = this.housekey;
-                else if (cuerpo2.gameObject === this.coin)
-                this.item = this.coin;
+                if(cuerpo2.gameObject instanceof Item){
+                    this.item = cuerpo2.gameObject;
+                }
             }
         });
         
