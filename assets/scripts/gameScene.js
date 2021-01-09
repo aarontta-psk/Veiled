@@ -92,7 +92,7 @@ export default class GameScene extends Phaser.Scene {
                 })
         ];
 
-        this.silhouette = new Silhouette(this.matter.world, 400, 200, [this.scene.get('testEvent')])
+        this.silhouette = new Silhouette(this.matter.world, 750, 550, [this.scene.get('testEvent')])
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
@@ -141,7 +141,7 @@ export default class GameScene extends Phaser.Scene {
 
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.blindfold.setBlindfold();
-            this.silhouette.setVisible(this.blindfold.blind);
+            this.silhouette.toggle(this.blindfold.blind);
         });
         this.player.cursorsPlayer.interact.on('down', event => {
             if (this.item != undefined) 
