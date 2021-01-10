@@ -179,10 +179,13 @@ Ejemplo de una evento de texto sencillo
 
 ![Estética](./assets/media/headers/h_estetica.png)
 
-El juego usa una estética difusa y minimalista, con gráficos de vectores, perspectiva ortogonal y una paleta apagada.
+El juego usa una estética difusa y minimalista, con pixel art para el mapa y los personajes y gráficos de vectores para el resto (interfaz, iconos, etc), perspectiva ortogonal y una paleta apagada.
 
-La mayor parte del arte estará creado por nosotros en la versión final.
-![Game art](./assets/media/game_art.png)
+Tileset "Slates" en [OpenGameArt.org](https://opengameart.org/content/slates-32x32px-orthogonal-tileset-by-ivan-voirol) creado por Ivan Voirol.
+
+Personajes creados con [Character Generator](https://github.com/sanderfrenken/Universal-LPC-Spritesheet-Character-Generator).
+
+Resto del arte creado por nosotros, puedes consultar los archivos fuente en este mismo [repositorio](https://github.com/SrVonPsikerfy/Veiled/tree/main/assets/media/source).
 
 Música Menu Principal: In The Light - David Renda
 
