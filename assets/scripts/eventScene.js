@@ -28,22 +28,15 @@ class eventScene extends Phaser.Scene {
             optionText.on('pointerdown', () => {
                 if (options[i].condition === undefined || (options[i].condition !== undefined && options[i].condition(this))) {
                     options[i].cb();
-                    //si el evento continua, se llama de nuevo a la funcion
-                    if (options[i].next !== undefined) this.layout(options[i].next, group);
-                    //en caso contrario
-                    else {
-                        //si se ha conseguido cierto nivel de fe
-                        // if(this.info.player.faith > 39){
-                        //     this.info.prevScene.scene.stop();
-                        //     this.scene.stop();
-                        //     this.scene.run('infoLevel', {obtainedFaith: this.info.player.faith, completedEvents: this.info.player.numCompletedEvents});
-                        // }
-                        // else{
-                            //en caso contrario volvemos a la escena anterior
+                    if(options[i].end === undefined){
+                        //si el evento continua, se llama de nuevo a la funcion
+                        if (options[i].next !== undefined) this.layout(options[i].next, group);
+                        //en caso contrario
+                        else {
                             this.scene.stop();
                             // this.scene.resume(this.info.prevScene.scene.key);
                             this.scene.wake(this.info.prevScene.scene.key);
-                        // }
+                        }
                     }
                 }
                 else {
@@ -392,8 +385,9 @@ export class maxFaithEvent_0 extends eventScene {
                     //este evento no cuenta para el numero de eventos completados
                     this.info.player.numCompletedEvents--;
                     this.scene.stop();
-                    this.scene.run('infoLevel', { player: this.info.player })
-                }
+                    this.scene.run('infoLevel', { obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'gameScene' })
+                },
+                end: true
             }
         ]
     }
@@ -496,7 +490,7 @@ export class testSilueta_0 extends eventScene{
             },
             {
                 text: 'ok',
-                cb: () => { this.completeEvent(-200,10)},
+                cb: () => { this.completeEvent(50,10)},
             }
         ]
     }
@@ -513,7 +507,7 @@ export class testSilueta_1 extends eventScene{
             },
             {
                 text: 'ok',
-                cb: () => { this.completeEvent(70,10)},
+                cb: () => { this.completeEvent(70,50)},
             }
         ]
     }
@@ -536,7 +530,7 @@ export class testSilueta_2 extends eventScene{
                 text: 'Completar este nivel al tener la fe necesaria',
                 cb: () => {
                     this.completeEvent(0,10);
-                }
+                },
             },
             {
                 text: 'Seguir explorando',

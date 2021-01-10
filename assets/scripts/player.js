@@ -136,9 +136,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             this.enableInputs(false);
             this.scene.cameras.main.fadeOut(2000);
             this.death = this.deathState.CheckDeath;
-            // this.scene.scene.pause();
-            // this.scene.scene.run('deathTransitionScene');
-            //this.die(); //muere
         }
     }
 

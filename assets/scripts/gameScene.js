@@ -56,7 +56,10 @@ export default class GameScene extends Phaser.Scene {
             // objeto en Tiled
             if (objeto.name === 'spawnPoint') {
                 this.spawnpoint = objeto;
-                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, 0);
+                let savedFaith;
+                if(this.info !== undefined && this.info.obtainedFaith !== undefined) savedFaith = this.info.obtainedFaith;
+                else savedFaith = 0;
+                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith);
             }
             else if (objeto.name === 'newSect') {
                 let trigger = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
