@@ -11,8 +11,7 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('doctor', './assets/sprites/doctor_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.image('ghost', './assets/sprites/ghost.png');
-        this.load.image('background', './assets/sprites/ui/event_menu.png');
+        this.load.image('ghost', './assets/sprites/ghost.png');        
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
         this.load.spritesheet('soundCircle', './assets/sprites/sound_circle.png',
@@ -32,6 +31,10 @@ export default class Boot extends Phaser.Scene {
         {frameWidth: 280, frameHeight: 280});
         this.load.image('keybindsButton', './assets/sprites/ui/keybinds_button.png');
         this.load.image('keybinds', './assets/media/keybinds.png');
+
+        this.load.image('eventMenu', './assets/sprites/ui/event_menu.png');
+        this.load.image('mainEventMenu', './assets/sprites/ui/main_event_menu.png');
+        this.load.image('secondaryEventMenu', './assets/sprites/ui/secondary_event_menu.png');
 
         // Carga de datos de interfaz
         this.load.image('invBack', './assets/sprites/ui/inventory_bar.png');
