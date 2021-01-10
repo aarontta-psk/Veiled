@@ -20,6 +20,8 @@ export default class Boot extends Phaser.Scene {
         { frameWidth: 860, frameHeight: 904 });
         this.load.spritesheet('smellCloud', './assets/sprites/smell_cloud.png',
         { frameWidth: 1000, frameHeight: 649 });
+        this.load.spritesheet('itemTooltip', './assets/sprites/item_tooltip.png',
+        { frameWidth: 64, frameHeight: 128 });
 
         // Carga de datos de menus
         this.load.image('pauseMenu', './assets/sprites/ui/pause_menu.png');
