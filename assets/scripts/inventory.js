@@ -1,7 +1,8 @@
 
-export default class Inventory {
+export default class Inventory extends Phaser.GameObjects.GameObject{
 
     constructor(mainScene) {
+        super(mainScene)
         this.mainScene = mainScene;
         this.MAX_SIZE = 6;
         this.objects = [];
@@ -18,14 +19,23 @@ export default class Inventory {
 
     removeObject(object) {
         //si se encuentra un objeto del mismo tipo, se borra
-        this.objects.splice(this.objects.indexOf(object), 1);       
+        this.objects.splice(this.objects.indexOf(object), 1);
+        this.scene.gui.relocateInventory();
+        //se destruye (y desaparece de GUI)
+        object.destroy();
     }
 
     removeObjectByKey(keyName) {
         let i = 0
         while(i < this.objects.length && this.objects[i].name != keyName) i++;
         //si se encuentra un objeto del mismo tipo, se borra
-        if(this.objects[i] !== undefined) this.objects.splice(this.objects[i], 1);       
+        if(i != this.objects.length) {
+            let temporalItem = this.objects[i];
+            this.objects.splice(this.objects[i], 1);       
+            this.scene.gui.relocateInventory();
+            //se destruye (y desaparece de GUI)
+            temporalItem.destroy();
+        }
     }
 
     contains(name) {

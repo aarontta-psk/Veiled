@@ -445,7 +445,6 @@ export class deathEvent_0 extends eventScene {
                         text: 'Reincorporarse',
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Figura tallada');
-                            this.info.player.setAlive();
                         },
                     }
                 ]
@@ -453,9 +452,6 @@ export class deathEvent_0 extends eventScene {
             {
                 text: 'Resistirse desesperadamente',
                 cb: () => {
-                    console.log('hola', this.content[3]);
-                    // if(Math.random() > 0.6) this.info.player.setDead();
-                    // else this.info.player.setAlive();
                     if(Math.random() > DEATH_PROBABILITY) {
                         this.content[3].next = [
                             {
@@ -478,9 +474,7 @@ export class deathEvent_0 extends eventScene {
                             },
                             {
                                 text: 'Continuar',
-                                cb: () => {
-                                    this.info.player.setAlive();
-                                }
+                                cb: () => {}
                             }
                         ]
                     }
@@ -502,7 +496,7 @@ export class testSilueta_0 extends eventScene{
             },
             {
                 text: 'ok',
-                cb: () => { this.completeEvent(0,10)},
+                cb: () => { this.completeEvent(-200,10)},
             }
         ]
     }
@@ -519,7 +513,7 @@ export class testSilueta_1 extends eventScene{
             },
             {
                 text: 'ok',
-                cb: () => { this.completeEvent(0,10)},
+                cb: () => { this.completeEvent(70,10)},
             }
         ]
     }
@@ -535,8 +529,18 @@ export class testSilueta_2 extends eventScene{
                 text: '3'
             },
             {
-                text: 'ok',
-                cb: () => { this.completeEvent(0,10)},
+                condition: function (ref) {
+                    return ref.info.player.faith > 25;
+                },
+                failedText: 'Aun no tienes la fe necesaria',
+                text: 'Completar este nivel al tener la fe necesaria',
+                cb: () => {
+                    this.completeEvent(0,10);
+                }
+            },
+            {
+                text: 'Seguir explorando',
+                cb: () => {}
             }
         ]
     }

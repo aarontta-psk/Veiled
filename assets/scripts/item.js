@@ -25,9 +25,6 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
                 this.doSomething(player);
                 //se borra del inventario
                 player.inventory.removeObject(this);
-                this.scene.gui.relocateInventory();
-                //se destruye (y desaparece de GUI)
-                this.destroy();
             });
         }
     }

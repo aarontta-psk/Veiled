@@ -7,6 +7,8 @@ import GUI from './gui.js';
 import { soundStimulus, smellStimulus } from './stimulus.js';
 import Silhouette from './silhouette.js'
 
+const LEVEL_FAITH_REQUERIMENT = 40;
+
 export default class GameScene extends Phaser.Scene {
     constructor() {
         super({ key: 'gameScene' })
@@ -99,7 +101,8 @@ export default class GameScene extends Phaser.Scene {
             new smellStimulus(smellParticle, { x: this.player.x, y: this.player.y }, 0xBDECB6)
         ];
 
-        this.silhouette = new Silhouette(this.matter.world, 750, 550, [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2')])
+        this.silhouette = new Silhouette(this.matter.world, 750, 550,
+            [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('maxFaithEvent_0')]);
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
@@ -155,7 +158,7 @@ export default class GameScene extends Phaser.Scene {
         this.player.cursorsPlayer.interact.on('down', event => {
             if (this.item != undefined) 
                 this.insertItem(this.item);
-            else if (this.blindfold.blind && this.player.sanity > 40 && !this.playerIsColliding){
+            else if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT){
                 let silEvent = this.silhouette.nextEvent();
                 if (silEvent != null)
                     this.changeScene(silEvent);
@@ -212,12 +215,10 @@ export default class GameScene extends Phaser.Scene {
                 }
             });
             
-        this.playerIsColliding = false;
         this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
             if (cuerpo1.gameObject === this.player &&
                 cuerpo2.gameObject instanceof Npc) {
                 //booleano de control
-                this.playerIsColliding = true;
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 if (this.player.cursorsPlayer.interact.isDown) {
                     let npcEvent = cuerpo2.gameObject.nextEvent();
@@ -225,8 +226,7 @@ export default class GameScene extends Phaser.Scene {
                         this.changeScene(npcEvent);
                 }
             }
-            else
-                this.playerIsColliding = false;
+            
         })
 
         this.scene.scene.cameras.main.on('camerafadeoutcomplete', event => {
@@ -243,13 +243,18 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.events.on('wake', event => {
-            console.log('morir');
             if (this.player !== undefined && this.player.death === this.player.deathState.Dead){
                 this.player.die();
             }
             else {
-                this.player.addSanity(this.player.maxSanity / 2);
-                this.deathBlindfold();
+                if (this.player.death === this.player.deathState.CheckDeath){
+                    this.player.addSanity(this.player.maxSanity / 2);
+                    this.deathBlindfold();
+                    this.player.setAlive();
+                }
+                else{
+                    if(!this.blindfold.isBlindFolded()) this.onBlindChange();
+                }
             }
         });
 
@@ -305,7 +310,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     deathBlindfold() {
-        this.blindfold.setBlindfoldOn(true);
+        if(!this.blindfold.isBlindFolded()) this.onBlindChange();
         this.blindfold.setVision(this.vision, this.player.x, this.player.y);
     }
 

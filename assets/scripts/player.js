@@ -147,6 +147,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.sanity += sanityBoost;
         //en caso de intentar recuperar mas cordura de la maxima permitida, se establece al maximo
         if (this.sanity > this.maxSanity) this.sanity = 100;
+        else if (this.sanity < 0) this.sanity = 0;
     }
 
     setMaxSanity(newMax){

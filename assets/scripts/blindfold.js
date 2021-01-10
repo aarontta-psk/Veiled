@@ -13,6 +13,10 @@ export default class Blindfold extends Phaser.GameObjects.Image {
 		this.blind = true;
 	}
 
+	isBlindFolded(){
+		return this.blind;
+	}
+
 	setBlindfold() {
 		this.rt.setVisible(!this.blind);
 		this.blind = !this.blind;
