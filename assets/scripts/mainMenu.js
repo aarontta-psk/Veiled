@@ -13,7 +13,7 @@ export default class mainMenuScene extends Phaser.Scene{
         const play = this.add.image(this.cameras.main.centerX - this.cameras.main.width/4,
             this.cameras.main.centerY + (this.cameras.main.height/12), 'mainMenuPlay').setInteractive();
         const options = this.add.image(this.cameras.main.centerX - this.cameras.main.width/4,
-            this.cameras.main.height - (this.cameras.main.height/5.5), 'mainMenuOptions').setInteractive();
+            this.cameras.main.height - (this.cameras.main.height/5.5), 'mainMenuSettings').setInteractive();
         //callbacks de los botones:
         //pointerover
         play.on('pointerover', event => {play.setScale(1.2);});

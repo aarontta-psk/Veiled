@@ -10,7 +10,7 @@ export default class options extends Phaser.Scene{
         let i = Math.round(this.sound.volume / 0.33, 0);
         this.scene.bringToTop();
         //imagen de fondo
-        this.add.image(0,0, 'optionsMenu').setOrigin(0);
+        this.add.image(0,0, 'settingsMenu').setOrigin(0);
         //botones
         this.volume = this.add.image(this.cameras.main.centerX - this.cameras.main.width/4,
             this.cameras.main.centerY + (this.cameras.main.height/5), 'volume').setInteractive();
