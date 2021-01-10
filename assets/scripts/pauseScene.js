@@ -12,10 +12,9 @@ export default class pauseScene extends Phaser.Scene {
         let background = this.add.image(0, 0, 'pauseMenu').setOrigin(0);
         background.setPosition(this.cameras.main.centerX - background.width/2, this.cameras.main.centerY - background.height/2);
 
-        const resume = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY + 10, 'pauseMenuResume').setInteractive()
-        const exit = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY + 80, 'pauseMenuToMainMenu').setInteractive()
-        const options = this.add.image(this.cameras.main.centerX - this.cameras.main.width/4,
-            this.cameras.main.height - (this.cameras.main.height/5.5), 'mainMenuOptions').setInteractive();
+        const resume = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY -40, 'pauseMenuResume').setInteractive()
+        const exit = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY + 30, 'pauseMenuToMainMenu').setInteractive()
+        const options = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY + 100, 'pauseMenuSettings').setInteractive()        
         //callbacks de los botones:
         //pointerover
         resume.on('pointerover', event => { resume.setScale(1.2); });
