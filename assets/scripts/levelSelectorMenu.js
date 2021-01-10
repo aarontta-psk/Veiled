@@ -46,8 +46,7 @@ export default class levelSelector extends Phaser.Scene {
             //this.scene.run('level02electorScene', {prevScene: this });
         });
         returnMenu.on('pointerdown', event => {
-            this.scene.stop();
-            this.sound.stopAll();
+            this.scene.stop();            
             this.scene.run(this.info.prevScene.scene.key);
         });
     }
