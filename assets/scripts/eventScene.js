@@ -1,3 +1,5 @@
+const DEATH_PROBABILITY = 0.6;
+
 class eventScene extends Phaser.Scene {
     init(data) {
         this.info = data;
@@ -405,21 +407,85 @@ export class deathEvent_0 extends eventScene {
         this.backgroundImage = 'background';
         this.content = [
             {
-                text: 'No te sientes bien. Te sientes perdida y confusa.'
+                text: 'No te sientes bien. Te sientes perdida y confusa. Poco a poco vas perdiendo tus fuerzas'
             },
             {
-                text: 'Morir',
+                text: 'No resistirse',
                 cb: () => {
                     this.info.player.setDead();
                     this.completeEvent(0,0);
-                }
+                },
+                next: [
+                    {
+                        text: 'Decides rendirte. Todo se vuelve borroso y te desmayas \n' +
+                        'Te despiertas en otro lugar sientiéndote menos segura.'
+                    },
+                    {
+                        text: 'Levantarse',
+                        cb: () => {
+                            this.info.player.addFaith(-5);
+                            this.info.player.setDead();
+                        }      
+                    }
+                ]
             },
             {
-                text: 'No Morir',
+                condition: function (ref) {
+                    return (ref.info.player.inventory.contains('Figura tallada'))
+                },
+                failedText: 'No tienes la figura tallada',
+                text: 'Aferrarse a la figura tallada',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Agarras con fuerza la figura y percibes su forma humana a través del tacto. \n' +
+                        'Al hacerlo te sientes algo mejor, pero has apretado tanto la figura que se parte en trozos.'
+                    },
+                    {
+                        text: 'Reincorporarse',
+                        cb: () => {
+                            this.info.player.inventory.removeObjectByKey('Figura tallada');
+                            this.info.player.setAlive();
+                        },
+                    }
+                ]
+            },
+            {
+                text: 'Resistirse desesperadamente',
                 cb: () => {
-                    this.info.player.setAlive();
-                    this.completeEvent(0,0);
+                    console.log('hola', this.content[3]);
+                    // if(Math.random() > 0.6) this.info.player.setDead();
+                    // else this.info.player.setAlive();
+                    if(Math.random() > DEATH_PROBABILITY) {
+                        this.content[3].next = [
+                            {
+                                text: 'Intentas mantenerte de pie con todas tus fuerzas, pero te desmayas. \n' +
+                                'Te despiertas en otro lugar sientiéndote menos segura.'
+                            },
+                            {
+                                text: 'Levantarse',
+                                cb: () => {
+                                    this.info.player.addFaith(-5);
+                                    this.info.player.setDead();
+                                }
+                            }
+                        ]
+                    }
+                    else {
+                        this.content[3].next = [
+                            {
+                                text: 'Utilizas todas tus fuerzas para seguir despierta. A duras penas, resistes.'
+                            },
+                            {
+                                text: 'Continuar',
+                                cb: () => {
+                                    this.info.player.setAlive();
+                                }
+                            }
+                        ]
+                    }
                 }
+                
             }
         ]
     }

@@ -68,6 +68,6 @@ export default class Boot extends Phaser.Scene {
 
         // Inicializacion de la escena de juego
         this.scene.stop();
-        this.scene.run('mainMenuScene', {soundManager: this.sound});
+        this.scene.run('mainMenuScene');
     }
 }

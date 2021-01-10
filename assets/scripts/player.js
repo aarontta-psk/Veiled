@@ -38,6 +38,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.death = this.deathState.Alive;
 
         this.faith = startingFaith //al instanciarse en el nivel, tiene que recibir la de del nivel anterior
+        this.faithCheck = 30; //cantidad de fe a partir de la cual no se podrá restar mas fe, dado que se necesita un minimo para completar el nivel
         this.numCompletedEvents = 0;
 
         this.inventory = new Inventory(this.scene);
@@ -144,6 +145,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     //metodo para añadir cordura (item)
     addSanity(sanityBoost) {
         this.sanity += sanityBoost;
+        //en caso de intentar recuperar mas cordura de la maxima permitida, se establece al maximo
         if (this.sanity > this.maxSanity) this.sanity = 100;
     }
 
@@ -152,7 +154,18 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     }
 
     addFaith(faithBoost){
-        this.faith += faithBoost;
+        //en caso de restar la fe por debajo del minimo permitido, no se resta
+        if(this.faithCheck + faithBoost <= 0){
+            this.faith -= this.faithCheck;
+        }
+        else{
+            //si se tiene la cantidad de fe que se va a restar
+            this.faith += faithBoost;
+            //resto al minimo para actualizar cuanto mas se puede restar
+            this.faithCheck -= faithBoost;
+        }
+        //me aseguro de que su valor nunca es negativo
+        if(this.faith < 0) this.faith = 0;
         this.scene.gui.viewFaith(this.faith);
     }
 

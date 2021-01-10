@@ -138,6 +138,14 @@ export class SacredFireItem extends Item{
 //#endregion
 
 //#region KeyItems (isUsable=false)
+export class AvoidDeathItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.name = "Figura tallada";
+        this.description = "Un recuerdo de alguien muy importante. Te ayudará en momentos de necesidad";
+    }
+}
+
 //objeto clave de prueba
 export class KeyItem1 extends Item{
     constructor(world, x, y, frame, player){
@@ -146,6 +154,7 @@ export class KeyItem1 extends Item{
         this.description = "Prueba de como seria un objeto clave";
     }
 }
+
 export class SketchItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);

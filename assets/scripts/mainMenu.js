@@ -1,9 +1,4 @@
-import options from './options.js'
 export default class mainMenuScene extends Phaser.Scene{
-    init(data){
-        this.sound = data.soundManager;
-    }
-
     constructor(){
         super({ key: 'mainMenuScene' });
     }
@@ -33,7 +28,7 @@ export default class mainMenuScene extends Phaser.Scene{
         });
         options.on('pointerdown', event => {
             this.scene.stop();
-            this.scene.run('optionsScene', {soundManager: this.sound});
+            this.scene.run('optionsScene');
         });
     }
 }

@@ -1,6 +1,6 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, { PotionItem, KaleidoscopeItem, SketchItem, StampItem, BlessingItem, PositiveWordItem, OffensiveWordItem, SacredFireItem  } from './item.js';
+import Item, { PotionItem, KaleidoscopeItem, SketchItem, StampItem, BlessingItem, PositiveWordItem, OffensiveWordItem, SacredFireItem, AvoidDeathItem } from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
@@ -123,8 +123,8 @@ export default class GameScene extends Phaser.Scene {
                 this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
                 this.itemContainer.push(this.potion);
                 //TESTEO DE ITEMS, NO BORRAR
-                // this.TESTING = new StampItem(this.matter.world, this.player.x, this.player.y, this.itemFrames[0], this.player);
-                // this.itemContainer.push(this.TESTING);
+                this.TESTING = new AvoidDeathItem(this.matter.world, this.player.x, this.player.y, this.itemFrames[0], this.player);
+                this.itemContainer.push(this.TESTING);
             }
             //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
             else if (itemPos.name === 'coin') {

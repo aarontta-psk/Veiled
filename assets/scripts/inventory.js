@@ -21,6 +21,13 @@ export default class Inventory {
         this.objects.splice(this.objects.indexOf(object), 1);       
     }
 
+    removeObjectByKey(keyName) {
+        let i = 0
+        while(i < this.objects.length && this.objects[i].name != keyName) i++;
+        //si se encuentra un objeto del mismo tipo, se borra
+        if(this.objects[i] !== undefined) this.objects.splice(this.objects[i], 1);       
+    }
+
     contains(name) {
         let i = 0;
         while(i < this.objects.length && this.objects[i].name != name) i++;

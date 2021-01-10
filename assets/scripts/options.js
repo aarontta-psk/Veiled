@@ -1,15 +1,10 @@
 export default class options extends Phaser.Scene{
-    init(data){
-        this.sound = data.soundManager;
-    }
     constructor(){
         super({ key: 'optionsScene' });
     }
     create(){
         let i = Math.round(this.sound.volume / 0.33, 0);
         this.scene.bringToTop();
-        //SoundManager
-        // this.soundManager = new soundManager(this.scene.);
         //imagen de fondo
         this.add.image(0,0, 'mainMenu').setOrigin(0);
         //botones
@@ -45,7 +40,7 @@ export default class options extends Phaser.Scene{
             this.returnMenu.on('pointerdown', event => {
                 this.scene.stop();
                 this.sound.stopAll();
-                this.scene.run('mainMenuScene', {soundManager: this.sound});
+                this.scene.run('mainMenuScene');
             });
     }
 }
