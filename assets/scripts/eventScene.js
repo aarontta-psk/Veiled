@@ -1,5 +1,3 @@
-const DEATH_PROBABILITY = 0.6;
-
 class eventScene extends Phaser.Scene {
     init(data) {
         this.info = data;
@@ -446,7 +444,7 @@ export class deathEvent_0 extends eventScene {
             {
                 text: 'Resistirse desesperadamente',
                 cb: () => {
-                    if(Math.random() > DEATH_PROBABILITY) {
+                    if(Math.random() > this.info.player.deathProbability) {
                         this.content[3].next = [
                             {
                                 text: 'Intentas mantenerte de pie con todas tus fuerzas, pero te desmayas. \n' +

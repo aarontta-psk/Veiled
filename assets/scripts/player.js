@@ -36,6 +36,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             Dead: 'dead'
         }
         this.death = this.deathState.Alive;
+        this.deathProbability = 0.6;
 
         this.faith = startingFaith //al instanciarse en el nivel, tiene que recibir la de del nivel anterior
         this.faithCheck = 30; //cantidad de fe a partir de la cual no se podrá restar mas fe, dado que se necesita un minimo para completar el nivel

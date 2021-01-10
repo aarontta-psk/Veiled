@@ -132,6 +132,18 @@ export class SacredFireItem extends Item{
     }
 }
 
+export class LessDeathItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, true);
+        this.name = "Objeto";;
+        this.description = "Efecto: Al usarse es menos probable morir";
+    }
+
+    doSomething(player) {
+        player.deathProbability = 0.7;
+    }
+}
+
 //#endregion
 
 //#region KeyItems (isUsable=false)
