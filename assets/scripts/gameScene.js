@@ -246,6 +246,11 @@ export default class GameScene extends Phaser.Scene {
         });
 
         this.events.on('wake', event => {
+            //la musica vuelve a sonar
+            this.sound.play('mainTheme', {
+                mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
+            });
+
             if (this.player !== undefined && this.player.death === this.player.deathState.Dead){
                 this.player.die();
             }
