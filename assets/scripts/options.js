@@ -1,4 +1,8 @@
 export default class options extends Phaser.Scene{
+    init(data){
+        this.info = data;
+    }
+
     constructor(){
         super({ key: 'optionsScene' });
     }
@@ -30,7 +34,7 @@ export default class options extends Phaser.Scene{
             this.cameras.main.centerY + (this.cameras.main.height/3.5), 'keybinds').setScale(0.25);
 
             this.returnMenu = this.add.image(this.cameras.main.centerX - this.cameras.main.width/4,
-                this.cameras.main.centerY - (this.cameras.main.height/5), 'pauseMenuToMainMenu').setInteractive();
+                this.cameras.main.centerY - (this.cameras.main.height/5), 'back').setInteractive();
             //callbacks de los botones:
             //pointerover
             this.returnMenu.on('pointerover', event => {this.returnMenu.setScale(1.2);});
@@ -40,7 +44,7 @@ export default class options extends Phaser.Scene{
             this.returnMenu.on('pointerdown', event => {
                 this.scene.stop();
                 this.sound.stopAll();
-                this.scene.run('mainMenuScene');
+                this.scene.run(this.info.prevScene.scene.key);
             });
     }
 }

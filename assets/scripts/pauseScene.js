@@ -14,7 +14,8 @@ export default class pauseScene extends Phaser.Scene {
 
         const resume = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY + 10, 'pauseMenuResume').setInteractive()
         const exit = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY + 80, 'pauseMenuToMainMenu').setInteractive()
-
+        const options = this.add.image(this.cameras.main.centerX - this.cameras.main.width/4,
+            this.cameras.main.height - (this.cameras.main.height/5.5), 'mainMenuOptions').setInteractive();
         //callbacks de los botones:
         //pointerover
         resume.on('pointerover', event => { resume.setScale(1.2); });
@@ -31,5 +32,16 @@ export default class pauseScene extends Phaser.Scene {
             this.sound.stopAll();
             this.scene.start('mainMenuScene');
         });
+
+        options.on('pointerover', event => {options.setScale(1.2);});
+        //pointerout
+        options.on('pointerout', event => {options.setScale(1);});
+        //pointerdown
+        options.on('pointerdown', event => {
+            this.scene.sleep();
+            this.scene.run('optionsScene', {prevScene: this });
+        });
+
+
     }
 }

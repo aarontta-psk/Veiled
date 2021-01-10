@@ -28,7 +28,7 @@ export default class mainMenuScene extends Phaser.Scene{
         });
         options.on('pointerdown', event => {
             this.scene.stop();
-            this.scene.run('optionsScene');
+            this.scene.run('optionsScene', {prevScene: this });
         });
     }
 }
