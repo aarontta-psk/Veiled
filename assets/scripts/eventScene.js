@@ -12,13 +12,13 @@ class eventScene extends Phaser.Scene {
         //antes de mostrar las opciones, borro las anteriores
         group.removeAll(true);
 
-        const mainText = this.add.text(50, 50, options[0].text, { fontFamily: 'Neucha', align: 'right' }).setResolution(1.2).setScale(1.2).setAlign('left');
+        const mainText = this.add.text(50, 50, options[0].text, { fontFamily: 'Neucha', align: 'right', wordWrap: {width: 590, useAdvancedWrap: true} }).setResolution(1.2).setScale(1.2).setAlign('left');
         group.add(mainText);
         //para cada opcion
         for (let i = 1; i < options.length; i++) {
             //console.log(options);
             //añado un texto
-            const optionText = this.add.text(44, distancia, options[i].text, { fontFamily: 'Neucha' }).setInteractive().setResolution(1.6).setScale(1.6);
+            const optionText = this.add.text(44, distancia, options[i].text, { fontFamily: 'Neucha', wordWrap: {width: 590, useAdvancedWrap: true}}).setInteractive().setResolution(1.6).setScale(1.6);
             //lo añado al container para borrarlo mas adelante
             group.add(optionText);
             distancia += 75;
