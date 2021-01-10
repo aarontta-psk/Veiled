@@ -76,7 +76,7 @@ export class testEvent extends eventScene {
     constructor() {
         super({ key: 'testEvent' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: 'El leñador está cansado. Lleva todo el día depurando código en VSCode y está un poco hasta los huevos en realidad. Cómo le gustaría poder pasarse unas vacaciones relajadas para descansar y volver fuerte en enero para los exámenes, pero tiene que hacer malabares con proyectos simultáneos de c++, js y Blender. Le molaría bastante si le restaurases sus ganas de vivir.'
@@ -159,7 +159,7 @@ export class painterEvent_0 extends eventScene {
     constructor() {
         super({ key: 'painterEvent_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: 'Notas, entre las fragancias del bosque cercano, el olor a colores pastel. Al acercarte, una persona\n' +
@@ -200,7 +200,7 @@ export class painterEvent_1 extends eventScene {
     constructor() {
         super({ key: 'painterEvent_1' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: 'La pintora se queda incrédula un segundo, pero se alegra notablemente al darse cuenta de lo que\n' +
@@ -271,7 +271,7 @@ export class painterEvent_2 extends eventScene {
     constructor() {
         super({ key: 'painterEvent_2' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: '-Creo que seguiré pintando hasta que anochezca.'
@@ -288,7 +288,7 @@ export class doctorEvent_0 extends eventScene {
     constructor() {
         super({ key: 'doctorEvent_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: 'El olor a tabaco viejo te alerta a la presencia del doctor Abel, sentado como de costumbre en\n' +
@@ -352,7 +352,7 @@ export class doctorEvent_1 extends eventScene {
     constructor() {
         super({ key: 'doctorEvent_1' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: 'El doctor suelta una risita cuando te vuelves a acercar \n' +
@@ -372,7 +372,7 @@ export class maxFaithEvent_0 extends eventScene {
     constructor() {
         super({ key: 'maxFaithEvent_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: 'Tus acciones se ven recompensadas. Sientes como a medida que ayudas a otras personas tu fe \n' +
@@ -398,7 +398,7 @@ export class deathEvent_0 extends eventScene {
     constructor() {
         super({ key: 'deathEvent_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: 'No te sientes bien. Te sientes perdida y confusa. Poco a poco vas perdiendo tus fuerzas'
@@ -483,7 +483,7 @@ export class testSilueta_0 extends eventScene{
     constructor() {
         super({ key: 'testSilueta_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: '1'
@@ -500,7 +500,7 @@ export class testSilueta_1 extends eventScene{
     constructor() {
         super({ key: 'testSilueta_1' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: '2'
@@ -517,7 +517,7 @@ export class testSilueta_2 extends eventScene{
     constructor() {
         super({ key: 'testSilueta_2' });
         //array con los elementos de un evento
-        this.backgroundImage = 'background';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: '3'
