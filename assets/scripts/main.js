@@ -6,6 +6,7 @@ import PauseScene from "./pauseScene.js";
 import MainMenu from "./mainMenu.js";
 import Options from './options.js';
 import InfoLevel from './infoLevel.js';
+import levelSelector from "./levelSelectorMenu.js";
 
 new Phaser.Game({
     type: Phaser.AUTO,
@@ -27,6 +28,6 @@ new Phaser.Game({
             }
         }
     },
-    scene: [Boot, MainMenu, Options, GameScene, InfoLevel, testEvent, anotherTestEvent, deathEvent_0, maxFaithEvent_0, PauseScene, painterEvent_0, painterEvent_1, painterEvent_2, doctorEvent_0,
+    scene: [Boot, MainMenu, Options, levelSelector, GameScene, InfoLevel, testEvent, anotherTestEvent, deathEvent_0, maxFaithEvent_0, PauseScene, painterEvent_0, painterEvent_1, painterEvent_2, doctorEvent_0,
         doctorEvent_1, testSilueta_0, testSilueta_1, testSilueta_2], //escenas a cargar
 })
