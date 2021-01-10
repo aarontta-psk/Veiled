@@ -33,17 +33,17 @@ class eventScene extends Phaser.Scene {
                     //en caso contrario
                     else {
                         //si se ha conseguido cierto nivel de fe
-                        if(this.info.player.faith > 39){
-                            this.info.prevScene.scene.stop();
-                            this.scene.stop();
-                            this.scene.run('infoLevel', {obtainedFaith: this.info.player.faith, completedEvents: this.info.player.numCompletedEvents});
-                        }
-                        else{
+                        // if(this.info.player.faith > 39){
+                        //     this.info.prevScene.scene.stop();
+                        //     this.scene.stop();
+                        //     this.scene.run('infoLevel', {obtainedFaith: this.info.player.faith, completedEvents: this.info.player.numCompletedEvents});
+                        // }
+                        // else{
                             //en caso contrario volvemos a la escena anterior
                             this.scene.stop();
                             // this.scene.resume(this.info.prevScene.scene.key);
                             this.scene.wake(this.info.prevScene.scene.key);
-                        }
+                        // }
                     }
                 }
                 else {
@@ -486,6 +486,57 @@ export class deathEvent_0 extends eventScene {
                     }
                 }
                 
+            }
+        ]
+    }
+}
+
+export class testSilueta_0 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'background';
+        this.content = [
+            {
+                text: '1'
+            },
+            {
+                text: 'ok',
+                cb: () => { this.completeEvent(0,10)},
+            }
+        ]
+    }
+}
+
+export class testSilueta_1 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'background';
+        this.content = [
+            {
+                text: '2'
+            },
+            {
+                text: 'ok',
+                cb: () => { this.completeEvent(0,10)},
+            }
+        ]
+    }
+}
+
+export class testSilueta_2 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_2' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'background';
+        this.content = [
+            {
+                text: '3'
+            },
+            {
+                text: 'ok',
+                cb: () => { this.completeEvent(0,10)},
             }
         ]
     }

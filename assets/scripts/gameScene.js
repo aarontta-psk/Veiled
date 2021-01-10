@@ -99,7 +99,7 @@ export default class GameScene extends Phaser.Scene {
             new smellStimulus(smellParticle, { x: this.player.x, y: this.player.y }, 0xBDECB6)
         ];
 
-        this.silhouette = new Silhouette(this.matter.world, 750, 550, [this.scene.get('testEvent')])
+        this.silhouette = new Silhouette(this.matter.world, 750, 550, [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2')])
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
@@ -123,7 +123,7 @@ export default class GameScene extends Phaser.Scene {
                 this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
                 this.itemContainer.push(this.potion);
                 //TESTEO DE ITEMS, NO BORRAR
-                this.TESTING = new AvoidDeathItem(this.matter.world, this.player.x, this.player.y, this.itemFrames[0], this.player);
+                this.TESTING = new AvoidDeathItem(this.matter.world, this.player.x + 250, this.player.y, this.itemFrames[0], this.player);
                 this.itemContainer.push(this.TESTING);
             }
             //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
@@ -202,8 +202,7 @@ export default class GameScene extends Phaser.Scene {
         (evento, cuerpo1, cuerpo2) => {
             if (cuerpo1.gameObject === this.player) {
                 //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
-                if (cuerpo2.gameObject === this.coin || cuerpo2.gameObject === this.housekey
-                    || cuerpo2.gameObject === this.potion) this.item = undefined;
+                if (cuerpo2.gameObject instanceof Item) this.item = undefined;
                     
                     //buscamos si sale de un trigger de seccion
                     let i = 0;
