@@ -28,10 +28,10 @@ export default class options extends Phaser.Scene{
             this.sound.setVolume(i * 0.33);
         });
 
-        this.keybinds = this.add.image(this.cameras.main.centerX + this.cameras.main.width/4,
+        /*this.keybinds = this.add.image(this.cameras.main.centerX + this.cameras.main.width/4,
             this.cameras.main.centerY - (this.cameras.main.height/10), 'keybindsButton');
         this.keybindsImage = this.add.image(this.cameras.main.centerX + this.cameras.main.width/4,
-            this.cameras.main.centerY + (this.cameras.main.height/3.5), 'keybinds').setScale(0.25);
+            this.cameras.main.centerY + (this.cameras.main.height/3.5), 'keybinds').setScale(0.25);*/
 
             this.returnMenu = this.add.image(this.cameras.main.centerX - this.cameras.main.width/4,
                 this.cameras.main.centerY - (this.cameras.main.height/5), 'back').setInteractive();
