@@ -1,12 +1,3 @@
-import Blindfold from './blindfold.js';
-import Player from './player.js';
-import { potionItem, kaleidoscopeItem, sketchItem } from './item.js';
-import Npc from './npc.js';
-import Trigger from './trigger.js';
-import GUI from './gui.js';
-import { soundStimulus, smellStimulus } from './stimulus.js';
-import Silhouette from './silhouette.js'
-
 export default class NewGameScene extends Phaser.Scene {
     constructor(key) {
         super({ key: key })
@@ -30,7 +21,32 @@ export default class NewGameScene extends Phaser.Scene {
         });
     }
 
-    
+    update(time, delta) {
+        //actualizacion zona de vision
+        const [playerX, playerY] = [this.player.x, this.player.y];
+        const [visionX, visionY] = [this.vision.x, this.vision.y];
+
+        if ((playerX === this.spawnpoint.x && playerY === this.spawnpoint.y) || (visionX !== playerX || visionY !== playerY)) {
+            this.blindfold.setVision(this.vision, playerX, playerY);
+        }
+
+        //actualizacion barra de cordura
+        this.gui.updateSanityBar(this.player.sanity);
+    }   
+
+    generateNPC(key, world, events)
+    {
+        let path = Array();
+        for (const pathPoint of this.map.getObjectLayer('npcs').objects)
+            if (pathPoint.name == key)
+                path[pathPoint.properties[0].value] = {
+                    'x': pathPoint.x, 
+                    'y': pathPoint.y, 
+                    'pause': pathPoint.properties[1].value}
+
+        return new Npc(key, world, path[0].x, path[0].y, events, path);
+    }
+
     //transicion a nueva seccion
     newSection(trigger) {
         const bounds = this.cameras.main.getBounds();
