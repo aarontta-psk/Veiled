@@ -12,14 +12,14 @@ export default class options extends Phaser.Scene{
         //imagen de fondo
         this.add.image(0,0, 'settingsMenu').setOrigin(0);
         //botones
-        this.volume = this.add.image(this.cameras.main.centerX - this.cameras.main.width/4,
-            this.cameras.main.centerY + (this.cameras.main.height/5), 'volume').setInteractive();
+        this.volume = this.add.image(this.cameras.main.centerX + this.cameras.main.width/3.3,
+            this.cameras.main.centerY - (this.cameras.main.height/8), 'volume').setInteractive().setScale(0.8);
         this.volume.setFrame(i);
         //callbacks de los botones:
         //pointerover
-        this.volume.on('pointerover', event => {this.volume.setScale(1.2);});
+        this.volume.on('pointerover', event => {this.volume.setScale(1);});
         //pointerout
-        this.volume.on('pointerout', event => {this.volume.setScale(1);});
+        this.volume.on('pointerout', event => {this.volume.setScale(0.8);});
         //pointerdown
         this.volume.on('pointerdown', event => {
             if(i >= 3) i = 0;
@@ -33,8 +33,8 @@ export default class options extends Phaser.Scene{
         this.keybindsImage = this.add.image(this.cameras.main.centerX + this.cameras.main.width/4,
             this.cameras.main.centerY + (this.cameras.main.height/3.5), 'keybinds').setScale(0.25);*/
 
-            this.returnMenu = this.add.image(this.cameras.main.centerX - this.cameras.main.width/4,
-                this.cameras.main.centerY - (this.cameras.main.height/5), 'back').setInteractive();
+            this.returnMenu = this.add.image(this.cameras.main.centerX + this.cameras.main.width/3,
+                this.cameras.main.centerY + (this.cameras.main.height/5), 'back').setInteractive();
             //callbacks de los botones:
             //pointerover
             this.returnMenu.on('pointerover', event => {this.returnMenu.setScale(1.2);});

@@ -19,8 +19,8 @@ export default class levelSelector extends Phaser.Scene {
             this.cameras.main.centerY + (this.cameras.main.height / 5), 'mainMenuLevel02').setInteractive();
         const level03 = this.add.image(this.cameras.main.centerX - this.cameras.main.width / 4,
             this.cameras.main.height - (this.cameras.main.height / 9), 'mainMenuLevel03').setInteractive();
-        const returnMenu = this.add.image(this.cameras.main.centerX + this.cameras.main.width / 5,
-            this.cameras.main.centerY + (this.cameras.main.height / 3), 'back').setInteractive();
+        const returnMenu = this.add.image(this.cameras.main.centerX + this.cameras.main.width / 5.5,
+            this.cameras.main.centerY + (this.cameras.main.height / 2.5), 'back').setInteractive();
 
         //pointerover
         level01.on('pointerover', event => { level01.setScale(1.1); });
