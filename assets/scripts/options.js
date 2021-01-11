@@ -1,10 +1,12 @@
-export default class options extends Phaser.Scene{
+import menuBasicScene from "./menuBasicScene.js";
+
+export default class options extends menuBasicScene{
     init(data){
         this.info = data;
     }
 
     constructor(){
-        super({ key: 'optionsScene' });
+        super('optionsScene');
     }
     create(){
         let i = Math.round(this.sound.volume / 0.33, 0);
@@ -15,36 +17,13 @@ export default class options extends Phaser.Scene{
         this.volume = this.add.image(this.cameras.main.centerX + this.cameras.main.width/3.3,
             this.cameras.main.centerY - (this.cameras.main.height/8), 'volume').setInteractive().setScale(0.8);
         this.volume.setFrame(i);
-        //callbacks de los botones:
-        //pointerover
-        this.volume.on('pointerover', event => {this.volume.setScale(1);});
-        //pointerout
-        this.volume.on('pointerout', event => {this.volume.setScale(0.8);});
-        //pointerdown
-        this.volume.on('pointerdown', event => {
-            if(i >= 3) i = 0;
-            else i++;
-            this.volume.setFrame(i);
-            this.sound.setVolume(i * 0.33);
-        });
 
         /*this.keybinds = this.add.image(this.cameras.main.centerX + this.cameras.main.width/4,
             this.cameras.main.centerY - (this.cameras.main.height/10), 'keybindsButton');
         this.keybindsImage = this.add.image(this.cameras.main.centerX + this.cameras.main.width/4,
             this.cameras.main.centerY + (this.cameras.main.height/3.5), 'keybinds').setScale(0.25);*/
 
-            this.returnMenu = this.add.image(this.cameras.main.centerX + this.cameras.main.width/3,
-                this.cameras.main.centerY + (this.cameras.main.height/5), 'back').setInteractive();
-            //callbacks de los botones:
-            //pointerover
-            this.returnMenu.on('pointerover', event => {this.returnMenu.setScale(1.2);});
-            //pointerout
-            this.returnMenu.on('pointerout', event => {this.returnMenu.setScale(1);});
-            //pointerdown
-            this.returnMenu.on('pointerdown', event => {
-                this.scene.stop();
-                this.sound.stopAll();
-                this.scene.run(this.info.prevScene.scene.key);
-            });
+            this.returnMenu = this.returnButton(this.cameras.main.centerX + this.cameras.main.width/3,
+                this.cameras.main.centerY + (this.cameras.main.height/5), 1, this.info);
     }
 }
