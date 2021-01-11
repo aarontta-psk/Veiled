@@ -28,6 +28,11 @@ export default class Npc extends EventHandler{
     preUpdate(time, delta) {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
+        if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < 60))
+            this.setVisible(true);
+        else if ((Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y) > 60))
+            this.setVisible(false);
+
         if (this.state === 'moving') {
             this.move();
         }
@@ -52,11 +57,11 @@ export default class Npc extends EventHandler{
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
 
-        /*console.log('NPC state: ' + this.state + 
+        console.log('NPC state: ' + this.state + 
         '\nSpeed: ' + velX + ', ' + velY + 
         '\nDestination(' + this.nextPathPoint + '): ' + this.dest.x + ', ' + this.dest.y +
         '\nPosition: ' + this.x + ', ' + this.y + 
-        '\nDistance to destination: ' + (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y)));*/
+        '\nDistance to player: ' + (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y)));
     }
 
     nextPath() {
