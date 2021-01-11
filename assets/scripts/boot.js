@@ -11,19 +11,19 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('doctor', './assets/sprites/doctor_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-            
+
         this.load.image('ghost', './assets/sprites/ghost.png');
-        this.load.image('itemFX', './assets/sprites/item_fx.png');         
+        this.load.image('itemFX', './assets/sprites/item_fx.png');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
         this.load.spritesheet('soundCircle', './assets/sprites/sound_circle.png',
-        { frameWidth: 860, frameHeight: 904 });
+            { frameWidth: 860, frameHeight: 904 });
         this.load.spritesheet('smellCloud', './assets/sprites/smell_cloud.png',
-        { frameWidth: 1000, frameHeight: 649 });
+            { frameWidth: 1000, frameHeight: 649 });
         this.load.spritesheet('itemTooltip', './assets/sprites/item_tooltip.png',
-        { frameWidth: 64, frameHeight: 128 });
+            { frameWidth: 64, frameHeight: 128 });
         this.load.spritesheet('npcTooltip', './assets/sprites/npc_tooltip.png',
-        { frameWidth: 64, frameHeight: 128 });
+            { frameWidth: 64, frameHeight: 128 });
 
         // Carga de datos de menus
         this.load.image('pauseMenu', './assets/sprites/ui/pause_menu.png');
@@ -41,7 +41,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('settingsMenu', './assets/sprites/ui/settings_menu.png');
         this.load.image('scoreMenu', './assets/sprites/ui/score_menu.png');
         this.load.spritesheet('volume', './assets/sprites/ui/volume.png',
-        {frameWidth: 280, frameHeight: 280});
+            { frameWidth: 280, frameHeight: 280 });
         this.load.image('keybindsButton', './assets/sprites/ui/keybinds_button.png');
         this.load.image('keybinds', './assets/media/keybinds.png');
 
@@ -83,8 +83,48 @@ export default class Boot extends Phaser.Scene {
             },
         });
 
+        //creacion de animaciones
+        this.createAnims('player', 8);
+        this.createAnims('painter', 4);
+        this.createAnims('doctor', 4);
+
         // Inicializacion de la escena de juego
         this.scene.stop();
         this.scene.run('mainMenuScene');
+    }
+
+
+    //metodo generalizado de creacion de animaciones de movimiento por defecto
+    createAnims(key, speed) {
+        this.anims.create({
+            key: 'idle_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
+            frameRate: speed,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'up_move_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 9, end: 17 }),
+            frameRate: speed,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'down_move_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 0, end: 8 }),
+            frameRate: speed,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'left_move_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 27, end: 35 }),
+            frameRate: speed,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'right_move_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 18, end: 26 }),
+            frameRate: speed,
+            repeat: -1
+        });
     }
 }
