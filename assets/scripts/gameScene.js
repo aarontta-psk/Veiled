@@ -78,7 +78,7 @@ export default class GameScene extends Phaser.Scene {
         }
 
         // Añado un npc de prueba en un array
-        this.npcs = [
+        this.npcs = [/*
             this.painterNpc = new Npc('painter', this.matter.world, 3872,
                 3552, [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1'), this.scene.get('painterEvent_2')],
                 {
@@ -94,7 +94,11 @@ export default class GameScene extends Phaser.Scene {
                     'x': [4256, 4256, 4000],
                     'y': [2208, 2336, 2336],
                     'pause': [8000, 10, 1000]
-                })
+                })*/
+                this.doctorNpc = this.generateNPC(
+                    'doctor', 
+                    this.matter.world,
+                    [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')])
         ];
 
         //PRUEBAS DE ESTIMULOS
@@ -266,6 +270,18 @@ export default class GameScene extends Phaser.Scene {
         this.animatedTiles.init(this.map);
     }
 
+    generateNPC(key, world, events)
+    {
+        let path = Array();
+        for (const pathPoint of this.map.getObjectLayer('npcs').objects)
+            if (pathPoint.name == key)
+                path[pathPoint.properties[0].value] = {
+                    'x': pathPoint.x, 
+                    'y': pathPoint.y, 
+                    'pause': pathPoint.properties[1].value}
+
+        return new Npc(key, world, path[0].x, path[0].y, events, path);
+    }
 
     update(time, delta) {
         //actualizacion zona de vision

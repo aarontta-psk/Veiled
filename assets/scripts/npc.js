@@ -15,13 +15,10 @@ export default class Npc extends EventHandler{
         this.setSensor(true);
 
         this.path = path;   //array de puntos del recorrido tres valores: x, y, t(el tiempo de pausa cuando se llega al punto)
-        this.px = path.x;
-        this.py = path.y;
-        this.pathPause = path.pause;
         this.nextPathPoint = 0;    //el indice del array de puntos del recorrido al que nos dirigimos siguiente
 
         this.state = 'moving';   //still, moving
-        this.dest = { x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint] };
+        this.dest = { x: this.path[0].x, y: this.path[0].y };
         this.setVisible(false); //tiene que empezar invisible, porque la venda empezará puesta
     }
 
@@ -62,7 +59,7 @@ export default class Npc extends EventHandler{
         else {
             this.state = 'still';
             this.setVelocity(0.01, 0.01);
-            this.scene.time.delayedCall(this.pathPause[this.nextPathPoint], this.nextPath, null, this);
+            this.scene.time.delayedCall(this.path[this.nextPathPoint].pause, this.nextPath, null, this);
         }
 
         //Reproducimos la animación que corresponda
@@ -71,8 +68,8 @@ export default class Npc extends EventHandler{
 
     nextPath() {
         this.nextPathPoint++;
-        this.nextPathPoint %= this.path.x.length;
-        this.dest = { x: this.px[this.nextPathPoint], y: this.py[this.nextPathPoint] };
+        this.nextPathPoint %= this.path.length;
+        this.dest = { x: this.path[this.nextPathPoint].x, y: this.path[this.nextPathPoint].y };
         this.state = 'moving';
     }
 
