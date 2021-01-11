@@ -28,10 +28,13 @@ export default class Npc extends EventHandler{
     preUpdate(time, delta) {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
+        if (this.scene.blindfold.blind)
+        {
         if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < 60))
             this.setVisible(true);
         else if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) > 60))
             this.setVisible(false);
+        }
 
         if (this.state === 'moving') {
             this.move();
