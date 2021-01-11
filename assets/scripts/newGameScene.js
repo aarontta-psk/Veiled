@@ -87,45 +87,6 @@ export default class NewGameScene extends Phaser.Scene {
         }
     }
 
-    //metodo generalizado de creacion de animaciones de movimiento por defecto
-    createAnims(key, speed) {
-        this.anims.create({
-            key: 'idle_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
-            frameRate: speed,
-            repeat: -1
-        }); this.anims.create({
-            key: 'idle_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
-            frameRate: speed,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'up_move_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 9, end: 17 }),
-            frameRate: speed,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'down_move_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 0, end: 8 }),
-            frameRate: speed,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'left_move_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 27, end: 35 }),
-            frameRate: speed,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'right_move_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 18, end: 26 }),
-            frameRate: speed,
-            repeat: -1
-        });
-    }
-
     onBlindChange(){
 
         this.blindfold.setBlindfold();

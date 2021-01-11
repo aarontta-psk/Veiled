@@ -150,10 +150,6 @@ export default class GameScene extends Phaser.Scene {
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
-        //creacion de animaciones
-        this.createAnims('player', 8);
-        this.createAnims('painter', 4);
-        this.createAnims('doctor', 4);
 
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.onBlindChange();
@@ -349,43 +345,4 @@ export default class GameScene extends Phaser.Scene {
                 this.stimuli[i].emitter.stop();
         }
     }    
-
-    //metodo generalizado de creacion de animaciones de movimiento por defecto
-    createAnims(key, speed) {
-        this.anims.create({
-            key: 'idle_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
-            frameRate: speed,
-            repeat: -1
-        }); this.anims.create({
-            key: 'idle_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 1, end: 1 }),
-            frameRate: speed,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'up_move_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 9, end: 17 }),
-            frameRate: speed,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'down_move_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 0, end: 8 }),
-            frameRate: speed,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'left_move_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 27, end: 35 }),
-            frameRate: speed,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'right_move_' + key,
-            frames: this.anims.generateFrameNumbers(key, { start: 18, end: 26 }),
-            frameRate: speed,
-            repeat: -1
-        });
-    }
 }
