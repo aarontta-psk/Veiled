@@ -79,14 +79,14 @@ export default class GameScene extends Phaser.Scene {
 
         // Añado un npc de prueba en un array
         this.npcs = [
-            /*this.painterNpc = new Npc('painter', this.matter.world, 3872,
+            this.painterNpc = new Npc('painter', this.matter.world, 3872,
                 3552, [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1'), this.scene.get('painterEvent_2')],
                 {
                     //path
                     'x': [3872, 3744, 3872, 3680],
                     'y': [3552, 3552, 3552, 3680],
                     'pause': [1000, 1000, 1000, 1000]
-                }),*/
+                }),
             this.doctorNpc = new Npc('doctor', this.matter.world, 4256,
                 2208, [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')],
                 {
