@@ -10,13 +10,13 @@ class eventScene extends Phaser.Scene {
         //antes de mostrar las opciones, borro las anteriores
         group.removeAll(true);
 
-        const mainText = this.add.text(50, 50, options[0].text, { fontFamily: 'Neucha', align: 'right', wordWrap: {width: 590, useAdvancedWrap: true} }).setResolution(1.2).setScale(1.2).setAlign('left');
+        const mainText = this.add.text(this.cameras.main.width*0.1, 50, options[0].text, { fontFamily: 'Neucha', align: 'right', wordWrap: {width: this.cameras.main.width*0.7, useAdvancedWrap: true} }).setResolution(1.2).setScale(1.2).setAlign('left');
         group.add(mainText);
         //para cada opcion
         for (let i = 1; i < options.length; i++) {
             //console.log(options);
             //añado un texto
-            const optionText = this.add.text(44, distancia, options[i].text, { fontFamily: 'Neucha', wordWrap: {width: 590, useAdvancedWrap: true}}).setInteractive().setResolution(1.6).setScale(1.6);
+            const optionText = this.add.text(this.cameras.main.width*0.08, distancia, options[i].text, { fontFamily: 'Neucha', wordWrap: {width: this.cameras.main.width*0.72, useAdvancedWrap: true}}).setInteractive().setResolution(1.6).setScale(1.6);
             //lo añado al container para borrarlo mas adelante
             group.add(optionText);
             distancia += 75;
@@ -163,7 +163,7 @@ export class painterEvent_0 extends eventScene {
                 text: 'Notas, entre las fragancias del bosque cercano, el olor a colores pastel. Al acercarte, una persona ' +
                     'se torna hacia ti. -¡Ay, no esperaba visitas! -Una voz femenina exclama- La gente no suele venir por ' +
                     'aquí, así que suelo venir cuando quiero pintar. Sinceramente, tenía alguna ilusión por que que alguien ' +
-                    'me criticase mi trabajo, pero ¡qué quisquillosa es el destino para acabar aquí tú de todas personas!\n' +
+                    'me criticase mi trabajo, pero ¡qué quisquilloso es el destino para acabar aquí tú de todas personas!\n' +
                     '-Bueno, parece que tendré que esperar a otro día para encontrar a mi crítico, pero de mientras, ' +
                     'cuéntame un poco, ¿qué te trae por estas zonas?'
             },
@@ -174,7 +174,7 @@ export class painterEvent_0 extends eventScene {
                     {
                         text: 'Una breve conversación trivial lleva a la artista a envolverse un poco en temas de teoría de color.\n' +
                             'Comienza a intentar explicar el amarillo como a alguien ciego, y se sorprende mucho cuando le ' +
-                            'comentas con una leve sonrisa burlona que ya conoces los colores.',
+                            'comentas con una leve sonrisa conocedora que ya conoces los colores.',
                     },
                     {
                         text: 'Continuar',
