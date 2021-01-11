@@ -30,12 +30,20 @@ export default class Npc extends EventHandler{
 
         if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < 60))
             this.setVisible(true);
-        else if ((Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y) > 60))
+        else if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) > 60))
             this.setVisible(false);
 
         if (this.state === 'moving') {
             this.move();
         }
+        
+        /*
+        console.log('NPC state: ' + this.state + 
+        //'\nSpeed: ' + velX + ', ' + velY + 
+        '\nDestination(' + this.nextPathPoint + '): ' + this.dest.x + ', ' + this.dest.y +
+        '\nPosition: ' + this.x + ', ' + this.y + 
+        '\nPlayer position: ' + this.scene.player.x + ', ' + this.scene.player.y + 
+        '\nDistance to player: ' + (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y)));*/
     }
 
     move() {
@@ -50,18 +58,12 @@ export default class Npc extends EventHandler{
         }
         else {
             this.state = 'still';
-            this.setVelocity(0, 0);
+            this.setVelocity(0.01, 0.01);
             this.scene.time.delayedCall(this.pathPause[this.nextPathPoint], this.nextPath, null, this);
         }
 
         //Reproducimos la animación que corresponda
         this.changeAnims(velX, velY);
-
-        console.log('NPC state: ' + this.state + 
-        '\nSpeed: ' + velX + ', ' + velY + 
-        '\nDestination(' + this.nextPathPoint + '): ' + this.dest.x + ', ' + this.dest.y +
-        '\nPosition: ' + this.x + ', ' + this.y + 
-        '\nDistance to player: ' + (Phaser.Math.Distance.Between(this.x, this.y, this.dest.x, this.dest.y)));
     }
 
     nextPath() {
