@@ -39,6 +39,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('mainMenuLevel02', './assets/sprites/ui/level_02_button.png');
         this.load.image('mainMenuLevel03', './assets/sprites/ui/level_03_button.png');
         this.load.image('settingsMenu', './assets/sprites/ui/settings_menu.png');
+        this.load.image('scoreMenu', './assets/sprites/ui/score_menu.png');
         this.load.spritesheet('volume', './assets/sprites/ui/volume.png',
         {frameWidth: 280, frameHeight: 280});
         this.load.image('keybindsButton', './assets/sprites/ui/keybinds_button.png');

@@ -13,6 +13,8 @@ export default class infoLevel extends Phaser.Scene{
         //     fontFamily: 'Neucha',
         //     color: '#ffffff'
         // }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
+        //imagen de fondo
+        this.add.image(0,0, 'scoreMenu').setOrigin(0);
         console.log('fe:', this.info.obtainedFaith, 'Eventos Completados:', this.info.completedEvents);
         const events = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - this.cameras.main.centerY/3, 'Eventos Completados: ' + this.info.numEvents.toString(), 
         { fontFamily: 'Neucha'}).setOrigin(0).setResolution(1.2).setScale(1.2).setAlign('left');
