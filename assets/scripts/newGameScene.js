@@ -1,5 +1,5 @@
 import Npc from './npc.js';
-import {treeSmell} from './stimulus.js';
+import {treeSmell, footSteps} from './stimulus.js';
 export default class NewGameScene extends Phaser.Scene {
     constructor(key) {
         super({ key: key })
@@ -45,8 +45,11 @@ export default class NewGameScene extends Phaser.Scene {
                     'x': pathPoint.x, 
                     'y': pathPoint.y, 
                     'pause': pathPoint.properties[1].value}
-
-        return new Npc(key, this.matter.world, path[0].x, path[0].y, events, path);
+        
+        let npc = new Npc(key, this.matter.world, path[0].x, path[0].y, events, path);
+        let steps = new footSteps(this.soundParticle);
+        steps.emitter.startFollow(npc);
+        return npc;
     }
 
     generateStimulus(smells, sounds)
