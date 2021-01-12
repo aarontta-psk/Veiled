@@ -49,6 +49,7 @@ export default class NewGameScene extends Phaser.Scene {
         let npc = new Npc(key, this.matter.world, path[0].x, path[0].y, events, path);
         let steps = new footSteps(this.soundParticle);
         steps.emitter.startFollow(npc);
+        this.stimuli.push(steps);
         return npc;
     }
 
