@@ -87,10 +87,10 @@ export default class GameScene extends NewGameScene {
                     'y': [2208, 2336, 2336],
                     'pause': [8000, 10, 1000]
                 })*/
-                // this.doctorNpc = this.generateNPC(
-                //     'doctor', 
-                //     this.matter.world,
-                //     [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')])
+                this.doctorNpc = this.generateNPC(
+                    'doctor', 
+                    [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
+                )
         ];
 
         //PRUEBAS DE ESTIMULOS

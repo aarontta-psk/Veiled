@@ -34,7 +34,7 @@ export default class NewGameScene extends Phaser.Scene {
         this.gui.updateSanityBar(this.player.sanity);
     }   
 
-    generateNPC(key, world, events)
+    generateNPC(key, events)
     {
         let path = Array();
         for (const pathPoint of this.map.getObjectLayer('npcs').objects)
@@ -44,7 +44,7 @@ export default class NewGameScene extends Phaser.Scene {
                     'y': pathPoint.y, 
                     'pause': pathPoint.properties[1].value}
 
-        return new Npc(key, world, path[0].x, path[0].y, events, path);
+        return new Npc(key, this.matter.world, path[0].x, path[0].y, events, path);
     }
 
     //transicion a nueva seccion
