@@ -78,6 +78,10 @@ export default class GameScene extends NewGameScene {
                 this.painterNpc = this.generateNPC(
                     'painter',
                     [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1'), this.scene.get('painterEvent_2')]
+                ),
+                this.lumberjackNpc = this.generateNPC(
+                    'lumberjack',
+                    null
                 )
         ];
 

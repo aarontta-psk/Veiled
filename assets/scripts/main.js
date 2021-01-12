@@ -23,8 +23,8 @@ new Phaser.Game({
                 y: 0
             },
             debug: { //debug activado
-                showBody: false,
-                showStaticBody: false
+                showBody: true,
+                showStaticBody: true
             }
         }
     },
