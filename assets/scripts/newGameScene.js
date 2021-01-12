@@ -1,3 +1,4 @@
+import Npc from './npc.js';
 export default class NewGameScene extends Phaser.Scene {
     constructor(key) {
         super({ key: key })
