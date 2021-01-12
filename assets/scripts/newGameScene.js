@@ -49,7 +49,7 @@ export default class NewGameScene extends Phaser.Scene {
         return new Npc(key, this.matter.world, path[0].x, path[0].y, events, path);
     }
 
-    generateStimulus(smells/*, sounds*/)
+    generateStimulus(smells, sounds)
     {
         this.stimuli = new Array();
         for (const stimulus of this.map.getObjectLayer('stimuli').objects)

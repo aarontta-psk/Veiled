@@ -87,7 +87,8 @@ export default class GameScene extends NewGameScene {
 
         //PRUEBAS DE ESTIMULOS
         let smellParticle = this.add.particles('smellCloud');
-        this.generateStimulus(smellParticle);
+        let soundParticle
+        this.generateStimulus(smellParticle, soundParticle);
         /*this.stimuli=[
             //new soundStimulus(particles, {x: this.player.x, y: this.player.y}),
             new smell(smellParticle, { x: this.player.x, y: this.player.y }, 0xBDECB6)
