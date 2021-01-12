@@ -69,30 +69,28 @@ export default class GameScene extends NewGameScene {
             this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
         }
 
+        //PRUEBAS DE ESTIMULOS
+        this.smellParticle = this.add.particles('smellCloud');
+        this.soundParticle = this.add.particles('soundCircle');
+        
+        //no es necesario pasar estos atributos como parametros, pero ayuda a la claridad
+        this.generateStimulus(this.smellParticle, this.soundParticle);
+
         // Añado un npc de prueba en un array
         this.npcs = [
-                this.doctorNpc = this.generateNPC(
-                    'doctor', 
-                    [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
-                ),
-                this.painterNpc = this.generateNPC(
-                    'painter',
-                    [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1'), this.scene.get('painterEvent_2')]
-                ),
-                this.lumberjackNpc = this.generateNPC(
-                    'lumberjack',
-                    null
-                )
-        ];
-
-        //PRUEBAS DE ESTIMULOS
-        let smellParticle = this.add.particles('smellCloud');
-        let soundParticle = this.add.particles('soundCircle');
-        this.generateStimulus(smellParticle, soundParticle);
-        /*this.stimuli=[
-            //new soundStimulus(particles, {x: this.player.x, y: this.player.y}),
-            new smell(smellParticle, { x: this.player.x, y: this.player.y }, 0xBDECB6)
-        ];*/
+            this.doctorNpc = this.generateNPC(
+                'doctor', 
+                [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
+            ),
+            this.painterNpc = this.generateNPC(
+                'painter',
+                [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1'), this.scene.get('painterEvent_2')]
+            ),
+            this.lumberjackNpc = this.generateNPC(
+                'lumberjack',
+                null
+            )
+    ];
 
         this.silhouette = new Silhouette(this.matter.world, 750, 550,
             [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('maxFaithEvent_0')]);

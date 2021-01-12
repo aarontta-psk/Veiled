@@ -37,15 +37,15 @@ export default class stimulus extends Phaser.GameObjects.Particles.ParticleEmitt
     }
 }
 
-export class soundStimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
+export class soundStimulus extends stimulus{
     constructor(manager, position){
         super(manager, position);
 
-    this.scaleStart = 0.1;
-    this.scaleEnd = 1;
+    this.scaleStart = 0.05;
+    this.scaleEnd = 0.3;
     this.frequency = 1000;
-    this.minLifespan = 700;
-    this.maxLifespan = 800;
+    this.minLifespan = 600;
+    this.maxLifespan = 700;
     }
     
     /*constructor(manager, position){
@@ -91,8 +91,8 @@ export class treeSmell extends smell{
 }
 
 export class footSteps extends soundStimulus{
-    constructor(manager, position){
-        super(manager, position);
+    constructor(manager){
+        super(manager, {'x': 0, 'y': 0});
         this.tint = 0x197CD3;
         this.createEmitter(manager);
     }
