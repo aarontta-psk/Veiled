@@ -1,4 +1,5 @@
 import Npc from './npc.js';
+import {treeSmell} from './stimulus.js';
 export default class NewGameScene extends Phaser.Scene {
     constructor(key) {
         super({ key: key })
@@ -46,6 +47,22 @@ export default class NewGameScene extends Phaser.Scene {
                     'pause': pathPoint.properties[1].value}
 
         return new Npc(key, this.matter.world, path[0].x, path[0].y, events, path);
+    }
+
+    generateStimulus(smells/*, sounds*/)
+    {
+        this.stimuli = new Array();
+        for (const stimulus of this.map.getObjectLayer('stimuli').objects)
+        {
+            let stim;
+            let position = {'x':stimulus.x, 'y':stimulus.y};
+            switch (stimulus.name)
+            {
+                case 'treeSmell':
+                    stim = new treeSmell(smells, position);
+            }
+            this.stimuli.push(stim);
+        }
     }
 
     //transicion a nueva seccion

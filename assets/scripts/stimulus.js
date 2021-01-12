@@ -1,19 +1,38 @@
-export default class Stimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
+export default class stimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
     constructor(manager, position){
         super(manager);
         
-        manager.createEmitter({
-            x : position.x,
-            y : position.y,
-            alpha : { start: 1, end: 0 },
-            scale : { start: 0.5, end: 6.5 },
-            frame : 0,
-            quantity : 1,
-            frequency : 1500,
-            angle : { min: 0, max: 0 },
-            speed : 0,
-            gravityY : 0,
-            lifespan : { min: 1400, max: 1500 }
+        this.x = position.x;
+        this.y = position.y;
+        this.alphaStart = 1;
+        this.alphaEnd = 0;
+        this.scaleStart = 0.5;
+        this.scaleEnd = 6.5;
+        this.frame = 0;
+        this.quantity = 1;
+        this.frequency = 1500;
+        this.minAngle = 0;
+        this.maxAngle = 0;
+        this.speed = 0;
+        this.gravityY = 0;
+        this.minLifespan = 1400;
+        this.maxLifespan = 1500;
+        this.emitzone = null;
+        this.tint = null;
+    }
+    createEmitter(manager){
+        this.emitter = manager.createEmitter({
+            x:this.x,
+            y:this.y,
+            alpha: {start: this.alphaStart, end: this.alphaEnd},
+            scale: {start: this.scaleStart, end: this.scaleEnd},
+            frame: this.frame,
+            quantity: this.quantity,
+            frequency: this.frequency,
+            angle: {min: this.minAngle, max: this.maxAngle},
+            speed: this.speed,
+            gravityY: this.gravityY,
+            lifespan: {min: this.minLifespan, max: this.maxLifespan}
         });
     }
 }
@@ -38,12 +57,19 @@ export class soundStimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
     }
 }
 
-export class smellStimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
-    constructor(manager, position, color){
-        super(manager);
+export class smell extends stimulus{
+    constructor(manager, position){
+        super(manager, position);
 
-    let circ = new Phaser.Geom.Circle(0, 0, 30);
-    this.emitter = manager.createEmitter({
+    this.emitZone = new Phaser.Geom.Circle(0, 0, 30);
+    this.scaleStart = 0.05;
+    this.scaleEnd = 0.1;
+    this.frequency = 800;
+    this.minLifespan = 2000;
+    this.maxLifespan = 3000;
+    this.minAngle = -45;
+    this.maxAngle = 45;
+    /*this.emitter = manager.createEmitter({
         x : position.x,
         y : position.y,
         alpha : { start: 1, end: 0 },
@@ -56,6 +82,14 @@ export class smellStimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
         lifespan : { min: 2000, max: 3000 },
         emitZone: { type: 'random', source: circ },
         tint: color
-    });
+    });*/
+    }
+}
+
+export class treeSmell extends smell{
+    constructor(manager, position){
+        super(manager, position);
+        this.tint=0xBDECB6;
+        this.createEmitter(manager);
     }
 }

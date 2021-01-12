@@ -4,7 +4,7 @@ import Item, { PotionItem, KaleidoscopeItem, SketchItem, StampItem, BlessingItem
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
-import { soundStimulus, smellStimulus } from './stimulus.js';
+import { soundStimulus, smell } from './stimulus.js';
 import Silhouette from './silhouette.js'
 import NewGameScene from './newGameScene.js'
 
@@ -87,10 +87,11 @@ export default class GameScene extends NewGameScene {
 
         //PRUEBAS DE ESTIMULOS
         let smellParticle = this.add.particles('smellCloud');
-        this.stimuli=[
+        this.generateStimulus(smellParticle);
+        /*this.stimuli=[
             //new soundStimulus(particles, {x: this.player.x, y: this.player.y}),
-            new smellStimulus(smellParticle, { x: this.player.x, y: this.player.y }, 0xBDECB6)
-        ];
+            new smell(smellParticle, { x: this.player.x, y: this.player.y }, 0xBDECB6)
+        ];*/
 
         this.silhouette = new Silhouette(this.matter.world, 750, 550,
             [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('maxFaithEvent_0')]);
