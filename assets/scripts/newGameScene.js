@@ -47,9 +47,12 @@ export default class NewGameScene extends Phaser.Scene {
                     'pause': pathPoint.properties[1].value}
         
         let npc = new Npc(key, this.matter.world, path[0].x, path[0].y, events, path);
+
+        //asignación de pasos al npc
         let steps = new footSteps(this.soundParticle);
         steps.emitter.startFollow(npc);
-        this.stimuli.push(steps);
+        npc.footSteps = steps;
+
         return npc;
     }
 
@@ -132,6 +135,8 @@ export default class NewGameScene extends Phaser.Scene {
         for (let i = 0; i<this.npcs.length; i++)
         {
             this.npcs[i].setVisible(!this.blindfold.blind);
+            if (this.blindfold.blind && this.npcs[i].state === 'moving')
+                this.npcs[i].footSteps.emitter.start();
         }
         for (let i = 0; i<this.stimuli.length; i++)
         {

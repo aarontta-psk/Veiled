@@ -59,6 +59,7 @@ export default class Npc extends EventHandler{
         else {
             this.state = 'still';
             this.setVelocity(0.01, 0.01);
+            this.footSteps.emitter.stop();
             this.scene.time.delayedCall(this.path[this.nextPathPoint].pause, this.nextPath, null, this);
         }
 
@@ -71,6 +72,8 @@ export default class Npc extends EventHandler{
         this.nextPathPoint %= this.path.length;
         this.dest = { x: this.path[this.nextPathPoint].x, y: this.path[this.nextPathPoint].y };
         this.state = 'moving';
+        if (this.scene.blindfold.blind === true)
+        this.footSteps.emitter.start();
     }
 
     //Calculo de velocidad con respecto a camino definido
