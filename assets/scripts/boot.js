@@ -87,6 +87,7 @@ export default class Boot extends Phaser.Scene {
         this.createAnims('player', 8);
         this.createAnims('painter', 4);
         this.createAnims('doctor', 4);
+        this.createAnims('lumberjack', 4);
 
         // Inicializacion de la escena de juego
         this.scene.stop();
