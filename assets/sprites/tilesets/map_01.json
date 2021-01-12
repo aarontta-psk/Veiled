@@ -247,7 +247,7 @@
                  "visible":true,
                  "width":32,
                  "x":4256,
-                 "y":2176
+                 "y":2144
                 }, 
                 {
                  "height":32,
@@ -262,14 +262,14 @@
                         {
                          "name":"pause",
                          "type":"int",
-                         "value":50
+                         "value":1000
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":4272,
-                 "y":2304
+                 "x":4048,
+                 "y":2272
                 }, 
                 {
                  "height":32,
@@ -284,14 +284,14 @@
                         {
                          "name":"pause",
                          "type":"int",
-                         "value":1000
+                         "value":50
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":4048,
-                 "y":2272
+                 "x":4288,
+                 "y":2304
                 }, 
                 {
                  "height":32,
@@ -400,8 +400,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1072,
-                 "y":2112
+                 "x":1088,
+                 "y":2080
                 }, 
                 {
                  "height":32,
@@ -422,8 +422,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1168,
-                 "y":2240
+                 "x":1248,
+                 "y":2208
                 }, 
                 {
                  "height":32,
@@ -444,7 +444,7 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1312,
+                 "x":1232,
                  "y":2304
                 }, 
                 {
@@ -466,8 +466,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1168,
-                 "y":2320
+                 "x":1248,
+                 "y":2336
                 }, 
                 {
                  "height":32,
@@ -482,14 +482,14 @@
                         {
                          "name":"pause",
                          "type":"int",
-                         "value":2500
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1056,
-                 "y":2432
+                 "x":1216,
+                 "y":2416
                 }, 
                 {
                  "height":32,
@@ -510,8 +510,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":960,
-                 "y":1984
+                 "x":1104,
+                 "y":2416
                 }, 
                 {
                  "height":32,
@@ -526,14 +526,14 @@
                         {
                          "name":"pause",
                          "type":"int",
-                         "value":2500
+                         "value":500
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":800,
-                 "y":1984
+                 "x":1040,
+                 "y":2256
                 }, 
                 {
                  "height":32,
@@ -548,14 +548,36 @@
                         {
                          "name":"pause",
                          "type":"int",
-                         "value":2500
+                         "value":5000
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1168,
-                 "y":1952
+                 "x":1296,
+                 "y":2112
+                }, 
+                {
+                 "height":32,
+                 "id":40,
+                 "name":"doctor",
+                 "properties":[
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"pause",
+                         "type":"int",
+                         "value":50
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":4240,
+                 "y":2208
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -703,7 +725,7 @@
          "y":0
         }],
  "nextlayerid":20,
- "nextobjectid":40,
+ "nextobjectid":41,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
