@@ -14,8 +14,8 @@ export default class options extends menuBasicScene{
         //imagen de fondo
         this.add.image(0,0, 'settingsMenu').setOrigin(0);
         //botones
-        this.volume = this.add.image(this.cameras.main.centerX + this.cameras.main.width/3.3,
-            this.cameras.main.centerY - (this.cameras.main.height/8), 'volume').setInteractive().setScale(0.8);
+        this.volume = this.volumeButton(this.cameras.main.centerX + this.cameras.main.width/3.3,
+            this.cameras.main.centerY - (this.cameras.main.height/8), 0.8, i)
         this.volume.setFrame(i);
 
         /*this.keybinds = this.add.image(this.cameras.main.centerX + this.cameras.main.width/4,

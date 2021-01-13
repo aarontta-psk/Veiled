@@ -12,7 +12,7 @@ export default class menuBasicScene extends Phaser.Scene{
         button.on('pointerout', event => {button.setScale(scale)});
         //pointerdown
         button.on('pointerdown', event => {
-            cb(this);
+            cb(this, button);
         });
 
         return button;
@@ -32,6 +32,15 @@ export default class menuBasicScene extends Phaser.Scene{
         });
     }
 
+    volumeButton(x,y, scale, index){
+        return this.createButton(x,y, scale, 'volume', function(ref, button){
+            if(index >= 3) index = 0;
+            else index++;
+            button.setFrame(index);
+            ref.sound.setVolume(index * 0.33);
+        });
+    }
+
     levelsButton(x,y, scale){
         return this.createButton(x,y, scale, 'mainMenuLevels', function(ref){
             ref.scene.stop();
@@ -42,7 +51,6 @@ export default class menuBasicScene extends Phaser.Scene{
     returnButton(x,y, scale, info){
         return this.createButton(x,y, scale, 'back', function(ref){
             ref.scene.stop();
-            ref.sound.stopAll();
             ref.scene.run(info.prevScene.scene.key);
         });
     }
