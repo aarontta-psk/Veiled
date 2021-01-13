@@ -71,8 +71,11 @@ export default class Boot extends Phaser.Scene {
         this.load.script('webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 
         // Carga de sonidos
-        this.load.audio('mainTheme', './assets/audio/music/theme.mp3');
-        this.load.audio('menuSong', './assets/audio/music/menuSong.mp3');
+        this.load.audio('mainTheme', './assets/audio/music/theme.wav');
+        this.load.audio('menuSong', './assets/audio/music/menuSong.wav');
+        this.load.audio('sfxActivateBlind', './assets/audio/sfx/blindfold_activate.wav');
+        this.load.audio('sfxDesactivateBlind', './assets/audio/sfx/blindfold_deactivate.wav');
+        this.load.audio('sfxSteps', './assets/audio/sfx/steps.wav');
     }
 
     create() {

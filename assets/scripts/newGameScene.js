@@ -140,10 +140,14 @@ export default class NewGameScene extends Phaser.Scene {
         }
         for (let i = 0; i<this.stimuli.length; i++)
         {
-            if (this.blindfold.blind)
+            if (this.blindfold.blind){
                 this.stimuli[i].emitter.start();
-            else
+                this.sound.play('sfxActivateBlind');
+            }
+            else{
                 this.stimuli[i].emitter.stop();
+                this.sound.play('sfxDesactivateBlind');
+            }
         }
     }   
 }

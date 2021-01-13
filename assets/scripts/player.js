@@ -63,6 +63,9 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         });
 
         console.log('faith: ' + this.faith);
+        
+        //Guardamos el sonido de los pasos
+        this.stepSound = this.scene.sound.add('sfxSteps');
     }
 
     preUpdate(time, delta) {
@@ -79,6 +82,17 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         //Actualizamos cordura
         this.updateSanity();
+
+        //Reproducimos su sonido si se mueve
+        if(this.cursorsPlayer.up.isDown || this.cursorsPlayer.down.isDown ||
+        this.cursorsPlayer.left.isDown || this.cursorsPlayer.right.isDown){
+            //Y solo en caso de que no este ya sonando
+            if(!this.stepSound.isPlaying){
+                this.stepSound.play(null, this.config);
+                this.stepSound.loop = true;
+            }
+        }
+        else this.stepSound.loop = false;
     }
 
     //Calculo de velocidad con respecto a input
