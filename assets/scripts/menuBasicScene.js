@@ -12,6 +12,7 @@ export default class menuBasicScene extends Phaser.Scene{
         button.on('pointerout', event => {button.setScale(scale)});
         //pointerdown
         button.on('pointerdown', event => {
+            this.sound.play('sfxClick');
             cb(this, button);
         });
 

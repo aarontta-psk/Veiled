@@ -24,6 +24,7 @@ class eventScene extends Phaser.Scene {
 
             //llamo a un callback en caso de que sea pulsado
             optionText.on('pointerdown', () => {
+                this.sound.play('sfxClick');
                 if (options[i].condition === undefined || (options[i].condition !== undefined && options[i].condition(this))) {
                     options[i].cb();
                     if(options[i].end === undefined){
@@ -67,6 +68,7 @@ class eventScene extends Phaser.Scene {
         this.info.player.addFaith(faithToAdd);
         this.info.player.numCompletedEvents++;
         this.completed = true;
+        this.sound.play('sfxFaithUp')
     }
 }
 

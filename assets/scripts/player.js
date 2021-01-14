@@ -88,7 +88,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.cursorsPlayer.left.isDown || this.cursorsPlayer.right.isDown){
             //Y solo en caso de que no este ya sonando
             if(!this.stepSound.isPlaying){
-                this.stepSound.play(null, this.config);
+                this.stepSound.play();
                 this.stepSound.loop = true;
             }
         }
@@ -151,6 +151,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             this.enableInputs(false);
             this.scene.cameras.main.fadeOut(2000);
             this.death = this.deathState.CheckDeath;
+            this.scene.sound.play('sfxDeath');
         }
     }
 

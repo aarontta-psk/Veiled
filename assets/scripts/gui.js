@@ -67,6 +67,8 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.isVisible = !this.isVisible;
         this.backgroundInventory.setVisible(this.isVisible);
         this.updateInventory();
+        if(this.isVisible) this.scene.sound.play('sfxOpenInventory');
+        else this.scene.sound.play('sfxCloseInventory');
     }
 
     //mostrar brevemente la barra de fe

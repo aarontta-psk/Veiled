@@ -119,6 +119,7 @@ export default class NewGameScene extends Phaser.Scene {
 
     insertItem(itemToInsert) {
         if (itemToInsert !== undefined) {
+            this.sound.play('sfxPickItem');
             this.player.inventory.addObject(itemToInsert);
             this.gui.addItem(itemToInsert);
             console.log(itemToInsert.x, itemToInsert.y, "item");

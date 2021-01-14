@@ -76,6 +76,12 @@ export default class Boot extends Phaser.Scene {
         this.load.audio('sfxActivateBlind', './assets/audio/sfx/blindfold_activate.wav');
         this.load.audio('sfxDesactivateBlind', './assets/audio/sfx/blindfold_deactivate.wav');
         this.load.audio('sfxSteps', './assets/audio/sfx/steps.wav');
+        this.load.audio('sfxDeath', './assets/audio/sfx/death.wav');
+        this.load.audio('sfxFaithUp', './assets/audio/sfx/faithUp.wav');
+        this.load.audio('sfxOpenInventory', './assets/audio/sfx/openInventory.wav');
+        this.load.audio('sfxCloseInventory', './assets/audio/sfx/closeInventory.wav');
+        this.load.audio('sfxClick', './assets/audio/sfx/click.wav');
+        this.load.audio('sfxPickItem', './assets/audio/sfx/pickItem.wav');
     }
 
     create() {
