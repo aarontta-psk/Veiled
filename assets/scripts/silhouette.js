@@ -5,7 +5,7 @@ export default class Silhouette extends EventHandler {
         super(world, x, y, 'ghost', eventList);
         
         this.scene.add.existing(this); //lo añades en la escena
-        this.setScale(0.15);
+        this.setScale(0.8);
         this.setScrollFactor(0);
         this.setVisible(true);
         this.setDepth(11);

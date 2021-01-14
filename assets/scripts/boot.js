@@ -11,11 +11,13 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('doctor', './assets/sprites/doctor_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('ghost', './assets/sprites/oldman_sheet.png',
+            { frameWidth: 128, frameHeight: 128 });
 
-        this.load.image('ghost', './assets/sprites/ghost.png');
         this.load.image('itemFX', './assets/sprites/item_fx.png');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
+
         this.load.spritesheet('soundCircle', './assets/sprites/sound_circle.png',
             { frameWidth: 860, frameHeight: 904 });
         this.load.spritesheet('smellCloud', './assets/sprites/smell_cloud.png',
@@ -97,6 +99,13 @@ export default class Boot extends Phaser.Scene {
         this.createAnims('painter', 4);
         this.createAnims('doctor', 4);
         this.createAnims('lumberjack', 4);
+
+        this.anims.create({
+            key: 'idle_ghost',
+            frames: this.anims.generateFrameNumbers('ghost', { start: 0, end: 4 }),
+            frameRate: 4,
+            repeat: -1
+        });
 
         // Inicializacion de la escena de juego
         this.scene.stop();
