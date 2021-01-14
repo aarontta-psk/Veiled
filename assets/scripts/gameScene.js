@@ -49,7 +49,7 @@ export default class GameScene extends NewGameScene {
             if (objeto.name === 'spawnPoint') {
                 this.spawnpoint = objeto;
                 let savedFaith;
-                if(this.info !== undefined && this.info.obtainedFaith !== undefined) savedFaith = this.info.obtainedFaith;
+                if (this.info !== undefined && this.info.obtainedFaith !== undefined) savedFaith = this.info.obtainedFaith;
                 else savedFaith = 0;
                 this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith);
             }
@@ -72,14 +72,14 @@ export default class GameScene extends NewGameScene {
         //PRUEBAS DE ESTIMULOS
         this.smellParticle = this.add.particles('smellCloud');
         this.soundParticle = this.add.particles('soundCircle');
-        
+
         //no es necesario pasar estos atributos como parametros, pero ayuda a la claridad
         this.generateStimulus(this.smellParticle, this.soundParticle);
 
         // Añado un npc de prueba en un array
         this.npcs = [
             this.doctorNpc = this.generateNPC(
-                'doctor', 
+                'doctor',
                 [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
             ),
             this.painterNpc = this.generateNPC(
@@ -90,7 +90,7 @@ export default class GameScene extends NewGameScene {
                 'lumberjack',
                 [this.scene.get('lumberjackEvent_0')]
             )
-    ];
+        ];
 
         this.silhouette = new Silhouette(this.matter.world, 750, 550,
             [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('maxFaithEvent_0')]);
@@ -143,9 +143,9 @@ export default class GameScene extends NewGameScene {
             this.onBlindChange();
         });
         this.player.cursorsPlayer.interact.on('down', event => {
-            if (this.item != undefined) 
+            if (this.item != undefined)
                 this.insertItem(this.item);
-            else if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT){
+            else if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT) {
                 let silEvent = this.silhouette.nextEvent();
                 if (silEvent != null)
                     this.changeScene(silEvent);
@@ -180,28 +180,25 @@ export default class GameScene extends NewGameScene {
         this.matter.world.convertTilemapLayer(this.forest_02);
 
         this.matter.world.on('collisionstart',
-        (evento, cuerpo1, cuerpo2) => {
-            if (cuerpo1.gameObject === this.player) {
-                if(cuerpo2.gameObject instanceof Item){
-                    this.item = cuerpo2.gameObject;
-                }
-            }
-        });
-        
-        this.matter.world.on('collisionend',
-        (evento, cuerpo1, cuerpo2) => {
-            if (cuerpo1.gameObject === this.player) {
-                //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
-                if (cuerpo2.gameObject instanceof Item) this.item = undefined;
-                    
-                    //buscamos si sale de un trigger de seccion
-                    let i = 0;
-                    while (i < this.triggersToSect.length && cuerpo2.gameObject !== this.triggersToSect[i])
-                    i++;
-                    if (i !== this.triggersToSect.length) this.newSection(this.triggersToSect[i]);
+            (evento, cuerpo1, cuerpo2) => {
+                if (cuerpo1.gameObject === this.player) {
+                    if (cuerpo2.gameObject instanceof Item) {
+                        this.item = cuerpo2.gameObject;
+                    }
                 }
             });
-            
+
+        this.matter.world.on('collisionend',
+            (evento, cuerpo1, cuerpo2) => {
+                if (cuerpo1.gameObject === this.player) {
+                    //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
+                    this.item = undefined;
+
+                    // //buscamos si sale de un trigger de seccion
+                    if (cuerpo2.gameObject instanceof Trigger) this.newSection(cuerpo2.gameObject);
+                }
+            });
+
         this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
             if (cuerpo1.gameObject === this.player &&
                 cuerpo2.gameObject instanceof Npc) {
@@ -213,11 +210,10 @@ export default class GameScene extends NewGameScene {
                         this.changeScene(npcEvent);
                 }
             }
-            
         })
 
         this.scene.scene.cameras.main.on('camerafadeoutcomplete', event => {
-            if(this.player.death === this.player.deathState.CheckDeath){
+            if (this.player.death === this.player.deathState.CheckDeath) {
                 this.changeScene('deathEvent_0');
                 this.cameras.main.fadeIn(2000);
                 this.player.enableInputs(true);
@@ -235,17 +231,17 @@ export default class GameScene extends NewGameScene {
                 mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
             });
 
-            if (this.player !== undefined && this.player.death === this.player.deathState.Dead){
+            if (this.player !== undefined && this.player.death === this.player.deathState.Dead) {
                 this.player.die();
             }
             else {
-                if (this.player.death === this.player.deathState.CheckDeath){
+                if (this.player.death === this.player.deathState.CheckDeath) {
                     this.player.addSanity(this.player.maxSanity / 2);
                     this.deathBlindfold();
                     this.player.setAlive();
                 }
-                else{
-                    if(!this.blindfold.blind) this.onBlindChange();
+                else {
+                    if (!this.blindfold.blind) this.onBlindChange();
                 }
             }
         });
@@ -256,5 +252,5 @@ export default class GameScene extends NewGameScene {
 
     update(time, delta) {
         super.update();
-    }   
+    }
 }
