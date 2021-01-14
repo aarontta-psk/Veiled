@@ -367,6 +367,69 @@ export class doctorEvent_1 extends eventScene {
     }
 }
 
+export class lumberjackEvent_0 extends eventScene {
+    constructor() {
+        super({ key: 'lumberjackEvent_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Ves a un hombre de complexion robusta y tez oscura frente a ti. Parece ser que esta descansando tras\n' +
+                    'un duro dia talando madera. Al acercarte, comienza a hablarte\n' +
+                    '-¿Qué andas haciendo por aqui? Largate antes de que el bosque también la tome contigo '
+            },
+            {
+                text: '¿Ocurre algo?',
+                cb: () => { },
+                next: [
+                    {
+                        text: 'Bueno, lleva ya un tiempo ocurriendo algo. El bosque se muere. La madera de los árboles cada vez\n' +
+                            'es más debil a causa de alguna enfermedad. Si esto sigue así, tendré que buscarme otra forma de ganarme\n' + 
+                            'la vida en el pueblo'
+                    },
+                    {
+                        text: 'Aún no es tarde. Seguro que se puede hacer algo',
+                        cb: () => {},
+                        next: [
+                            {
+                                text: 'Tienes razón. Si encontraramos el árbol que esta expandiendo la enfermedad quizá aún podamos salvarlos.\n' +
+                                'Busca en los alrededores. Yo no he visto nada raro, pero tu pareces orientarte mejor con otros sentidos'
+                            },
+                            {
+                                text: 'Voy a intentarlo',
+                                cb: () => {
+                                    this.completeEvent(15,15);
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        text: 'Deberías irte buscando otro trabajo',
+                        cb: () => {},
+                        next: [
+                            {
+                                text: 'No puedo. Ser leñador es lo único que conozco. Si vienes sólo a restregarme mi mala suerte ya te puedes \n' + 
+                                'ir yendo'
+                            },
+                            {
+                                text: 'Abandonar al leñador',
+                                cb: () => {
+                                    this.completeEvent(-15,5)
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                text: 'No quiero problemas, adios',
+                cb: () => {
+                }
+            },
+        ]
+    }
+}
+
 //Evento de paso de nivel
 export class maxFaithEvent_0 extends eventScene {
     constructor() {

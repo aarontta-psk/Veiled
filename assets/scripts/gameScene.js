@@ -88,7 +88,7 @@ export default class GameScene extends NewGameScene {
             ),
             this.lumberjackNpc = this.generateNPC(
                 'lumberjack',
-                null
+                [this.scene.get('lumberjackEvent_0')]
             )
     ];
 
