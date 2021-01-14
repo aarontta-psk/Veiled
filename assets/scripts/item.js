@@ -34,7 +34,7 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
 export class PotionItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
-        this.name = "pocion";
+        this.name = "Pocion";
         this.description = "Recupera cordura";
     }
 
@@ -49,7 +49,7 @@ export class PotionItem extends Item{
 export class KaleidoscopeItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
-        this.name = "caleidoscopio";
+        this.name = "Caleidoscopio";
         this.description = "Reduce el gasto de cordura con la venda quitada";
     }
 
@@ -62,7 +62,7 @@ export class KaleidoscopeItem extends Item{
 export class StampItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
-        this.name = "estampita";
+        this.name = "Estampita";
         this.description = "Aumenta la fe";
     }
 
@@ -135,7 +135,7 @@ export class SacredFireItem extends Item{
 export class LessDeathItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
-        this.name = "Objeto";;
+        this.name = "Láudano";;
         this.description = "Efecto: Al usarse es menos probable morir";
     }
 
@@ -159,7 +159,7 @@ export class AvoidDeathItem extends Item{
 export class KeyItem1 extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
-        this.name = "objeto clave 1";
+        this.name = "Llave antigua";
         this.description = "Prueba de como seria un objeto clave";
     }
 }
@@ -168,7 +168,7 @@ export class SketchItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
         this.setActive(false).setVisible(false);
-        this.name = "boceto";
+        this.name = "Boceto";
         this.description = "Un boceto abstracto con una gama de colores cálidos";
     }
 }
