@@ -6,7 +6,6 @@ export default class mainMenuScene extends menuBasicScene{
     }
     create(){
         this.scene.bringToTop();
-        this.sound.stopAll();
         this.sound.play('menuSong',  {
             mute: false, volume: 0.2, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
         });
