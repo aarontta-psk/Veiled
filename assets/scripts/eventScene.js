@@ -220,7 +220,7 @@ export class painterEvent_1 extends eventScene {
                     {
                         text: 'Agradecer y aceptar regalo',
                         cb: () => {
-                            this.info.player.inventory.collect('boceto');
+                            this.info.player.inventory.collect('Boceto');
                             this.completeEvent(0,20);
                         }
                     }
@@ -239,7 +239,7 @@ export class painterEvent_1 extends eventScene {
                     {
                         text: 'Agradecer y aceptar regalo',
                         cb: () => {
-                            this.info.player.inventory.collect('caleidoscopio');
+                            this.info.player.inventory.collect('Caleidoscopio');
                             this.completeEvent(0,20);
                         }
                     }
@@ -429,6 +429,59 @@ export class lumberjackEvent_0 extends eventScene {
         ]
     }
 }
+
+export class sickTreeEvent extends eventScene {
+    constructor() {
+        super({ key: 'sickTreeEvent' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
+            },
+            {
+                text: 'Recoger muestra para el leñador',
+                cb: () => { 
+                    this.info.player.inventory.collect('Rama enferma');
+                    this.completeEvent(10,10);
+                },
+            }
+        ]
+    }
+}
+
+export class lumberjackEvent_1 extends eventScene {
+    constructor() {
+        super({ key: 'lumberjackEvent_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: '-¿Has encontrado algo?'
+            },
+            {
+                text: 'Si, mira esto',
+                condition: function (ref) {
+                    return (ref.info.player.inventory.contains('Rama enferma'))
+                },
+                failedText: 'Aún no has encontrado el árbol enfermo',
+                cb: () => { },
+                next: [
+                    {
+                        text: '-Ya veo... Así que el culpable es este árbol. Gracias, has salvado al bosque'
+                    },
+                    {
+                        text: 'Me alegro de poder ayudar',
+                        cb: () => {
+                            this.completeEvent(20,20);
+                        },
+                    }
+                ]
+            }
+        ]
+    }
+}
+
 
 //Evento de paso de nivel
 export class maxFaithEvent_0 extends eventScene {

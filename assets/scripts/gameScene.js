@@ -1,12 +1,13 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, { PotionItem, KaleidoscopeItem, SketchItem, StampItem, BlessingItem, PositiveWordItem, OffensiveWordItem, SacredFireItem, AvoidDeathItem, LessDeathItem } from './item.js';
+import Item, { PotionItem, KaleidoscopeItem, SketchItem, SickTreeItem, StampItem, BlessingItem, PositiveWordItem, OffensiveWordItem, SacredFireItem, AvoidDeathItem, LessDeathItem } from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
 import { soundStimulus, smell } from './stimulus.js';
 import Silhouette from './silhouette.js'
 import NewGameScene from './newGameScene.js'
+import EventHandler from './eventHandler.js';
 
 const LEVEL_FAITH_REQUERIMENT = 40;
 
@@ -88,7 +89,7 @@ export default class GameScene extends NewGameScene {
             ),
             this.lumberjackNpc = this.generateNPC(
                 'lumberjack',
-                [this.scene.get('lumberjackEvent_0')]
+                [this.scene.get('lumberjackEvent_0'), this.scene.get('lumberjackEvent_1')]
             )
         ];
 
@@ -130,6 +131,8 @@ export default class GameScene extends NewGameScene {
                 this.itemContainer.push(this.sketch);
             }
         }
+        let sickTree = new SickTreeItem(this.matter.world, 0, 0, this.itemFrames[10], this.player)
+        this.itemContainer.push(sickTree);
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
 
@@ -201,7 +204,7 @@ export default class GameScene extends NewGameScene {
 
         this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
             if (cuerpo1.gameObject === this.player &&
-                cuerpo2.gameObject instanceof Npc) {
+                cuerpo2.gameObject instanceof EventHandler) {
                 //booleano de control
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 if (this.player.cursorsPlayer.interact.isDown) {

@@ -1,7 +1,7 @@
 import Boot from "./boot.js"
 import GameScene from "./gameScene.js";
 import {testEvent, anotherTestEvent, deathEvent_0, maxFaithEvent_0 , painterEvent_0, painterEvent_1, painterEvent_2, doctorEvent_0, doctorEvent_1,
-    lumberjackEvent_0
+    lumberjackEvent_0, lumberjackEvent_1, sickTreeEvent
 /*BORRAR ESTAS*/ , testSilueta_0, testSilueta_1, testSilueta_2} from "./eventScene.js";
 import PauseScene from "./pauseScene.js";
 import MainMenu from "./mainMenu.js";
@@ -30,5 +30,5 @@ new Phaser.Game({
         }
     },
     scene: [Boot, MainMenu, Options, levelSelector, GameScene, InfoLevel, testEvent, anotherTestEvent, deathEvent_0, maxFaithEvent_0, PauseScene, painterEvent_0, painterEvent_1, painterEvent_2, doctorEvent_0,
-        doctorEvent_1, lumberjackEvent_0, testSilueta_0, testSilueta_1, testSilueta_2], //escenas a cargar
+        doctorEvent_1, lumberjackEvent_0, lumberjackEvent_1, sickTreeEvent, testSilueta_0, testSilueta_1, testSilueta_2], //escenas a cargar
 })

@@ -172,6 +172,15 @@ export class SketchItem extends Item{
         this.description = "Un boceto abstracto con una gama de colores cálidos";
     }
 }
+
+export class SickTreeItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.setActive(false).setVisible(false);
+        this.name = "Rama enferma";
+        this.description = "Parece demasiado frágil para un arbol corriente";
+    }
+}
 //#endregion
 
 // plantilla

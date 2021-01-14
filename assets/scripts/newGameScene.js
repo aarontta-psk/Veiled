@@ -1,5 +1,6 @@
 import Npc from './npc.js';
 import {treeSmell, footSteps} from './stimulus.js';
+import Trigger,{EventTrigger} from './trigger.js';
 export default class NewGameScene extends Phaser.Scene {
     constructor(key) {
         super({ key: key })
@@ -58,17 +59,31 @@ export default class NewGameScene extends Phaser.Scene {
 
     generateStimulus(smells, sounds)
     {
-        this.stimuli = new Array();
+        // this.stimuli = new Array();
+        // for (const stimulus of this.map.getObjectLayer('stimuli').objects)
+        // {
+        //     let stim;
+        //     let position = {'x':stimulus.x, 'y':stimulus.y};
+        //     switch (stimulus.name)
+        //     {
+        //         case 'treeSmell':
+        //             stim = new treeSmell(smells, position);
+        //     }
+        //     this.stimuli.push(stim);
+        // }
+        this.triggerEvents = new Array();
         for (const stimulus of this.map.getObjectLayer('stimuli').objects)
         {
             let stim;
+            let trigger;
             let position = {'x':stimulus.x, 'y':stimulus.y};
             switch (stimulus.name)
             {
                 case 'treeSmell':
                     stim = new treeSmell(smells, position);
+                    trigger = new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim, [this.scene.get('sickTreeEvent')])
             }
-            this.stimuli.push(stim);
+            this.triggerEvents.push(trigger);
         }
     }
 
@@ -139,14 +154,14 @@ export default class NewGameScene extends Phaser.Scene {
             if (this.blindfold.blind && this.npcs[i].state === 'moving')
                 this.npcs[i].footSteps.emitter.start();
         }
-        for (let i = 0; i<this.stimuli.length; i++)
+        for (let i = 0; i<this.triggerEvents.length; i++)
         {
             if (this.blindfold.blind){
-                this.stimuli[i].emitter.start();
+                this.triggerEvents[i].stimulus.emitter.start();
                 this.sound.play('sfxActivateBlind');
             }
             else{
-                this.stimuli[i].emitter.stop();
+                this.triggerEvents[i].stimulus.emitter.stop();
                 this.sound.play('sfxDesactivateBlind');
             }
         }
