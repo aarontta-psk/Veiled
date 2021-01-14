@@ -100,10 +100,13 @@ export default class Boot extends Phaser.Scene {
         this.createAnims('doctor', 4);
         this.createAnims('lumberjack', 4);
 
+        this.tooltipAnims('itemTooltip', 3)
+        this.tooltipAnims('npcTooltip', 3)
+
         this.anims.create({
             key: 'idle_ghost',
             frames: this.anims.generateFrameNumbers('ghost', { start: 0, end: 4 }),
-            frameRate: 4,
+            frameRate: 2,
             repeat: -1
         });
 
@@ -112,6 +115,14 @@ export default class Boot extends Phaser.Scene {
         this.scene.run('mainMenuScene');
     }
 
+    tooltipAnims(key, speed) {
+        this.anims.create({
+            key: 'idle_' + key,
+            frames: this.anims.generateFrameNumbers(key, { start: 0, end: 1 }),
+            framerate: speed,
+            repeat: -1
+        });
+    }
 
     //metodo generalizado de creacion de animaciones de movimiento por defecto
     createAnims(key, speed) {
