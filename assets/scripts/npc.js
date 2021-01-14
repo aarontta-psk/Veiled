@@ -1,6 +1,6 @@
 import EventHandler from './eventHandler.js'
 
-export default class Npc extends EventHandler{
+export default class Npc extends EventHandler {
     constructor(key, world, x, y, npcEvents, path) {
         super(world, x, y, key, npcEvents); //llama a la constructora de Sprite
 
@@ -11,8 +11,18 @@ export default class Npc extends EventHandler{
         });
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this);
-        this.setStatic(false);
-        this.setSensor(true);
+
+        let sensor = Phaser.Physics.Matter.Matter.Bodies.circle(x, y, 70, { isSensor: true });
+        let collision = Phaser.Physics.Matter.Matter.Bodies.rectangle(x, y, 30, 50);
+        let actualThing = Phaser.Physics.Matter.Matter.Body.create({
+            parts: [sensor, collision]
+        });
+        this.setExistingBody(actualThing);
+
+        this.setFriction(0); //quitamos friccion
+        this.setFrictionAir(0);
+        this.setFixedRotation(0); //quitamos rotacion
+        console.log(this.body);
 
         this.path = path;   //array de puntos del recorrido tres valores: x, y, t(el tiempo de pausa cuando se llega al punto)
         this.nextPathPoint = 0;    //el indice del array de puntos del recorrido al que nos dirigimos siguiente
@@ -25,18 +35,17 @@ export default class Npc extends EventHandler{
     preUpdate(time, delta) {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
-        if (this.scene.blindfold.blind)
-        {
-        if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < 60))
-            this.setVisible(true);
-        else if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) > 60))
-            this.setVisible(false);
+        if (this.scene.blindfold.blind) {
+            if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < 60))
+                this.setVisible(true);
+            else if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) > 60))
+                this.setVisible(false);
         }
 
         if (this.state === 'moving') {
             this.move();
         }
-        
+
         /*
         console.log('NPC state: ' + this.state + 
         //'\nSpeed: ' + velX + ', ' + velY + 
@@ -73,7 +82,7 @@ export default class Npc extends EventHandler{
         this.dest = { x: this.path[this.nextPathPoint].x, y: this.path[this.nextPathPoint].y };
         this.state = 'moving';
         if (this.scene.blindfold.blind === true)
-        this.footSteps.emitter.start();
+            this.footSteps.emitter.start();
     }
 
     //Calculo de velocidad con respecto a camino definido
