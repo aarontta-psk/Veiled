@@ -21,7 +21,5 @@ export default class mainMenuScene extends menuBasicScene{
             this.cameras.main.height - (this.cameras.main.height/9), 1);
         //callbacks de los botones:
         //pointerover
-
-       
     }
 }

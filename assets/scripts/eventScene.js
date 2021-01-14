@@ -501,7 +501,7 @@ export class maxFaithEvent_0 extends eventScene {
                     //este evento no cuenta para el numero de eventos completados
                     this.info.player.numCompletedEvents--;
                     this.scene.stop();
-                    this.scene.run('infoLevel', { obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'gameScene' })
+                    this.scene.run('infoLevel', { obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1' })
                 },
                 end: true
             }

@@ -35,7 +35,7 @@ export default class levelSelector extends Phaser.Scene {
         //pointerdown
         level01.on('pointerdown', event => {
             this.sound.stopAll();
-            //this.scene.start('gameScene');
+            this.scene.start('level1');
         });
         level03.on('pointerdown', event => {
             this.scene.stop();
@@ -43,7 +43,8 @@ export default class levelSelector extends Phaser.Scene {
         });
         level02.on('pointerdown', event => {
             this.scene.stop();
-            //this.scene.run('level02electorScene', {prevScene: this });
+            console.log("level2")
+            this.scene.run('level2', {prevScene: this });
         });
         returnMenu.on('pointerdown', event => {
             this.scene.stop();            

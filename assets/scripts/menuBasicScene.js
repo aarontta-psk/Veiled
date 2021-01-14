@@ -22,11 +22,11 @@ export default class menuBasicScene extends Phaser.Scene{
     playButton(x,y, scale){
         return this.createButton(x,y, scale, 'mainMenuPlay', function(ref){
             ref.sound.stopAll();
-            ref.scene.start('gameScene');
+            ref.scene.start('level1');
         });
     }
 
-    optionsButton(x,y, scale){
+    optionsButton(x, y, scale){
         return this.createButton(x,y, scale, 'mainMenuSettings', function(ref){
             ref.scene.stop();
             ref.scene.run('optionsScene', {prevScene: ref });
