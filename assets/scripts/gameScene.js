@@ -114,7 +114,7 @@ export default class GameScene extends NewGameScene {
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             if (itemPos.name === 'potion') {
-                this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
+                this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
                 this.itemContainer.push(this.potion);
                 //TESTEO DE ITEMS, NO BORRAR
                 // this.TESTING = new LessDeathItem(this.matter.world, this.player.x + 250, this.player.y, this.itemFrames[0], this.player);
@@ -122,11 +122,11 @@ export default class GameScene extends NewGameScene {
             }
             //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
             else if (itemPos.name === 'coin') {
-                this.coin = new KaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
+                this.coin = new KaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[4], this.player);
                 this.itemContainer.push(this.coin);
             }
             else if (itemPos.name === 'sketch') {
-                this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1], this.player);
+                this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[10], this.player);
                 this.itemContainer.push(this.sketch);
             }
         }
