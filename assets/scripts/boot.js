@@ -59,6 +59,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('keybindQ', './assets/sprites/ui/key_Q.png');
         this.load.image('keybindE', './assets/sprites/ui/key_E.png');
         this.load.image('keybindSpace', './assets/sprites/ui/key_Space.png');
+        this.load.image('objectiveArrow', './assets/sprites/ui/arrow.png');
 
         // Carga los datos del mapa.
         this.load.tilemapTiledJSON('map', './assets/sprites/tilesets/map_01.json');
