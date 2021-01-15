@@ -112,10 +112,10 @@ export default class Boot extends Phaser.Scene {
             },
             active: function () // se llama a esta función cuando está cargada
             {
+                // Inicializacion de la escena de juego
                 ref.scene.stop();
                 ref.scene.run('mainMenuScene');
             }});
-        // Inicializacion de la escena de juego
        
     }
 

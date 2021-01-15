@@ -116,9 +116,10 @@ export default class GameScene extends Phaser.Scene {
             trigger.newBounds = trigger.info;
     }
 
-    deathBlindfold() {
-        this.blindfold.setBlindfold();
-        this.blindfold.setVision(this.vision, this.player.x, this.player.y);
+    deathBlindfold(blindfold, silhouette) {
+        blindfold.setBlindfoldOn(true);
+        blindfold.setVision(this.vision, this.player.x, this.player.y);
+        silhouette.toggle(this.blindfold.blind);
     }
 
     insertItem(itemToInsert) {

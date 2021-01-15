@@ -235,12 +235,12 @@ export default class Level1 extends NewGameScene {
             });
 
             if (this.player !== undefined && this.player.death === this.player.deathState.Dead) {
-                this.player.die();
+                this.player.die(this.blindfold, this.silhouette);
             }
             else {
                 if (this.player.death === this.player.deathState.CheckDeath) {
                     this.player.addSanity(this.player.maxSanity / 2);
-                    this.deathBlindfold();
+                    this.deathBlindfold(this.blindfold, this.silhouette);
                     this.player.setAlive();
                 }
                 else {

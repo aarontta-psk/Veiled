@@ -193,13 +193,13 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     }
 
     //reaparicion tras muerte
-    die() {
+    die(blindfold, silhouette) {
         this.setPosition(this.spawnPoint.x, this.spawnPoint.y);
         this.setVelocity(0, 0);
 
         this.scene.readjustTriggers();
         this.scene.cameras.main.setBounds(this.spawnBounds[0], this.spawnBounds[1], this.spawnBounds[2], this.spawnBounds[3]);
-        this.scene.deathBlindfold();
+        this.scene.deathBlindfold(blindfold, silhouette);
 
         this.sanity = this.sanityLogThreshold;
         this.death = this.deathState.Alive;
