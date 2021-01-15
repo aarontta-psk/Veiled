@@ -4,11 +4,6 @@ export default class Npc extends EventHandler {
     constructor(key, world, x, y, npcEvents, path) {
         super(world, x, y, key, npcEvents); //llama a la constructora de Sprite
 
-        this.setBody({
-            type: 'rectangle',
-            width: 60,
-            height: 60
-        });
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this);
 
@@ -18,6 +13,8 @@ export default class Npc extends EventHandler {
             parts: [sensor, collision]
         });
         this.setExistingBody(actualThing);
+
+        this.range = 60;
 
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
@@ -36,9 +33,9 @@ export default class Npc extends EventHandler {
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
         if (this.scene.blindfold.blind) {
-            if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < 60))
+            if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.range))
                 this.setVisible(true);
-            else if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) > 60))
+            else if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) > this.range))
                 this.setVisible(false);
         }
 
