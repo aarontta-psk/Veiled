@@ -87,13 +87,6 @@ export default class Boot extends Phaser.Scene {
     }
 
     create() {
-        // Cargamos las webfonts que se van a usar
-        WebFont.load({
-            google: {
-                families: ['Neucha']
-            },
-        });
-
         //creacion de animaciones
         this.createAnims('player', 8);
         this.createAnims('painter', 4);
@@ -110,9 +103,20 @@ export default class Boot extends Phaser.Scene {
             repeat: -1
         });
 
+        //referencia a la escena
+        const ref = this;
+        // Cargamos las webfonts que se van a usar
+        WebFont.load({
+            google: {
+                families: [ 'Neucha' ]
+            },
+            active: function () // se llama a esta función cuando está cargada
+            {
+                ref.scene.stop();
+                ref.scene.run('mainMenuScene');
+            }});
         // Inicializacion de la escena de juego
-        this.scene.stop();
-        this.scene.run('mainMenuScene');
+       
     }
 
     tooltipAnims(key, speed) {
