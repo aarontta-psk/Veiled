@@ -1,4 +1,4 @@
-import EventHandler from './eventHandler.js'
+import EventHandler from './event_handler.js'
 
 export default class Trigger extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y, width, height, key){

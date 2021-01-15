@@ -7,7 +7,7 @@ import GUI from './gui.js';
 import { soundStimulus, smell } from './stimulus.js';
 import Silhouette from './silhouette.js'
 import NewGameScene from './gameScene.js'
-import EventHandler from './eventHandler.js';
+import EventHandler from './event_handler.js';
 
 const LEVEL_FAITH_REQUERIMENT = 40;
 

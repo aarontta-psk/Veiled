@@ -1,4 +1,4 @@
-import EventHandler from './eventHandler.js'
+import EventHandler from './event_handler.js'
 
 export default class Npc extends EventHandler {
     constructor(key, world, x, y, npcEvents, path) {

@@ -1,4 +1,4 @@
-import EventHandler from './eventHandler.js'
+import EventHandler from './event_handler.js'
 
 export default class Silhouette extends EventHandler {
     constructor(world, x, y, eventList) {
