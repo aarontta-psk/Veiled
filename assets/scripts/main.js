@@ -5,7 +5,7 @@ import {testEvent, anotherTestEvent, deathEvent_0, maxFaithEvent_0 , painterEven
     lumberjackEvent_0, lumberjackEvent_1, sickTreeEvent
 /*BORRAR ESTAS*/ , testSilueta_0, testSilueta_1, testSilueta_2} from "./event_scene.js";
 import PauseScene from "./pause_scene.js";
-import MainMenu from "./mainMenu.js";
+import MainMenu from "./main_menu.js";
 import Options from './options.js';
 import InfoLevel from './infoLevel.js';
 import levelSelector from "./level_selector_menu.js";
