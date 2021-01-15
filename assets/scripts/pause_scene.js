@@ -1,4 +1,4 @@
-import menuBasicScene from "./menuBasicScene.js";
+import menuBasicScene from "./menu_basic_scene.js";
 
 export default class pauseScene extends menuBasicScene {
     init(data) {

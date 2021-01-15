@@ -3,12 +3,12 @@ import Level1 from "./level1.js";
 import Level2 from "./level2.js";
 import {testEvent, anotherTestEvent, deathEvent_0, maxFaithEvent_0 , painterEvent_0, painterEvent_1, painterEvent_2, doctorEvent_0, doctorEvent_1,
     lumberjackEvent_0, lumberjackEvent_1, sickTreeEvent
-/*BORRAR ESTAS*/ , testSilueta_0, testSilueta_1, testSilueta_2} from "./eventScene.js";
-import PauseScene from "./pauseScene.js";
+/*BORRAR ESTAS*/ , testSilueta_0, testSilueta_1, testSilueta_2} from "./event_scene.js";
+import PauseScene from "./pause_scene.js";
 import MainMenu from "./mainMenu.js";
 import Options from './options.js';
 import InfoLevel from './infoLevel.js';
-import levelSelector from "./levelSelectorMenu.js";
+import levelSelector from "./level_selector_menu.js";
 
 new Phaser.Game({
     type: Phaser.AUTO,
