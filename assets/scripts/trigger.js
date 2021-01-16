@@ -20,7 +20,7 @@ export default class Trigger extends Phaser.Physics.Matter.Sprite {
     }
 }
 
-export class EventTrigger extends EventHandler{
+export class EventTrigger extends EventHandler {
     constructor(world, x, y, width, height, stimulus, events, key){
         super(world, x, y, key, events);
         
