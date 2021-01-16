@@ -21,6 +21,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
         this.setFixedRotation(0); //quitamos rotacion
+        this.setMass(1);
 
         this.speed = 3; //velocidad
 
