@@ -17,13 +17,13 @@ export default class levelSelector extends menuBasicScene {
 
         //botones
         const level01 = this.goToSceneButton(this.cameras.main.centerX - this.cameras.main.width / 4,
-            this.cameras.main.centerY + (this.cameras.main.height / 60), 1, 'mainMenuLevel01', 'level1');
+            this.cameras.main.centerY + (this.cameras.main.height / 60), 1, 'mainMenuLevel00', 'level0');
 
         const level02 = this.goToSceneButton(this.cameras.main.centerX - this.cameras.main.width / 4,
-            this.cameras.main.centerY + (this.cameras.main.height / 5), 1, 'mainMenuLevel02', 'level2');
+            this.cameras.main.centerY + (this.cameras.main.height / 5), 1, 'mainMenuLevel01', 'level1');
 
         const level03 = this.goToSceneButton(this.cameras.main.centerX - this.cameras.main.width / 4,
-            this.cameras.main.centerY + (this.cameras.main.height / 2.5), 1, 'mainMenuLevel03', 'level3');
+            this.cameras.main.centerY + (this.cameras.main.height / 2.5), 1, 'mainMenuLevel02', 'level2');
 
     }
 }

@@ -30,16 +30,15 @@ export default class Boot extends Phaser.Scene {
         // Carga de datos de menus
         this.load.image('pauseMenu', './assets/sprites/ui/pause_menu.png');
         this.load.image('pauseMenuResume', './assets/sprites/ui/resume_button.png');
-        this.load.image('pauseMenuToMainMenu', './assets/sprites/ui/menu_button.png');
-        this.load.image('pauseMenuSettings', './assets/sprites/ui/settings_button_small.png');
+        this.load.image('pauseMenuToMainMenu', './assets/sprites/ui/menu_button.png');        
         this.load.image('back', './assets/sprites/ui/back_button.png');
         this.load.image('mainMenu', './assets/sprites/ui/main_menu.png')
         this.load.image('mainMenuPlay', './assets/sprites/ui/play_button.png');
         this.load.image('mainMenuSettings', './assets/sprites/ui/settings_button.png');
         this.load.image('mainMenuLevels', './assets/sprites/ui/levels_button.png');
+        this.load.image('mainMenuLevel00', './assets/sprites/ui/level_00_button.png');
         this.load.image('mainMenuLevel01', './assets/sprites/ui/level_01_button.png');
         this.load.image('mainMenuLevel02', './assets/sprites/ui/level_02_button.png');
-        this.load.image('mainMenuLevel03', './assets/sprites/ui/level_03_button.png');
         this.load.image('settingsMenu', './assets/sprites/ui/settings_menu.png');
         this.load.image('scoreMenu', './assets/sprites/ui/score_menu.png');
         this.load.spritesheet('volume', './assets/sprites/ui/volume.png',
