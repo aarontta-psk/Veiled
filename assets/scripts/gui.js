@@ -36,6 +36,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.add(this.faithBack);
         this.faithBar = this.scene.add.image(150, 80, 'faithBar').setScrollFactor(0);
         this.add(this.faithBar);
+        
         //Fe maxima = 80*nivel completado + 20*evento secundario (3 por nivel) = 240 + 180 = 420 (noice)
         this.faithTop = 420;
         this.hideFaith();
