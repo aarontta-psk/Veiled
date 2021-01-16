@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="19" nextobjectid="25">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="21" nextobjectid="30">
  <editorsettings>
-  <export target="." format="json"/>
+  <export target="map_02.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" source="slates.tsx"/>
  <layer id="7" name="ground_01" width="90" height="90">
@@ -66,6 +66,35 @@
  </layer>
  <objectgroup id="6" name="collectable">
   <object id="22" name="potion" x="2672" y="2656" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="20" name="stimuli">
+  <object id="25" name="treeSmell" x="2608" y="512" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="19" name="npcs">
+  <object id="26" name="doctor" x="3456" y="528" width="32" height="32">
+   <properties>
+    <property name="num" type="int" value="0"/>
+    <property name="pause" type="int" value="6000"/>
+   </properties>
+  </object>
+  <object id="27" name="doctor" x="3248" y="656" width="32" height="32">
+   <properties>
+    <property name="num" type="int" value="2"/>
+    <property name="pause" type="int" value="1000"/>
+   </properties>
+  </object>
+  <object id="28" name="doctor" x="3488" y="688" width="32" height="32">
+   <properties>
+    <property name="num" type="int" value="1"/>
+    <property name="pause" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="29" name="doctor" x="3440" y="592" width="32" height="32">
+   <properties>
+    <property name="num" type="int" value="3"/>
+    <property name="pause" type="int" value="50"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="5" name="objectLayer">
   <object id="17" name="newSect" x="1104" y="528" width="64" height="1">
