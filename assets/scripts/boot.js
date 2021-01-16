@@ -61,6 +61,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('objectiveArrow', './assets/sprites/ui/arrow.png');
 
         // Carga los datos del mapa.
+        this.load.tilemapTiledJSON('map00', './assets/sprites/tilesets/map_00.json');
         this.load.tilemapTiledJSON('map01', './assets/sprites/tilesets/map_01.json');
         this.load.tilemapTiledJSON('map02', './assets/sprites/tilesets/map_02.json');
 
