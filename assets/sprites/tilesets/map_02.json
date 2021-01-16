@@ -4,7 +4,7 @@
      "export":
         {
          "format":"json",
-         "target":"."
+         "target":"map_02.json"
         }
     },
  "height":90,
@@ -202,6 +202,127 @@
         }, 
         {
          "draworder":"topdown",
+         "id":20,
+         "name":"stimuli",
+         "objects":[
+                {
+                 "height":16,
+                 "id":25,
+                 "name":"treeSmell",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":2608,
+                 "y":512
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":19,
+         "name":"npcs",
+         "objects":[
+                {
+                 "height":32,
+                 "id":26,
+                 "name":"doctor",
+                 "properties":[
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"pause",
+                         "type":"int",
+                         "value":6000
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":3456,
+                 "y":528
+                }, 
+                {
+                 "height":32,
+                 "id":27,
+                 "name":"doctor",
+                 "properties":[
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":2
+                        }, 
+                        {
+                         "name":"pause",
+                         "type":"int",
+                         "value":1000
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":3248,
+                 "y":656
+                }, 
+                {
+                 "height":32,
+                 "id":28,
+                 "name":"doctor",
+                 "properties":[
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pause",
+                         "type":"int",
+                         "value":50
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":3488,
+                 "y":688
+                }, 
+                {
+                 "height":32,
+                 "id":29,
+                 "name":"doctor",
+                 "properties":[
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"pause",
+                         "type":"int",
+                         "value":50
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":3440,
+                 "y":592
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":5,
          "name":"objectLayer",
          "objects":[
@@ -275,8 +396,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":19,
- "nextobjectid":25,
+ "nextlayerid":21,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
