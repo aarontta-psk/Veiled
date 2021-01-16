@@ -64,16 +64,35 @@ export default class GameScene extends Phaser.Scene {
         for (const stimulus of this.map.getObjectLayer('stimuli').objects)
         {
             let stim;
-            let trigger;
             let position = {'x':stimulus.x, 'y':stimulus.y};
             switch (stimulus.name)
             {
                 case 'treeSmell':
                     stim = new treeSmell(smells, position);
-                    trigger = new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim, [this.scene.get('sickTreeEvent')])
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim, [this.scene.get('sickTreeEvent')]));
             }
-            this.triggerEvents.push(trigger);
         }
+    }
+
+    loadObjectives()
+    {
+        this.objectives = new Array();
+        for (const objective of this.map.getObjectLayer('objectives').objects)
+        {   
+            this.objectives[objective.properties[0].value] = {
+                'x': objective.x, 
+                'y': objective.y,
+                'sanityReq': objective.properties[1].value
+            };
+        }
+        this.currentObjective = 0;
+    }
+
+    //Si currentObjective === -1, es que se han completado todos los objetivos
+    nextObjective(){
+        this.currentObjective++;
+        if (this.currentObjective >= this.objectives.length)
+        this.currentObjective = -1;
     }
 
     //transicion a nueva seccion
