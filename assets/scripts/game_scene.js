@@ -9,7 +9,7 @@ export default class GameScene extends Phaser.Scene {
 
     preload() {
         // Carga el plugin para las tiles animadas
-        this.load.scenePlugin('AnimatedTiles', './assets/plugins/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');
+        this.load.scenePlugin('AnimatedTiles', './assets/plugins/animated_tiles.js', 'animatedTiles', 'animatedTiles');
     }
 
     create() {
