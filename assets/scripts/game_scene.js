@@ -15,14 +15,7 @@ export default class GameScene extends Phaser.Scene {
     create() {
         this.scene.bringToTop();
         // Desactivamos gravedad
-        this.matter.world.disableGravity();
-        
-        // Creamos un mapa a partir de los datos en cache
-        this.map = this.make.tilemap({
-            key: 'map',
-            tileWidth: 64,
-            tileHeight: 64
-        });
+        this.matter.world.disableGravity();        
     }
 
     update(time, delta) {

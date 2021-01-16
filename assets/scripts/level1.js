@@ -23,6 +23,13 @@ export default class Level1 extends NewGameScene {
     create() {
         super.create();
 
+        // Creamos un mapa a partir de los datos en cache
+        this.map = this.make.tilemap({
+            key: 'map01',
+            tileWidth: 64,
+            tileHeight: 64
+        });
+
         //sonidos
         this.sound.play('mainTheme', {
             mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
