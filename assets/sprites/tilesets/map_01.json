@@ -180,6 +180,61 @@
         }, 
         {
          "draworder":"topdown",
+         "id":21,
+         "name":"objectives",
+         "objects":[
+                {
+                 "height":32,
+                 "id":44,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":4256,
+                 "y":2208
+                }, 
+                {
+                 "height":32,
+                 "id":45,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":30
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":3984,
+                 "y":3424
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":6,
          "name":"collectable",
          "objects":[
@@ -746,8 +801,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":21,
- "nextobjectid":44,
+ "nextlayerid":22,
+ "nextobjectid":46,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
