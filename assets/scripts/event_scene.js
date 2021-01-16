@@ -492,7 +492,7 @@ export class maxFaithEvent_0 extends eventScene {
         this.content = [
             {
                 text: 'Tus acciones se ven recompensadas. Sientes como a medida que ayudas a otras personas tu fe ' +
-                    'aumenta. Y eso te hace feliz (porfavor reescribir esta parte pls)'
+                    'aumenta. Y eso te hace feliz'
             },
             {
                 text: 'Avanzar al siguiente nivel',
@@ -501,7 +501,9 @@ export class maxFaithEvent_0 extends eventScene {
                     //este evento no cuenta para el numero de eventos completados
                     this.info.player.numCompletedEvents--;
                     this.scene.stop();
-                    this.scene.run('infoLevel', { obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1' })
+                    this.scene.run('infoLevel', { obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
+                    mainText: 'Meter texto de fin de nivel'
+                })
                 },
                 end: true
             }

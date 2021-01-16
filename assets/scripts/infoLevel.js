@@ -1,10 +1,12 @@
-export default class infoLevel extends Phaser.Scene{
+import menuBasicScene from "./menu_basic_scene.js";
+
+export default class infoLevel extends menuBasicScene{
     init(data){
         this.info = data;
     }
     
     constructor(){
-        super({key: 'infoLevel'});
+        super('infoLevel');
     }
 
     create(){
@@ -15,22 +17,12 @@ export default class infoLevel extends Phaser.Scene{
         // }).setResolution(2).setScale(1.3).setScrollFactor(0).setDepth(11);
         //imagen de fondo
         this.add.image(0,0, 'scoreMenu').setOrigin(0);
-        console.log('fe:', this.info.obtainedFaith, 'Eventos Completados:', this.info.completedEvents);
-        const events = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - this.cameras.main.centerY/3, 'Eventos Completados: ' + this.info.numEvents.toString(), 
-        { fontFamily: 'Neucha'}).setOrigin(0).setResolution(1.2).setScale(1.2).setAlign('left');
-        const faith = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - this.cameras.main.centerY*2/3, 'Fe obtenida: ' + this.info.obtainedFaith.toString(), 
-        { fontFamily: 'Neucha'}).setOrigin(0).setResolution(1.2).setScale(1.2).setAlign('left');
-        const resume = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'pauseMenuResume').setInteractive();
 
-        //callbacks del boton:
-        //pointerover
-        resume.on('pointerover', event => { resume.setScale(1.2); });
-        //pointerout
-        resume.on('pointerout', event => { resume.setScale(1); });
-        //pointerdown
-        resume.on('pointerdown', event => {
-            this.scene.stop();
-            this.scene.run(this.info.nextLevel, this.info);
-        });
+        const text = this.add.text(this.cameras.main.centerX/2  - (this.cameras.main.centerX/6), this.cameras.main.centerY  - this.cameras.main.centerY/3,
+        this.info.mainText + '\n\n' + 
+        'Eventos Completados: ' + this.info.numEvents.toString() + '/' + this.info.totalLevelEvents + '    ' + 
+        'Fe obtenida: ' + this.info.obtainedFaith.toString(), { fontFamily: 'Neucha'}).setResolution(1.2).setScale(1.2);
+
+        const resume = this.goToSceneButton(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY/3.5, 1, 'pauseMenuResume', 'level2' );
     }
 }
