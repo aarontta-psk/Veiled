@@ -191,7 +191,7 @@
                         {
                          "name":"faithReq",
                          "type":"int",
-                         "value":10
+                         "value":0
                         }, 
                         {
                          "name":"num",

@@ -72,10 +72,10 @@ export default class GameScene extends Phaser.Scene {
         this.objectives = new Array();
         for (const objective of this.map.getObjectLayer('objectives').objects)
         {   
-            this.objectives[objective.properties[0].value] = {
+            this.objectives[objective.properties[1].value] = {
                 'x': objective.x, 
                 'y': objective.y,
-                'sanityReq': objective.properties[1].value
+                'faithReq': objective.properties[0].value
             };
         }
         this.currentObjective = 0;

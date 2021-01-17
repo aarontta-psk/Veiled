@@ -8,6 +8,7 @@ import { soundStimulus, smell } from './stimulus.js';
 import Silhouette from './silhouette.js'
 import NewGameScene from './game_scene.js'
 import EventHandler from './event_handler.js';
+import ObjectiveMarker from './objective_marker.js';
 
 const LEVEL_FAITH_REQUERIMENT = 40;
 
@@ -103,6 +104,9 @@ export default class Level1 extends NewGameScene {
         this.silhouette = new Silhouette(this.matter.world, 750, 550,
             [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('maxFaithEvent_0')]);
 
+        this.objectiveMarker = new ObjectiveMarker(this.matter.world, this.player);
+        this.loadObjectives();
+        
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
         this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);

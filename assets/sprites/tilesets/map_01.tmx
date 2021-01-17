@@ -67,7 +67,7 @@
  <objectgroup id="21" name="objectives">
   <object id="44" name="objective" x="4256" y="2208" width="32" height="32">
    <properties>
-    <property name="faithReq" type="int" value="10"/>
+    <property name="faithReq" type="int" value="0"/>
     <property name="num" type="int" value="0"/>
    </properties>
   </object>
