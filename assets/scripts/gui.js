@@ -12,6 +12,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.addTooltip('keybindE', 'INTERACT', 773, 135, 675, 125, 0.6);
         if (this.scene.scene.key !== 'level0')
             this.addTooltip('keybindR', 'HABLA CON TU PADRE', 773, 175, 580, 165, 0.6);
+        else this.preludeTooltips();
 
         //Inventario
         this.inventoryRef = player.inventory;
@@ -118,5 +119,23 @@ export default class GUI extends Phaser.GameObjects.Container {
     }
 
     //metodo para activar tooltips en el tutorial
+    preludeTooltips() {
+        this.itemTooltip = this.scene.add.image(212, 60, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
+        this.arrowTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
+    }
 
+    updateGUIPrelude(key) {
+        if (key === "talk") {
+            this.itemTooltip.setVisible(false);
+            this.arrowTooltip.setVisible(false);
+        }
+        else if (key === "getItem") {
+            this.itemTooltip.setVisible(true);
+            this.arrowTooltip.setVisible(false);
+        }
+        else if (key === "useItemAndBlindfold") {
+            this.itemTooltip.setVisible(false);
+            this.arrowTooltip.setVisible(true);
+        }
+    }
 }

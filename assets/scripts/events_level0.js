@@ -38,7 +38,7 @@ export class dad_Event_1 extends eventScene {
                 cb: () => {
                     this.info.player.inventory.removeObjectByKey('Foto');
                     this.info.player.inventory.collect('Colgante');
-                    this.completeEvent(0, 0);
+                    this.completeEvent(0, 20);
                 },
                 next: [
                     {
