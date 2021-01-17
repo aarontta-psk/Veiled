@@ -71,6 +71,18 @@ export class StampItem extends Item{
     }
 }
 
+export class PendantItem extends Item {
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, true);
+        this.name = "Colgante";
+        this.description = "Aumenta la fe";
+    }
+
+    doSomething(player) {
+        player.addFaith(60);
+    }
+}
+
 export class BlessingItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
@@ -179,6 +191,15 @@ export class SickTreeItem extends Item{
         this.setActive(false).setVisible(false);
         this.name = "Rama enferma";
         this.description = "Parece demasiado frágil para un arbol corriente";
+    }
+}
+
+export class PictureItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.setActive(true).setVisible(true);
+        this.name = "Rama enferma";
+        this.description = "Recuerdo de un viaje";
     }
 }
 //#endregion
