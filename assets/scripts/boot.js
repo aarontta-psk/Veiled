@@ -11,11 +11,11 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('captain', './assets/sprites/spritesheets/captain_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('child', './assets/sprites/spritesheets/child_sheet.png',
+        this.load.spritesheet('hungryKid', './assets/sprites/spritesheets/child_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('doctor', './assets/sprites/spritesheets/doctor_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('dude', './assets/sprites/spritesheets/dude_sheet.png',
+        this.load.spritesheet('glasses', './assets/sprites/spritesheets/dude_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('elder', './assets/sprites/spritesheets/elder_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
@@ -123,9 +123,9 @@ export default class Boot extends Phaser.Scene {
         this.createAnims('boatofficial', 4);
         this.createAnims('brother', 4);
         this.createAnims('captain', 4);
-        this.createAnims('child', 4);
+        this.createAnims('hungryKid', 4);
         this.createAnims('doctor', 4);
-        this.createAnims('dude', 4);
+        this.createAnims('glasses', 4);
         this.createAnims('elder', 4);
         this.createAnims('farmer', 4);
         this.createAnims('fisherman', 4);

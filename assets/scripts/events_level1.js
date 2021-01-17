@@ -427,7 +427,7 @@ export class coins_Event_0 extends eventScene {
             {
                 text: 'Coger la bolsa de monedas',
                 cb: () => [
-                    this.info.player.inventory.collect('Bolsa con monedas');
+                    this.info.player.inventory.collect('Bolsa con monedas')
                 ]
             },
             {
@@ -540,7 +540,10 @@ export class foreigner_Event_1 extends eventScene{
                         'Te entrega una bolsa con algunas monedas'
                     },
                     {
-                        text: 'No hay de qué'
+                        text: 'No hay de qué',
+                        cb: () => {
+                            this.info.player.inventory.collect('Bolsa con monedas');
+                        }
                     }
                 ]
             },
@@ -551,7 +554,7 @@ export class foreigner_Event_1 extends eventScene{
     }
 }
 
-export class tabern_Event_0 extends eventScene{
+export class tavern_Event_0 extends eventScene{
     constructor(){
         super({ key: 'tabern_Event_0' });
         //array con los elementos de un evento

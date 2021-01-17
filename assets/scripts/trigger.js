@@ -31,7 +31,6 @@ export class EventTrigger extends EventHandler {
         });
 
         this.stimulus = stimulus;
-        if(stimulus !== null) this.stimulus;
 
         this.scene.add.existing(this);
         this.scene.matter.add.sprite(this);

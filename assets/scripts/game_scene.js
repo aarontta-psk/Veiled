@@ -31,7 +31,7 @@ export default class GameScene extends Phaser.Scene {
         this.gui.updateSanityBar(this.player.sanity);
     }   
 
-    generateNPC(key, events)
+    generateNPC(key, isStatic, events)
     {
         let path = Array();
         for (const pathPoint of this.map.getObjectLayer('npcs').objects)
@@ -47,22 +47,47 @@ export default class GameScene extends Phaser.Scene {
         let steps = new footSteps(this.soundParticle);
         steps.emitter.startFollow(npc);
         npc.footSteps = steps;
-
+        npc.setStatic(isStatic);
         return npc;
     }
 
     generateStimulus(smells, sounds)
     {
         this.triggerEvents = new Array();
-        for (const stimulus of this.map.getObjectLayer('stimuli').objects)
+        for (const eventTrigger of this.map.getObjectLayer('eventTriggers').objects)
         {
             let stim;
-            let position = {'x':stimulus.x, 'y':stimulus.y};
-            switch (stimulus.name)
+            let position = {'x':eventTrigger.x, 'y':eventTrigger.y};
+            switch (eventTrigger.name)
             {
                 case 'treeSmell':
                     stim = new treeSmell(smells, position);
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim, [this.scene.get('sickTreeEvent')]));
+                    break;
+                case 'glasses':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('glassesItem_Event_0')]));
+                    break;
+                case 'tavern':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('tavern_Event_0')]));
+                    break;
+                case 'cane':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('cane_Event_0')]));
+                    break;
+                case 'well':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('well_Event_0')]));
+                    break;
+                case 'coins':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('coins_Event_0')]));
+                    break;
+                case 'grave':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('grave_Event_0')]));
+                    break;
             }
         }
     }
@@ -160,13 +185,14 @@ export default class GameScene extends Phaser.Scene {
         for (let i = 0; i<this.triggerEvents.length; i++)
         {
             if (this.blindfold.blind){
-                this.triggerEvents[i].stimulus.emitter.start();
-                this.sound.play('sfxActivateBlind');
+                if(this.triggerEvents[i].stimulus !== null) this.triggerEvents[i].stimulus.emitter.start();
             }
             else{
-                this.triggerEvents[i].stimulus.emitter.stop();
-                this.sound.play('sfxDesactivateBlind');
+                if(this.triggerEvents[i].stimulus !== null) this.triggerEvents[i].stimulus.emitter.stop();
             }
         }
+
+        if(this.blindfold.blind) this.sound.play('sfxActivateBlind');
+        else this.sound.play('sfxDesactivateBlind');
     }   
 }
