@@ -31,7 +31,7 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('painter', './assets/sprites/spritesheets/painter_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('police', './assets/sprites/spritesheets/policewoan_sheet.png',
+        this.load.spritesheet('police', './assets/sprites/spritesheets/police_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('seller', './assets/sprites/spritesheets/seller_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
