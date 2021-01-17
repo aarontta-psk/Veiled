@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="21" nextobjectid="30">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="21" nextobjectid="31">
  <editorsettings>
   <export target="map_00.json" format="json"/>
  </editorsettings>
@@ -65,34 +65,17 @@
   </data>
  </layer>
  <objectgroup id="6" name="collectable">
-  <object id="22" name="potion" x="2672" y="2656" width="32" height="32"/>
+  <object id="22" name="picture" x="2672" y="2656" width="32" height="32"/>
+  <object id="30" name="pendant" x="2624" y="2208" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="stimuli">
   <object id="25" name="treeSmell" x="2608" y="512" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="19" name="npcs">
-  <object id="26" name="doctor" x="3012" y="2856" width="32" height="32">
+  <object id="28" name="dad" x="3040" y="3088" width="32" height="32">
    <properties>
     <property name="num" type="int" value="0"/>
-    <property name="pause" type="int" value="6000"/>
-   </properties>
-  </object>
-  <object id="27" name="doctor" x="2804" y="2984" width="32" height="32">
-   <properties>
-    <property name="num" type="int" value="2"/>
-    <property name="pause" type="int" value="1000"/>
-   </properties>
-  </object>
-  <object id="28" name="doctor" x="3044" y="3016" width="32" height="32">
-   <properties>
-    <property name="num" type="int" value="1"/>
-    <property name="pause" type="int" value="50"/>
-   </properties>
-  </object>
-  <object id="29" name="doctor" x="2996" y="2920" width="32" height="32">
-   <properties>
-    <property name="num" type="int" value="3"/>
-    <property name="pause" type="int" value="50"/>
+    <property name="pause" type="int" value="10000"/>
    </properties>
   </object>
  </objectgroup>
@@ -105,7 +88,7 @@
     <property name="widthBg" type="int" value="1600"/>
    </properties>
   </object>
-  <object id="24" name="spawnPoint" x="2816" y="2760" width="64" height="64">
+  <object id="24" name="spawnPoint" x="2848" y="2784" width="64" height="64">
    <properties>
     <property name="height" type="int" value="0"/>
     <property name="heightBg" type="int" value="0"/>

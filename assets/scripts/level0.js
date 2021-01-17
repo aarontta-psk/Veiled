@@ -118,11 +118,23 @@ export default class Level0 extends NewGameScene {
         // this.player.cursorsPlayer.blindfold.on('down', event => {
         //     this.onBlindChange();
         // });
-        // this.player.cursorsPlayer.interact.on('down', event => {
-        //     if (this.item != undefined)
-                
-        //     console.log(this.player.inventory);
-        // });
+        this.player.cursorsPlayer.interact.on('down', event => {
+            if (this.auxEventHandler !== null) {
+                //si se esta pulsando la tecla de interactuar, se llama al evento del npc
+                let npcEvent = this.auxEventHandler.nextEvent();
+                if (npcEvent != null) {
+                    if (this.player.inventory.objects.length === 0)
+                        this.prelude = this.preludeState.GetItem;
+                    else
+                        this.prelude = this.preludeState.UseItemAndBlindfold;
+                    this.changeScene(npcEvent);
+                }
+            }
+            else if (this.prelude === this.preludeState.GetItem && this.item !== undefined) {
+                this.insertItem(this.item);
+                this.prelude = this.preludeState.Talk;
+            }
+        });
         // this.player.cursorsPlayer.invToggle.on('down', event => {
         //     this.gui.toggleInventory();
         // });
@@ -151,11 +163,17 @@ export default class Level0 extends NewGameScene {
         this.forest_02.setCollisionByProperty({ obstacle: true });
         this.matter.world.convertTilemapLayer(this.forest_02);
 
+        //referencia al eventHandler con el que se está colisionando
+        this.auxEventHandler = null;
         this.matter.world.on('collisionstart',
             (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     if (cuerpo2.gameObject instanceof Item) {
                         this.item = cuerpo2.gameObject;
+                    }
+                    else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
+                        this.auxEventHandler = cuerpo2.gameObject;
+                        console.log("start work")
                     }
                 }
             });
@@ -165,60 +183,48 @@ export default class Level0 extends NewGameScene {
                 if (cuerpo1.gameObject === this.player) {
                     //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
                     this.item = undefined;
-                }
-            });
 
-        this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
-            if (cuerpo1.gameObject === this.player &&
-                cuerpo2.gameObject instanceof EventHandler) {
-                //booleano de control
-                //si se esta pulsando la tecla de interactuar, se llama al evento del npc
-                if (this.player.cursorsPlayer.interact.isDown) {
-                    let npcEvent = cuerpo2.gameObject.nextEvent();
-                    if (npcEvent != null){
-                        if(this.player.inventory.objects.length === 0)
-                            this.prelude = this.preludeState.GetItem;
-                        else
-                            this.prelude = this.preludeState.UseItemAndBlindfold;
-                        this.changeScene(npcEvent);
+                    if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
+                        this.auxEventHandler = null;
+                        console.log("end work")
                     }
                 }
-            }
-        })
-
-        this.scene.scene.cameras.main.on('camerafadeoutcomplete', event => {
-            if (this.player.death === this.player.deathState.CheckDeath) {
-                this.changeScene('deathEvent_0');
-                this.cameras.main.fadeIn(2000);
-                this.player.enableInputs(true);
-            }
-            console.log("outComplete")
-        });
-
-        this.scene.scene.cameras.main.on('camerafadeincomplete', event => {
-            console.log("inComplete")
-        });
-
-        this.events.on('wake', event => {
-            //la musica vuelve a sonar
-            this.sound.play('mainTheme', {
-                mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
             });
 
-            if (this.player !== undefined && this.player.death === this.player.deathState.Dead) {
-                this.player.die();
-            }
-            else {
-                if (this.player.death === this.player.deathState.CheckDeath) {
-                    this.player.addSanity(this.player.maxSanity / 2);
-                    this.deathBlindfold();
-                    this.player.setAlive();
-                }
-                else {
-                    if (!this.blindfold.blind) this.onBlindChange();
-                }
-            }
-        });
+
+        // this.scene.scene.cameras.main.on('camerafadeoutcomplete', event => {
+        //     if (this.player.death === this.player.deathState.CheckDeath) {
+        //         this.changeScene('deathEvent_0');
+        //         this.cameras.main.fadeIn(2000);
+        //         this.player.enableInputs(true);
+        //     }
+        //     console.log("outComplete")
+        // });
+
+        // this.scene.scene.cameras.main.on('camerafadeincomplete', event => {
+        //     console.log("inComplete")
+        // });
+
+        // this.events.on('wake', event => {
+        //     //la musica vuelve a sonar
+        //     this.sound.play('mainTheme', {
+        //         mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
+        //     });
+
+        //     if (this.player !== undefined && this.player.death === this.player.deathState.Dead) {
+        //         this.player.die();
+        //     }
+        //     else {
+        //         if (this.player.death === this.player.deathState.CheckDeath) {
+        //             this.player.addSanity(this.player.maxSanity / 2);
+        //             this.deathBlindfold();
+        //             this.player.setAlive();
+        //         }
+        //         else {
+        //             if (!this.blindfold.blind) this.onBlindChange();
+        //         }
+        //     }
+        // });
 
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
@@ -233,17 +239,11 @@ export default class Level0 extends NewGameScene {
     }
 
     stateChanging() {
-        if (this.prelude === this.preludeState.GetItem) {
-            if(this.player.cursorsPlayer.interact.isDown && this.item !== undefined){
-                this.insertItem(this.item);
-                this.prelude = this.preludeState.Talk;
-            }
-        }
-        else if(this.prelude === this.preludeState.UseItemAndBlindfold){
-            if(this.player.cursorsPlayer.invToggle.isDown & !this.gui.backgroundInventory.visible){
+        if (this.prelude === this.preludeState.UseItemAndBlindfold) {
+            if (this.player.cursorsPlayer.invToggle.isDown & !this.gui.backgroundInventory.visible) {
                 this.gui.toggleInventory();
             }
-            else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 0){
+            else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 0) {
                 this.blindfold.setBlindfold();
                 this.prelude = this.preludeState.Talk;
             }

@@ -107,10 +107,6 @@ export default class Level1 extends NewGameScene {
                 'foreigner', false,
                 [this.scene.get('foreigner_Event_0'), this.scene.get('foreigner_Event_1')]
             ),
-            // this.grandMotherNpc = this.generateNPC(
-            //     'grandMother', true
-            //     [this.scene.get('grandMother_Event_0')]
-            // ),
             this.sellerNpc = this.generateNPC(
                 'seller', true,
                 [this.scene.get('seller_Event_0'), this.scene.get('seller_Event_1')]
@@ -235,7 +231,6 @@ export default class Level1 extends NewGameScene {
                         this.auxEventHandler = cuerpo2.gameObject;
                         console.log("start work")
                     }       
-
                 }
             });
 
