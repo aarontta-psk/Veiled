@@ -140,8 +140,8 @@ export default class Boot extends Phaser.Scene {
         this.createAnims('tavern', 4);
         this.createAnims('vagabond', 4);
 
-        this.tooltipAnims('itemTooltip', 2000)
-        this.tooltipAnims('npcTooltip', 2000)
+        this.tooltipAnims('itemTooltip', 1)
+        this.tooltipAnims('npcTooltip', 1)
 
         this.anims.create({
             key: 'idle_ghost',
