@@ -198,7 +198,7 @@ export class PictureItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
         this.setActive(true).setVisible(true);
-        this.name = "Rama enferma";
+        this.name = "Foto";
         this.description = "Recuerdo de un viaje";
     }
 }
