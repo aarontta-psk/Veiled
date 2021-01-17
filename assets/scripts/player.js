@@ -94,6 +94,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             }
         }
         else this.stepSound.loop = false;
+
+        this.scene.objectiveMarker.updateObjectiveMarker();
     }
 
     //Calculo de velocidad con respecto a input

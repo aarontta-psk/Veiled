@@ -41,9 +41,6 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.faithTop = 420;
         this.hideFaith();
 
-        //Marcador de objetivo
-        this.player = player;
-        this.objectiveMarker = this.add.image(this.player.x, this.player.y, 'objectiveArrow').setScrollFactor(0);
     }
 
     //modificacion del texto del item seleccionado en GUI
@@ -105,18 +102,6 @@ export default class GUI extends Phaser.GameObjects.Container {
     //metodo para actualizar la barra de cordura
     updateSanityBar(sanity) {
         this.sanityBar.scaleX = sanity / this.sanityTop;
-    }
-
-    updateObjectiveMarker(){
-        let obj = this.scene.objectives[currentObjective];
-
-        if (obj !== -1 && obj.sanityReq <= this.player.sanity)
-        {
-            this.objectiveMarker.setVisible(true);
-            this.objectiveMarker.angle = Phaser.Math.Angle.Between(this.player.x, this.player.y, obj.x, obj.y);
-        }
-        else
-            this.objectiveMarker.setVisible(false);
     }
     
     //metodo para crear tooltips en la intefaz
