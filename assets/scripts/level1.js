@@ -93,7 +93,7 @@ export default class Level1 extends NewGameScene {
             ),
             this.painterNpc = this.generateNPC(
                 'painter', false,
-                [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1'), this.scene.get('painterEvent_2')]
+                [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')]
             ),
             this.lumberjackNpc = this.generateNPC(
                 'lumberjack', false,

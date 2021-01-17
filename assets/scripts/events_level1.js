@@ -794,6 +794,123 @@ export class glasses_Event_2 extends eventScene{
     }
 }
 
+export class brother_Event_0 extends eventScene {
+    constructor() {
+        super({ key: 'brother_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        
+        this.event1 = [
+            {
+                text: '¡Pues es una señal de la caridad de Dios! Nuestro padre estaba muriendo mucho antes de tu recuperación. Este milagro te permitió verle una última vez antes de que lo perdiésemos.\n¿Dime, al menos has intentado quitarte otra vez la venda?'
+            },
+            {
+                text: 'No desde entonces.',
+                cb: () => {},
+                next: this.event2
+            }
+        ];
+        this.event2 = [
+            {
+                text: 'Tu hermano no cede: -Él habría querido que vieses de nuevo.'
+            },
+            {
+                text: 'Para.',
+                cb: () => {},
+                next: [
+                    {
+                        text: '-Para. No quiero. Me niego',
+                        cb: () => {},
+                        next: this.event3
+                    }
+                ]
+            },
+            {
+                text: 'Habría querido que fuese feliz.',
+                cb: () => {},
+                next: this.event3
+            }
+        ];
+        this.event3 = [
+            {
+                text: '-Solo quiero ayudarte. Quiero que seas feliz. Pero llevas una semana sin salir de esa casa, ya no soy el único que se preocupa por ti. Si no puedo convencerte, al menos puedo pedirte, por favor, que hables con alguien más sobre esto. No te encierres con tus penas.'
+            },
+            {
+                text: '¿Con quién hablar?',
+
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Puedes sentir su alivio cuando le preguntas. -¿El doctor Abel, quizá? Siempre fue bueno contigo. Todavía vive donde siempre, arriba del cementerio.\n',
+                    },
+                    {
+                        text: 'Continuar',
+                        cb: () => {},
+                        next: this.event4
+                    }
+                ]
+            },
+            {
+                text: 'Darle razón.',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Sientes el alivio de tu hermano al oír tus palabras: -Vale. Concedo. Hablaré con el doctor Abel. Siempre fue empático conmigo. \n¿Aún vive al lado del cementerio?- Pedro afirma -Pues ahí voy.',
+                        cb: () => {},
+                        next: this.event4
+                    }
+                ]
+            }
+        ];
+        this.event4 =[
+            {
+                text: '-Pedro parece encantado. -Genial. Gracias, te aseguro que no lo arrepentirás.- Tornas para irte, pero te interrumpe otra vez -Espera, si vas a ver al doctor, ¿podrías pedirle si puede prepararme otra tarro de medicina para las migrañas? Casi no me queda.'
+            },
+            {
+                text: '¿Con quién hablar?',
+
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Aceptar y seguir en busca del doctor.',
+                        cb: () => {
+                            this.completeEvent(10,10);
+                            this.info.player.scene.npcs.doctorNpc.setActive(true);
+                            this.info.player.scene.nextObjective();
+                        }
+                    }
+                ]
+            }
+        ];
+        this.content = [
+            {
+                text: 'Al salir de la casa, tu hermano te espera. -Por fin saliste. Mira, sé que esto ha sido difícil para ti. Para mí también. Pero ya sabíamos de hace tiempo que venía. No pudo haberte sorprendido.\n'
+            },
+            {
+                text: 'Me sorprendió su aspecto.',
+                next: [
+                    {
+                        text: 'Explicas: -Verle así, después de tanto tiempo... Tú pudiste ver su deterioro. Para mí, lo repentino fue verle así, como si de primera vez se tratase. \nNo he visto nada desde que fui una niña, y recupero mi visión justo a tiempo para ver morir a mi padre. ¡Si eso no es una señal, no sé qué lo es!',
+                        cb: () => {},
+                        next: this.event1
+                    }
+                ]
+            },
+            {
+                text: 'No me sorprendió. Pero llegó en muy mal momento.',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Explicas: -No me sorprendió. Pero fue casi lo primero que había visto en casi veinte años. Odio eso. Odio poder ver. Toda mi vida encontré paz en las tinieblas. Eran mi mundo. Aún lo son. Y de la nada recupero la vista, pero solo para ver morir a mi padre. ¿Qué clase de portento es ese?',
+                        cb: () => {},
+                        next: this.event1
+                    }
+                ]
+            }
+        ];
+    }
+}
+
 // condition: function (ref) {
 //     return (ref.info.player.inventory.contains('Rama enferma'))
 // },

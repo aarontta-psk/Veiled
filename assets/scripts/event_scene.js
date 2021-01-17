@@ -166,48 +166,7 @@ export class painterEvent_0 extends eventScene {
         super({ key: 'painterEvent_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'Notas, entre las fragancias del bosque cercano, el olor a colores pastel. Al acercarte, una persona ' +
-                    'se torna hacia ti. -¡Ay, no esperaba visitas! -Una voz femenina exclama- La gente no suele venir por ' +
-                    'aquí, así que suelo venir cuando quiero pintar. Sinceramente, tenía alguna ilusión por que que alguien ' +
-                    'me criticase mi trabajo, pero ¡qué quisquilloso es el destino para acabar aquí tú de todas personas!\n' +
-                    '-Bueno, parece que tendré que esperar a otro día para encontrar a mi crítico, pero de mientras, ' +
-                    'cuéntame un poco, ¿qué te trae por estas zonas?'
-            },
-            {
-                text: 'Conversar con la artista',
-                cb: () => { },
-                next: [
-                    {
-                        text: 'Una breve conversación trivial lleva a la artista a envolverse un poco en temas de teoría de color.\n' +
-                            'Comienza a intentar explicar el amarillo como a alguien ciego, y se sorprende mucho cuando le ' +
-                            'comentas con una leve sonrisa conocedora que ya conoces los colores.',
-                    },
-                    {
-                        text: 'Continuar',
-                        cb: () => {
-                            this.completeEvent(15,0);
-                        }
-                    }
-                ]
-            },
-            {
-                text: 'Quitar la venda para evaluar el cuadro',
-                cb: () => {
-                    this.completeEvent(15,0);
-                }
-            },
-        ]
-    }
-}
-
-export class painterEvent_1 extends eventScene {
-    constructor() {
-        super({ key: 'painterEvent_1' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
+        this.event1 = [
             {
                 text: 'La pintora se queda incrédula un segundo, pero se alegra notablemente al darse cuenta de lo que ' +
                     'esto significa. La inmensa cantidad de luz del día soleado te hace doler los ojos, pero al pasar un ' +
@@ -269,13 +228,43 @@ export class painterEvent_1 extends eventScene {
                     }
                 ]
             }
-        ]
+        ];
+        this.content = [
+            {
+                text: 'Notas, entre las fragancias del bosque cercano, el olor a colores pastel. Al acercarte, una persona ' +
+                    'se torna hacia ti. -¡Ay, no esperaba visitas! -Una voz femenina exclama- La gente no suele venir por ' +
+                    'aquí, así que suelo venir cuando quiero pintar. Sinceramente, tenía alguna ilusión por que que alguien ' +
+                    'me criticase mi trabajo, pero ¡qué quisquilloso es el destino para acabar aquí tú de todas personas!\n' +
+                    '-Bueno, parece que tendré que esperar a otro día para encontrar a mi crítico, pero de mientras, ' +
+                    'cuéntame un poco, ¿qué te trae por estas zonas?'
+            },
+            {
+                text: 'Conversar con la artista',
+                cb: () => { },
+                next: [
+                    {
+                        text: 'Una breve conversación trivial lleva a la artista a envolverse un poco en temas de teoría de color.\n' +
+                            'Comienza a intentar explicar el amarillo como a alguien ciego, y se sorprende mucho cuando le ' +
+                            'comentas con una leve sonrisa conocedora que ya conoces los colores.',
+                    },
+                    {
+                        text: 'Continuar',
+                        next: this.event1
+                    }
+                ]
+            },
+            {
+                text: 'Quitar la venda para evaluar el cuadro',
+                next: this.event1
+            },
+        ];
+        
     }
 }
 
-export class painterEvent_2 extends eventScene {
+export class painterEvent_1 extends eventScene {
     constructor() {
-        super({ key: 'painterEvent_2' });
+        super({ key: 'painterEvent_1' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
