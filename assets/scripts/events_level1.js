@@ -12,10 +12,13 @@ export class elder_Event_0 extends eventScene {
                 'no ser porque tose muy fuerte. Se nota que su salud no es muy buena'
             },
             {
-                text: '-Claramente no. ¿No lo ves? Claro que no lo ves. En fin, se te nota perdida por aqui. ¿Hace tiempo\n' +
-                'que no caminas por el pueblo? Te puedo contar como va todo por aqui, pero antes acercame mi botella,\n' +
-                '¿quieres? Esta justo aqui al lado, pero no quiero levantarme',
+                text: '¿Se encuentra bien?',
                 next: [
+                    {
+                        text: '-Claramente no. ¿No lo ves? Claro que no lo ves. En fin, se te nota perdida por aqui. ¿Hace tiempo\n' +
+                        'que no caminas por el pueblo? Te puedo contar como va todo por aqui, pero antes acercame mi botella,\n' +
+                        '¿quieres? Esta justo aqui al lado, pero no quiero levantarme'
+                    },
                     {
                         text: 'Darle la botella',
                         condition: function (ref) {
@@ -433,6 +436,360 @@ export class coins_Event_0 extends eventScene {
         ]
     }
 }
+
+export class well_Event_0 extends eventScene {
+    constructor() {
+        super({ key: 'well_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        this.content = [
+            {
+                text: 'Te acercas a donde se supone que estaba el pozo, en el centro del poblado. Con el tacto\n' +
+                'te orientas y confirmas que efectivamente estas en el sitio indicado'
+            },
+            {
+                text: 'Sacar algo de agua',
+                failedText: 'No tienes un cubo',
+                condition: function (ref) {
+                    return (ref.info.player.inventory.contains('Cubo vacío'));
+                },
+                cb: () => {
+                    this.info.player.inventory.removeObjectByKey('Cubo vacío');
+                    this.info.player.inventory.collect('Cubo lleno');
+                }
+            },
+            {
+                text: 'Alejarse con cuidado'
+            }
+        ]
+    }
+}
+
+export class cane_Event_0 extends eventScene {
+    constructor() {
+        super({ key: 'cane_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        this.content = [
+            {
+                text: 'Haciendo caso de las indicaciones del paciente llegas a la que te dijo que era su casa.\n'+
+                'Buscando un poco por los alrededores, consigues encontrar el bastón'
+            },
+            {
+                text: 'Coger el bastón',
+                cb: () => {
+                    this.info.player.inventory.collect('Bastón');
+                }
+            },
+            {
+                text: 'No coger el bastón'
+            }
+        ]
+    }
+}
+
+export class foreigner_Event_0 extends eventScene{
+    constructor(){
+        super({ key: 'foreigner_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        this.content = [
+            {
+                text: 'Te acercas a alguien muy ruidoso. Habla bastante alto y se nota que no es de por aquí. Tiene un acento extraño que ' +
+                'no sabes muy bien de dónde es. -Hey, la de la venda. Tengo un problema. La posada está cerrada. ¡Necesito un lugar ' +
+                'para dormir! ¿Puedes hacer algo? LLamando a la puerta no me hacen ni caso'
+            },
+            {
+                text: '¿Por que yo?',
+                next: [
+                    {
+                        text: '-Nadie mas me ayuda. En este pueblo sois muy antipáticos. Mira, si me ayudas te daré unas monedas. Encontrarás la ' +
+                        'posada al suroeste de la plaza'
+                    },
+                    {
+                        text: '*Suspirar* Bueno, pasaré por la posada',
+                        cb: () => {
+                            this.completeEvent(10,10);
+                        }
+                    },
+                    {
+                        text: 'No tengo tiempo ahora'
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+export class foreigner_Event_1 extends eventScene{
+    constructor(){
+        super({ key: 'foreigner_Event_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        
+        this.content = [
+            {
+                text: '-¿Lo has conseguido?',
+                failedText: 'La posada no está abierta',
+                condition: function (ref) {
+                    return (ref.scene.get('glassesItem_Event_0').completed === true);
+                },
+                next: [
+                    {
+                        text: '-¡Sabía que podía contar contigo! Bueno, lo prometido es deuda.-\n' + 
+                        'Te entrega una bolsa con algunas monedas'
+                    },
+                    {
+                        text: 'No hay de qué'
+                    }
+                ]
+            },
+            {
+                text: 'Aún no'
+            }
+        ]
+    }
+}
+
+export class tabern_Event_0 extends eventScene{
+    constructor(){
+        super({ key: 'tabern_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        this.content = [
+            {
+                text: 'Tras un rato buscando encuntras la posada de la que te ha hablado el extranjero. ' +
+                'Está cerrada, como ya te ha dicho'
+            },
+            {
+                text: 'Llamar a la puerta',
+                next: [
+                    {
+                        text: 'Aporreas la puerta 3 veces. Al rato vuelves a hacerlo. No hay respuesta'
+                    },
+                    {
+                        text: 'Irse'
+                    }
+                ]
+            },
+            {
+                text: 'Llamar a la ventana',
+                next: [
+                    {
+                        text: 'Dando pequeños golpes a la ventana, escuchas como alguien se levanta y la abre.' +
+                        'Una mujer somnolienta te habla -*Bostezo* ¿Si? ¿Que ocurre?'
+                    },
+                    {
+                        text: '¿Está la posada abierta?',
+                        next: [
+                            {
+                                text: 'En lo que le preguntabas...Se ha vuelto a quedar dormida'
+                            },
+                            {
+                                text: '*Suspiro* Tendre que llamar otra vez'
+                            }
+                        ]
+                    },
+                    {
+                        text: '¿Por qué me has ignorado?',
+                        next: [
+                            {
+                                text: '-¿Qué? Creo que me he quedado dormido. Normalmente es Miguel quien se encarga de recibir ' +
+                                'a los clientes. Salió hace rato. Si quieres algo tendrás que hablar con él'
+                            },
+                            {
+                                text: 'Ire a buscarle pues',
+                                next: [
+                                    {
+                                        text: '-Espera un segundo. Miguel se pasa el dia en las nubes. No te hara caso así como así. ' +
+                                        'Toma esto-Te ofrece un cubo de madera vacío -Llena este cubo con agua. Ya lo entenderás cuando lo ' +
+                                        'veas.'
+                                    },
+                                    {
+                                        text: 'Coger el cubo y marcharse',
+                                        cb: () => {
+                                            this.info.player.inventory.collect('Cubo vacío');
+                                            this.completeEvent(10,10);
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                text: 'Preguntar en alto si hay alguien ahí',
+                next: [
+                    {
+                        text: 'Alzas la voz y preguntas -¿Hola? ¿Hay alguien?- No obtienes respuesta'
+                    },
+                    {
+                        text: 'Irse'
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+export class glasses_Event_0 extends eventScene{
+    constructor() {
+        super({ key: 'glasses_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        this.content = [
+            {
+                text: 'En la orilla del rio se encuentra alguien. Por algún motivo huele mucho a colonia. No te presta ' +
+                'atención, está demasiado concentrado en algo.'
+            },
+            {
+                text: '¿Te ocurre algo?',
+                next: [
+                    {
+                        text: 'No responde, esta demasiado centrado en lo suyo'
+                    },
+                    {
+                        text: 'Irse'
+                    }
+                ]
+            },
+            {
+                text: 'Llamar su atención',
+                failedText: 'No tienes un cubo con agua',
+                condition: function (ref) {
+                    return (ref.info.player.inventory.contains('Cubo con agua'));
+                },
+                cb: () => {
+                    this.info.player.inventory.removeObjectByKey('Cubo con agua');
+                },
+                next: [
+                    {
+                        text: '¿Pero qué... se puede saber qué haces? Si querías algo de mí podrías habermelo dicho',
+                    },
+                    {
+                        text: '...Parece que ahora si escuchas',
+                        cb: () => {
+                            this.completeEvent(10,10);
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+export class glasses_Event_1 extends eventScene{
+    constructor() {
+        super({ key: 'glasses_Event_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        this.content = [
+            {
+                text: '¿A qué ha venido eso de tirarme un cubo de agua?'
+            },
+            {
+                text: 'Eso es de parte de alguien de la posada',
+                next: [
+                    {
+                        text: '...Maldita. En cuanto vuelva me las va a pagar. Habría vuelto hace rato, pero ' +
+                        'he perdido mis gafas. Sin ellas no puedo trabajar. LLevo horas buscando pero no aparecen'
+                    },
+                    {
+                        text: 'Puedo ayudarte a buscarlas',
+                        next: [
+                            {
+                                text: 'Eso sería muy amable por tu parte. Tienen que estar en la ribera del río ' +
+                                'Cuando paseo no me gusta llevarlas puestas, es probable que se me cayeran.' 
+                            },
+                            {
+                                text: 'Voy a buscarlas',
+                                cb: () => {
+                                    this.completeEvent(15,15);
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                text: 'No me estabas escuchando',
+                next: [
+                    {
+                        text: '-Si solo vienes a molestar ya puedes irte, estoy bastante ocupado y ahora además empapado.- ' +
+                        'Te das cuenta de que no le ha sentado nada bien, te hace sentir un poco mal'
+                    },
+                    {
+                        text: 'Irse',
+                        cb: () => {
+                            this.info.player.addSanity(-5);
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+//activar trigger en el evento anterior
+export class glassesItem_Event_0 extends eventScene {
+    constructor() {
+        super({ key: 'glassesItem_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        this.content = [
+            {
+                text: 'Siguiendo la orilla del río te percatas de unas gafas que se encuentran ocultas en la hierba.' +
+                'Huelen igual que la colonia del señor del río'
+            },
+            {
+                text: 'Coger las gafas',
+                cb: () => {
+                    this.info.player.inventory.collect('Gafas');
+                }
+            },
+            {
+                text: 'No coger las gafas'
+            }
+        ]
+    }
+}
+
+export class glasses_Event_2 extends eventScene{
+    constructor() {
+        super({ key: 'glasses_Event_2' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        this.content = [
+            {
+                text: '¿Encontraste las gafas?'
+            },
+            {
+                text: 'Mostrarle las gafas',
+                failedText: 'Aun no has encontrado las gafas',
+                condition: function (ref) {
+                    return (ref.info.player.inventory.contains('Gafas'))
+                },
+                next: [
+                    {
+                        text: '-¡Estupendo! Ya puedo volver a trabajar. La posada abrirá de noche',
+                        cb: () => {
+                            this.info.player.inventory.removeObjectByKey('Gafas');
+                            this.completeEvent(10,10);
+                        }
+                    },
+                    {
+                        text: 'Gracias'
+                    }
+                ]
+            },
+            {
+                text: 'Aún no, sigo buscando'
+            }
+        ]
+    }
+}
+
 // condition: function (ref) {
 //     return (ref.info.player.inventory.contains('Rama enferma'))
 // },
