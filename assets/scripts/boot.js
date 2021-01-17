@@ -84,9 +84,9 @@ export default class Boot extends Phaser.Scene {
         this.load.image('sanityBar', './assets/sprites/ui/sanity.png');
         this.load.image('sanityBarBack', './assets/sprites/ui/sanity_back.png');
         this.load.image('faithBar', './assets/sprites/ui/faith.png');
-        this.load.image('keybindQ', './assets/sprites/ui/key_Q.png');
-        this.load.image('keybindE', './assets/sprites/ui/key_E.png');
-        this.load.image('keybindSpace', './assets/sprites/ui/key_Space.png');
+        this.load.image('keybindQ', './assets/sprites/ui/keybind_q.png');
+        this.load.image('keybindE', './assets/sprites/ui/keybind_e.png');
+        this.load.image('keybindSpace', './assets/sprites/ui/keybind_space.png');
         this.load.image('objectiveArrow', './assets/sprites/ui/arrow.png');
 
         // Carga los datos del mapa.
