@@ -4,11 +4,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y, spawnPoint, startingFaith) {
         super(world, x, y, 'player'); //llama a la constructora de Sprite
 
-        /*this.setBody({
-            type: 'fromVertices',
-            verts: [{ x: 5, y: 30 }, { x: 27, y: 30 }, { x: 27, y: 50 }, { x: 5, y: 50 }]
-        });*/
-
         this.setBody({
             type: 'rectangle',
             width: 25,
@@ -30,7 +25,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.decay = 0.2; //velocidad base a la que pierde la cordura
         this.sanityLogThreshold = 20; //umbral a partir del cual aplicamos la pérdida logarítmica
 
-        // this.death = false;
         this.deathState = {
             Alive: 'alive',
             CheckDeath: 'checkDeath',
@@ -95,7 +89,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         }
         else this.stepSound.loop = false;
 
-        this.scene.objectiveMarker.updateObjectiveMarker();
+        //this.scene.objectiveMarker.updateObjectiveMarker();
     }
 
     //Calculo de velocidad con respecto a input

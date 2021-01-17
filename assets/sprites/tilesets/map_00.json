@@ -186,13 +186,24 @@
                 {
                  "height":32,
                  "id":22,
-                 "name":"potion",
+                 "name":"picture",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
                  "x":2672,
                  "y":2656
+                }, 
+                {
+                 "height":32,
+                 "id":30,
+                 "name":"pendant",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2624,
+                 "y":2208
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -229,8 +240,8 @@
          "objects":[
                 {
                  "height":32,
-                 "id":26,
-                 "name":"doctor",
+                 "id":28,
+                 "name":"dad",
                  "properties":[
                         {
                          "name":"num",
@@ -240,80 +251,14 @@
                         {
                          "name":"pause",
                          "type":"int",
-                         "value":6000
+                         "value":10000
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":3012,
-                 "y":2856
-                }, 
-                {
-                 "height":32,
-                 "id":27,
-                 "name":"doctor",
-                 "properties":[
-                        {
-                         "name":"num",
-                         "type":"int",
-                         "value":2
-                        }, 
-                        {
-                         "name":"pause",
-                         "type":"int",
-                         "value":1000
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2804,
-                 "y":2984
-                }, 
-                {
-                 "height":32,
-                 "id":28,
-                 "name":"doctor",
-                 "properties":[
-                        {
-                         "name":"num",
-                         "type":"int",
-                         "value":1
-                        }, 
-                        {
-                         "name":"pause",
-                         "type":"int",
-                         "value":50
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":3044,
-                 "y":3016
-                }, 
-                {
-                 "height":32,
-                 "id":29,
-                 "name":"doctor",
-                 "properties":[
-                        {
-                         "name":"num",
-                         "type":"int",
-                         "value":3
-                        }, 
-                        {
-                         "name":"pause",
-                         "type":"int",
-                         "value":50
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2996,
-                 "y":2920
+                 "x":3040,
+                 "y":3088
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -387,8 +332,8 @@
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":2816,
-                 "y":2760
+                 "x":2848,
+                 "y":2784
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -397,7 +342,7 @@
          "y":0
         }],
  "nextlayerid":21,
- "nextobjectid":30,
+ "nextobjectid":31,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
