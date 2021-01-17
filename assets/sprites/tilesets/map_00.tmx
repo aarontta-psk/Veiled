@@ -66,14 +66,14 @@
   </data>
  </layer>
  <objectgroup id="6" name="collectable">
-  <object id="22" name="picture" x="3055" y="3021" width="32" height="32"/>
+  <object id="22" name="picture" x="3033" y="2945" width="32" height="32"/>
   <object id="30" name="pendant" x="2624" y="2208" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="stimuli">
   <object id="25" name="treeSmell" x="2608" y="512" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="19" name="npcs">
-  <object id="28" name="dad" x="2833" y="2625" width="32" height="32">
+  <object id="28" name="dad" x="2921" y="2664" width="32" height="32">
    <properties>
     <property name="num" type="int" value="0"/>
     <property name="pause" type="int" value="10000"/>
@@ -89,7 +89,7 @@
     <property name="widthBg" type="int" value="1600"/>
    </properties>
   </object>
-  <object id="24" name="spawnPoint" x="2863" y="2945" width="64" height="64">
+  <object id="24" name="spawnPoint" x="2815" y="3008" width="64" height="64">
    <properties>
     <property name="height" type="int" value="0"/>
     <property name="heightBg" type="int" value="0"/>

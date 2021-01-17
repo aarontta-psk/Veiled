@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.4" tiledversion="1.4.3" name="interiorTileset" tilewidth="64" tileheight="64" tilecount="256" columns="16">
- <image source="interiorTileset.png" width="1024" height="1024"/>
+<tileset version="1.4" tiledversion="1.4.3" name="interior" tilewidth="64" tileheight="64" tilecount="256" columns="16">
+ <image source="interior_tileset.png" width="1024" height="1024"/>
  <tile id="0">
   <properties>
    <property name="obstacle" type="bool" value="false"/>
