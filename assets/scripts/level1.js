@@ -60,7 +60,7 @@ export default class Level1 extends NewGameScene {
                 let savedFaith;
                 if (this.info !== undefined && this.info.obtainedFaith !== undefined) savedFaith = this.info.obtainedFaith;
                 else savedFaith = 0;
-                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith);
+                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith,1);
             }
             else if (objeto.name === 'newSect') {
                 let trigger = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
@@ -126,7 +126,7 @@ export default class Level1 extends NewGameScene {
 
         this.objectiveMarker = new ObjectiveMarker(this.matter.world, this.player);
         this.loadObjectives();
-        
+
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
         this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);
@@ -177,20 +177,24 @@ export default class Level1 extends NewGameScene {
             this.onBlindChange();
         });
         this.player.cursorsPlayer.interact.on('down', event => {
-            if(this.auxEventHandler !== null){
+            if (this.auxEventHandler !== null) {
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 let npcEvent = this.auxEventHandler.nextEvent();
-                    if (npcEvent != null)
-                        this.changeScene(npcEvent);
+                if (npcEvent != null)
+                    this.changeScene(npcEvent);
             }
-            else if (this.item != undefined)
-                this.insertItem(this.item);
-            else if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT) {
+            else (this.item != undefined)
+            this.insertItem(this.item);
+        });
+
+        this.player.cursorsPlayer.interactGhost.on('down', event => {
+            if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT) {
                 let silEvent = this.silhouette.nextEvent();
                 if (silEvent != null)
                     this.changeScene(silEvent);
             }
         });
+
         this.player.cursorsPlayer.invToggle.on('down', event => {
             this.gui.toggleInventory();
         });
@@ -227,10 +231,10 @@ export default class Level1 extends NewGameScene {
                     if (cuerpo2.gameObject instanceof Item) {
                         this.item = cuerpo2.gameObject;
                     }
-                    else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor){
+                    else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
                         this.auxEventHandler = cuerpo2.gameObject;
                         console.log("start work")
-                    }       
+                    }
                 }
             });
 
@@ -242,7 +246,7 @@ export default class Level1 extends NewGameScene {
 
                     // //buscamos si sale de un trigger de seccion
                     if (cuerpo2.gameObject instanceof Trigger) this.newSection(cuerpo2.gameObject);
-                    else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor){
+                    else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
                         this.auxEventHandler = null;
                         console.log("end work")
                     }

@@ -23,10 +23,11 @@ export default class Level0 extends NewGameScene {
     create() {
         super.create();
 
+        //maquina de estados para el preludio
         this.preludeState = {
             Talk: 'talk',
             GetItem: 'getItem',
-            UseItemAndBlindfold: 'useItemAndBlindfolf'
+            UseItemAndBlindfold: 'useItemAndBlindfold'
         }
         this.prelude = this.preludeState.Talk;
 
@@ -43,7 +44,7 @@ export default class Level0 extends NewGameScene {
         });
 
         // Asignamos el tileset
-        const tileset = this.map.addTilesetImage('slates', 'tiles');
+        const tileset = this.map.addTilesetImage('interiorTileset', 'interiortiles');
 
         // Creamos layers por debajo del jugador (probablemente deberiamos establecer una profundidad para que todo quede más limpio)
         this.map_zones = this.map.createStaticLayer('map_zones', tileset);
@@ -64,7 +65,7 @@ export default class Level0 extends NewGameScene {
                 let savedFaith;
                 if (this.info !== undefined && this.info.obtainedFaith !== undefined) savedFaith = this.info.obtainedFaith;
                 else savedFaith = 0;
-                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith);
+                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith, 2.2);;
             }
         }
 
@@ -79,13 +80,12 @@ export default class Level0 extends NewGameScene {
                 [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
-        //esta tumbado
-        this.dadNpc.setAngle(90);
 
+        this.dadNpc.setScale(2.2);
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
-        this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);
+        this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.8);
 
         // Creamos más layers por encima del jugador (probablemente deberiamos establecer una profundidad para que todo quede más limpio)
         this.building_03 = this.map.createStaticLayer('building_03', tileset);
@@ -102,22 +102,19 @@ export default class Level0 extends NewGameScene {
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             if (itemPos.name === 'picture') {
-                this.picture = new PictureItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
+                this.picture = new PictureItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[16], this.player);
                 this.itemContainer.push(this.picture);
             }
             else if (itemPos.name === 'pendant') {
-                this.pendant = new PendantItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
+                this.pendant = new PendantItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[14], this.player);
                 this.itemContainer.push(this.pendant);
             }
         }
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
+        this.cameras.main.startFollow(this.player);
+        //this.cameras.main.setBounds(2460, 2580, 600, 600);
 
-        this.cameras.main.setBounds(2460, 2580, 600, 600);
-
-        // this.player.cursorsPlayer.blindfold.on('down', event => {
-        //     this.onBlindChange();
-        // });
         this.player.cursorsPlayer.interact.on('down', event => {
             if (this.auxEventHandler !== null) {
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
@@ -125,20 +122,16 @@ export default class Level0 extends NewGameScene {
                 if (npcEvent != null) {
                     if (this.player.inventory.objects.length === 0)
                         this.prelude = this.preludeState.GetItem;
-                    else
-                        this.prelude = this.preludeState.UseItemAndBlindfold;
+                    this.gui.updateInventory(this.prelude);
                     this.changeScene(npcEvent);
                 }
             }
             else if (this.prelude === this.preludeState.GetItem && this.item !== undefined) {
                 this.insertItem(this.item);
                 this.prelude = this.preludeState.Talk;
+                this.gui.updateInventory(this.prelude);
             }
         });
-        // this.player.cursorsPlayer.invToggle.on('down', event => {
-        //     this.gui.toggleInventory();
-        // });
-        //this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
         this.player.cursorsPlayer.pause.on('down', event => {
             //guardo la info entre escenas y cambio de escena
@@ -181,50 +174,16 @@ export default class Level0 extends NewGameScene {
         this.matter.world.on('collisionend',
             (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
-                    //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
-                    this.item = undefined;
-
+                    if (cuerpo2.gameObject instanceof Item) {
+                        //desasignamos el item en el que estuviese
+                        this.item = undefined;
+                    }
                     if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
                         this.auxEventHandler = null;
                         console.log("end work")
                     }
                 }
             });
-
-
-        // this.scene.scene.cameras.main.on('camerafadeoutcomplete', event => {
-        //     if (this.player.death === this.player.deathState.CheckDeath) {
-        //         this.changeScene('deathEvent_0');
-        //         this.cameras.main.fadeIn(2000);
-        //         this.player.enableInputs(true);
-        //     }
-        //     console.log("outComplete")
-        // });
-
-        // this.scene.scene.cameras.main.on('camerafadeincomplete', event => {
-        //     console.log("inComplete")
-        // });
-
-        // this.events.on('wake', event => {
-        //     //la musica vuelve a sonar
-        //     this.sound.play('mainTheme', {
-        //         mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
-        //     });
-
-        //     if (this.player !== undefined && this.player.death === this.player.deathState.Dead) {
-        //         this.player.die();
-        //     }
-        //     else {
-        //         if (this.player.death === this.player.deathState.CheckDeath) {
-        //             this.player.addSanity(this.player.maxSanity / 2);
-        //             this.deathBlindfold();
-        //             this.player.setAlive();
-        //         }
-        //         else {
-        //             if (!this.blindfold.blind) this.onBlindChange();
-        //         }
-        //     }
-        // });
 
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
@@ -233,19 +192,25 @@ export default class Level0 extends NewGameScene {
     update(time, delta) {
         super.update();
 
-        this.player.sanity = 100;
+        if (this.player.sanity < 50)
+            this.player.sanity = 50;
 
         this.stateChanging();
     }
 
     stateChanging() {
+        if (this.prelude === this.preludeState.Talk && this.player.faith === 20) {
+            this.prelude = this.preludeState.UseItemAndBlindfold
+            this.gui.updateInventory(this.prelude);
+        }
         if (this.prelude === this.preludeState.UseItemAndBlindfold) {
             if (this.player.cursorsPlayer.invToggle.isDown & !this.gui.backgroundInventory.visible) {
                 this.gui.toggleInventory();
             }
-            else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 0) {
+            else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 20) {
                 this.blindfold.setBlindfold();
                 this.prelude = this.preludeState.Talk;
+                this.gui.updateInventory(this.prelude);
             }
         }
     }

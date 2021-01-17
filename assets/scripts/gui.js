@@ -7,9 +7,12 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.depth = 10;
 
         //Keybinds
+        this.addTooltip('keybindSpace', 'BLINDFOLD', 743, 30, 699, 50, 0.5);
         this.addTooltip('keybindQ', 'INVENTORY', 773, 95, 665, 85, 0.6);
         this.addTooltip('keybindE', 'INTERACT', 773, 135, 675, 125, 0.6);
-        this.addTooltip('keybindSpace', 'BLINDFOLD', 743, 30, 699, 50, 0.5);
+        if (this.scene.scene.key !== 'level0')
+            this.addTooltip('keybindR', 'HABLA CON TU PADRE', 773, 175, 580, 165, 0.6);
+        else this.preludeTooltips();
 
         //Inventario
         this.inventoryRef = player.inventory;
@@ -36,7 +39,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.add(this.faithBack);
         this.faithBar = this.scene.add.image(150, 80, 'faithBar').setScrollFactor(0);
         this.add(this.faithBar);
-        
+
         //Fe maxima = 80*nivel completado + 20*evento secundario (3 por nivel) = 240 + 180 = 420 (noice)
         this.faithTop = 420;
         this.hideFaith();
@@ -46,26 +49,26 @@ export default class GUI extends Phaser.GameObjects.Container {
     //modificacion del texto del item seleccionado en GUI
     setInfoText(text) {
         this.itemText.setText(text);
-    }    
+    }
 
     //activar/desactivar inventario
     toggleInventory() {
         this.isVisible = !this.isVisible;
         this.backgroundInventory.setVisible(this.isVisible);
         this.updateInventory();
-        if(this.isVisible) this.scene.sound.play('sfxOpenInventory');
+        if (this.isVisible) this.scene.sound.play('sfxOpenInventory');
         else this.scene.sound.play('sfxCloseInventory');
     }
 
     //mostrar brevemente la barra de fe
-    viewFaith(faith){
+    viewFaith(faith) {
         this.faithBack.setVisible(true);
         this.faithBar.setVisible(true);
         this.faithBar.scaleX = faith / this.faithTop;
         this.scene.time.delayedCall(4000, this.hideFaith, null, this);
     }
 
-    hideFaith(){
+    hideFaith() {
         this.faithBack.setVisible(false);
         this.faithBar.setVisible(false);
     }
@@ -103,9 +106,9 @@ export default class GUI extends Phaser.GameObjects.Container {
     updateSanityBar(sanity) {
         this.sanityBar.scaleX = sanity / this.sanityTop;
     }
-    
+
     //metodo para crear tooltips en la intefaz
-    addTooltip(keybind, text, x, y, xText, yText, scale){
+    addTooltip(keybind, text, x, y, xText, yText, scale) {
         let key = this.scene.add.image(x, y, keybind).setScrollFactor(0).setScale(scale);
         let keyText = this.scene.add.text(xText, yText, text, {
             fontFamily: 'Neucha',
@@ -116,5 +119,23 @@ export default class GUI extends Phaser.GameObjects.Container {
     }
 
     //metodo para activar tooltips en el tutorial
-    
+    preludeTooltips() {
+        this.itemTooltip = this.scene.add.image(212, 60, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
+        this.arrowTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
+    }
+
+    updateGUIPrelude(key) {
+        if (key === "talk") {
+            this.itemTooltip.setVisible(false);
+            this.arrowTooltip.setVisible(false);
+        }
+        else if (key === "getItem") {
+            this.itemTooltip.setVisible(true);
+            this.arrowTooltip.setVisible(false);
+        }
+        else if (key === "useItemAndBlindfold") {
+            this.itemTooltip.setVisible(false);
+            this.arrowTooltip.setVisible(true);
+        }
+    }
 }

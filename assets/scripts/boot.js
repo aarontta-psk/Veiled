@@ -39,6 +39,8 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('vagabond', './assets/sprites/spritesheets/vagabond_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('dad', './assets/sprites/spritesheets/dad_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
 
         this.load.spritesheet('ghost', './assets/sprites/spritesheets/oldman_sheet.png',
             { frameWidth: 128, frameHeight: 128 });
@@ -86,6 +88,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('faithBar', './assets/sprites/ui/faith.png');
         this.load.image('keybindQ', './assets/sprites/ui/keybind_q.png');
         this.load.image('keybindE', './assets/sprites/ui/keybind_e.png');
+        this.load.image('keybindR', './assets/sprites/ui/keybind_r.png');
         this.load.image('keybindSpace', './assets/sprites/ui/keybind_space.png');
         this.load.image('objectiveArrow', './assets/sprites/ui/arrow.png');
 
@@ -96,6 +99,7 @@ export default class Boot extends Phaser.Scene {
 
         // Carga el tileset que contiene las texturas del mapa.
         this.load.image('tiles', './assets/sprites/tilesets/slates64Tileset.png');
+        this.load.image('interiortiles', './assets/sprites/tilesets/interiorTileset.png');
 
         // Carga los items incluidos en la escena        
         this.load.atlas('items', './assets/sprites/items/items.png', 'assets/sprites/items/items_atlas.json');
@@ -137,9 +141,10 @@ export default class Boot extends Phaser.Scene {
         this.createAnims('seller', 4);
         this.createAnims('tavern', 4);
         this.createAnims('vagabond', 4);
+        this.createAnims('dad', 4);
 
-        this.tooltipAnims('itemTooltip', 2000)
-        this.tooltipAnims('npcTooltip', 2000)
+        this.tooltipAnims('itemTooltip', 1)
+        this.tooltipAnims('npcTooltip', 1)
 
         this.anims.create({
             key: 'idle_ghost',
