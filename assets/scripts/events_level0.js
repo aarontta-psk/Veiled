@@ -81,7 +81,7 @@ export class dad_Event_2 extends eventScene {
                 text: "Claro, padre",
                 cb: () => {
                     if (!this.info.player.inventory.contains('Colgante') && !this.info.blindfold.blind) {
-                        this.content[3].next = [
+                        this.content[1].next = [
                             {
                                 text: 'María, mi ultimo deseo es verte en tu máximo esplendor.'
                                     + ' Por favor, ponte el colgante y dejame ver tus ojos por ultima vez'
@@ -92,7 +92,7 @@ export class dad_Event_2 extends eventScene {
                         ]
                     }
                     else {
-                        this.content[3].next = [
+                        this.content[1].next = [
                             {
                                 text: '¿Ah! Que suerte que heredaste la belleza de tu madre. Que alegría poder ver esos ojos '
                                     + 'por última vez. Como deseo que puedas observar las maravillas de este mundo ahora que puedes'

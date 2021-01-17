@@ -1,6 +1,6 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, { PotionItem, KaleidoscopeItem, SketchItem, SickTreeItem, StampItem, BlessingItem, PositiveWordItem, OffensiveWordItem, SacredFireItem, AvoidDeathItem, LessDeathItem } from './item.js';
+import Item, { PictureItem, PendantItem} from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
@@ -63,20 +63,17 @@ export default class Level0 extends NewGameScene {
 
         this.gui = new GUI(this, 0, 0, this.player);
 
-        //PRUEBAS DE ESTIMULOS
-        this.smellParticle = this.add.particles('smellCloud');
         this.soundParticle = this.add.particles('soundCircle');
-
-        //no es necesario pasar estos atributos como parametros, pero ayuda a la claridad
-        this.generateStimulus(this.smellParticle, this.soundParticle);
 
         // Añado un npc de prueba en un array
         this.npcs = [
             this.dadNpc = this.generateNPC(
-                'doctor',
+                'dad',
                 [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
+        this.dadNpc.setAngle(90).setStatic(true);
+
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
@@ -96,30 +93,20 @@ export default class Level0 extends NewGameScene {
         this.itemContainer = [];
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
-            if (itemPos.name === 'potion') {
-                this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
-                this.itemContainer.push(this.potion);
-                //TESTEO DE ITEMS, NO BORRAR
-                // this.TESTING = new LessDeathItem(this.matter.world, this.player.x + 250, this.player.y, this.itemFrames[0], this.player);
-                // this.itemContainer.push(this.TESTING);
+            if (itemPos.name === 'picture') {
+                this.picture = new PictureItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
+                this.itemContainer.push(this.picture);
             }
-            //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
-            else if (itemPos.name === 'coin') {
-                this.coin = new KaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[4], this.player);
-                this.itemContainer.push(this.coin);
-            }
-            else if (itemPos.name === 'sketch') {
-                this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[10], this.player);
-                this.itemContainer.push(this.sketch);
+            else if (itemPos.name === 'pendant'){
+                this.pendant = new PendantItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
+                this.itemContainer.push(this.pendant);
             }
         }
-        let sickTree = new SickTreeItem(this.matter.world, 0, 0, this.itemFrames[10], this.player)
-        this.itemContainer.push(sickTree);
+        this.itemContainer;
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
 
         this.cameras.main.setBounds(2460, 2580, 600, 600);
-
 
         this.player.cursorsPlayer.blindfold.on('down', event => {
             this.onBlindChange();
@@ -127,6 +114,7 @@ export default class Level0 extends NewGameScene {
         this.player.cursorsPlayer.interact.on('down', event => {
             if (this.item != undefined)
                 this.insertItem(this.item);
+                console.log(this.player.inventory);
         });
         // this.player.cursorsPlayer.invToggle.on('down', event => {
         //     this.gui.toggleInventory();
