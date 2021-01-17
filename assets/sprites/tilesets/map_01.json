@@ -655,6 +655,28 @@
                  "width":32,
                  "x":4240,
                  "y":2208
+                }, 
+                {
+                 "height":32,
+                 "id":46,
+                 "name":"elder",
+                 "properties":[
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"pause",
+                         "type":"int",
+                         "value":100
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2528,
+                 "y":4192
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -802,7 +824,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":46,
+ "nextobjectid":48,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
