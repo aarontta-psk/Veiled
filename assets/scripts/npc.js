@@ -14,7 +14,7 @@ export default class Npc extends EventHandler {
         });
         this.setExistingBody(actualThing);
 
-        this.range = 60;
+        this.range = 120;
 
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
@@ -30,7 +30,7 @@ export default class Npc extends EventHandler {
     }
 
     preUpdate(time, delta) {
-        super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
+        super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)       
 
         if (this.scene.blindfold.blind) {
             if ((Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.range))
