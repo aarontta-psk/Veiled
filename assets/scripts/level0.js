@@ -47,8 +47,6 @@ export default class Level0 extends NewGameScene {
         this.building_01 = this.map.createStaticLayer('building_01', tileset);
         this.building_02 = this.map.createStaticLayer('building_02', tileset);
 
-
-        this.triggersToSect = [];
         // Spawnea al player en un punto definido en Tiled.
         // En Tiled tiene que haber una capa de objetos llamada 'capaObjetos'
         for (const objeto of this.map.getObjectLayer('objectLayer').objects) {
@@ -61,21 +59,9 @@ export default class Level0 extends NewGameScene {
                 else savedFaith = 0;
                 this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith);
             }
-            else if (objeto.name === 'newSect') {
-                let trigger = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
-                trigger.info = [objeto.properties[0].value, objeto.properties[1].value,
-                objeto.properties[2].value, objeto.properties[3].value];
-                trigger.newBounds = trigger.info;
-                this.triggersToSect.push(trigger);
-            }
         }
 
         this.gui = new GUI(this, 0, 0, this.player);
-
-        for (const objeto of this.triggersToSect) {
-            objeto.info2 = [this.spawnpoint.properties[0].value, this.spawnpoint.properties[1].value,
-            this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
-        }
 
         //PRUEBAS DE ESTIMULOS
         this.smellParticle = this.add.particles('smellCloud');
@@ -89,7 +75,7 @@ export default class Level0 extends NewGameScene {
             this.doctorNpc = this.generateNPC(
                 'doctor',
                 [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
-            )            
+            )
         ];
 
         this.silhouette = new Silhouette(this.matter.world, 750, 550,
@@ -135,10 +121,7 @@ export default class Level0 extends NewGameScene {
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
 
-        const height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
-            width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
-        this.cameras.main.startFollow(this.player);
-        //this.cameras.main.setBounds(widthBg, heightBg, width, height);
+        this.cameras.main.setBounds(2460, 2580, 600, 600);
 
 
         this.player.cursorsPlayer.blindfold.on('down', event => {

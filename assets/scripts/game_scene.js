@@ -114,7 +114,7 @@ export default class GameScene extends Phaser.Scene {
     //metodo para cambiar de escena pasando informacion y sin detener la escena actual
     changeScene(newScene) {
         //guardo la info entre escenas y cambio de escena
-        this.infoNextScene = { player: this.player, prevScene: this };
+        this.infoNextScene = { player: this.player, prevScene: this, blindfold: this.blindfold };
         //paro la musica
         this.sound.stopAll();
         this.scene.sleep();

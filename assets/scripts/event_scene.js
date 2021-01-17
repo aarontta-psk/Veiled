@@ -21,7 +21,6 @@ export default class eventScene extends Phaser.Scene {
             group.add(optionText);
             distancia += 75;
 
-
             //llamo a un callback en caso de que sea pulsado
             optionText.on('pointerdown', () => {
                 this.sound.play('sfxClick');
