@@ -65,7 +65,7 @@ export default class Level0 extends NewGameScene {
                 let savedFaith;
                 if (this.info !== undefined && this.info.obtainedFaith !== undefined) savedFaith = this.info.obtainedFaith;
                 else savedFaith = 0;
-                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith,2);;
+                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith, 2.2);;
             }
         }
 
@@ -80,12 +80,12 @@ export default class Level0 extends NewGameScene {
                 [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
-        //esta tumbado
-        this.dadNpc.setAngle(90);
+
+        this.dadNpc.setScale(2.2);
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
-        this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.4);
+        this.vision = this.add.image(x, y, 'vision').setVisible(false).setScale(0.8);
 
         // Creamos más layers por encima del jugador (probablemente deberiamos establecer una profundidad para que todo quede más limpio)
         this.building_03 = this.map.createStaticLayer('building_03', tileset);
