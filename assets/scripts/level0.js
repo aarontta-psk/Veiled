@@ -43,7 +43,7 @@ export default class Level0 extends NewGameScene {
         });
 
         // Asignamos el tileset
-        const tileset = this.map.addTilesetImage('slates', 'tiles');
+        const tileset = this.map.addTilesetImage('interiorTileset', 'interiortiles');
 
         // Creamos layers por debajo del jugador (probablemente deberiamos establecer una profundidad para que todo quede más limpio)
         this.map_zones = this.map.createStaticLayer('map_zones', tileset);
@@ -64,7 +64,7 @@ export default class Level0 extends NewGameScene {
                 let savedFaith;
                 if (this.info !== undefined && this.info.obtainedFaith !== undefined) savedFaith = this.info.obtainedFaith;
                 else savedFaith = 0;
-                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith);
+                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith,2);;
             }
         }
 
@@ -112,8 +112,8 @@ export default class Level0 extends NewGameScene {
         }
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
-
-        this.cameras.main.setBounds(2460, 2580, 600, 600);
+        this.cameras.main.startFollow(this.player);
+        //this.cameras.main.setBounds(2460, 2580, 600, 600);
 
         // this.player.cursorsPlayer.blindfold.on('down', event => {
         //     this.onBlindChange();

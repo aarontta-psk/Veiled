@@ -1,7 +1,7 @@
 import Inventory from './inventory.js';
 
 export default class Player extends Phaser.Physics.Matter.Sprite {
-    constructor(world, x, y, spawnPoint, startingFaith) {
+    constructor(world, x, y, spawnPoint, startingFaith, scale) {
         super(world, x, y, 'player'); //llama a la constructora de Sprite
 
         this.setBody({
@@ -13,10 +13,11 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this); //lo añado a las fisicas de Matter
 
+        this.setScale(scale);
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
         this.setFixedRotation(0); //quitamos rotacion
-        this.setMass(1);
+        this.setMass(1);        
 
         this.speed = 3; //velocidad
 

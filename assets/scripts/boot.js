@@ -97,6 +97,7 @@ export default class Boot extends Phaser.Scene {
 
         // Carga el tileset que contiene las texturas del mapa.
         this.load.image('tiles', './assets/sprites/tilesets/slates64Tileset.png');
+        this.load.image('interiortiles', './assets/sprites/tilesets/interiorTileset.png');
 
         // Carga los items incluidos en la escena        
         this.load.atlas('items', './assets/sprites/items/items.png', 'assets/sprites/items/items_atlas.json');
