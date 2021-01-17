@@ -75,11 +75,12 @@ export default class Level0 extends NewGameScene {
         // Añado un npc de prueba en un array
         this.npcs = [
             this.dadNpc = this.generateNPC(
-                'dad',
+                'dad', true,
                 [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
-        this.dadNpc.setAngle(90).setStatic(true);
+        //esta tumbado
+        this.dadNpc.setAngle(90);
 
 
         // Colocamos la vision en la posicion del jugador

@@ -192,7 +192,7 @@
   <object id="46" name="elder" x="2519.33" y="4189.33" width="32" height="32">
    <properties>
     <property name="num" type="int" value="0"/>
-    <property name="pause" type="int" value="99999"/>
+    <property name="pause" type="int" value="5000"/>
    </properties>
   </object>
   <object id="60" name="hungryKid" x="2624" y="3072">

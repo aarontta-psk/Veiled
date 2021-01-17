@@ -71,7 +71,7 @@ export default class eventScene extends Phaser.Scene {
 
     completeEvent(sanityToAdd, faithToAdd) {
         this.info.player.addSanity(sanityToAdd);
-        this.info.player.addFaith(faithToAdd);
+        if(faithToAdd !== 0) this.info.player.addFaith(faithToAdd);
         this.info.player.numCompletedEvents++;
         this.completed = true;
         this.sound.play('sfxFaithUp')
