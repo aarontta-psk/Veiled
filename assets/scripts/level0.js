@@ -72,14 +72,11 @@ export default class Level0 extends NewGameScene {
 
         // Añado un npc de prueba en un array
         this.npcs = [
-            this.doctorNpc = this.generateNPC(
+            this.dadNpc = this.generateNPC(
                 'doctor',
-                [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
+                [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
-
-        this.silhouette = new Silhouette(this.matter.world, 750, 550,
-            [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('maxFaithEvent_0')]);
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
@@ -130,16 +127,11 @@ export default class Level0 extends NewGameScene {
         this.player.cursorsPlayer.interact.on('down', event => {
             if (this.item != undefined)
                 this.insertItem(this.item);
-            else if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT) {
-                let silEvent = this.silhouette.nextEvent();
-                if (silEvent != null)
-                    this.changeScene(silEvent);
-            }
         });
-        this.player.cursorsPlayer.invToggle.on('down', event => {
-            this.gui.toggleInventory();
-        });
-        this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
+        // this.player.cursorsPlayer.invToggle.on('down', event => {
+        //     this.gui.toggleInventory();
+        // });
+        //this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
         this.player.cursorsPlayer.pause.on('down', event => {
             //guardo la info entre escenas y cambio de escena
@@ -178,9 +170,6 @@ export default class Level0 extends NewGameScene {
                 if (cuerpo1.gameObject === this.player) {
                     //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
                     this.item = undefined;
-
-                    // //buscamos si sale de un trigger de seccion
-                    if (cuerpo2.gameObject instanceof Trigger) this.newSection(cuerpo2.gameObject);
                 }
             });
 
@@ -237,5 +226,7 @@ export default class Level0 extends NewGameScene {
 
     update(time, delta) {
         super.update();
+
+        this.player.sanity = 100;
     }
 }

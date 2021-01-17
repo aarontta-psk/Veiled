@@ -7,7 +7,7 @@ export class dad_Event_0 extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'Tras duros meses de batalla, intentando acabar con los dolores que su enfermedad le causaba,' +
+                text: 'Tras duros meses de batalla, intentando acabar con los dolores que su enfermedad le causaba, ' +
                     'ves como tu padre esta tendido en su cama, augurando el momento en el que todo esto acabe.\n' +
                     '-Ay, María, ya me queda poco tiempo en este pueblo que tanto aprecio. Jamas perdonaré a esta enfermedad ' +
                     'por privarme de poder verte más. Te pido un ultimo favor antes de irme, ¿podrias traerme la foto que está al lado de la mesa?',
@@ -20,9 +20,9 @@ export class dad_Event_0 extends eventScene {
     }
 }
 
-export class dad_Event1 extends eventScene {
+export class dad_Event_1 extends eventScene {
     constructor() {
-        super({ key: 'dad_Event_0' });
+        super({ key: 'dad_Event_1' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
@@ -58,7 +58,7 @@ export class dad_Event1 extends eventScene {
                 next: [
                     {
                         text: 'Por favor, apresurate, que no se cuanto aguantaré con este dolor.'
-                    }
+                    },
                     {
                         text: 'Vale, padre'
                     }
@@ -68,47 +68,57 @@ export class dad_Event1 extends eventScene {
     }
 }
 
-export class dad_Event2 extends eventScene {
+export class dad_Event_2 extends eventScene {
     constructor() {
-        super({ key: 'dad_Event_0' });
+        super({ key: 'dad_Event_2' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
-        this.content = undefined;
-        if(!this.info.player.inventory.contains('Colgante') && !this.info.blindfold.blind){
-            this.content = [
-                {
-                    text: 'María, mi ultimo deseo es verte en tu máximo esplendor.'
-                    + ' Por favor, ponte el colgante y dejame ver tus ojos por ultima vez'
-                },
-                {
-                    text: 'Vale, padre'
+        this.content = [
+            {
+                text: "María, ¿has hecho lo que te pedí?"
+            },
+            {
+                text: "Claro, padre",
+                cb: () => {
+                    if (!this.info.player.inventory.contains('Colgante') && !this.info.blindfold.blind) {
+                        this.content[3].next = [
+                            {
+                                text: 'María, mi ultimo deseo es verte en tu máximo esplendor.'
+                                    + ' Por favor, ponte el colgante y dejame ver tus ojos por ultima vez'
+                            },
+                            {
+                                text: 'Vale, padre'
+                            }
+                        ]
+                    }
+                    else {
+                        this.content[3].next = [
+                            {
+                                text: '¿Ah! Que suerte que heredaste la belleza de tu madre. Que alegría poder ver esos ojos '
+                                    + 'por última vez. Como deseo que puedas observar las maravillas de este mundo ahora que puedes'
+                                    + ' verlas por primera vez.\nCreo que ya ha llegado mi hora. María, quiero que sepas que siempre os he querido'
+                                    + ' tanto a ti como a toda la familia con todas mis fuerzas. Espero que tenga una gran vida por delante.',
+                            },
+                            {
+                                text: '...Padre',
+                                cb: () => {
+                                    this.completeEvent(0, 100);
+                                    //este evento no cuenta para el numero de eventos completados
+                                    this.info.player.numCompletedEvents--;
+                                    this.scene.stop();
+                                    this.scene.run('infoLevel', {
+                                        obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
+                                        mainText: 'Apesadumbrada, te aferra a la venda que nunca te enseño '
+                                            + 'los horrores del mundo fisico, pero las últimas palabras de tu padre quedan grabadas en tu mente, '
+                                            + 'influenciando tus pensamientos e ideales.'
+                                    })
+                                },
+                                end: true
+                            }
+                        ]
+                    }
                 }
-            ]
-        }
-        else{
-            this.content = [
-                {
-                    text: '¿Ah! Que suerte que heredaste la belleza de tu madre. Que alegría poder ver esos ojos '
-                    + 'por última vez. Como deseo que puedas observar las maravillas de este mundo ahora que puedes'
-                    +' verlas por primera vez.\nCreo que ya ha llegado mi hora. María, quiero que sepas que siempre os he querido'
-                    + ' tanto a ti como a toda la familia con todas mis fuerzas. Espero que tenga una gran vida por delante.',
-                },
-                {
-                    text: '...Padre',
-                    cb: () => {
-                        this.completeEvent(0, 100);
-                        //este evento no cuenta para el numero de eventos completados
-                        this.info.player.numCompletedEvents--;
-                        this.scene.stop();
-                        this.scene.run('infoLevel', { obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
-                        mainText: 'Apesadumbrada, te aferra a la venda que nunca te enseño'
-                        + 'los horrores del mundo fisico, pero las últimas palabras de tu padre quedan grabadas en tu mente,'
-                        + ' influenciando'
-                    })
-                    },
-                    end: true
-                },
-            ]
-
-        }
+            }
+        ]
+    }
 }
