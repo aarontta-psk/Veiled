@@ -1,4 +1,4 @@
-class eventScene extends Phaser.Scene {
+export default class eventScene extends Phaser.Scene {
     init(data) {
         this.info = data;
     }
@@ -26,7 +26,7 @@ class eventScene extends Phaser.Scene {
             optionText.on('pointerdown', () => {
                 this.sound.play('sfxClick');
                 if (options[i].condition === undefined || (options[i].condition !== undefined && options[i].condition(this))) {
-                    options[i].cb();
+                    if(options[i].cb === undefined) options[i].cb();
                     if(options[i].end === undefined){
                         //si el evento continua, se llama de nuevo a la funcion
                         if (options[i].next !== undefined) this.layout(options[i].next, group);
