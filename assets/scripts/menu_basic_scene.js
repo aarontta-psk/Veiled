@@ -56,10 +56,17 @@ export default class menuBasicScene extends Phaser.Scene{
         });
     }
 
-    returnToMenuButton(x,y, scale, info){
+    returnToMenuButton(x,y, scale){
         return this.createButton(x,y, scale, 'pauseMenuToMainMenu', function(ref){
             ref.sound.stopAll();
             ref.scene.start('mainMenuScene');
+        });
+    }
+    
+    goToSceneButton(x,y, scale, textureKey, nextScene){
+        return this.createButton(x,y, scale, textureKey, function(ref){
+            ref.sound.stopAll();
+            ref.scene.start(nextScene);
         });
     }
 }

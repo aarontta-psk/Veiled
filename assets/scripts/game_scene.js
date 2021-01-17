@@ -9,20 +9,13 @@ export default class GameScene extends Phaser.Scene {
 
     preload() {
         // Carga el plugin para las tiles animadas
-        this.load.scenePlugin('AnimatedTiles', './assets/plugins/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');
+        this.load.scenePlugin('AnimatedTiles', './assets/plugins/animated_tiles.js', 'animatedTiles', 'animatedTiles');
     }
 
     create() {
         this.scene.bringToTop();
         // Desactivamos gravedad
-        this.matter.world.disableGravity();
-        
-        // Creamos un mapa a partir de los datos en cache
-        this.map = this.make.tilemap({
-            key: 'map',
-            tileWidth: 64,
-            tileHeight: 64
-        });
+        this.matter.world.disableGravity();        
     }
 
     update(time, delta) {

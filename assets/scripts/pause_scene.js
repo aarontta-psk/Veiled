@@ -14,8 +14,8 @@ export default class pauseScene extends menuBasicScene {
         let background = this.add.image(0, 0, 'pauseMenu').setOrigin(0);
         background.setPosition(this.cameras.main.centerX - background.width/2, this.cameras.main.centerY - background.height/2);
 
-        const resume = this.returnButton(this.cameras.main.centerX, this.cameras.main.centerY -40, 1, this.info);
-        const exit = this.returnToMenuButton(this.cameras.main.centerX, this.cameras.main.centerY + 30, 1, this.info);
+        const resume = this.returnButton(this.cameras.main.centerX, this.cameras.main.centerY -40, 0.5, this.info).setScale(0.5);
+        const exit = this.returnToMenuButton(this.cameras.main.centerX, this.cameras.main.centerY + 30, 0.5, this.info).setScale(0.5);
         const options = this.optionsButton(this.cameras.main.centerX, this.cameras.main.centerY + 100, 0.5).setScale(0.5);
     }
 }

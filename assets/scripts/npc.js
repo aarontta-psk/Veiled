@@ -19,7 +19,7 @@ export default class Npc extends EventHandler {
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
         this.setFixedRotation(0); //quitamos rotacion
-        console.log(this.body);
+        this.setMass(1000);
 
         this.path = path;   //array de puntos del recorrido tres valores: x, y, t(el tiempo de pausa cuando se llega al punto)
         this.nextPathPoint = 0;    //el indice del array de puntos del recorrido al que nos dirigimos siguiente

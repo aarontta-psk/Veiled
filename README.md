@@ -11,9 +11,7 @@
 
 ![Descripción](./assets/media/headers/h_descripcion.png)
 
-_**Veiled**_ es un juego de exploración y mazmorras en perspectiva isométrica, en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva.
-
-Esta protagonista lleva asiduamente una venda, ya que, tras recuperarse de su ceguera, sufrió una serie de acontecimientos perturbadores, lo que le llevaron a repudiar el mundo físico visible. Esto le motiva a avanzar en su búsqueda, para poder obtener la paz interna. Para ello, deberá cumplir una serie de objetivos a modo de eventos (de texto o físicos) que le permitirán avanzar tanto en el propio mapa, como a los distintos niveles, hasta alcanzar el final.
+_**Veiled**_ es un juego de exploración en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva. Durante la exploración, la protagonista llevará una venda puesta, que no le permitirá ver de manera correcta el mundo que le rodea. Así, a lo largo de los eventos obtendrá fe, lo que le podrá permitir avanzar en los niveles (y por tanto en su bsuqueda), pero si pierde toda su fe perderá el nivel. Además, la cordura de la protagonista obligará al jugador a manejar correctamente.
 
 ![Game screen](./assets/media/game_screen.png)
 

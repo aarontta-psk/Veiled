@@ -3,15 +3,44 @@ export default class Boot extends Phaser.Scene {
 
     preload() {
         // Carga de datos de juego
-        this.load.spritesheet('player', './assets/sprites/player_sheet.png',
+        this.load.spritesheet('player', './assets/sprites/spritesheets/player_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('lumberjack', './assets/sprites/lumberjack_sheet.png',
+        this.load.spritesheet('boatofficial', './assets/sprites/spritesheets/boatofficial_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('painter', './assets/sprites/painter_sheet.png',
+        this.load.spritesheet('brother', './assets/sprites/spritesheets/brother_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('doctor', './assets/sprites/doctor_sheet.png',
+        this.load.spritesheet('captain', './assets/sprites/spritesheets/captain_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('ghost', './assets/sprites/oldman_sheet.png',
+        this.load.spritesheet('child', './assets/sprites/spritesheets/child_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('doctor', './assets/sprites/spritesheets/doctor_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('dude', './assets/sprites/spritesheets/dude_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('elder', './assets/sprites/spritesheets/elder_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('farmer', './assets/sprites/spritesheets/farmer_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('fisherman', './assets/sprites/spritesheets/fisherman_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('foreigner', './assets/sprites/spritesheets/foreigner_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('husband', './assets/sprites/spritesheets/husband_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('lumberjack', './assets/sprites/spritesheets/lumberjack_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('painter', './assets/sprites/spritesheets/painter_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('police', './assets/sprites/spritesheets/policewoan_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('seller', './assets/sprites/spritesheets/seller_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('tavern', './assets/sprites/spritesheets/tavern_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('vagabond', './assets/sprites/spritesheets/vagabond_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
+
+        this.load.spritesheet('ghost', './assets/sprites/spritesheets/oldman_sheet.png',
             { frameWidth: 128, frameHeight: 128 });
 
         this.load.image('itemFX', './assets/sprites/item_fx.png');
@@ -31,15 +60,14 @@ export default class Boot extends Phaser.Scene {
         this.load.image('pauseMenu', './assets/sprites/ui/pause_menu.png');
         this.load.image('pauseMenuResume', './assets/sprites/ui/resume_button.png');
         this.load.image('pauseMenuToMainMenu', './assets/sprites/ui/menu_button.png');
-        this.load.image('pauseMenuSettings', './assets/sprites/ui/settings_button_small.png');
         this.load.image('back', './assets/sprites/ui/back_button.png');
         this.load.image('mainMenu', './assets/sprites/ui/main_menu.png')
         this.load.image('mainMenuPlay', './assets/sprites/ui/play_button.png');
         this.load.image('mainMenuSettings', './assets/sprites/ui/settings_button.png');
         this.load.image('mainMenuLevels', './assets/sprites/ui/levels_button.png');
+        this.load.image('mainMenuLevel00', './assets/sprites/ui/level_00_button.png');
         this.load.image('mainMenuLevel01', './assets/sprites/ui/level_01_button.png');
         this.load.image('mainMenuLevel02', './assets/sprites/ui/level_02_button.png');
-        this.load.image('mainMenuLevel03', './assets/sprites/ui/level_03_button.png');
         this.load.image('settingsMenu', './assets/sprites/ui/settings_menu.png');
         this.load.image('scoreMenu', './assets/sprites/ui/score_menu.png');
         this.load.spritesheet('volume', './assets/sprites/ui/volume.png',
@@ -62,7 +90,9 @@ export default class Boot extends Phaser.Scene {
         this.load.image('objectiveArrow', './assets/sprites/ui/arrow.png');
 
         // Carga los datos del mapa.
-        this.load.tilemapTiledJSON('map', './assets/sprites/tilesets/map_01.json');
+        this.load.tilemapTiledJSON('map00', './assets/sprites/tilesets/map_00.json');
+        this.load.tilemapTiledJSON('map01', './assets/sprites/tilesets/map_01.json');
+        this.load.tilemapTiledJSON('map02', './assets/sprites/tilesets/map_02.json');
 
         // Carga el tileset que contiene las texturas del mapa.
         this.load.image('tiles', './assets/sprites/tilesets/slates64Tileset.png');
@@ -90,9 +120,23 @@ export default class Boot extends Phaser.Scene {
     create() {
         //creacion de animaciones
         this.createAnims('player', 8);
-        this.createAnims('painter', 4);
+        this.createAnims('boatofficial', 4);
+        this.createAnims('brother', 4);
+        this.createAnims('captain', 4);
+        this.createAnims('child', 4);
         this.createAnims('doctor', 4);
+        this.createAnims('dude', 4);
+        this.createAnims('elder', 4);
+        this.createAnims('farmer', 4);
+        this.createAnims('fisherman', 4);
+        this.createAnims('foreigner', 4);
+        this.createAnims('husband', 4);
         this.createAnims('lumberjack', 4);
+        this.createAnims('painter', 4);
+        this.createAnims('police', 4);
+        this.createAnims('seller', 4);
+        this.createAnims('tavern', 4);
+        this.createAnims('vagabond', 4);
 
         this.tooltipAnims('itemTooltip', 3)
         this.tooltipAnims('npcTooltip', 3)
@@ -109,15 +153,16 @@ export default class Boot extends Phaser.Scene {
         // Cargamos las webfonts que se van a usar
         WebFont.load({
             google: {
-                families: [ 'Neucha' ]
+                families: ['Neucha']
             },
             active: function () // se llama a esta función cuando está cargada
             {
                 // Inicializacion de la escena de juego
                 ref.scene.stop();
                 ref.scene.run('mainMenuScene');
-            }});
-       
+            }
+        });
+
     }
 
     tooltipAnims(key, speed) {

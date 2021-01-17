@@ -23,6 +23,13 @@ export default class Level2 extends NewGameScene {
     create() {
         super.create();
 
+        // Creamos un mapa a partir de los datos en cache
+        this.map = this.make.tilemap({
+            key: 'map02',
+            tileWidth: 64,
+            tileHeight: 64
+        });
+
         //sonidos
         this.sound.play('mainTheme', {
             mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
@@ -82,15 +89,7 @@ export default class Level2 extends NewGameScene {
             this.doctorNpc = this.generateNPC(
                 'doctor',
                 [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
-            ),
-            this.painterNpc = this.generateNPC(
-                'painter',
-                [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1'), this.scene.get('painterEvent_2')]
-            ),
-            this.lumberjackNpc = this.generateNPC(
-                'lumberjack',
-                [this.scene.get('lumberjackEvent_0'), this.scene.get('lumberjackEvent_1')]
-            )
+            )            
         ];
 
         this.silhouette = new Silhouette(this.matter.world, 750, 550,
@@ -139,7 +138,7 @@ export default class Level2 extends NewGameScene {
         const height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
             width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
-        this.cameras.main.setBounds(widthBg, heightBg, width, height);
+        //this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
 
         this.player.cursorsPlayer.blindfold.on('down', event => {
