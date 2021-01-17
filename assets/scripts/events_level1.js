@@ -794,37 +794,12 @@ export class glasses_Event_2 extends eventScene{
     }
 }
 
-export class brotherEvent_0 extends eventScene {
+export class brother_Event_0 extends eventScene {
     constructor() {
-        super({ key: 'brotherEvent_0' });
+        super({ key: 'brother_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'Al salir de la casa, tu hermano te espera. -Por fin saliste. Mira, sé que esto ha sido difícil para ti. Para mí también. Pero ya sabíamos de hace tiempo que venía. No pudo haberte sorprendido.\n'
-            },
-            {
-                text: 'Me sorprendió su aspecto.',
-                next: [
-                    {
-                        text: 'Explicas: -Verle así, después de tanto tiempo... Tú pudiste ver su deterioro. Para mí, lo repentino fue verle así, como si de primera vez se tratase. \nNo he visto nada desde que fui una niña, y recupero mi visión justo a tiempo para ver morir a mi padre. ¡Si eso no es una señal, no sé qué lo es!',
-                        cb: () => {},
-                        next: this.event1
-                    }
-                ]
-            },
-            {
-                text: 'No me sorprendió. Pero llegó en muy mal momento.',
-                cb: () => {},
-                next: [
-                    {
-                        text: 'Explicas: -No me sorprendió. Pero fue casi lo primero que había visto en casi veinte años. Odio eso. Odio poder ver. Toda mi vida encontré paz en las tinieblas. Eran mi mundo. Aún lo son. Y de la nada recupero la vista, pero solo para ver morir a mi padre. ¿Qué clase de portento es ese?',
-                        cb: () => {},
-                        next: this.event1
-                    }
-                ]
-            }
-        ];
+        
         this.event1 = [
             {
                 text: '¡Pues es una señal de la caridad de Dios! Nuestro padre estaba muriendo mucho antes de tu recuperación. Este milagro te permitió verle una última vez antes de que lo perdiésemos.\n¿Dime, al menos has intentado quitarte otra vez la venda?'
@@ -903,6 +878,32 @@ export class brotherEvent_0 extends eventScene {
                             this.info.player.scene.npcs.doctorNpc.setActive(true);
                             this.info.player.scene.nextObjective();
                         }
+                    }
+                ]
+            }
+        ];
+        this.content = [
+            {
+                text: 'Al salir de la casa, tu hermano te espera. -Por fin saliste. Mira, sé que esto ha sido difícil para ti. Para mí también. Pero ya sabíamos de hace tiempo que venía. No pudo haberte sorprendido.\n'
+            },
+            {
+                text: 'Me sorprendió su aspecto.',
+                next: [
+                    {
+                        text: 'Explicas: -Verle así, después de tanto tiempo... Tú pudiste ver su deterioro. Para mí, lo repentino fue verle así, como si de primera vez se tratase. \nNo he visto nada desde que fui una niña, y recupero mi visión justo a tiempo para ver morir a mi padre. ¡Si eso no es una señal, no sé qué lo es!',
+                        cb: () => {},
+                        next: this.event1
+                    }
+                ]
+            },
+            {
+                text: 'No me sorprendió. Pero llegó en muy mal momento.',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'Explicas: -No me sorprendió. Pero fue casi lo primero que había visto en casi veinte años. Odio eso. Odio poder ver. Toda mi vida encontré paz en las tinieblas. Eran mi mundo. Aún lo son. Y de la nada recupero la vista, pero solo para ver morir a mi padre. ¿Qué clase de portento es ese?',
+                        cb: () => {},
+                        next: this.event1
                     }
                 ]
             }
