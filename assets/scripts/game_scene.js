@@ -149,7 +149,8 @@ export default class GameScene extends Phaser.Scene {
     onBlindChange(){
 
         this.blindfold.setBlindfold();
-        this.silhouette.toggle(this.blindfold.blind);
+        //la silueta no existe en el preludio
+        if (this.scene.key !== 'level0') this.silhouette.toggle(this.blindfold.blind);
         for (let i = 0; i<this.npcs.length; i++)
         {
             this.npcs[i].setVisible(!this.blindfold.blind);
