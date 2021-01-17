@@ -1,7 +1,7 @@
 {
     "frames": [
         {
-            "filename": "avoid_death_item",
+            "filename": "item_avoiddeath",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -14,7 +14,7 @@
             }
         },
         {
-            "filename": "better_blindfold",
+            "filename": "item_baston",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -27,7 +27,7 @@
             }
         },
         {
-            "filename": "blessing_item",
+            "filename": "item_blessing",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -40,7 +40,7 @@
             }
         },
         {
-            "filename": "kaleidoscope_item",
+            "filename": "item_blindfold",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -53,7 +53,7 @@
             }
         },
         {
-            "filename": "key_item",
+            "filename": "item_flower",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -66,7 +66,7 @@
             }
         },
         {
-            "filename": "less_death_item",
+            "filename": "item_glasses",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -79,7 +79,7 @@
             }
         },
         {
-            "filename": "offensive_word_item",
+            "filename": "item_kaleidoscope",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -92,7 +92,7 @@
             }
         },
         {
-            "filename": "positive_word_item",
+            "filename": "item_key",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -105,7 +105,7 @@
             }
         },
         {
-            "filename": "potion_item",
+            "filename": "item_lessdeath",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -118,7 +118,7 @@
             }
         },
         {
-            "filename": "sacred_fire_item",
+            "filename": "item_moneybag",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -131,7 +131,7 @@
             }
         },
         {
-            "filename": "sketch_item",
+            "filename": "item_offensiveword",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -144,12 +144,77 @@
             }
         },
         {
-            "filename": "stamp_item",
+            "filename": "item_peseta",
             "frame": {
                 "w": 32,
                 "h": 32,
                 "x": 96,
                 "y": 64
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_positiveword",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 0,
+                "y": 96
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_potion",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 32,
+                "y": 96
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_sacredfire",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 64,
+                "y": 96
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_sketch",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 96,
+                "y": 96
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_stamp",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 128,
+                "y": 0
             },
             "anchor": {
                 "x": 0.5,
