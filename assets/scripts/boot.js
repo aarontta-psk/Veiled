@@ -86,6 +86,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('faithBar', './assets/sprites/ui/faith.png');
         this.load.image('keybindQ', './assets/sprites/ui/keybind_q.png');
         this.load.image('keybindE', './assets/sprites/ui/keybind_e.png');
+        this.load.image('keybindR', './assets/sprites/ui/keybind_r.png');
         this.load.image('keybindSpace', './assets/sprites/ui/keybind_space.png');
         this.load.image('objectiveArrow', './assets/sprites/ui/arrow.png');
 
