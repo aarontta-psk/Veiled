@@ -1,6 +1,6 @@
 import Npc from './npc.js';
-import {treeSmell, footSteps} from './stimulus.js';
-import Trigger,{EventTrigger} from './trigger.js';
+import { treeSmell, footSteps } from './stimulus.js';
+import Trigger, { EventTrigger } from './trigger.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor(key) {
@@ -15,7 +15,7 @@ export default class GameScene extends Phaser.Scene {
     create() {
         this.scene.bringToTop();
         // Desactivamos gravedad
-        this.matter.world.disableGravity();        
+        this.matter.world.disableGravity();
     }
 
     update(time, delta) {
@@ -27,20 +27,24 @@ export default class GameScene extends Phaser.Scene {
             this.blindfold.setVision(this.vision, playerX, playerY);
         }
 
+        for (const npc of this.npcs) {
+            npc.updateTooltip();
+        }
+
         //actualizacion barra de cordura
         this.gui.updateSanityBar(this.player.sanity);
-    }   
+    }
 
-    generateNPC(key, isStatic, events)
-    {
+    generateNPC(key, isStatic, events) {
         let path = Array();
         for (const pathPoint of this.map.getObjectLayer('npcs').objects)
             if (pathPoint.name == key)
                 path[pathPoint.properties[0].value] = {
-                    'x': pathPoint.x, 
-                    'y': pathPoint.y, 
-                    'pause': pathPoint.properties[1].value}
-        
+                    'x': pathPoint.x,
+                    'y': pathPoint.y,
+                    'pause': pathPoint.properties[1].value
+                }
+
         let npc = new Npc(key, this.matter.world, path[0].x, path[0].y, events, path);
 
         //asignación de pasos al npc
@@ -51,15 +55,12 @@ export default class GameScene extends Phaser.Scene {
         return npc;
     }
 
-    generateStimulus(smells, sounds)
-    {
+    generateStimulus(smells, sounds) {
         this.triggerEvents = new Array();
-        for (const eventTrigger of this.map.getObjectLayer('eventTriggers').objects)
-        {
+        for (const eventTrigger of this.map.getObjectLayer('eventTriggers').objects) {
             let stim;
-            let position = {'x':eventTrigger.x, 'y':eventTrigger.y};
-            switch (eventTrigger.name)
-            {
+            let position = { 'x': eventTrigger.x, 'y': eventTrigger.y };
+            switch (eventTrigger.name) {
                 case 'treeSmell':
                     stim = new treeSmell(smells, position);
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim, [this.scene.get('sickTreeEvent')]));
@@ -92,13 +93,11 @@ export default class GameScene extends Phaser.Scene {
         }
     }
 
-    loadObjectives()
-    {
+    loadObjectives() {
         this.objectives = new Array();
-        for (const objective of this.map.getObjectLayer('objectives').objects)
-        {   
+        for (const objective of this.map.getObjectLayer('objectives').objects) {
             this.objectives[objective.properties[1].value] = {
-                'x': objective.x, 
+                'x': objective.x,
                 'y': objective.y,
                 'faithReq': objective.properties[0].value
             };
@@ -107,10 +106,10 @@ export default class GameScene extends Phaser.Scene {
     }
 
     //Si currentObjective === -1, es que se han completado todos los objetivos
-    nextObjective(){
+    nextObjective() {
         this.currentObjective++;
         if (this.currentObjective >= this.objectives.length)
-        this.currentObjective = -1;
+            this.currentObjective = -1;
     }
 
     //transicion a nueva seccion
@@ -171,28 +170,26 @@ export default class GameScene extends Phaser.Scene {
         }
     }
 
-    onBlindChange(){
+    onBlindChange() {
 
         this.blindfold.setBlindfold();
         //la silueta no existe en el preludio
         if (this.scene.key !== 'level0') this.silhouette.toggle(this.blindfold.blind);
-        for (let i = 0; i<this.npcs.length; i++)
-        {
-            this.npcs[i].setVisible(!this.blindfold.blind);
-            if (this.blindfold.blind && this.npcs[i].state === 'moving')
-                this.npcs[i].footSteps.emitter.start();
+        for (const npc of this.npcs) {
+            npc.setVisible(!this.blindfold.blind);
+            if (this.blindfold.blind && npc.state === 'moving')
+                npc.footSteps.emitter.start();
         }
-        for (let i = 0; i<this.triggerEvents.length; i++)
-        {
-            if (this.blindfold.blind){
-                if(this.triggerEvents[i].stimulus !== null) this.triggerEvents[i].stimulus.emitter.start();
+        for (const trigger of this.triggerEvents) {
+            if (this.blindfold.blind) {
+                if (trigger.stimulus !== null) trigger.stimulus.emitter.start();
             }
-            else{
-                if(this.triggerEvents[i].stimulus !== null) this.triggerEvents[i].stimulus.emitter.stop();
+            else {
+                if (trigger.stimulus !== null) trigger.stimulus.emitter.stop();
             }
         }
 
-        if(this.blindfold.blind) this.sound.play('sfxActivateBlind');
+        if (this.blindfold.blind) this.sound.play('sfxActivateBlind');
         else this.sound.play('sfxDesactivateBlind');
-    }   
+    }
 }
