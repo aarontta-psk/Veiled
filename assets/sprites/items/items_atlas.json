@@ -53,12 +53,51 @@
             }
         },
         {
-            "filename": "item_flower",
+            "filename": "item_booze",
             "frame": {
                 "w": 32,
                 "h": 32,
                 "x": 64,
                 "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_emptybucket",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 64,
+                "y": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_flower",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 0,
+                "y": 64
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_food",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 32,
+                "y": 64
             },
             "anchor": {
                 "x": 0.5,
@@ -71,7 +110,7 @@
                 "w": 32,
                 "h": 32,
                 "x": 64,
-                "y": 32
+                "y": 64
             },
             "anchor": {
                 "x": 0.5,
@@ -83,8 +122,8 @@
             "frame": {
                 "w": 32,
                 "h": 32,
-                "x": 0,
-                "y": 64
+                "x": 96,
+                "y": 0
             },
             "anchor": {
                 "x": 0.5,
@@ -96,8 +135,8 @@
             "frame": {
                 "w": 32,
                 "h": 32,
-                "x": 32,
-                "y": 64
+                "x": 96,
+                "y": 32
             },
             "anchor": {
                 "x": 0.5,
@@ -109,7 +148,7 @@
             "frame": {
                 "w": 32,
                 "h": 32,
-                "x": 64,
+                "x": 96,
                 "y": 64
             },
             "anchor": {
@@ -122,45 +161,6 @@
             "frame": {
                 "w": 32,
                 "h": 32,
-                "x": 96,
-                "y": 0
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "item_offensiveword",
-            "frame": {
-                "w": 32,
-                "h": 32,
-                "x": 96,
-                "y": 32
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "item_peseta",
-            "frame": {
-                "w": 32,
-                "h": 32,
-                "x": 96,
-                "y": 64
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "item_positiveword",
-            "frame": {
-                "w": 32,
-                "h": 32,
                 "x": 0,
                 "y": 96
             },
@@ -170,7 +170,7 @@
             }
         },
         {
-            "filename": "item_potion",
+            "filename": "item_offensiveword",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -183,7 +183,7 @@
             }
         },
         {
-            "filename": "item_sacredfire",
+            "filename": "item_pendant",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -196,7 +196,7 @@
             }
         },
         {
-            "filename": "item_sketch",
+            "filename": "item_peseta",
             "frame": {
                 "w": 32,
                 "h": 32,
@@ -209,12 +209,90 @@
             }
         },
         {
-            "filename": "item_stamp",
+            "filename": "item_photo",
             "frame": {
                 "w": 32,
                 "h": 32,
                 "x": 128,
                 "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_positiveword",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 128,
+                "y": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_potion",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 128,
+                "y": 64
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_sacredfire",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 128,
+                "y": 96
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_sketch",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 0,
+                "y": 128
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_stamp",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 32,
+                "y": 128
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "item_waterbucket",
+            "frame": {
+                "w": 32,
+                "h": 32,
+                "x": 64,
+                "y": 128
             },
             "anchor": {
                 "x": 0.5,
