@@ -1,6 +1,6 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, { PictureItem, PendantItem} from './item.js';
+import Item, { PictureItem, PendantItem } from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
@@ -22,6 +22,13 @@ export default class Level0 extends NewGameScene {
 
     create() {
         super.create();
+
+        this.preludeState = {
+            Talk: 'talk',
+            GetItem: 'getItem',
+            UseItemAndBlindfold: 'useItemAndBlindfolf'
+        }
+        this.prelude = this.preludeState.Talk;
 
         // Creamos un mapa a partir de los datos en cache
         this.map = this.make.tilemap({
@@ -97,25 +104,24 @@ export default class Level0 extends NewGameScene {
                 this.picture = new PictureItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
                 this.itemContainer.push(this.picture);
             }
-            else if (itemPos.name === 'pendant'){
+            else if (itemPos.name === 'pendant') {
                 this.pendant = new PendantItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
                 this.itemContainer.push(this.pendant);
             }
         }
-        this.itemContainer;
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
 
         this.cameras.main.setBounds(2460, 2580, 600, 600);
 
-        this.player.cursorsPlayer.blindfold.on('down', event => {
-            this.onBlindChange();
-        });
-        this.player.cursorsPlayer.interact.on('down', event => {
-            if (this.item != undefined)
-                this.insertItem(this.item);
-                console.log(this.player.inventory);
-        });
+        // this.player.cursorsPlayer.blindfold.on('down', event => {
+        //     this.onBlindChange();
+        // });
+        // this.player.cursorsPlayer.interact.on('down', event => {
+        //     if (this.item != undefined)
+                
+        //     console.log(this.player.inventory);
+        // });
         // this.player.cursorsPlayer.invToggle.on('down', event => {
         //     this.gui.toggleInventory();
         // });
@@ -168,8 +174,13 @@ export default class Level0 extends NewGameScene {
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 if (this.player.cursorsPlayer.interact.isDown) {
                     let npcEvent = cuerpo2.gameObject.nextEvent();
-                    if (npcEvent != null)
+                    if (npcEvent != null){
+                        if(this.player.inventory.objects.length === 0)
+                            this.prelude = this.preludeState.GetItem;
+                        else
+                            this.prelude = this.preludeState.UseItemAndBlindfold;
                         this.changeScene(npcEvent);
+                    }
                 }
             }
         })
@@ -216,5 +227,25 @@ export default class Level0 extends NewGameScene {
         super.update();
 
         this.player.sanity = 100;
+
+        this.stateChanging();
+    }
+
+    stateChanging() {
+        if (this.prelude === this.preludeState.GetItem) {
+            if(this.player.cursorsPlayer.interact.isDown && this.item !== undefined){
+                this.insertItem(this.item);
+                this.prelude = this.preludeState.Talk;
+            }
+        }
+        else if(this.prelude === this.preludeState.UseItemAndBlindfold){
+            if(this.player.cursorsPlayer.invToggle.isDown & !this.gui.backgroundInventory.visible){
+                this.gui.toggleInventory();
+            }
+            else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 0){
+                this.blindfold.setBlindfold();
+                this.prelude = this.preludeState.Talk;
+            }
+        }
     }
 }

@@ -114,4 +114,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.add(key);
         this.add(keyText);
     }
+
+    //metodo para activar tooltips en el tutorial
+    
 }
