@@ -737,7 +737,7 @@
                         {
                          "name":"pause",
                          "type":"int",
-                         "value":100
+                         "value":5000
                         }],
                  "rotation":0,
                  "type":"",

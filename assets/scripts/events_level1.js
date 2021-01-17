@@ -479,6 +479,7 @@ export class cane_Event_0 extends eventScene {
                 text: 'Coger el bastón',
                 cb: () => {
                     this.info.player.inventory.collect('Bastón');
+                    this.completeEvent(5,5);
                 }
             },
             {
@@ -556,7 +557,7 @@ export class foreigner_Event_1 extends eventScene{
 
 export class tavern_Event_0 extends eventScene{
     constructor(){
-        super({ key: 'tabern_Event_0' });
+        super({ key: 'tavern_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'secondaryEventMenu';
         this.content = [

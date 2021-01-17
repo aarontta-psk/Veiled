@@ -7,10 +7,10 @@ export default class Npc extends EventHandler {
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this);
 
-        let sensor = Phaser.Physics.Matter.Matter.Bodies.circle(x, y, 70, { isSensor: true });
+        this.sensor = Phaser.Physics.Matter.Matter.Bodies.circle(x, y, 70, { isSensor: true });
         let collision = Phaser.Physics.Matter.Matter.Bodies.rectangle(x, y, 30, 50);
         let actualThing = Phaser.Physics.Matter.Matter.Body.create({
-            parts: [sensor, collision]
+            parts: [this.sensor, collision]
         });
         this.setExistingBody(actualThing);
 

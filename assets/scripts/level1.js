@@ -88,23 +88,23 @@ export default class Level1 extends NewGameScene {
         // Añado un npc de prueba en un array
         this.npcs = [
             this.doctorNpc = this.generateNPC(
-                'doctor', false
+                'doctor', false,
                 [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
             ),
             this.painterNpc = this.generateNPC(
-                'painter', false
+                'painter', false,
                 [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1'), this.scene.get('painterEvent_2')]
             ),
             this.lumberjackNpc = this.generateNPC(
-                'lumberjack', false
+                'lumberjack', false,
                 [this.scene.get('lumberjackEvent_0'), this.scene.get('lumberjackEvent_1')]
             ),
             this.glassesNpc = this.generateNPC(
-                'glasses', false
+                'glasses', false,
                 [this.scene.get('glasses_Event_0'), this.scene.get('glasses_Event_1'), this.scene.get('glasses_Event_2')]
             ),
             this.foreignerNpc = this.generateNPC(
-                'foreigner', false
+                'foreigner', false,
                 [this.scene.get('foreigner_Event_0'), this.scene.get('foreigner_Event_1')]
             ),
             // this.grandMotherNpc = this.generateNPC(
@@ -112,15 +112,15 @@ export default class Level1 extends NewGameScene {
             //     [this.scene.get('grandMother_Event_0')]
             // ),
             this.sellerNpc = this.generateNPC(
-                'seller', true
+                'seller', true,
                 [this.scene.get('seller_Event_0'), this.scene.get('seller_Event_1')]
             ),
             this.hungryKidNpc = this.generateNPC(
-                'hungryKid', false
+                'hungryKid', false,
                 [this.scene.get('hungryKid_Event_0')]
             ),
             this.elderNpc = this.generateNPC(
-                'elder', true
+                'elder', true,
                 [this.scene.get('elder_Event_0'), this.scene.get('elder_Event_1')]
             )
         ];
@@ -181,7 +181,13 @@ export default class Level1 extends NewGameScene {
             this.onBlindChange();
         });
         this.player.cursorsPlayer.interact.on('down', event => {
-            if (this.item != undefined)
+            if(this.auxEventHandler !== null){
+                //si se esta pulsando la tecla de interactuar, se llama al evento del npc
+                let npcEvent = this.auxEventHandler.nextEvent();
+                    if (npcEvent != null)
+                        this.changeScene(npcEvent);
+            }
+            else if (this.item != undefined)
                 this.insertItem(this.item);
             else if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT) {
                 let silEvent = this.silhouette.nextEvent();
@@ -217,12 +223,19 @@ export default class Level1 extends NewGameScene {
         this.forest_02.setCollisionByProperty({ obstacle: true });
         this.matter.world.convertTilemapLayer(this.forest_02);
 
+        //referencia al eventHandler con el que se está colisionando
+        this.auxEventHandler = null;
         this.matter.world.on('collisionstart',
             (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     if (cuerpo2.gameObject instanceof Item) {
                         this.item = cuerpo2.gameObject;
                     }
+                    else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor){
+                        this.auxEventHandler = cuerpo2.gameObject;
+                        console.log("start work")
+                    }       
+
                 }
             });
 
@@ -234,21 +247,12 @@ export default class Level1 extends NewGameScene {
 
                     // //buscamos si sale de un trigger de seccion
                     if (cuerpo2.gameObject instanceof Trigger) this.newSection(cuerpo2.gameObject);
+                    else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor){
+                        this.auxEventHandler = null;
+                        console.log("end work")
+                    }
                 }
             });
-
-        this.matter.world.on('collisionactive', (evento, cuerpo1, cuerpo2) => {
-            if (cuerpo1.gameObject === this.player &&
-                cuerpo2.gameObject instanceof EventHandler) {
-                //booleano de control
-                //si se esta pulsando la tecla de interactuar, se llama al evento del npc
-                if (this.player.cursorsPlayer.interact.isDown) {
-                    let npcEvent = cuerpo2.gameObject.nextEvent();
-                    if (npcEvent != null)
-                        this.changeScene(npcEvent);
-                }
-            }
-        })
 
         this.scene.scene.cameras.main.on('camerafadeoutcomplete', event => {
             if (this.player.death === this.player.deathState.CheckDeath) {
