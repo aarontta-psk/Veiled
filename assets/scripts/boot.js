@@ -98,8 +98,8 @@ export default class Boot extends Phaser.Scene {
         this.load.tilemapTiledJSON('map02', './assets/sprites/tilesets/map_02.json');
 
         // Carga el tileset que contiene las texturas del mapa.
-        this.load.image('tiles', './assets/sprites/tilesets/slates64Tileset.png');
-        this.load.image('interiortiles', './assets/sprites/tilesets/interiorTileset.png');
+        this.load.image('tiles', './assets/sprites/tilesets/slates_tileset.png');
+        this.load.image('interiortiles', './assets/sprites/tilesets/interior_tileset.png');
 
         // Carga los items incluidos en la escena        
         this.load.atlas('items', './assets/sprites/items/items.png', 'assets/sprites/items/items_atlas.json');

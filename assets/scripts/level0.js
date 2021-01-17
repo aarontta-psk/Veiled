@@ -44,7 +44,7 @@ export default class Level0 extends NewGameScene {
         });
 
         // Asignamos el tileset
-        const tileset = this.map.addTilesetImage('interiorTileset', 'interiortiles');
+        const tileset = this.map.addTilesetImage('interior', 'interiortiles');
 
         // Creamos layers por debajo del jugador (probablemente deberiamos establecer una profundidad para que todo quede más limpio)
         this.map_zones = this.map.createStaticLayer('map_zones', tileset);
