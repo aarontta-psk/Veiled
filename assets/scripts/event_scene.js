@@ -186,28 +186,18 @@ export class painterEvent_0 extends eventScene {
                     },
                     {
                         text: 'Continuar',
-                        cb: () => {
-                            this.completeEvent(15,0);
-                        }
+                        cb: () => {},
+                        next: this.event1
                     }
                 ]
             },
             {
                 text: 'Quitar la venda para evaluar el cuadro',
-                cb: () => {
-                    this.completeEvent(15,0);
-                }
+                cb: () => {},
+                next: this.event1
             },
-        ]
-    }
-}
-
-export class painterEvent_1 extends eventScene {
-    constructor() {
-        super({ key: 'painterEvent_1' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
+        ];
+        this.event1 = [
             {
                 text: 'La pintora se queda incrédula un segundo, pero se alegra notablemente al darse cuenta de lo que ' +
                     'esto significa. La inmensa cantidad de luz del día soleado te hace doler los ojos, pero al pasar un ' +
@@ -269,13 +259,13 @@ export class painterEvent_1 extends eventScene {
                     }
                 ]
             }
-        ]
+        ];
     }
 }
 
-export class painterEvent_2 extends eventScene {
+export class painterEvent_1 extends eventScene {
     constructor() {
-        super({ key: 'painterEvent_2' });
+        super({ key: 'painterEvent_1' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
