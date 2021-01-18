@@ -76,7 +76,7 @@ export default class Level0 extends NewGameScene {
         // Añado un npc de prueba en un array
         this.npcs = [
             this.dadNpc = this.generateNPC(
-                'dad', true, 120,
+                'dad', true, 160,
                 [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
@@ -196,6 +196,13 @@ export default class Level0 extends NewGameScene {
                 }
             });
 
+        this.events.on('wake', event => {
+            //la musica vuelve a sonar
+            this.sound.play('mainTheme', {
+                mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
+            });
+        });
+
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
     }
@@ -209,7 +216,7 @@ export default class Level0 extends NewGameScene {
         this.stateChanging();
     }
 
-    changeTooltips(){
+    changeTooltips() {
         this.gui.arrowTooltip.setVisible(false);
         this.gui.spaceTooltip.setVisible(true);
     }
