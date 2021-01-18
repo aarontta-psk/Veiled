@@ -1,6 +1,8 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, { PotionItem, KaleidoscopeItem, SketchItem, SickTreeItem, StampItem, BlessingItem, PositiveWordItem, OffensiveWordItem, SacredFireItem, AvoidDeathItem, LessDeathItem, BetterBlindFoldItem } from './item.js';
+import Item, { PotionItem, KaleidoscopeItem, SketchItem, SickTreeItem, StampItem, BlessingItem, PositiveWordItem,
+    OffensiveWordItem, SacredFireItem, AvoidDeathItem, LessDeathItem, BetterBlindFoldItem, MoneyBagItem,
+    GlassesItem,  CaneItem, BoozeItem, EmptyBucketItem, BucketItem, FlowerItem, FoodItem} from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
@@ -187,6 +189,42 @@ export default class Level1 extends NewGameScene {
                 case 'laudano':
                     this.laudano = new LessDeathItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[11], this.player);
                     this.itemContainer.push(this.laudano);
+                    break;
+                case 'money':
+                    this.moneyBag = new MoneyBagItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[12], this.player);
+                    this.itemContainer.push(this.moneyBag);
+                    break;
+                case 'cane':
+                    this.cane = new CaneItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1], this.player);
+                    this.itemContainer.push(this.cane);
+                    break;
+                case 'booze':
+                    this.booze = new BoozeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[4], this.player);
+                    this.itemContainer.push(this.booze);
+                    break;
+                case 'emptyBucket':
+                    this.emptyBucket = new EmptyBucketItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[5], this.player);
+                    this.itemContainer.push(this.emptyBucket);
+                    break;
+                case 'bucket':
+                    this.bucket = new BucketItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[22], this.player);
+                    this.itemContainer.push(this.bucket);
+                    break;
+                case 'flower':
+                    this.flower = new FlowerItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[6], this.player);
+                    this.itemContainer.push(this.flower);
+                    break;
+                case 'food':
+                    this.flower = new FoodItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[7], this.player);
+                    this.itemContainer.push(this.food);
+                    break;
+                case 'glasses':
+                    this.glasses = new GlassesItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
+                    this.itemContainer.push(this.glasses);
+                    break;
+                    case 'totem':
+                    this.totem = new AvoidDeathItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
+                    this.itemContainer.push(this.totem);
                     break;
             }
         }

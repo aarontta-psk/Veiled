@@ -187,6 +187,70 @@ export class SickTreeItem extends Item{
     }
 }
 
+export class CaneItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.name = "Bastón";
+        this.description = "Parece pertenecer a alguien";
+    }
+}
+
+export class BoozeItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.name = "Botella";
+        this.description = "Parece habersele caido a alguien en medio de beberlo";
+    }
+}
+
+export class EmptyBucketItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.name = "Cubo vacio";
+        this.description = "No tiene nada dentro";
+    }
+}
+
+export class BucketItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.name = "Cubo";
+        this.description = "Parece tener agua dentro";
+    }
+}
+
+export class FlowerItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.name = "Flor";
+        this.description = "Recien cortada de los pastos";
+    }
+}
+
+export class FoodItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.name = "Comida";
+        this.description = "Te entra mucha hambre al verl... olerlo";
+    }
+}
+
+export class GlassesItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.name = "Gafas";
+        this.description = "Seguro que le pertenece a alguien";
+    }
+}
+
+export class MoneyBagItem extends Item{
+    constructor(world, x, y, frame, player){
+        super(world, x, y, frame, player, false);
+        this.name = "Bolsa de monedas";
+        this.description = "Al vendedor le encantará";
+    }
+}
+
 export class PictureItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
