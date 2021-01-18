@@ -465,30 +465,6 @@ export class well_Event_0 extends eventScene {
     }
 }
 
-export class cane_Event_0 extends eventScene {
-    constructor() {
-        super({ key: 'cane_Event_0' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'secondaryEventMenu';
-        this.content = [
-            {
-                text: 'Haciendo caso de las indicaciones del paciente llegas a la que te dijo que era su casa.\n'+
-                'Buscando un poco por los alrededores, consigues encontrar el bastón'
-            },
-            {
-                text: 'Coger el bastón',
-                cb: () => {
-                    this.info.player.inventory.collect('Bastón');
-                    this.completeEvent(5,5);
-                }
-            },
-            {
-                text: 'No coger el bastón'
-            }
-        ]
-    }
-}
-
 export class foreigner_Event_0 extends eventScene{
     constructor(){
         super({ key: 'foreigner_Event_0' });
@@ -793,6 +769,11 @@ export class glasses_Event_2 extends eventScene{
         ]
     }
 }
+//#endregion
+
+
+
+//#region MainEvents
 
 export class brother_Event_0 extends eventScene {
     constructor() {
@@ -911,9 +892,354 @@ export class brother_Event_0 extends eventScene {
     }
 }
 
+export class doctorEvent_0 extends eventScene {
+    constructor() {
+        super({ key: 'doctorEvent_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'El olor a tabaco viejo te alerta a la presencia del doctor Abel, sentado como de costumbre en ' +
+                    'el portal de su casa, perdido en sus pensamientos. No es hasta que le saludas que se alerta ' +
+                    'a tu presencia, pero cuando lo hace, su sonrisa es audible. Se levanta y, antes de que puedas ' +
+                    'reaccionar, te envuelve en un abrazo. Tras calmarse un poco el aire, os envolvéis en una larga ' +
+                    'conversación para poneos al día. El doctor consigue resumir en breve más de una década de ' +
+                    'ocurrencias en el pueblo, y luego escucha pacientemente mientras le relatas la reciente milagrosa ' +
+                    'recuperación de tu vista.\nSe queda pensativo un tiempo antes de ofrecerte su consejo: \n\n' +
+                    '-¿Y tú rechazas este milagro? Entendible. Me imagino que muchos harían lo mismo, o peor. ' +
+                    'Pero te veo ahora con esta venda, y no puedo dejar de pensar que realmente no has perdido nada.'
+            },
+            {
+                text: 'Estar de acuerdo',
+                cb: () => { },
+                next: [
+                    {
+                        text: '-¿Ves? -responde el doctor- Realmente no necesitabas que te dijera yo esto, me imagino que habrías ' +
+                            'llegado a la misma conclusión tú sola. Y si tú prefieres mantenerte para siempre en las tinieblas, ' +
+                            'estoy seguro de que volveras a ser tan feliz como siempre fuiste. Pero te urgiría, aunque sea muy ' +
+                            'poco a poco, a que al menos probases quitártela, por unos momentos a la vez, y te permitas aprender ' +
+                            'a valorar la belleza del mundo visual. Y si te disgusta o te decepciona, siempre podrás ponerte la ' +
+                            'venda y volver a la oscuridad.'
+                    },
+                    {
+                        text: 'Asentir y despedirte del viejo doctor',
+                        cb: () => {
+                            //this.info.player.enableBlindfold();
+                            this.completeEvent(15,20);
+                        }
+                    }
+                ]
+            },
+            {
+                text: 'Preguntar a qué se refiere',
+                cb: () => { },
+                next: [
+                    {
+                        text: '-Digo que, aunque no te sientas cómoda con este mundo visual, siempre podrás simplemente ponerte ' +
+                            'de nuevo la venda y volver a la oscuridad. Así, que, si tu decides, puedes continuar con tu vida como ' +
+                            'antes. Y si tú quieres vivir así, eso está bien, pero te aconsejaría también que te atrevas, aunque solo ' +
+                            'por momentos, a quitárte esa tela y permitirte conocer al mundo en el que vivimos los demás.\n\n' +
+                            'Creo que tú tienes ahora una oportunidad única para experimentar dos realidades, con el poder en ' +
+                            'tus manos para moverte entre ellas.',
+                    },
+                    {
+                        text: 'Dar las gracias y aceptar consejo',
+                        cb: () => {
+                            //this.info.player.enableBlindfold();
+                            this.completeEvent(15,20);
+                        }
+                    }
+                ]
+
+            },
+        ]
+    }
+}
+
+export class doctorEvent_1 extends eventScene {
+    constructor() {
+        super({ key: 'doctorEvent_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'El doctor suelta una risita cuando te vuelves a acercar \n' +
+                '-No necesitas oír más a este viejo. Si en realidad yo sé muy poco, solo que hablo mucho. ¡Ja! Ese es ' + 
+                'el secreto para que te llamen sabio.'
+            },
+            {
+                text: 'Reír al comentario y continuar',
+                cb: () => { },
+            }
+        ]
+    }
+}
+
+export class homeless_Event_0 extends eventScene{
+    constructor() {
+        super({ key: 'homeless_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'Te cruzas con una persona con una forma de caminar bastante inusual. Lo oyes murmurando algo por lo bajo. -Ese viejo zorro... ' +
+                'Se cree muy listo solo por saber cuatro cosas sobre medicina. Ya sabré yo mejor como está mi salud, ' +
+                'que para algo este es mi cuerpo y no el suyo. Espera, ¿quién anda ahí?'
+            },
+            {
+                text: 'Hola, vengo de parte del doctor',
+                next: [
+                    {
+                        text: '-Si queria algo más me lo podría haber dicho justo ahora que he hablado con él. No necesito ' +
+                        'que me traiga un mensajero. Anda, dejame tranquilo.-'
+                    },
+                    {
+                        text: 'Abandonarle un poco ofendida',
+                        cb: () => {
+                            this.info.player.addSanity(-5);
+                        }
+                    }
+                ]
+            },
+            {
+                text: 'Saludarle con la mano',
+                next: [
+                    {
+                        text: '-¿Nadie? Me lo habré imaginado.- No parece haberte visto. Fijándote en el sonido de sus pasos '+
+                        'te das cuenta de que camina raro. Esa forma de caminar es la misma que como caminabas poco después de ' +
+                        'quedarte ciega'
+                    },
+                    {
+                        text: 'Perdona, ¿acaso eres ciego?',
+                        next: [
+                            {
+                                text: '-No hay que ser muy listo para darse cuenta, basta con mirarme'
+                            },
+                            {
+                                text: 'Yo también lo soy. Pero caminas muy raro',
+                                next: [
+                                    {
+                                        text: '-Sin mi bastón caminar se vuelve una tarea imposible. Un día estaba durmiendo tranquilamente ' +
+                                        'en la plaza y al despertarme desapareció así sin más. Seguro que el tabernero sabe algo, ese tipo me ' +
+                                        'odia desde que nací sin motivo ninguno.'
+                                    },
+                                    {
+                                        text: 'Si tanto lo necesitas puedo ir a buscarlo',
+                                        next: [
+                                            {
+                                                text: '-Si así quieres, yo de aqui no voy a moverme sin él'
+                                            },
+                                            {
+                                                text: 'Ir a buscarlo',
+                                                cb: () => {
+                                                    this.completeEvent(10,10);
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        text: 'Algo le habrás hecho',
+                                        next: [
+                                            {
+                                                text: 'Nada de nada, la duda ofende. Soy la persona más respetable de este pueblo'
+                                            },
+                                            {
+                                                text: 'Irse dudando de sus palabras'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                text: 'Ignorarle'
+            }
+        ]
+    }
+}
+
+export class inkKeeper_Event_0 extends eventScene{
+    constructor() {
+        super({ key: 'inkKeeper_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'En las proximidades de la taberna encuentras a una persona. Huele bastante a tabaco y ligeramente a alcohol. ' +
+                'Debe de ser el tabernero.'
+            },
+            {
+                text: '¿Me pones algo de beber?',
+                next: [
+                    {
+                        text: 'Estoy en mi descanso, olvídalo'
+                    },
+                    {
+                        text: 'Irse'
+                    }
+                ]
+            },
+            {
+                text: '¿Conoces al vagabundo?',
+                next: [
+                    {
+                        text: '¿Qué si lo conozco? Bueno si lo conozco. Ese ruín se queda todas las noches hasta las tantas bebiendo ' +
+                        'hasta que se queda dormido justo en la puerta de la taberna. A veces incluso se duerme dentro. Suerte ' +
+                        'que no le vamos a volver a ver por aquí. Ahuyentaba a la clientela.'
+                    },
+                    {
+                        text: '¿Qué quieres decir con eso?',
+                        next: [
+                            {
+                                text: 'Exactamente lo que he dicho. Sin su bastón ese desgraciado no volverá a asomar por aqui. Lo he tirado detrás ' +
+                                'de la posada. Le he hecho un favor a todo el pueblo'
+                            },
+                            {
+                                text: 'Ah, ya veo'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+export class cane_Event_0 extends eventScene {
+    constructor() {
+        super({ key: 'cane_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'Detrás de la taberna encuentras un viejo bastón, el cuál está bastante deteriorado por su uso. '+
+                'Estará bastante gastado, pero con probarlo un poco te das cuenta de que es bastante resistente'
+            },
+            {
+                text: 'Coger el bastón',
+                cb: () => {
+                    this.info.player.inventory.collect('Bastón');
+                    this.completeEvent(5,5);
+                }
+            },
+            {
+                text: 'No coger el bastón'
+            }
+        ]
+    }
+}
+
+export class homeless_Event_1 extends eventScene{
+    constructor() {
+        super({ key: 'homeless_Event_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: '-¿Ya estás de vuelta? Hecho bastante en falta mi bastón'
+            },
+            {
+                text: 'Entregarle su bastón y contarle que ocurrió',
+                failedText: 'No tienes el bastón',
+                condition: function (ref) {
+                    return (ref.info.player.inventory.contains('Bastón'))
+                },
+                next: [
+                    {
+                        text: '-¿Lo has encontrado? Te lo agradezco, gracias por tu ayuda. ¿Cómo? ¿De verdad fue el tabernero? ' +
+                        'Sabía que no podía fiarme de él. Iré con más cuidado a partir de ahora.'
+                    },
+                    {
+                        text: 'Cuidate',
+                        cb: () => {
+                            this.completeEvent(10,10);
+                        }
+                    }
+                ]
+
+            },
+            {
+                text: 'Aún no lo he encontrado'
+            }
+        ]
+    }
+}
+
+export class doctorEvent_2 extends eventScene {
+    constructor() {
+        super({ key: 'doctorEvent_2' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'El doctor te saluda desde lejos con una grande sonrisa en su rostro. \n' +
+                '-¿Has cumplido con lo que te pedi?'
+            },
+            {
+                text: 'Si, me lo agradecio y todo',
+                failedText: 'No has ayudado aún al vagabundo',
+                condition: function (ref) {
+                    return (ref.scene.get('homeless_Event_1').completed)
+                },
+                next: [
+                    {
+                        text: '-Ya veo...Ya has visto. Te niegas a ver la realidad como es, pero cuando necesitas ' +
+                        'hacerlo, realmente ayudas a la gente. ¿No lo ves? Confío en que entiendes de lo que te hablo.- ' +
+                        'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela paso por aquí hace un momento. ' +
+                        'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho,'
+                    },
+                    {
+                        text: 'Sonriendo, asientes y te despides del doctor',
+                        cb: () => {
+                            this.completeEvent(20,20);
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+export class grandMother_Event_1 extends eventScene {
+    constructor() {
+        super({ key: 'grandMother_Event_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'Te acercas a tu abuela. Sabes que tiene algo importante que decirte, pero aún no sabes qué'
+            },
+            {
+                text: 'Quitarse la venda',
+                next: [
+                    {
+                        text: '-¡María!- Comienza a llorar al darse cuenta de lo que estas haciendo. -Tu padre... antes ' +
+                        'de morir, dejó esta carta. Creo que deberías ser tú quien la lea primero'
+                    },
+                    {
+                        text: 'Coger la carta y comenzar a leer',
+                        cb: () => {
+                            this.completeEvent(10,10)
+                        }
+                    }
+                ]
+            },
+            {
+                text: 'Aun no estoy lista'
+            }
+        ]
+    }
+}
+
+
+//#endregion
+
+
 // condition: function (ref) {
 //     return (ref.info.player.inventory.contains('Rama enferma'))
 // },
 // failedText: 'Aún no has encontrado el árbol enfermo',
 
-//#endregion
