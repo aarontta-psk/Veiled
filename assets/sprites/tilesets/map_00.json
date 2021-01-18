@@ -159,7 +159,7 @@
          "name":"map_limits",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":90,
          "x":0,
          "y":0
@@ -191,8 +191,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":3033,
-                 "y":2945
+                 "x":3040,
+                 "y":3040
                 }, 
                 {
                  "height":32,
@@ -257,8 +257,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2921,
-                 "y":2664
+                 "x":2720,
+                 "y":2656
                 }],
          "opacity":1,
          "type":"objectgroup",

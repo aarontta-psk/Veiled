@@ -23,6 +23,6 @@ export default class infoLevel extends menuBasicScene{
         'Eventos Completados: ' + this.info.numEvents.toString() + '/' + this.info.totalLevelEvents + '    ' + 
         'Fe obtenida: ' + this.info.obtainedFaith.toString(), { fontFamily: 'Neucha'}).setResolution(1.2).setScale(1.2);
 
-        const resume = this.goToSceneButton(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY/3.5, 1, 'pauseMenuResume', 'level2' );
+        const resume = this.goToSceneButton(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY/3.5, 1, 'pauseMenuResume', this.info.nextLevel );
     }
 }

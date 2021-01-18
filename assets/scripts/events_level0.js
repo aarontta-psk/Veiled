@@ -108,6 +108,7 @@ export class dad_Event_2 extends eventScene {
                                     this.scene.stop();
                                     this.scene.run('infoLevel', {
                                         obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
+                                        totalLevelEvents: this.info.prevScene.totalLevelEvents,
                                         mainText: 'Apesadumbrada, te aferra a la venda que nunca te enseño '
                                             + 'los horrores\ndel mundo fisico, pero las últimas palabras de tu padre quedan grabadas\nen tu mente, '
                                             + 'influenciando tus pensamientos e ideales.'

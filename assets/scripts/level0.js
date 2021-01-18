@@ -80,8 +80,8 @@ export default class Level0 extends NewGameScene {
                 [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
-
         this.dadNpc.setScale(2.2);
+        this.totalLevelEvents = 2;
 
         // Colocamos la vision en la posicion del jugador
         const [x, y] = [this.player.x, this.player.y];
