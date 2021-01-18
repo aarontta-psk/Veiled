@@ -474,7 +474,7 @@ export class foreigner_Event_0 extends eventScene{
             {
                 text: 'Te acercas a alguien muy ruidoso. Habla bastante alto y se nota que no es de por aquí. Tiene un acento extraño que ' +
                 'no sabes muy bien de dónde es. -Hey, la de la venda. Tengo un problema. La posada está cerrada. ¡Necesito un lugar ' +
-                'para dormir! ¿Puedes hacer algo? LLamando a la puerta no me hacen ni caso'
+                'para dormir! ¿Puedes hacer algo? Llamando a la puerta no me hacen ni caso'
             },
             {
                 text: '¿Por que yo?',
@@ -956,9 +956,58 @@ export class doctorEvent_0 extends eventScene {
     }
 }
 
-export class doctorEvent_1 extends eventScene {
+export class doctorEvent_1 extends eventScene{
     constructor() {
         super({ key: 'doctorEvent_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.fernandoIntroduction= [
+            {
+                text: '-Sí, Fernando, el leñador. La gente la llama brusco, pero es el hombre más directo y sincero que conozco. Si él dice que hay un problema, me fío de su palabra y no le hago preguntas. Pero si quieres saber más, no seas tímida y habla con él. Trabaja al otro lado del pueblo, así que tienes un buen paseo. \n-Y juzgando por el color de tu cara,- añade con una preocupación -te vendría bien un poco de aire fresco'
+            },
+            {
+                text: 'Vale',
+                cb: () => {
+                    this.completeEvent(15, 10);
+                }
+            },
+            {
+                text: '[Ligeramente ofendida] Vale',
+                cb: () => {
+                    this.completeEvent(14, 10);
+                }
+            }
+        ];
+        this.problem= [
+            {
+                text: '-No lo sé, pero si me Fernando me dice que hay un problema, me fío de su palabra. Siempre puedes preguntarle si quieres; vive al otro lado del pueblo.'
+            },
+            {
+                text: 'Vale, veré que ocurre',
+                cb: () => {
+                    this.completeEvent(15, 10);
+                }
+            }
+        ];
+        this.content = [
+            {
+                text: '-Por cierto, -dices, recordando la petición de tu hermano -mi hermano Pedro quería pedirte otra dosis de medicina para un dolor de cabeza. ¿Sabes a los que se refiere?\n\n-Ah, sí, las migrañas de tu hermano. Pues me temo que aún no, necesito corteza de sauce, y Fernando me dice que no puede conseguírmelo ahora mismo.'
+            },
+            {
+                text: '¿Fernando?',
+                next: this.fernandoIntroduction
+            },
+            {
+                text: '¿Cuál es el problema?',
+                next: this.problem
+            }
+        ]
+    }
+}
+
+export class doctorEvent_2 extends eventScene {
+    constructor() {
+        super({ key: 'doctorEvent_2' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
@@ -968,8 +1017,42 @@ export class doctorEvent_1 extends eventScene {
                 'el secreto para que te llamen sabio.'
             },
             {
-                text: 'Reír al comentario y continuar',
-                cb: () => { },
+                text: 'Reír al comentario y continuar'
+            }
+        ]
+    }
+}
+
+export class doctorEvent_3 extends eventScene {
+    constructor() {
+        super({ key: 'doctorEvent_3' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'El doctor te saluda desde lejos con una grande sonrisa en su rostro. \n' +
+                '-¿Has cumplido con lo que te pedi?'
+            },
+            {
+                text: 'Si, me lo agradeció y todo',
+                failedText: 'No has ayudado aún al vagabundo',
+                condition: function (ref) {
+                    return (ref.scene.get('homeless_Event_1').completed)
+                },
+                next: [
+                    {
+                        text: '-Ya veo...Ya has visto. Te niegas a ver la realidad como es, pero cuando necesitas ' +
+                        'hacerlo, realmente ayudas a la gente. ¿No lo ves? Confío en que entiendes de lo que te hablo.- ' +
+                        'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela paso por aquí hace un momento. ' +
+                        'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho,'
+                    },
+                    {
+                        text: 'Sonriendo, asientes y te despides del doctor',
+                        cb: () => {
+                            this.completeEvent(20,20);
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -1159,45 +1242,9 @@ export class homeless_Event_1 extends eventScene{
                         }
                     }
                 ]
-
             },
             {
                 text: 'Aún no lo he encontrado'
-            }
-        ]
-    }
-}
-
-export class doctorEvent_2 extends eventScene {
-    constructor() {
-        super({ key: 'doctorEvent_2' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'mainEventMenu';
-        this.content = [
-            {
-                text: 'El doctor te saluda desde lejos con una grande sonrisa en su rostro. \n' +
-                '-¿Has cumplido con lo que te pedi?'
-            },
-            {
-                text: 'Si, me lo agradecio y todo',
-                failedText: 'No has ayudado aún al vagabundo',
-                condition: function (ref) {
-                    return (ref.scene.get('homeless_Event_1').completed)
-                },
-                next: [
-                    {
-                        text: '-Ya veo...Ya has visto. Te niegas a ver la realidad como es, pero cuando necesitas ' +
-                        'hacerlo, realmente ayudas a la gente. ¿No lo ves? Confío en que entiendes de lo que te hablo.- ' +
-                        'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela paso por aquí hace un momento. ' +
-                        'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho,'
-                    },
-                    {
-                        text: 'Sonriendo, asientes y te despides del doctor',
-                        cb: () => {
-                            this.completeEvent(20,20);
-                        }
-                    }
-                ]
             }
         ]
     }
