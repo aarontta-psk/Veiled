@@ -7,16 +7,16 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.depth = 10;
 
         //Keybinds
-        this.addTooltip('keybindSpace', 'BLINDFOLD', 743, 30, 699, 50, 0.5);
-        this.addTooltip('keybindQ', 'INVENTORY', 773, 95, 665, 85, 0.6);
-        this.addTooltip('keybindE', 'INTERACT', 773, 135, 675, 125, 0.6);
+        this.addTooltip('keybindSpace', 'VENDA', 743, 30, 715, 50, 0.5);
+        this.addTooltip('keybindQ', 'INVENTARIO', 773, 95, 650, 85, 0.6);
+        this.addTooltip('keybindE', 'INTERACTUAR', 773, 135, 635, 125, 0.6);
         if (this.scene.scene.key !== 'level0')
-            this.addTooltip('keybindR', 'HABLA CON TU PADRE', 773, 175, 580, 165, 0.6);
+            this.addTooltip('keybindR', 'HABLA CON TU PADRE', 773, 175, 575, 165, 0.6);
         else this.preludeTooltips();
 
         //Inventario
         this.inventoryRef = player.inventory;
-        this.backgroundInventory = this.scene.add.image(140, 560, 'invBack').setScrollFactor(0);
+        this.backgroundInventory = this.scene.add.image(204, 560, 'invBack').setScrollFactor(0);
         this.add(this.backgroundInventory);
         this.isVisible = false;
         this.backgroundInventory.setVisible(this.isVisible);
@@ -43,7 +43,6 @@ export default class GUI extends Phaser.GameObjects.Container {
         //Fe maxima = 80*nivel completado + 20*evento secundario (3 por nivel) = 240 + 180 = 420 (noice)
         this.faithTop = 420;
         this.hideFaith();
-
     }
 
     //modificacion del texto del item seleccionado en GUI
@@ -120,23 +119,9 @@ export default class GUI extends Phaser.GameObjects.Container {
 
     //metodo para activar tooltips en el tutorial
     preludeTooltips() {
-        this.arrowTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
-        this.wasdTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
-        this.spaceTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
-    }
-
-    updateGUIPrelude(key) {
-        if (key === "talk") {
-            this.itemTooltip.setVisible(false);
-            this.arrowTooltip.setVisible(false);
-        }
-        else if (key === "getItem") {
-            this.itemTooltip.setVisible(true);
-            this.arrowTooltip.setVisible(false);
-        }
-        else if (key === "useItemAndBlindfold") {
-            this.itemTooltip.setVisible(false);
-            this.arrowTooltip.setVisible(true);
-        }
+        this.arrowTooltip = this.scene.add.image(35, 533, 'lmbTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
+        this.wasdTooltip = this.scene.add.image(80, 200, 'keybindWASD').setScrollFactor(0).setDepth(11).setVisible(true).setScale(0.5);
+        this.spaceTooltip = this.scene.add.image(80, 200, 'keybindSpace').setScrollFactor(0).setDepth(11).setVisible(false).setScale(0.5);
+        this.qTooltip = this.scene.add.image(50, 200, 'keybindQ').setScrollFactor(0).setDepth(11).setVisible(false).setScale(0.5);
     }
 }

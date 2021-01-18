@@ -143,22 +143,23 @@ export default class Level1 extends NewGameScene {
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
         this.itemContainer = [];
+        console.log(this.itemFrames);
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             if (itemPos.name === 'potion') {
-                this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
+                this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[18], this.player);
                 this.itemContainer.push(this.potion);
                 //TESTEO DE ITEMS, NO BORRAR
                 // this.TESTING = new LessDeathItem(this.matter.world, this.player.x + 250, this.player.y, this.itemFrames[0], this.player);
                 // this.itemContainer.push(this.TESTING);
             }
             //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
-            else if (itemPos.name === 'coin') {
-                this.coin = new KaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[4], this.player);
+            else if (itemPos.name === 'kaleidoscope') {
+                this.coin = new KaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[9], this.player);
                 this.itemContainer.push(this.coin);
             }
             else if (itemPos.name === 'sketch') {
-                this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[10], this.player);
+                this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[20], this.player);
                 this.itemContainer.push(this.sketch);
             }
         }
@@ -188,7 +189,6 @@ export default class Level1 extends NewGameScene {
                 this.insertItem(this.item);
             }
         });
-
         this.player.cursorsPlayer.interactGhost.on('down', event => {
             if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT) {
                 let silEvent = this.silhouette.nextEvent();
@@ -196,11 +196,9 @@ export default class Level1 extends NewGameScene {
                     this.changeScene(silEvent);
             }
         });
-
         this.player.cursorsPlayer.invToggle.on('down', event => {
             this.gui.toggleInventory();
         });
-        this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
         this.player.cursorsPlayer.pause.on('down', event => {
             //guardo la info entre escenas y cambio de escena

@@ -76,11 +76,15 @@ export default class Level0 extends NewGameScene {
         // Añado un npc de prueba en un array
         this.npcs = [
             this.dadNpc = this.generateNPC(
-                'dad', true, 120,
+                'dad', true, 160,
                 [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
-        this.dadNpc.setScale(2.2);
+        
+        // Correcion de la escala del padre y su colision
+        this.dadNpc.setScale(2.2);        
+        this.dadNpc.body.parts[1].circleRadius=130;
+        
         this.totalLevelEvents = 2;
 
         // Colocamos la vision en la posicion del jugador
@@ -126,6 +130,7 @@ export default class Level0 extends NewGameScene {
                         this.prelude = this.preludeState.GetItem;
                         this.picture.itemPointer.setVisible(true);
                     }
+                    this.gui.wasdTooltip.setVisible(false);
                     this.gui.updateInventory(this.prelude);
                     this.changeScene(npcEvent);
                 }
@@ -135,6 +140,7 @@ export default class Level0 extends NewGameScene {
                 this.insertItem(this.item);
                 this.prelude = this.preludeState.Talk;
                 this.gui.updateInventory(this.prelude);
+                this.gui.wasdTooltip.setVisible(true);
             }
         });
 
@@ -190,6 +196,13 @@ export default class Level0 extends NewGameScene {
                 }
             });
 
+        this.events.on('wake', event => {
+            //la musica vuelve a sonar
+            this.sound.play('mainTheme', {
+                mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
+            });
+        });
+
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
     }
@@ -203,22 +216,30 @@ export default class Level0 extends NewGameScene {
         this.stateChanging();
     }
 
+    changeTooltips() {
+        this.gui.arrowTooltip.setVisible(false);
+        this.gui.spaceTooltip.setVisible(true);
+    }
+
     stateChanging() {
         if (this.prelude === this.preludeState.Talk && this.player.faith === 20) {
             this.prelude = this.preludeState.UseItemAndBlindfold
+            this.gui.qTooltip.setVisible(true);
             this.gui.updateInventory(this.prelude);
         }
         if (this.prelude === this.preludeState.UseItemAndBlindfold) {
             if (this.player.cursorsPlayer.invToggle.isDown & !this.gui.backgroundInventory.visible) {
                 this.gui.toggleInventory();
-                //this.gui.
+                this.gui.arrowTooltip.setVisible(true);
+                this.gui.qTooltip.setVisible(false);
             }
             else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 20) {
                 this.blindfold.setBlindfold();
                 this.dadNpc.setVisible(true);
                 this.sound.play('sfxDesactivateBlind');
                 this.prelude = this.preludeState.Talk;
-                this.gui.updateInventory(this.prelude);
+                this.gui.wasdTooltip.setVisible(true);
+                this.gui.spaceTooltip.setVisible(false);
             }
         }
     }

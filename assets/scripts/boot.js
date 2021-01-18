@@ -57,6 +57,8 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 128 });
         this.load.spritesheet('npcTooltip', './assets/sprites/npc_tooltip.png',
             { frameWidth: 64, frameHeight: 128 });
+        this.load.spritesheet('lmbTooltip', './assets/sprites/lmb_tooltip.png',
+            { frameWidth: 64, frameHeight: 128 });
 
         // Carga de datos de menus
         this.load.image('pauseMenu', './assets/sprites/ui/pause_menu.png');
@@ -123,6 +125,7 @@ export default class Boot extends Phaser.Scene {
     }
 
     create() {
+        //desactiva iput del click derecho
         this.input.mouse.disableContextMenu();
 
         //creacion de animaciones
@@ -146,8 +149,9 @@ export default class Boot extends Phaser.Scene {
         this.createAnims('vagabond', 4);
         this.createAnims('dad', 4);
 
-        this.tooltipAnims('itemTooltip', 4)
-        this.tooltipAnims('npcTooltip', 4)
+        this.tooltipAnims('itemTooltip', 1)
+        this.tooltipAnims('npcTooltip', 1);
+        this.tooltipAnims('lmbTooltip', 1);
 
         this.anims.create({
             key: 'idle_ghost',

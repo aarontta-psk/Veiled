@@ -83,6 +83,7 @@ export class PendantItem extends Item {
 
     doSomething(player) {
         player.addFaith(60);
+        this.scene.changeTooltips();
     }
 }
 
