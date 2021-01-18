@@ -120,8 +120,9 @@ export default class GUI extends Phaser.GameObjects.Container {
 
     //metodo para activar tooltips en el tutorial
     preludeTooltips() {
-        this.itemTooltip = this.scene.add.image(212, 60, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
         this.arrowTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
+        this.wasdTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
+        this.spaceTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
     }
 
     updateGUIPrelude(key) {

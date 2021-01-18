@@ -60,7 +60,7 @@ export default class Level1 extends NewGameScene {
                 let savedFaith;
                 if (this.info !== undefined && this.info.obtainedFaith !== undefined) savedFaith = this.info.obtainedFaith;
                 else savedFaith = 0;
-                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith,1);
+                this.player = new Player(this.matter.world, objeto.x, objeto.y, objeto, savedFaith, 1);
             }
             else if (objeto.name === 'newSect') {
                 let trigger = new Trigger(this.matter.world, objeto.x, objeto.y, objeto.width, objeto.height);
@@ -183,8 +183,10 @@ export default class Level1 extends NewGameScene {
                 if (npcEvent != null)
                     this.changeScene(npcEvent);
             }
-            else (this.item != undefined)
-            this.insertItem(this.item);
+            else if (this.item != undefined) {
+                this.item.itemPointer.setVisible(false);
+                this.insertItem(this.item);
+            }
         });
 
         this.player.cursorsPlayer.interactGhost.on('down', event => {

@@ -104,6 +104,7 @@ export default class Level0 extends NewGameScene {
             if (itemPos.name === 'picture') {
                 this.picture = new PictureItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[16], this.player);
                 this.picture.setScale(2);
+                this.picture.itemPointer.setVisible(false);
                 this.itemContainer.push(this.picture);
             }
             else if (itemPos.name === 'pendant') {
@@ -121,13 +122,16 @@ export default class Level0 extends NewGameScene {
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 let npcEvent = this.auxEventHandler.nextEvent();
                 if (npcEvent != null) {
-                    if (this.player.inventory.objects.length === 0 && this.player.faith === 0)
+                    if (this.player.inventory.objects.length === 0 && this.player.faith === 0) {
                         this.prelude = this.preludeState.GetItem;
+                        this.picture.itemPointer.setVisible(true);
+                    }
                     this.gui.updateInventory(this.prelude);
                     this.changeScene(npcEvent);
                 }
             }
             else if (this.prelude === this.preludeState.GetItem && this.item !== undefined) {
+                this.item.itemPointer.setVisible(false);
                 this.insertItem(this.item);
                 this.prelude = this.preludeState.Talk;
                 this.gui.updateInventory(this.prelude);
@@ -207,6 +211,7 @@ export default class Level0 extends NewGameScene {
         if (this.prelude === this.preludeState.UseItemAndBlindfold) {
             if (this.player.cursorsPlayer.invToggle.isDown & !this.gui.backgroundInventory.visible) {
                 this.gui.toggleInventory();
+                this.gui.
             }
             else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 20) {
                 this.blindfold.setBlindfold();
