@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="22" nextobjectid="85">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="22" nextobjectid="100">
  <editorsettings>
   <export target="map_01.json" format="json"/>
  </editorsettings>
@@ -67,8 +67,8 @@
  <objectgroup id="21" name="objectives">
   <object id="44" name="objective" x="4256" y="2208" width="32" height="32">
    <properties>
-    <property name="faithReq" type="int" value="0"/>
-    <property name="num" type="int" value="0"/>
+    <property name="faithReq" type="int" value="25"/>
+    <property name="num" type="int" value="2"/>
    </properties>
   </object>
   <object id="45" name="objective" x="3984" y="3424" width="32" height="32">
@@ -77,11 +77,71 @@
     <property name="num" type="int" value="1"/>
    </properties>
   </object>
+  <object id="85" name="objective" x="2528" y="4112" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="0"/>
+    <property name="num" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="86" name="objective" x="2272" y="2848" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="1"/>
+    <property name="num" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="87" name="objective" x="1232" y="2080" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="40"/>
+    <property name="num" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="88" name="objective" x="2672" y="4000" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="50"/>
+    <property name="num" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="89" name="objective" x="4272" y="2208" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="60"/>
+    <property name="num" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="90" name="objective" x="4448" y="3104" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="70"/>
+    <property name="num" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="91" name="objective" x="2000" y="3392" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="80"/>
+    <property name="num" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="92" name="objective" x="4464" y="3104" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="85"/>
+    <property name="num" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="93" name="objective" x="4048" y="3120" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="90"/>
+    <property name="num" type="int" value="10"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="6" name="collectable">
-  <object id="18" name="potion" x="3007.33" y="3424.67" width="32" height="32"/>
-  <object id="19" name="kaleidoscope" x="1376" y="2080" width="32" height="32"/>
-  <object id="21" name="sketch" x="2592" y="2960" width="32" height="32"/>
+  <object id="18" name="potion" x="3008" y="4320" width="32" height="32"/>
+  <object id="19" name="kaleidoscope" x="2688" y="4352" width="32" height="32"/>
+  <object id="21" name="sketch" x="2928" y="4368" width="32" height="32"/>
+  <object id="94" name="sacredFire" x="2624" y="4208" width="32" height="32"/>
+  <object id="95" name="offensive" x="2720" y="4144" width="32" height="32"/>
+  <object id="96" name="positive" x="2832" y="4144" width="32" height="32"/>
+  <object id="97" name="stamp" x="2944" y="4144" width="32" height="32"/>
+  <object id="98" name="blessing" x="3024" y="4144" width="32" height="32"/>
+  <object id="99" name="laudano" x="2576" y="4304" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="eventTriggers" offsetx="0" offsety="-2">
   <object id="43" name="treeSmell" x="2688" y="4064" width="16" height="16"/>
