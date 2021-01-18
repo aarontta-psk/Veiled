@@ -1151,6 +1151,49 @@ export class lumberjackEvent_0 extends eventScene {
     }
 }
 
+export class lumberjackEvent_1 extends eventScene {
+    constructor() {
+        super({ key: 'lumberjackEvent_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.searchPendingApproach = [
+            {
+                text: '-Te dije tres árboles, y necesito que sean de diferentes zonas del pueblo. Si no los encuentras no pasa nada, pero no podré ponerme a buscar ingredientes para el médico hasta que los localice.'
+            },
+            {
+                text: 'Aceptar'
+            }
+        ];
+        this.searchCompletedApproach = [
+            {
+                text: '-Los encontraste.- El tono de su voz denota una sorpresa agradable, sin llegar a ser una exclamación -Pues genial, talaré esos árboles y me pondré de inmediato a buscar el medicamento de tu hermano. Me has hecho un gran favor, y aunque no lo sepa, al bosque también. Te lo agradezco de verdad.'
+            },
+            {
+                text: 'Aceptar y despedirte del leñador',
+                cb: () => {
+                    this.info.player.scene.nextObjective();
+                    this.completeEvent(40, 15);
+                }
+            }
+        ];
+        this.content = this.content = [
+            {
+                text: 'El leñador sigue en su trabajo, y no parece alterarse por tu presencia.'
+            },
+            {
+                text: 'Llamar su atención',
+                cb: () => { 
+                    if (this.info.player.scene.currentObjective >= 4)
+                        this.approach = this.searchCompletedApproach;
+                    else
+                        this.approach = this.searchPendingApproach;
+                },
+                next: this.approach
+            }
+        ]
+    }
+}
+
 export class homeless_Event_0 extends eventScene{
     constructor() {
         super({ key: 'homeless_Event_0' });
