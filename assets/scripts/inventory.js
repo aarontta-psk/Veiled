@@ -4,7 +4,7 @@ export default class Inventory extends Phaser.GameObjects.GameObject{
     constructor(mainScene) {
         super(mainScene)
         this.mainScene = mainScene;
-        this.MAX_SIZE = 6;
+        this.MAX_SIZE = 9;
         this.objects = [];
     }
 

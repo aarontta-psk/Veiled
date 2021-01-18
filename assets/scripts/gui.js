@@ -16,7 +16,7 @@ export default class GUI extends Phaser.GameObjects.Container {
 
         //Inventario
         this.inventoryRef = player.inventory;
-        this.backgroundInventory = this.scene.add.image(140, 560, 'invBack').setScrollFactor(0);
+        this.backgroundInventory = this.scene.add.image(204, 560, 'invBack').setScrollFactor(0);
         this.add(this.backgroundInventory);
         this.isVisible = false;
         this.backgroundInventory.setVisible(this.isVisible);
