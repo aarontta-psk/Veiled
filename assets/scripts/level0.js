@@ -80,7 +80,11 @@ export default class Level0 extends NewGameScene {
                 [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
-        this.dadNpc.setScale(2.2);
+        
+        // Correcion de la escala del padre y su colision
+        this.dadNpc.setScale(2.2);        
+        this.dadNpc.body.parts[1].circleRadius=130;
+        
         this.totalLevelEvents = 2;
 
         // Colocamos la vision en la posicion del jugador
