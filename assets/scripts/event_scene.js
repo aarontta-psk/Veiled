@@ -76,6 +76,11 @@ export default class eventScene extends Phaser.Scene {
         this.completed = true;
         this.sound.play('sfxFaithUp')
     }
+
+    completeMainEvent(sanityToAdd, faithToAdd){
+        this.completeEvent(sanityToAdd, faithToAdd);
+        this.info.prevScene.nextObjective();
+    }
 }
 
 export class testEvent extends eventScene {
@@ -425,7 +430,7 @@ export class testSilueta_0 extends eventScene{
             },
             {
                 text: 'ok',
-                cb: () => { this.completeEvent(50,10)},
+                cb: () => { this.completeMainEvent(5,0)},
             }
         ]
     }
@@ -442,7 +447,7 @@ export class testSilueta_1 extends eventScene{
             },
             {
                 text: 'ok',
-                cb: () => { this.completeEvent(70,50)},
+                cb: () => { this.completeMainEvent(5,0)},
             }
         ]
     }

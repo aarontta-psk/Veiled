@@ -1,4 +1,4 @@
-import eventScene, { lumberjackEvent_1 } from './event_scene.js'
+import eventScene from './event_scene.js'
 
 //#region SecondaryEvents
 export class elder_Event_0 extends eventScene {
@@ -191,6 +191,12 @@ export class grandMother_Event_0 extends eventScene {
                         next: [
                             {
                                 text: 'PONER HISTORIA, RESTAR CORDURA POR CADA TEXTO NEXT[] QUE TE CUENTA Y DAR FE AL FINAL'
+                            },
+                            {
+                                text: 'Acabar',
+                                cb: () => {
+                                    this.completeMainEvent(1,1);
+                                }
                             }
                         ]
                     },
@@ -925,7 +931,7 @@ export class doctorEvent_0 extends eventScene {
                         text: 'Asentir y despedirte del viejo doctor',
                         cb: () => {
                             //this.info.player.enableBlindfold();
-                            this.completeEvent(15,20);
+                            this.completeMainEvent(31,31);
                         }
                     }
                 ]
@@ -946,7 +952,7 @@ export class doctorEvent_0 extends eventScene {
                         text: 'Dar las gracias y aceptar consejo',
                         cb: () => {
                             //this.info.player.enableBlindfold();
-                            this.completeEvent(15,20);
+                            this.completeMainEvent(31,31);
                         }
                     }
                 ]
