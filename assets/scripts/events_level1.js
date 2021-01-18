@@ -1,4 +1,4 @@
-import eventScene from './event_scene.js'
+import eventScene, { lumberjackEvent_1 } from './event_scene.js'
 
 //#region SecondaryEvents
 export class elder_Event_0 extends eventScene {
@@ -474,7 +474,7 @@ export class foreigner_Event_0 extends eventScene{
             {
                 text: 'Te acercas a alguien muy ruidoso. Habla bastante alto y se nota que no es de por aquí. Tiene un acento extraño que ' +
                 'no sabes muy bien de dónde es. -Hey, la de la venda. Tengo un problema. La posada está cerrada. ¡Necesito un lugar ' +
-                'para dormir! ¿Puedes hacer algo? LLamando a la puerta no me hacen ni caso'
+                'para dormir! ¿Puedes hacer algo? Llamando a la puerta no me hacen ni caso'
             },
             {
                 text: '¿Por que yo?',
@@ -956,9 +956,58 @@ export class doctorEvent_0 extends eventScene {
     }
 }
 
-export class doctorEvent_1 extends eventScene {
+export class doctorEvent_1 extends eventScene{
     constructor() {
         super({ key: 'doctorEvent_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.fernandoIntroduction= [
+            {
+                text: '-Sí, Fernando, el leñador. La gente la llama brusco, pero es el hombre más directo y sincero que conozco. Si él dice que hay un problema, me fío de su palabra y no le hago preguntas. Pero si quieres saber más, no seas tímida y habla con él. Trabaja al otro lado del pueblo, así que tienes un buen paseo. \n-Y juzgando por el color de tu cara,- añade con una preocupación -te vendría bien un poco de aire fresco'
+            },
+            {
+                text: 'Vale',
+                cb: () => {
+                    this.completeEvent(15, 10);
+                }
+            },
+            {
+                text: '[Ligeramente ofendida] Vale',
+                cb: () => {
+                    this.completeEvent(14, 10);
+                }
+            }
+        ];
+        this.problem= [
+            {
+                text: '-No lo sé, pero si me Fernando me dice que hay un problema, me fío de su palabra. Siempre puedes preguntarle si quieres; vive al otro lado del pueblo.'
+            },
+            {
+                text: 'Vale, veré que ocurre',
+                cb: () => {
+                    this.completeEvent(15, 10);
+                }
+            }
+        ];
+        this.content = [
+            {
+                text: '-Por cierto, -dices, recordando la petición de tu hermano -mi hermano Pedro quería pedirte otra dosis de medicina para un dolor de cabeza. ¿Sabes a los que se refiere?\n\n-Ah, sí, las migrañas de tu hermano. Pues me temo que aún no, necesito corteza de sauce, y Fernando me dice que no puede conseguírmelo ahora mismo.'
+            },
+            {
+                text: '¿Fernando?',
+                next: this.fernandoIntroduction
+            },
+            {
+                text: '¿Cuál es el problema?',
+                next: this.problem
+            }
+        ]
+    }
+}
+
+export class doctorEvent_2 extends eventScene {
+    constructor() {
+        super({ key: 'doctorEvent_2' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
@@ -968,8 +1017,178 @@ export class doctorEvent_1 extends eventScene {
                 'el secreto para que te llamen sabio.'
             },
             {
-                text: 'Reír al comentario y continuar',
-                cb: () => { },
+                text: 'Reír al comentario y continuar'
+            }
+        ]
+    }
+}
+
+export class doctorEvent_3 extends eventScene {
+    constructor() {
+        super({ key: 'doctorEvent_3' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'El doctor te saluda desde lejos con una grande sonrisa en su rostro. \n' +
+                '-¿Has cumplido con lo que te pedi?'
+            },
+            {
+                text: 'Si, me lo agradeció y todo',
+                failedText: 'No has ayudado aún al vagabundo',
+                condition: function (ref) {
+                    return (ref.scene.get('homeless_Event_1').completed)
+                },
+                next: [
+                    {
+                        text: '-Ya veo...Ya has visto. Te niegas a ver la realidad como es, pero cuando necesitas ' +
+                        'hacerlo, realmente ayudas a la gente. ¿No lo ves? Confío en que entiendes de lo que te hablo.- ' +
+                        'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela paso por aquí hace un momento. ' +
+                        'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho,'
+                    },
+                    {
+                        text: 'Sonriendo, asientes y te despides del doctor',
+                        cb: () => {
+                            this.completeEvent(20,20);
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+export class lumberjackEvent_0 extends eventScene {
+    constructor() {
+        super({ key: 'lumberjackEvent_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.missionAccepted =[
+            {
+                text: '-En ese caso, creo que puedo ayudar. \n-Bien.- Responde el leñador- Si encuentras tres árboles enfermos, dime dónde están y yo me encargaré.- Y vuelve sin más a su trabajo.'
+            },
+            {
+                text: 'Continuar',
+                cb: () => {
+                    this.completeEvent(20, 10);
+                    this.info.player.scene.nextObjective();
+                }
+            }
+        ]
+        this.infectionExplanation =[
+            {
+                text: '-Por su aspecto, es invisible. Lo único que diferencia un árbol infectado de uno sano es un ligero olor agrio emanando de las hojas.'
+            },
+            {
+                text: 'Aceptar propuesta',
+                cb: () => {
+                    this.completeEvent(20,20);
+                },
+                next: this.missionAccepted
+            }
+        ]
+        this.blindedApproach = [
+            {
+                text: '-Hola- oyes una voz sorprendentemente suave y compuesta de la dirección del ruido -Mira, sé quién eres, y he oído lo que te ha pasado. Si bienes buscando mi ayuda, lo siento, pero tengo asuntos importantes que atender. \nPero si vienes para ayudar, déjate de tonterías y quítate esa venda de los ojos. No tengo tiempo para tu autocompasión.'
+            },
+            {
+                text: 'Quitar la venda',
+                next: this.nonBlindApproach
+            },
+            {
+                text: 'Abandonar a este hombre con sus malos modales'
+            }
+        ];
+        this.nonBlindApproach = [
+            {
+                text: 'Cuando te acercas al leñador, ves un hombre de tez oscura reposando su hacha en un tronco recién caído. \n-Adelante- dice, cruzándose de brazos -¿Para qué vienes?'
+            },
+            {
+                text: 'Vengo a ayudar',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'El hombre no parece echarse atrás a la idea. -De acuerdo. El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los robles de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
+                    },
+                    {
+                        text: '¿Cómo se identifica la enfermedad?',
+                        next: this.infectionExplanation
+                    }
+                ]
+            },
+            {
+                text: '¿Cuál es el problema?',
+                cb: () => {},
+                next: [
+                    {
+                        text: '-El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los robles de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
+                    },
+                    {
+                        text: '¿Cúales son los síntomas de esta enfermedad?',
+                        next: this.infectionExplanation
+                    }
+                ]
+            }
+        ];
+        this.content = [
+            {
+                text: 'Puedes oler el olor a pino y oír los golpes regulares de un hacha cortando madera. Te paras un momento, insegura de si entrar en este lugar de trabajo.'
+            },
+            {
+                text: 'Avanzar',
+                cb: () => { 
+                    if (this.info.player.scene.blindfold.blind)
+                        this.approach = this.blindedApproach;
+                    else
+                        this.approach = this.nonBlindApproach;
+                },
+                next: this.approach
+            },
+            {
+                text: 'Darte la vuelta y retornar'
+            },
+        ]
+    }
+}
+
+export class lumberjackEvent_1 extends eventScene {
+    constructor() {
+        super({ key: 'lumberjackEvent_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.searchPendingApproach = [
+            {
+                text: '-Te dije tres árboles, y necesito que sean de diferentes zonas del pueblo. Si no los encuentras no pasa nada, pero no podré ponerme a buscar ingredientes para el médico hasta que los localice.'
+            },
+            {
+                text: 'Aceptar'
+            }
+        ];
+        this.searchCompletedApproach = [
+            {
+                text: '-Los encontraste.- El tono de su voz denota una sorpresa agradable, sin llegar a ser una exclamación -Pues genial, talaré esos árboles y me pondré de inmediato a buscar el medicamento de tu hermano. Me has hecho un gran favor, y aunque no lo sepa, al bosque también. Te lo agradezco de verdad.'
+            },
+            {
+                text: 'Aceptar y despedirte del leñador',
+                cb: () => {
+                    this.info.player.scene.nextObjective();
+                    this.completeEvent(40, 15);
+                }
+            }
+        ];
+        this.content = this.content = [
+            {
+                text: 'El leñador sigue en su trabajo, y no parece alterarse por tu presencia.'
+            },
+            {
+                text: 'Llamar su atención',
+                cb: () => { 
+                    if (this.info.player.scene.currentObjective >= 4)
+                        this.approach = this.searchCompletedApproach;
+                    else
+                        this.approach = this.searchPendingApproach;
+                },
+                next: this.approach
             }
         ]
     }
@@ -1159,45 +1378,9 @@ export class homeless_Event_1 extends eventScene{
                         }
                     }
                 ]
-
             },
             {
                 text: 'Aún no lo he encontrado'
-            }
-        ]
-    }
-}
-
-export class doctorEvent_2 extends eventScene {
-    constructor() {
-        super({ key: 'doctorEvent_2' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'mainEventMenu';
-        this.content = [
-            {
-                text: 'El doctor te saluda desde lejos con una grande sonrisa en su rostro. \n' +
-                '-¿Has cumplido con lo que te pedi?'
-            },
-            {
-                text: 'Si, me lo agradecio y todo',
-                failedText: 'No has ayudado aún al vagabundo',
-                condition: function (ref) {
-                    return (ref.scene.get('homeless_Event_1').completed)
-                },
-                next: [
-                    {
-                        text: '-Ya veo...Ya has visto. Te niegas a ver la realidad como es, pero cuando necesitas ' +
-                        'hacerlo, realmente ayudas a la gente. ¿No lo ves? Confío en que entiendes de lo que te hablo.- ' +
-                        'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela paso por aquí hace un momento. ' +
-                        'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho,'
-                    },
-                    {
-                        text: 'Sonriendo, asientes y te despides del doctor',
-                        cb: () => {
-                            this.completeEvent(20,20);
-                        }
-                    }
-                ]
             }
         ]
     }
