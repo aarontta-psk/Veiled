@@ -191,12 +191,12 @@
                         {
                          "name":"faithReq",
                          "type":"int",
-                         "value":0
+                         "value":25
                         }, 
                         {
                          "name":"num",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }],
                  "rotation":0,
                  "type":"",
@@ -226,6 +226,204 @@
                  "width":32,
                  "x":3984,
                  "y":3424
+                }, 
+                {
+                 "height":32,
+                 "id":85,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2528,
+                 "y":4112
+                }, 
+                {
+                 "height":32,
+                 "id":86,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":15
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2272,
+                 "y":2848
+                }, 
+                {
+                 "height":32,
+                 "id":87,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":3
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1232,
+                 "y":2080
+                }, 
+                {
+                 "height":32,
+                 "id":88,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":50
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":4
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2672,
+                 "y":4000
+                }, 
+                {
+                 "height":32,
+                 "id":89,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":60
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":5
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":4272,
+                 "y":2208
+                }, 
+                {
+                 "height":32,
+                 "id":90,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":70
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":6
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":4448,
+                 "y":3104
+                }, 
+                {
+                 "height":32,
+                 "id":91,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":80
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":7
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2000,
+                 "y":3392
+                }, 
+                {
+                 "height":32,
+                 "id":92,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":85
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":9
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":4464,
+                 "y":3104
+                }, 
+                {
+                 "height":32,
+                 "id":93,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":90
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":10
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":4048,
+                 "y":3120
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -246,8 +444,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":3007.33,
-                 "y":3424.67
+                 "x":3008,
+                 "y":4320
                 }, 
                 {
                  "height":32,
@@ -257,8 +455,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1376,
-                 "y":2080
+                 "x":2688,
+                 "y":4352
                 }, 
                 {
                  "height":32,
@@ -268,8 +466,74 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2592,
-                 "y":2960
+                 "x":2928,
+                 "y":4368
+                }, 
+                {
+                 "height":32,
+                 "id":94,
+                 "name":"sacredFire",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2624,
+                 "y":4208
+                }, 
+                {
+                 "height":32,
+                 "id":95,
+                 "name":"offensive",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2720,
+                 "y":4144
+                }, 
+                {
+                 "height":32,
+                 "id":96,
+                 "name":"positive",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2832,
+                 "y":4144
+                }, 
+                {
+                 "height":32,
+                 "id":97,
+                 "name":"stamp",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2944,
+                 "y":4144
+                }, 
+                {
+                 "height":32,
+                 "id":98,
+                 "name":"blessing",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":3024,
+                 "y":4144
+                }, 
+                {
+                 "height":32,
+                 "id":99,
+                 "name":"laudano",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2576,
+                 "y":4304
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1112,7 +1376,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":85,
+ "nextobjectid":100,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",

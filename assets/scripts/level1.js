@@ -1,6 +1,6 @@
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, { PotionItem, KaleidoscopeItem, SketchItem, SickTreeItem, StampItem, BlessingItem, PositiveWordItem, OffensiveWordItem, SacredFireItem, AvoidDeathItem, LessDeathItem } from './item.js';
+import Item, { PotionItem, KaleidoscopeItem, SketchItem, SickTreeItem, StampItem, BlessingItem, PositiveWordItem, OffensiveWordItem, SacredFireItem, AvoidDeathItem, LessDeathItem, BetterBlindFoldItem } from './item.js';
 import Npc from './npc.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
@@ -146,21 +146,48 @@ export default class Level1 extends NewGameScene {
         console.log(this.itemFrames);
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
-            if (itemPos.name === 'potion') {
-                this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[18], this.player);
-                this.itemContainer.push(this.potion);
-                //TESTEO DE ITEMS, NO BORRAR
-                // this.TESTING = new LessDeathItem(this.matter.world, this.player.x + 250, this.player.y, this.itemFrames[0], this.player);
-                // this.itemContainer.push(this.TESTING);
-            }
-            //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
-            else if (itemPos.name === 'kaleidoscope') {
-                this.coin = new KaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[9], this.player);
-                this.itemContainer.push(this.coin);
-            }
-            else if (itemPos.name === 'sketch') {
-                this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[20], this.player);
-                this.itemContainer.push(this.sketch);
+            switch (itemPos.name) {
+                case 'potion':
+                    this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[18], this.player);
+                    this.itemContainer.push(this.potion);
+                    break;
+                //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
+                case 'kaleidoscope':
+                    this.coin = new KaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[9], this.player);
+                    this.itemContainer.push(this.coin);
+                    break;
+                case 'sketch':
+                    this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[20], this.player);
+                    this.itemContainer.push(this.sketch);
+                    break;
+                case 'stamp':
+                    this.stamp = new StampItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[21], this.player);
+                    this.itemContainer.push(this.stamp);
+                    break;
+                case 'blessing':
+                    this.blessing = new BlessingItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
+                    this.itemContainer.push(this.blessing);
+                    break;
+                case 'offensive':
+                    this.offWord = new OffensiveWordItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[13], this.player);
+                    this.itemContainer.push(this.offWord);
+                    break;
+                case 'positive':
+                    this.posWord = new PositiveWordItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[17], this.player);
+                    this.itemContainer.push(this.posWord);
+                    break;
+                case 'betBlindfold':
+                    this.betBlindfold = new BetterBlindFoldItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[3], this.player);
+                    this.itemContainer.push(this.betBlindfold);
+                    break;
+                case 'sacredFire':
+                    this.sacredFire = new SacredFireItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[19], this.player);
+                    this.itemContainer.push(this.sacredFire);
+                    break;
+                case 'laudano':
+                    this.laudano = new LessDeathItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[11], this.player);
+                    this.itemContainer.push(this.laudano);
+                    break;
             }
         }
         let sickTree = new SickTreeItem(this.matter.world, 0, 0, this.itemFrames[10], this.player)

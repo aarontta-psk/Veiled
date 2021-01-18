@@ -123,7 +123,7 @@ export class PositiveWordItem extends Item{
     }
 }
 
-export class BetterBlindFold extends Item{
+export class BetterBlindFoldItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
         this.name = "Venda de tela";;
@@ -151,8 +151,8 @@ export class SacredFireItem extends Item{
 export class LessDeathItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
-        this.name = "Láudano";;
-        this.description = "Efecto: Al usarse es menos probable morir";
+        this.name = "Láudano";
+        this.description = "Al usarse es menos probable morir";
     }
 
     doSomething(player) {
@@ -171,19 +171,9 @@ export class AvoidDeathItem extends Item{
     }
 }
 
-//objeto clave de prueba
-export class KeyItem1 extends Item{
-    constructor(world, x, y, frame, player){
-        super(world, x, y, frame, player, false);
-        this.name = "Llave antigua";
-        this.description = "Prueba de como seria un objeto clave";
-    }
-}
-
 export class SketchItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
-        this.setActive(false).setVisible(false);
         this.name = "Boceto";
         this.description = "Un boceto abstracto con una gama de colores cálidos";
     }
@@ -192,7 +182,6 @@ export class SketchItem extends Item{
 export class SickTreeItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
-        this.setActive(false).setVisible(false);
         this.name = "Rama enferma";
         this.description = "Parece demasiado frágil para un arbol corriente";
     }
@@ -201,7 +190,6 @@ export class SickTreeItem extends Item{
 export class PictureItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
-        this.setActive(true).setVisible(true);
         this.name = "Foto";
         this.description = "Recuerdo de un viaje";
     }
