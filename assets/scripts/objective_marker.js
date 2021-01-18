@@ -2,9 +2,10 @@ export default class ObjectiveMarker extends Phaser.Physics.Matter.Sprite {
     constructor(world, player) {
         super(world, player.x, player.y, 'objectiveArrow');
 
+        this.scene.add.existing(this);
         this.player = player;
         this.setScale(0.2, 0.2);
-        this.setOrigin(0, 0);
+        this.setOrigin(0.5, 0.5);
         this.alpha = 0.8;
         this.setCollidesWith(null);
         this.setDepth(100);
