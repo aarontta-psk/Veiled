@@ -193,17 +193,6 @@
                  "width":32,
                  "x":3072,
                  "y":3040
-                }, 
-                {
-                 "height":32,
-                 "id":30,
-                 "name":"pendant",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2624,
-                 "y":2208
                 }],
          "opacity":1,
          "type":"objectgroup",

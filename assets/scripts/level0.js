@@ -111,10 +111,6 @@ export default class Level0 extends NewGameScene {
                 this.picture.itemPointer.setVisible(false);
                 this.itemContainer.push(this.picture);
             }
-            else if (itemPos.name === 'pendant') {
-                this.pendant = new PendantItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[14], this.player);
-                this.itemContainer.push(this.pendant);
-            }
         }
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);

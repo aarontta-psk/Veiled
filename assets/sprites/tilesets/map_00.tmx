@@ -67,7 +67,6 @@
  </layer>
  <objectgroup id="6" name="collectable">
   <object id="22" name="picture" x="3072" y="3040" width="32" height="32"/>
-  <object id="30" name="pendant" x="2624" y="2208" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="stimuli">
   <object id="25" name="treeSmell" x="2608" y="512" width="16" height="16"/>

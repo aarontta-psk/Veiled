@@ -1,4 +1,5 @@
 import eventScene from './event_scene.js'
+import { PendantItem } from './item.js' //dad_event_1
 
 export class dad_Event_0 extends eventScene {
     constructor() {
@@ -37,7 +38,8 @@ export class dad_Event_1 extends eventScene {
                 },
                 cb: () => {
                     this.info.player.inventory.removeObjectByKey('Foto');
-                    this.info.player.inventory.collect('Colgante');
+                    this.info.prevScene.insertItem(new PendantItem(this.info.prevScene.matter.world,
+                        0, 0, this.info.prevScene.itemFrames[14], this.info.player));
                     this.completeEvent(0, 20);
                 },
                 next: [
