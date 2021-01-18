@@ -90,6 +90,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('keybindE', './assets/sprites/ui/keybind_e.png');
         this.load.image('keybindR', './assets/sprites/ui/keybind_r.png');
         this.load.image('keybindSpace', './assets/sprites/ui/keybind_space.png');
+        this.load.image('keybindWASD', './assets/sprites/ui/keybind_movement.png');
         this.load.image('objectiveArrow', './assets/sprites/ui/arrow.png');
 
         // Carga los datos del mapa.
@@ -122,6 +123,8 @@ export default class Boot extends Phaser.Scene {
     }
 
     create() {
+        this.input.mouse.disableContextMenu();
+
         //creacion de animaciones
         this.createAnims('player', 8);
         this.createAnims('boatofficial', 4);
@@ -143,8 +146,8 @@ export default class Boot extends Phaser.Scene {
         this.createAnims('vagabond', 4);
         this.createAnims('dad', 4);
 
-        this.tooltipAnims('itemTooltip', 1)
-        this.tooltipAnims('npcTooltip', 1)
+        this.tooltipAnims('itemTooltip', 4)
+        this.tooltipAnims('npcTooltip', 4)
 
         this.anims.create({
             key: 'idle_ghost',

@@ -2,6 +2,9 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y, frame, player, isUsable) {
         super(world, x, y, 'items', frame);
 
+        this.threshold = 30;
+        this.itemPointer = this.scene.add.sprite(x, y - this.threshold, 'itemTooltip').setVisible(true).setDepth(11);
+
         this.setBody({
             type: 'rectangle',
             width: 30,
