@@ -7,11 +7,11 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.depth = 10;
 
         //Keybinds
-        this.addTooltip('keybindSpace', 'BLINDFOLD', 743, 30, 699, 50, 0.5);
-        this.addTooltip('keybindQ', 'INVENTORY', 773, 95, 665, 85, 0.6);
-        this.addTooltip('keybindE', 'INTERACT', 773, 135, 675, 125, 0.6);
+        this.addTooltip('keybindSpace', 'VENDA', 743, 30, 715, 50, 0.5);
+        this.addTooltip('keybindQ', 'INVENTARIO', 773, 95, 650, 85, 0.6);
+        this.addTooltip('keybindE', 'INTERACTUAR', 773, 135, 635, 125, 0.6);
         if (this.scene.scene.key !== 'level0')
-            this.addTooltip('keybindR', 'HABLA CON TU PADRE', 773, 175, 580, 165, 0.6);
+            this.addTooltip('keybindR', 'HABLA CON TU PADRE', 773, 175, 575, 165, 0.6);
         else this.preludeTooltips();
 
         //Inventario
