@@ -54,9 +54,6 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             invToggle: Phaser.Input.Keyboard.KeyCodes.Q,
             blindfold: Phaser.Input.Keyboard.KeyCodes.SPACE,
             pause: Phaser.Input.Keyboard.KeyCodes.ESC,
-
-            talk: Phaser.Input.Keyboard.KeyCodes.T,
-            testing: Phaser.Input.Keyboard.KeyCodes.CTRL
         });
 
         console.log('faith: ' + this.faith);

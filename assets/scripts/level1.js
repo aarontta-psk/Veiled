@@ -188,7 +188,6 @@ export default class Level1 extends NewGameScene {
                 this.insertItem(this.item);
             }
         });
-
         this.player.cursorsPlayer.interactGhost.on('down', event => {
             if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT) {
                 let silEvent = this.silhouette.nextEvent();
@@ -196,11 +195,9 @@ export default class Level1 extends NewGameScene {
                     this.changeScene(silEvent);
             }
         });
-
         this.player.cursorsPlayer.invToggle.on('down', event => {
             this.gui.toggleInventory();
         });
-        this.player.cursorsPlayer.testing.on('down', event => console.log(this.player.inventory.objects)) //testeo respawn
 
         this.player.cursorsPlayer.pause.on('down', event => {
             //guardo la info entre escenas y cambio de escena

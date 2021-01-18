@@ -76,7 +76,7 @@ export default class Level0 extends NewGameScene {
         // Añado un npc de prueba en un array
         this.npcs = [
             this.dadNpc = this.generateNPC(
-                'dad', true, 120,
+                'dad', true, 160,
                 [this.scene.get('dad_Event_0'), this.scene.get('dad_Event_1'), this.scene.get('dad_Event_2')]
             )
         ];
