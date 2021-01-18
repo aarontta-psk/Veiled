@@ -103,6 +103,7 @@ export default class Level0 extends NewGameScene {
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             if (itemPos.name === 'picture') {
                 this.picture = new PictureItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[16], this.player);
+                this.picture.setScale(2);
                 this.itemContainer.push(this.picture);
             }
             else if (itemPos.name === 'pendant') {
@@ -113,14 +114,14 @@ export default class Level0 extends NewGameScene {
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
         this.cameras.main.startFollow(this.player);
-        //this.cameras.main.setBounds(2460, 2580, 600, 600);
+        this.cameras.main.setBounds(2500, 2320, 600, 840);
 
         this.player.cursorsPlayer.interact.on('down', event => {
             if (this.auxEventHandler !== null) {
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 let npcEvent = this.auxEventHandler.nextEvent();
                 if (npcEvent != null) {
-                    if (this.player.inventory.objects.length === 0)
+                    if (this.player.inventory.objects.length === 0 && this.player.faith === 0)
                         this.prelude = this.preludeState.GetItem;
                     this.gui.updateInventory(this.prelude);
                     this.changeScene(npcEvent);
@@ -209,6 +210,8 @@ export default class Level0 extends NewGameScene {
             }
             else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 20) {
                 this.blindfold.setBlindfold();
+                this.dadNpc.setVisible(true);
+                this.sound.play('sfxDesactivateBlind');
                 this.prelude = this.preludeState.Talk;
                 this.gui.updateInventory(this.prelude);
             }
