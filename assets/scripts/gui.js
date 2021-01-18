@@ -43,7 +43,6 @@ export default class GUI extends Phaser.GameObjects.Container {
         //Fe maxima = 80*nivel completado + 20*evento secundario (3 por nivel) = 240 + 180 = 420 (noice)
         this.faithTop = 420;
         this.hideFaith();
-
     }
 
     //modificacion del texto del item seleccionado en GUI
@@ -120,23 +119,9 @@ export default class GUI extends Phaser.GameObjects.Container {
 
     //metodo para activar tooltips en el tutorial
     preludeTooltips() {
-        this.arrowTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
-        this.wasdTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
-        this.spaceTooltip = this.scene.add.image(90, 600, 'itemTooltip').setScrollFactor(0).setDepth(11).setVisible(false);
-    }
-
-    updateGUIPrelude(key) {
-        if (key === "talk") {
-            this.itemTooltip.setVisible(false);
-            this.arrowTooltip.setVisible(false);
-        }
-        else if (key === "getItem") {
-            this.itemTooltip.setVisible(true);
-            this.arrowTooltip.setVisible(false);
-        }
-        else if (key === "useItemAndBlindfold") {
-            this.itemTooltip.setVisible(false);
-            this.arrowTooltip.setVisible(true);
-        }
+        this.arrowTooltip = this.scene.add.image(15, 500, 'lmbTooltip').setScrollFactor(0).setDepth(11).setVisible(true);
+        this.wasdTooltip = this.scene.add.image(80, 200, 'keybindWASD').setScrollFactor(0).setDepth(11).setVisible(true).setScale(0.5);
+        this.spaceTooltip = this.scene.add.image(80, 200, 'keybindSpace').setScrollFactor(0).setDepth(11).setVisible(false).setScale(0.5);
+        this.qTooltip = this.scene.add.image(50, 200, 'keybindQ').setScrollFactor(0).setDepth(11).setVisible(false).setScale(0.5);
     }
 }
