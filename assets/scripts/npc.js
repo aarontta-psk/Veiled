@@ -1,7 +1,7 @@
 import EventHandler from './event_handler.js'
 
 export default class Npc extends EventHandler {
-    constructor(key, world, x, y, npcEvents, path) {
+    constructor(key, world, x, y, npcEvents, path, range) {
         super(world, x, y, key, npcEvents); //llama a la constructora de Sprite
 
         this.scene.add.existing(this); //lo añades en la escena
@@ -14,7 +14,7 @@ export default class Npc extends EventHandler {
         });
         this.setExistingBody(actualThing);
 
-        this.range = 120;
+        this.range = range;
 
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);

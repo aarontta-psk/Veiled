@@ -17,7 +17,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.setFriction(0); //quitamos friccion
         this.setFrictionAir(0);
         this.setFixedRotation(0); //quitamos rotacion
-        this.setMass(1);        
+        this.setMass(1);
 
         this.speed = 3; //velocidad
 
@@ -60,7 +60,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         });
 
         console.log('faith: ' + this.faith);
-        
+
         //Guardamos el sonido de los pasos
         this.stepSound = this.scene.sound.add('sfxSteps');
     }
@@ -81,17 +81,18 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.updateSanity();
 
         //Reproducimos su sonido si se mueve
-        if(this.cursorsPlayer.up.isDown || this.cursorsPlayer.down.isDown ||
-        this.cursorsPlayer.left.isDown || this.cursorsPlayer.right.isDown){
+        if (this.cursorsPlayer.up.isDown || this.cursorsPlayer.down.isDown ||
+            this.cursorsPlayer.left.isDown || this.cursorsPlayer.right.isDown) {
             //Y solo en caso de que no este ya sonando
-            if(!this.stepSound.isPlaying){
+            if (!this.stepSound.isPlaying) {
                 this.stepSound.play();
                 this.stepSound.loop = true;
             }
         }
         else this.stepSound.loop = false;
 
-        this.scene.objectiveMarker.updateObjectiveMarker();
+        if (this.scene.objectiveMarker !== undefined)
+            this.scene.objectiveMarker.updateObjectiveMarker();
     }
 
     //Calculo de velocidad con respecto a input
@@ -162,32 +163,32 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         else if (this.sanity < 0) this.sanity = 0;
     }
 
-    setMaxSanity(newMax){
+    setMaxSanity(newMax) {
         this.maxSanity = newMax;
     }
 
-    addFaith(faithBoost){
+    addFaith(faithBoost) {
         //en caso de restar la fe por debajo del minimo permitido, no se resta
-        if(this.faithCheck + faithBoost <= 0){
+        if (this.faithCheck + faithBoost <= 0) {
             this.faith -= this.faithCheck;
         }
-        else{
+        else {
             //si se tiene la cantidad de fe que se va a restar
             this.faith += faithBoost;
             //resto al minimo para actualizar cuanto mas se puede restar
             this.faithCheck -= faithBoost;
         }
         //me aseguro de que su valor nunca es negativo
-        if(this.faith < 0) this.faith = 0;
+        if (this.faith < 0) this.faith = 0;
         this.scene.gui.viewFaith(this.faith);
     }
 
     //metodo que establece la muerte del jugador
-    setDead(){
+    setDead() {
         this.death = this.deathState.Dead;
     }
 
-    setAlive(){
+    setAlive() {
         this.death = this.deathState.Alive;
     }
 

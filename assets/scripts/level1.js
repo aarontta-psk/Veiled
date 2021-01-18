@@ -88,35 +88,35 @@ export default class Level1 extends NewGameScene {
         // Añado un npc de prueba en un array
         this.npcs = [
             this.doctorNpc = this.generateNPC(
-                'doctor', false,
+                'doctor', false, 60,
                 [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
             ),
             this.painterNpc = this.generateNPC(
-                'painter', false,
+                'painter', false, 60,
                 [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')]
             ),
             this.lumberjackNpc = this.generateNPC(
-                'lumberjack', false,
+                'lumberjack', false, 60,
                 [this.scene.get('lumberjackEvent_0'), this.scene.get('lumberjackEvent_1')]
             ),
             this.glassesNpc = this.generateNPC(
-                'glasses', false,
+                'glasses', false, 60,
                 [this.scene.get('glasses_Event_0'), this.scene.get('glasses_Event_1'), this.scene.get('glasses_Event_2')]
             ),
             this.foreignerNpc = this.generateNPC(
-                'foreigner', false,
+                'foreigner', false, 60,
                 [this.scene.get('foreigner_Event_0'), this.scene.get('foreigner_Event_1')]
             ),
             this.sellerNpc = this.generateNPC(
-                'seller', true,
+                'seller', true, 60,
                 [this.scene.get('seller_Event_0'), this.scene.get('seller_Event_1')]
             ),
             this.hungryKidNpc = this.generateNPC(
-                'hungryKid', false,
+                'hungryKid', false, 60,
                 [this.scene.get('hungryKid_Event_0')]
             ),
             this.elderNpc = this.generateNPC(
-                'elder', true,
+                'elder', true, 60,
                 [this.scene.get('elder_Event_0'), this.scene.get('elder_Event_1')]
             )
         ];

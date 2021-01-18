@@ -35,7 +35,7 @@ export default class GameScene extends Phaser.Scene {
         this.gui.updateSanityBar(this.player.sanity);
     }
 
-    generateNPC(key, isStatic, events) {
+    generateNPC(key, isStatic, range, events) {
         let path = Array();
         for (const pathPoint of this.map.getObjectLayer('npcs').objects)
             if (pathPoint.name == key)
@@ -45,7 +45,7 @@ export default class GameScene extends Phaser.Scene {
                     'pause': pathPoint.properties[1].value
                 }
 
-        let npc = new Npc(key, this.matter.world, path[0].x, path[0].y, events, path);
+        let npc = new Npc(key, this.matter.world, path[0].x, path[0].y, events, path, range);
 
         //asignación de pasos al npc
         let steps = new footSteps(this.soundParticle);
