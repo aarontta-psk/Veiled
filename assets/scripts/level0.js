@@ -130,6 +130,7 @@ export default class Level0 extends NewGameScene {
                         this.prelude = this.preludeState.GetItem;
                         this.picture.itemPointer.setVisible(true);
                     }
+                    this.gui.wasdTooltip.setVisible(false);
                     this.gui.updateInventory(this.prelude);
                     this.changeScene(npcEvent);
                 }
@@ -139,6 +140,7 @@ export default class Level0 extends NewGameScene {
                 this.insertItem(this.item);
                 this.prelude = this.preludeState.Talk;
                 this.gui.updateInventory(this.prelude);
+                this.gui.wasdTooltip.setVisible(true);
             }
         });
 
@@ -207,22 +209,30 @@ export default class Level0 extends NewGameScene {
         this.stateChanging();
     }
 
+    changeTooltips(){
+        this.gui.arrowTooltip.setVisible(false);
+        this.gui.spaceTooltip.setVisible(true);
+    }
+
     stateChanging() {
         if (this.prelude === this.preludeState.Talk && this.player.faith === 20) {
             this.prelude = this.preludeState.UseItemAndBlindfold
+            this.gui.qTooltip.setVisible(true);
             this.gui.updateInventory(this.prelude);
         }
         if (this.prelude === this.preludeState.UseItemAndBlindfold) {
             if (this.player.cursorsPlayer.invToggle.isDown & !this.gui.backgroundInventory.visible) {
                 this.gui.toggleInventory();
-                //this.gui.
+                this.gui.arrowTooltip.setVisible(true);
+                this.gui.qTooltip.setVisible(false);
             }
             else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 20) {
                 this.blindfold.setBlindfold();
                 this.dadNpc.setVisible(true);
                 this.sound.play('sfxDesactivateBlind');
                 this.prelude = this.preludeState.Talk;
-                this.gui.updateInventory(this.prelude);
+                this.gui.wasdTooltip.setVisible(true);
+                this.gui.spaceTooltip.setVisible(false);
             }
         }
     }
