@@ -211,7 +211,7 @@ export default class Level0 extends NewGameScene {
         if (this.prelude === this.preludeState.UseItemAndBlindfold) {
             if (this.player.cursorsPlayer.invToggle.isDown & !this.gui.backgroundInventory.visible) {
                 this.gui.toggleInventory();
-                this.gui.
+                //this.gui.
             }
             else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 20) {
                 this.blindfold.setBlindfold();
