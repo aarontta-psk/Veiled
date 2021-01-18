@@ -1,4 +1,4 @@
-import eventScene from './event_scene.js'
+import eventScene, { lumberjackEvent_1 } from './event_scene.js'
 
 //#region SecondaryEvents
 export class elder_Event_0 extends eventScene {
@@ -1054,6 +1054,99 @@ export class doctorEvent_3 extends eventScene {
                     }
                 ]
             }
+        ]
+    }
+}
+
+export class lumberjackEvent_0 extends eventScene {
+    constructor() {
+        super({ key: 'lumberjackEvent_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.missionAccepted =[
+            {
+                text: '-En ese caso, creo que puedo ayudar. \n-Bien.- Responde el leñador- Si encuentras tres árboles enfermos, dime dónde están y yo me encargaré.- Y vuelve sin más a su trabajo.'
+            },
+            {
+                text: 'Continuar',
+                cb: () => {
+                    this.completeEvent(20, 10);
+                    this.info.player.scene.nextObjective();
+                }
+            }
+        ]
+        this.infectionExplanation =[
+            {
+                text: '-Por su aspecto, es invisible. Lo único que diferencia un árbol infectado de uno sano es un ligero olor agrio emanando de las hojas.'
+            },
+            {
+                text: 'Aceptar propuesta',
+                cb: () => {
+                    this.completeEvent(20,20);
+                },
+                next: this.missionAccepted
+            }
+        ]
+        this.blindedApproach = [
+            {
+                text: '-Hola- oyes una voz sorprendentemente suave y compuesta de la dirección del ruido -Mira, sé quién eres, y he oído lo que te ha pasado. Si bienes buscando mi ayuda, lo siento, pero tengo asuntos importantes que atender. \nPero si vienes para ayudar, déjate de tonterías y quítate esa venda de los ojos. No tengo tiempo para tu autocompasión.'
+            },
+            {
+                text: 'Quitar la venda',
+                next: this.nonBlindApproach
+            },
+            {
+                text: 'Abandonar a este hombre con sus malos modales'
+            }
+        ];
+        this.nonBlindApproach = [
+            {
+                text: 'Cuando te acercas al leñador, ves un hombre de tez oscura reposando su hacha en un tronco recién caído. \n-Adelante- dice, cruzándose de brazos -¿Para qué vienes?'
+            },
+            {
+                text: 'Vengo a ayudar',
+                cb: () => {},
+                next: [
+                    {
+                        text: 'El hombre no parece echarse atrás a la idea. -De acuerdo. El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los robles de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
+                    },
+                    {
+                        text: '¿Cómo se identifica la enfermedad?',
+                        next: this.infectionExplanation
+                    }
+                ]
+            },
+            {
+                text: '¿Cuál es el problema?',
+                cb: () => {},
+                next: [
+                    {
+                        text: '-El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los robles de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
+                    },
+                    {
+                        text: '¿Cúales son los síntomas de esta enfermedad?',
+                        next: this.infectionExplanation
+                    }
+                ]
+            }
+        ];
+        this.content = [
+            {
+                text: 'Puedes oler el olor a pino y oír los golpes regulares de un hacha cortando madera. Te paras un momento, insegura de si entrar en este lugar de trabajo.'
+            },
+            {
+                text: 'Avanzar',
+                cb: () => { 
+                    if (this.info.player.scene.blindfold.blind)
+                        this.approach = this.blindedApproach;
+                    else
+                        this.approach = this.nonBlindApproach;
+                },
+                next: this.approach
+            },
+            {
+                text: 'Darte la vuelta y retornar'
+            },
         ]
     }
 }
