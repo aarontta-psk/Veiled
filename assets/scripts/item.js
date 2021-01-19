@@ -100,30 +100,6 @@ export class BlessingItem extends Item{
     }
 }
 
-export class OffensiveWordItem extends Item{
-    constructor(world, x, y, frame, player){
-        super(world, x, y, frame, player, true);
-        this.name = "Palabra en braile";
-        this.description = "Una palabra escrita en braile que aun no has leido";
-    }
-
-    doSomething(player) {
-        player.addSanity(-20);
-    }
-}
-
-export class PositiveWordItem extends Item{
-    constructor(world, x, y, frame, player){
-        super(world, x, y, frame, player, true);
-        this.name = "Palabra en braile";
-        this.description = "Una palabra escrita en braile que aun no has leido";
-    }
-
-    doSomething(player) {
-        player.addSanity(20);
-    }
-}
-
 export class BetterBlindFoldItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);

@@ -26,7 +26,7 @@ export default class Inventory extends Phaser.GameObjects.GameObject{
     }
 
     removeObjectByKey(keyName) {
-        let i = 0
+        let i = 0;
         while(i < this.objects.length && this.objects[i].name !== keyName) i++;
         //si se encuentra un objeto del mismo tipo, se borra
         if(i !== this.objects.length) {
