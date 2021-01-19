@@ -34,9 +34,11 @@ export default class GameScene extends Phaser.Scene {
             }
         }
 
-        for (const trigger of this.triggerEvents) {
+        if(this.scene.key !== 'level0'){
+            for (const trigger of this.triggerEvents) {
             if (trigger.tooltip.visible && trigger.nextEvent() === null)
                 trigger.tooltip.setVisible(false);
+        }
         }
 
         //actualizacion barra de cordura
