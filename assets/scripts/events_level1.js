@@ -807,9 +807,9 @@ export class glasses_Event_2 extends eventScene {
 
 
 //#region MainEvents
-
+//#region Idles
 export class brother_Event_Idle extends eventScene {
-    constructor(npcName) {
+    constructor() {
         super({ key: 'brother_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
@@ -823,6 +823,88 @@ export class brother_Event_Idle extends eventScene {
         ]
     }
 }
+
+export class doctor_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'doctor_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Ves al medico, pero parece estar muy ocupado con unos papeles, y no parece estar disponible.'
+            },
+            {
+                text: 'Volver más tarde'
+            }
+        ]
+    }
+}
+
+export class vagabond_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'vagabond_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'El vagabundo esta confuso, perdido en sus pensamientos.'
+            },
+            {
+                text: 'Volver más tarde'
+            }
+        ]
+    }
+}
+
+export class tavern_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'tavern_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'El tavernero parece estar limpiando los cristales, parece ocupado.'
+            },
+            {
+                text: 'Volver más tarde'
+            }
+        ]
+    }
+}
+
+export class cane_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'cane_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'No pareces haber visto nada en especial.'
+            },
+            {
+                text: 'Volver más tarde'
+            }
+        ]
+    }
+}
+
+export class grandmother_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'tavern_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'La anciana, a quien no distingues, esta triste, llorando por alguien.'
+            },
+            {
+                text: 'Mejor no molestarla'
+            }
+        ]
+    }
+}
+//#endregion
+
 
 export class brother_Event_0 extends eventScene {
     constructor() {
@@ -1133,6 +1215,7 @@ export class lumberjackEvent_0 extends eventScene {
         super({ key: 'lumberjackEvent_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
+        this.info.prevScene.treesFound = 0;
         this.missionAccepted = [
             {
                 text: '-En ese caso, creo que puedo ayudar. \n-Bien.- Responde el leñador- Si encuentras tres árboles enfermos, dime dónde están y yo me encargaré.- Y vuelve sin más a su trabajo.'
@@ -1152,7 +1235,7 @@ export class lumberjackEvent_0 extends eventScene {
             {
                 text: 'Aceptar propuesta',
                 cb: () => {
-                    this.completeEvent(20, 20);
+                    this.completeEvent(20, 10);
                 },
                 next: this.missionAccepted
             }
@@ -1253,12 +1336,28 @@ export class lumberjackEvent_1 extends eventScene {
             {
                 text: 'Llamar su atención',
                 cb: () => {
-                    if (this.info.player.scene.currentObjective >= 4)
+                    if (this.info.prevScene.treesFound >= 3)
                         this.approach = this.searchCompletedApproach;
                     else
                         this.approach = this.searchPendingApproach;
                 },
                 next: this.approach
+            }
+        ]
+    }
+}
+
+export class lumberjackEvent_2 extends eventScene {
+    constructor() {
+        super({ key: 'lumberjack_Event_' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: '-Prepararé mis herramientas y enseguida salgo a frenar esa infección.'
+            },
+            {
+                text: 'Continuar',
             }
         ]
     }
@@ -1608,6 +1707,22 @@ export class painterEvent_1 extends eventScene {
     }
 }
 
+export class sickTreeEvent_Idle extends eventScene {
+    constructor() {
+        super({ key: 'sickTreeEvent_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Este árbol desprende un ligero olor agrio. Extraño.'
+            },
+            {
+                text: 'Continuar'
+            }
+        ]
+    }
+}
+
 export class sickTreeEvent_0 extends eventScene {
     constructor() {
         super({ key: 'sickTreeEvent_0' });
@@ -1618,11 +1733,10 @@ export class sickTreeEvent_0 extends eventScene {
                 text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
             },
             {
-                text: 'Recoger muestra para el leñador',
+                text: 'Anotar posición para el leñador',
                 cb: () => {
-                    this.info.prevScene.insertItem(new SickTreeItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeEvent(10, 10);
+                    this.info.prevScene.treesFound++;
+                    this.completeEvent(10, 0);
                 },
             }
         ]
@@ -1639,11 +1753,10 @@ export class sickTreeEvent_1 extends eventScene {
                 text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
             },
             {
-                text: 'Recoger muestra para el leñador',
+                text: 'Anotar posición para el leñador',
                 cb: () => {
-                    this.info.prevScene.insertItem(new SickTreeItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeEvent(10, 10);
+                    this.info.prevScene.treesFound++;
+                    this.completeEvent(10, 0);
                 },
             }
         ]
@@ -1660,11 +1773,10 @@ export class sickTreeEvent_2 extends eventScene {
                 text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
             },
             {
-                text: 'Recoger muestra para el leñador',
+                text: 'Anotar posición para el leñador',
                 cb: () => {
-                    this.info.prevScene.insertItem(new SickTreeItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeEvent(10, 10);
+                    this.info.prevScene.treesFound++;
+                    this.completeEvent(10, 0);
                 },
             }
         ]
