@@ -6,6 +6,9 @@ import {
     SickTreeItem, /*sickTreeEvent*/ KaleidoscopeItem, SketchItem /*painterEvent_0*/
 } from './item.js'
 
+const LEVEL_FAITH_NEEDED = 100;
+const TOTAL_EVENTS = 20
+
 //#region SecondaryEvents
 export class elder_Event_0 extends eventScene {
     constructor() {
@@ -1199,7 +1202,7 @@ export class doctorEvent_2 extends eventScene {
                 next: [
                     {
                         text: '-Perfecto. Verás, aún me puedes hacer otro favor. ¿Te importaría ir a hablar con el vagabundo que suele ' +
-                        'rondar cerca de la iglesia?. Creo que podrías ayudarle. Creo que sabrás empatizar con él tú mejor que yo'
+                        'rondar cerca de la iglesia?. Creo que podrías ayudarle. Además, seguro que tú sabrás empatizar con él tú mejor que yo'
                     },
                     {
                         text: 'No me molesta',
@@ -1613,19 +1616,33 @@ export class grandmother_Event_0 extends eventScene {
         this.backgroundImage = 'mainEventMenu';
         this.content = [
             {
-                text: 'Te acercas a tu abuela. Sabes que tiene algo importante que decirte, pero aún no sabes qué'
+                text: 'Te acercas a tu abuela. Sabes que tiene algo importante que decirte, pero aún no sabes qué. \n' +
+                '(Punto de no retorno: Una vez te quites la venda terminará el nivel. Si quieres hacer algo más, vuelve más tarde)'
             },
             {
-                text: 'Quitarse la venda',
+                text: 'Quitarse la venda (Terminar el nivel)',
                 next: [
                     {
                         text: '-¡María!- Comienza a llorar al darse cuenta de lo que estas haciendo. -Tu padre... antes ' +
                             'de morir, dejó esta carta. Creo que deberías ser tú quien la lea primero'
                     },
                     {
-                        text: 'Coger la carta y comenzar a leer',
+                        text: 'Coges la carta, y te preparas para leerla',
+                        condition: function (ref) {
+                            return (ref.info.player.faith >= LEVEL_FAITH_NEEDED);
+                        },
+                        failedText: 'Aún no tienes suficiente fe. Ayuda a otra gente para conseguir más',
+                        end: true,
                         cb: () => {
-                            this.completeEvent(10, 10)
+                            this.completeEvent(0, 0);
+                            this.scene.stop();
+                            this.scene.run('infoLevel', {
+                                obtainedFaith: this.info.player.faith,
+                                numEvents: this.info.player.numCompletedEvents,
+                                nextLevel: 'level1',
+                                mainText: 'Meter texto de fin de nivel',
+                                totalLevelEvents: TOTAL_EVENTS
+                            });
                         }
                     }
                 ]
