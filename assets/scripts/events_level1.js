@@ -447,10 +447,11 @@ export class coins_Event_0 extends eventScene {
             },
             {
                 text: 'Coger la bolsa de monedas',
-                cb: () => [
+                cb: () => {
                     this.info.prevScene.insertItem(new MoneyBagItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[12], this.info.player))
-                ]
+                        0, 0, this.info.prevScene.itemFrames[12], this.info.player));
+                    this.completeEvent(0, 0);
+                }
             },
             {
                 text: 'Dejar la bolsa allí'
@@ -1607,9 +1608,51 @@ export class painterEvent_1 extends eventScene {
     }
 }
 
-export class sickTreeEvent extends eventScene {
+export class sickTreeEvent_0 extends eventScene {
     constructor() {
-        super({ key: 'sickTreeEvent' });
+        super({ key: 'sickTreeEvent_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
+            },
+            {
+                text: 'Recoger muestra para el leñador',
+                cb: () => {
+                    this.info.prevScene.insertItem(new SickTreeItem(this.info.prevScene.matter.world,
+                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
+                    this.completeEvent(10, 10);
+                },
+            }
+        ]
+    }
+}
+
+export class sickTreeEvent_1 extends eventScene {
+    constructor() {
+        super({ key: 'sickTreeEvent_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
+            },
+            {
+                text: 'Recoger muestra para el leñador',
+                cb: () => {
+                    this.info.prevScene.insertItem(new SickTreeItem(this.info.prevScene.matter.world,
+                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
+                    this.completeEvent(10, 10);
+                },
+            }
+        ]
+    }
+}
+
+export class sickTreeEvent_2 extends eventScene {
+    constructor() {
+        super({ key: 'sickTreeEvent_2' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [

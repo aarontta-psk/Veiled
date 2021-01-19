@@ -2,8 +2,9 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y, frame, player, isUsable) {
         super(world, x, y, 'items', frame);
 
-        this.threshold = 30;
-        this.itemPointer = this.scene.add.sprite(x, y - this.threshold, 'itemTooltip').setVisible(true).setDepth(11);
+        this.threshold = 15;
+        this.itemPointer = this.scene.add.sprite(x, y - this.threshold,
+            'itemTooltip').setVisible(true).setDepth(11).setScale(0.8);
 
         this.setBody({
             type: 'rectangle',
@@ -117,6 +118,7 @@ export class SacredFireItem extends Item{
         this.name = "Fuego sagrado";
         this.description = "Tu cordura maxima disminuye, pero aumenta bastante tu fe";
         this.itemPointer.setVisible(false);
+        this.setDepth(-1);
     }
 
     doSomething(player) {
@@ -128,7 +130,7 @@ export class SacredFireItem extends Item{
 export class LessDeathItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
-        this.name = "Láudano";
+        this.name = "Laudano";
         this.description = "Al usarse es menos probable morir";
     }
 
@@ -167,7 +169,7 @@ export class SickTreeItem extends Item{
 export class CaneItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
-        this.name = "Bastón";
+        this.name = "Baston";
         this.description = "Parece pertenecer a alguien";
     }
 }
