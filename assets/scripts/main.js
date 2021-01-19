@@ -13,7 +13,7 @@ seller_Event_1, hungryKid_Event_0, elder_Event_0, elder_Event_1, tavern_Event_0,
 doctorEvent_0, doctorEvent_1, doctorEvent_2, homeless_Event_0, homeless_Event_1, grandMother_Event_1, lumberjackEvent_0, lumberjackEvent_1,
 painterEvent_0, painterEvent_1, sickTreeEvent, deathEvent_0, maxFaithEvent_0} from "./events_level1.js"
 
-new Phaser.Game({
+const config = {
     type: Phaser.AUTO,
     width: 800, //ancho camara
     height: 600, //alto camara
@@ -42,4 +42,16 @@ new Phaser.Game({
         glasses_Event_1, glasses_Event_2, foreigner_Event_0, foreigner_Event_1, grandMother_Event_0, seller_Event_0, seller_Event_1,
         hungryKid_Event_0, elder_Event_0, elder_Event_1, tavern_Event_0, cane_Event_0, well_Event_0, coins_Event_0, grave_Event_0,
         brother_Event_0], //escenas a cargar
-})
+}
+
+
+
+new Phaser.Game(config);
+
+export default class Main{
+    //metodo que destruye el juego y lo recarga
+    restartGame(ref){
+        ref.sys.game.destroy(true);
+        new Phaser.Game(config)
+    }
+}
