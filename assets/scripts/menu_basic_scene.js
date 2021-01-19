@@ -1,3 +1,6 @@
+import Main from './main.js'
+
+
 export default class menuBasicScene extends Phaser.Scene{
     constructor(sceneKey){
         super({key: sceneKey});
@@ -58,8 +61,8 @@ export default class menuBasicScene extends Phaser.Scene{
 
     returnToMenuButton(x,y, scale){
         return this.createButton(x,y, scale, 'pauseMenuToMainMenu', function(ref){
-            ref.sound.stopAll();
-            ref.scene.start('mainMenuScene');
+            const main = new Main();
+            main.restartGame(ref);
         });
     }
     
@@ -68,5 +71,13 @@ export default class menuBasicScene extends Phaser.Scene{
             ref.sound.stopAll();
             ref.scene.start(nextScene);
         });
+    }
+
+    //metodo para reiniciar el juego
+    restartScenes(){
+        //restartea la escena correcta?
+        for(const scene of this.scene.systems.game.scene.scenes){
+            if(scene !== this.scene.get('boot') && scene !== this.scene.get('pauseScene')) scene.scene.restart();
+        }
     }
 }
