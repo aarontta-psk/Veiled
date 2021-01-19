@@ -117,7 +117,7 @@ export default class Level1 extends NewGameScene {
             ),
             this.generateNPC(
                 'brother', false, 60,
-                [this.scene.get('brother_Event_0')]
+                [this.scene.get('brother_Event_Idle'),this.scene.get('brother_Event_0')]
             )
         ];
 
