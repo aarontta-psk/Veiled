@@ -86,7 +86,7 @@ export default class Level1 extends NewGameScene {
         this.npcs = [
             this.generateNPC(
                 'doctor', false, 60,
-                [this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
+                [this.scene.get('doctor_Event_Idle'), this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
             ),
             this.generateNPC(
                 'painter', false, 60,
@@ -95,6 +95,10 @@ export default class Level1 extends NewGameScene {
             this.generateNPC(
                 'lumberjack', false, 60,
                 [this.scene.get('lumberjackEvent_0'), this.scene.get('lumberjackEvent_1')]
+            ),
+            this.generateNPC(
+                'vagabond', true, 60,
+                [this.scene.get('vagabond_Event_Idle'), this.scene.get('vagabond_Event_0'), this.scene.get('vagabond_Event_1')]
             ),
             this.generateNPC(
                 'glasses', false, 60,
@@ -118,12 +122,15 @@ export default class Level1 extends NewGameScene {
             ),
             this.generateNPC(
                 'brother', false, 60,
-                [this.scene.get('brother_Event_Idle'),this.scene.get('brother_Event_0')]
+                [this.scene.get('brother_Event_Idle'), this.scene.get('brother_Event_0')]
             )
         ];
 
         this.silhouette = new Silhouette(this.matter.world, 750, 550,
-            [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('maxFaithEvent_0')]);
+            [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('testSilueta_3'), this.scene.get('testSilueta_4'),
+            this.scene.get('testSilueta_5'), this.scene.get('testSilueta_6'), this.scene.get('testSilueta_7'), this.scene.get('testSilueta_8'), this.scene.get('testSilueta_9'),
+            this.scene.get('testSilueta_10'), this.scene.get('testSilueta_11'),     
+            this.scene.get('maxFaithEvent_0')]);
 
         this.objectiveMarker = new ObjectiveMarker(this.matter.world, this.player);
         this.loadObjectives();
@@ -195,7 +202,7 @@ export default class Level1 extends NewGameScene {
         this.player.cursorsPlayer.interactGhost.on('down', event => {
             if (this.blindfold.blind) {
                 //if de si tienes suficiente fe
-                console.log(this.objectives[this.currentObjective].faithReq);
+                console.log('obj', this.currentObjective, 'req', this.objectives[this.currentObjective].faithReq, 'mi fe', this.player.faith);
                 if (this.player.faith >= this.objectives[this.currentObjective].faithReq) {
                     let silEvent = this.silhouette.nextEvent();
                     if (silEvent != null)
