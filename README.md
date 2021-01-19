@@ -145,7 +145,7 @@ Ejemplo de una evento de texto sencillo
 
 | Sprite | Nombre | Evento |
 |--------|--------|--------|
-| ![](./assets/media/features/npcs/brother.gif)| Padre | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/dad.gif)| Padre | Permite continuar el tutorial del preludio |
 
 #### PUEBLO
 
@@ -197,12 +197,13 @@ Ejemplo de una evento de texto sencillo
 | ![](./assets/sprites/items/item_sacredfire.png)| Fuego sagrado | Tu cordura maxima disminuye (-30), pero aumenta bastante tu fe |
 | ![](./assets/sprites/items/item_lessdeath.png)| Láudano | Menos probabiblidad de morir durante la opcion RNG del evento de muerte |
 
-
 ![Estética](./assets/media/headers/h_estetica.png)
 
-El juego usa una estética difusa y minimalista, con pixel art para el mapa y los personajes y gráficos de vectores para el resto (interfaz, iconos, etc), perspectiva ortogonal y una paleta apagada.
+El juego usa una estética minimalista, con pixel art para el mapa y los personajes y gráficos de vectores para el resto (interfaz, iconos, etc), perspectiva ortogonal y una paleta apagada.
 
-Tileset "Slates" en [OpenGameArt.org](https://opengameart.org/content/slates-32x32px-orthogonal-tileset-by-ivan-voirol) creado por Ivan Voirol.
+Tileset "Interior 16x" en [OpenGameArt.org](https://opengameart.org/content/interior-tileset-16x16) creado por Bonsaiheldin para el nivel del preludio.
+
+Tileset "Slates" en [OpenGameArt.org](https://opengameart.org/content/slates-32x32px-orthogonal-tileset-by-ivan-voirol) creado por Ivan Voirol para el nivel del pueblo.
 
 Personajes creados con [Character Generator](https://github.com/sanderfrenken/Universal-LPC-Spritesheet-Character-Generator).
 
@@ -224,10 +225,11 @@ Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado 
 
 ### Menús
 
-El juego ofrecerá dos menús al jugador: uno **principal** y otro de **pausa/opciones** durante el juego.
+El juego ofrece tres menús al jugador: uno **principal** otro de **pausa** y un último de **opciones/controles**.
 
-- El **menú principal** se mostrará al iniciar el juego y contendrá opciones para modificar el volumen, consultar los controles, seleccionar un nivel previamente jugado o iniciar una nueva partida.
-- El **menú de pausa** se podrá acceder durante la partida y contará con opciones similares al menú principal, incluyendo una opción para volver a este o para reanudar la partida.
+- El **menú principal** se muestra al iniciar el juego y desde él se puede inciar la partidad desde el principio, seleccionar el nivel desde el que empezar o entrar al menú de opciones.
+- El **menú de pausa** se accede durante la partida y es similar al menú principal, incluyendo una opción para volver a este o para reanudar la partida.
+- El **menú de opciones** es accesible mediante los dos anteriores y además de resumir los controles del juego permite reducir o aumentar el volumen de los sonidos y música del mismo.
 
 ### Interfaz
 
