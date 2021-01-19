@@ -37,7 +37,7 @@ export class elder_Event_0 extends eventScene {
                                 text: '...Preocupada, te sientes tentada a preguntarle algunas cosas',
                                 cb: () => {
                                     this.info.player.inventory.removeObjectByKey('Botella');
-                                    this.completeEvent(30,30);
+                                    this.completeMainEvent(30,30);
                                 },
                             }
 

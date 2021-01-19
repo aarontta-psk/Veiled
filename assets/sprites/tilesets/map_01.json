@@ -262,14 +262,14 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":15
+                         "value":8
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2272,
-                 "y":2848
+                 "x":4451,
+                 "y":3030
                 }, 
                 {
                  "height":32,
@@ -334,8 +334,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":4272,
-                 "y":2208
+                 "x":4302,
+                 "y":2171
                 }, 
                 {
                  "height":32,
@@ -356,8 +356,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":4448,
-                 "y":3104
+                 "x":2140,
+                 "y":3061
                 }, 
                 {
                  "height":32,
@@ -378,8 +378,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2000,
-                 "y":3392
+                 "x":1822,
+                 "y":3051
                 }, 
                 {
                  "height":32,
@@ -400,8 +400,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":4464,
-                 "y":3104
+                 "x":4319,
+                 "y":2183
                 }, 
                 {
                  "height":32,
@@ -422,8 +422,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":4048,
-                 "y":3120
+                 "x":2926,
+                 "y":2869
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -730,8 +730,8 @@
                  "type":"",
                  "visible":true,
                  "width":29.3333,
-                 "x":2089.33,
-                 "y":3401.33
+                 "x":2100.33,
+                 "y":3424.33
                 }, 
                 {
                  "height":0,

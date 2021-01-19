@@ -91,7 +91,7 @@ export class testSilueta_0 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: '1'
+                text: 'ir a elder'
             },
             {
                 text: 'ok',
@@ -110,7 +110,7 @@ export class testSilueta_1 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: '2'
+                text: 'ir a brother'
             },
             {
                 text: 'ok',
@@ -129,22 +129,212 @@ export class testSilueta_2 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: '3'
+                text: 'ir a medico'
             },
             {
-                condition: function (ref) {
-                    return ref.info.player.faith > 25;
-                },
-                failedText: 'Aun no tienes la fe necesaria',
-                text: 'Completar este nivel al tener la fe necesaria',
+                text: 'ok',
                 cb: () => {
-                    this.completeEvent(0,10);
-                },
-            },
-            {
-                text: 'Seguir explorando',
-                cb: () => {}
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
             }
         ]
     }
 }
+
+export class testSilueta_3 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_3' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'ir a leñador'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+export class testSilueta_4 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_4' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'ir a arbol'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+export class testSilueta_5 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_5' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'ir a medico, llevarle medicina'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+export class testSilueta_5 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_5' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'ir a vagabundo'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+export class testSilueta_6 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_6' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'ir a tabernero'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+export class testSilueta_7 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_7' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'coger el baston'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+export class testSilueta_8 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_8' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'volver con el vagabundo'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+export class testSilueta_9 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_9' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'ir a medico una ultima vez'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+export class testSilueta_10 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_10' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'ir a grandMother'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+// export class testSilueta_2 extends eventScene{
+//     constructor() {
+//         super({ key: 'testSilueta_2' });
+//         //array con los elementos de un evento
+//         this.backgroundImage = 'eventMenu';
+//         this.content = [
+//             {
+//                 text: '3'
+//             },
+//             {
+//                 condition: function (ref) {
+//                     return ref.info.player.faith > 25;
+//                 },
+//                 failedText: 'Aun no tienes la fe necesaria',
+//                 text: 'Completar este nivel al tener la fe necesaria',
+//                 cb: () => {
+//                     this.completeEvent(0,10);
+//                 },
+//             },
+//             {
+//                 text: 'Seguir explorando',
+//                 cb: () => {}
+//             }
+//         ]
+//     }
+// }
