@@ -1061,8 +1061,7 @@ export class doctorEvent_0 extends eventScene {
                 text: 'Asentir y despedirte del viejo doctor',
                 cb: () => {
                     //this.info.player.enableBlindfold();
-                    this.scene.get('vagabond_Event_Idle').completed = true;
-                    this.completeMainEvent(10, 10);
+                    this.completeEvent(5,5);
                 }
             }
         ];
@@ -1117,7 +1116,7 @@ export class doctorEvent_1 extends eventScene {
     constructor() {
         super({ key: 'doctorEvent_1' });
         //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
+        this.backgroundImage = 'mainEventMenu';
         this.fernandoIntroduction = [
             {
                 text: '-Sí, Fernando, el leñador. La gente la llama brusco, pero es el hombre más directo y sincero que conozco. Si él dice que hay un problema, me fío de su palabra y no le hago preguntas. Pero si quieres saber más, no seas tímida y habla con él. Trabaja al otro lado del pueblo, así que tienes un buen paseo. \n-Y juzgando por el color de tu cara,- añade con una preocupación -te vendría bien un poco de aire fresco'
@@ -1125,13 +1124,15 @@ export class doctorEvent_1 extends eventScene {
             {
                 text: 'Vale',
                 cb: () => {
-                    this.completeMainEvent(5, 0);
+                    this.scene.get('lumberjack_Event_Idle').completed = true;
+                    this.completeMainEvent(10, 10);
                 }
             },
             {
                 text: '[Ligeramente ofendida] Vale',
                 cb: () => {
-                    this.completeMainEvent(4, 0);
+                    this.scene.get('lumberjack_Event_Idle').completed = true;
+                    this.completeMainEvent(5, 10);
                 }
             }
         ];
@@ -1142,7 +1143,7 @@ export class doctorEvent_1 extends eventScene {
             {
                 text: 'Vale, veré que ocurre',
                 cb: () => {
-                    this.completeMainEvent(5, 0);
+                    this.completeMainEvent(5, 10);
                 }
             }
         ];
@@ -1162,20 +1163,62 @@ export class doctorEvent_1 extends eventScene {
     }
 }
 
+// export class doctorEvent_2 extends eventScene {
+//     constructor() {
+//         super({ key: 'doctorEvent_2' });
+//         //array con los elementos de un evento
+//         this.backgroundImage = 'eventMenu';
+//         this.content = [
+//             {
+//                 text: 'El doctor suelta una risita cuando te vuelves a acercar \n' +
+//                     '-No necesitas oír más a este viejo. Si en realidad yo sé muy poco, solo que hablo mucho. ¡Ja! Ese es ' +
+//                     'el secreto para que te llamen sabio.'
+//             },
+//             {
+//                 text: 'Reír al comentario y continuar'
+//             }
+//         ]
+//     }
+// }
+
 export class doctorEvent_2 extends eventScene {
     constructor() {
         super({ key: 'doctorEvent_2' });
         //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
+        this.backgroundImage = 'mainEventMenu';
         this.content = [
             {
-                text: 'El doctor suelta una risita cuando te vuelves a acercar \n' +
-                    '-No necesitas oír más a este viejo. Si en realidad yo sé muy poco, solo que hablo mucho. ¡Ja! Ese es ' +
-                    'el secreto para que te llamen sabio.'
+                text: 'Bueno, ¿has solucionado el problema con el leñador?'
             },
             {
-                text: 'Reír al comentario y continuar'
-            }
+                text: 'Si',
+                failedText: 'No has ayudado al leñador aún',
+                condition: function (ref) {
+                    return (ref.scene.get('lumberjack_Event_1').completed)
+                },
+                next: [
+                    {
+                        text: '-Perfecto. Verás, aún me puedes hacer otro favor. ¿Te importaría ir a hablar con el vagabundo que suele ' +
+                        'rondar cerca de la iglesia?. Creo que podrías ayudarle. Creo que sabrás empatizar con él tú mejor que yo'
+                    },
+                    {
+                        text: 'No me molesta',
+                        next:[
+                            {
+                                text: 'Estaré esperando a oir noticias tuyas entonces',
+                                cb: () => {
+                                    this.completeMainEvent(10,10);
+                                    this.scene.get('vagabond_Event_Idle').completed = true;
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        text: 'Tal vez en otro momento'
+                    }
+                ]
+            },
+
         ]
     }
 }
@@ -1215,20 +1258,20 @@ export class doctorEvent_3 extends eventScene {
     }
 }
 
-export class lumberjackEvent_0 extends eventScene {
+export class lumberjack_Event_0 extends eventScene {
     constructor() {
-        super({ key: 'lumberjackEvent_0' });
+        super({ key: 'lumberjack_Event_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
+        this.backgroundImage = 'mainEventMenu';
         this.missionAccepted = [
             {
-                text: '-En ese caso, creo que puedo ayudar. \n-Bien.- Responde el leñador- Si encuentras tres árboles enfermos, dime dónde están y yo me encargaré.- Y vuelve sin más a su trabajo.'
+                text: '-En ese caso, creo que puedo ayudar. \n-Bien.- Responde el leñador- Si encuentras algún árbol enfermo, dime dónde está y yo me encargaré.- Y vuelve sin más a su trabajo.'
             },
             {
                 text: 'Continuar',
                 cb: () => {
-                    this.completeEvent(20, 10);
-                    this.info.player.scene.nextObjective();
+                    this.completeMainEvent(20, 10);
+                    this.scene.get('sickTree_Event_Idle').completed = true;
                 }
             }
         ]
@@ -1238,24 +1281,10 @@ export class lumberjackEvent_0 extends eventScene {
             },
             {
                 text: 'Aceptar propuesta',
-                cb: () => {
-                    this.completeEvent(20, 10);
-                },
                 next: this.missionAccepted
             }
         ]
-        this.blindedApproach = [
-            {
-                text: '-Hola- oyes una voz sorprendentemente suave y compuesta de la dirección del ruido -Mira, sé quién eres, y he oído lo que te ha pasado. Si bienes buscando mi ayuda, lo siento, pero tengo asuntos importantes que atender. \nPero si vienes para ayudar, déjate de tonterías y quítate esa venda de los ojos. No tengo tiempo para tu autocompasión.'
-            },
-            {
-                text: 'Quitar la venda',
-                next: this.nonBlindApproach
-            },
-            {
-                text: 'Abandonar a este hombre con sus malos modales'
-            }
-        ];
+
         this.nonBlindApproach = [
             {
                 text: 'Cuando te acercas al leñador, ves un hombre de tez oscura reposando su hacha en un tronco recién caído. \n-Adelante- dice, cruzándose de brazos -¿Para qué vienes?'
@@ -1287,6 +1316,20 @@ export class lumberjackEvent_0 extends eventScene {
                 ]
             }
         ];
+
+        this.blindedApproach = [
+            {
+                text: '-Hola- oyes una voz sorprendentemente suave y compuesta de la dirección del ruido -Mira, sé quién eres, y he oído lo que te ha pasado. Si bienes buscando mi ayuda, lo siento, pero tengo asuntos importantes que atender. \nPero si vienes para ayudar, déjate de tonterías y quítate esa venda de los ojos. No tengo tiempo para tu autocompasión.'
+            },
+            {
+                text: 'Quitar la venda',
+                next: this.nonBlindApproach
+            },
+            {
+                text: 'Abandonar a este hombre con sus malos modales'
+            }
+        ];
+        
         this.content = [
             {
                 text: 'Puedes oler el olor a pino y oír los golpes regulares de un hacha cortando madera. Te paras un momento, insegura de si entrar en este lugar de trabajo.'
@@ -1295,11 +1338,11 @@ export class lumberjackEvent_0 extends eventScene {
                 text: 'Avanzar',
                 cb: () => {
                     if (this.info.player.scene.blindfold.blind)
-                        this.approach = this.blindedApproach;
+                        this.content[1].next = this.blindedApproach;
                     else
-                        this.approach = this.nonBlindApproach;
+                        this.content[1].next = this.nonBlindApproach;
                 },
-                next: this.approach
+                next: 'Changes on callback'
             },
             {
                 text: 'Darte la vuelta y retornar'
@@ -1308,52 +1351,43 @@ export class lumberjackEvent_0 extends eventScene {
     }
 }
 
-export class lumberjackEvent_1 extends eventScene {
+export class lumberjack_Event_1 extends eventScene {
     constructor() {
-        super({ key: 'lumberjackEvent_1' });
+        super({ key: 'lumberjack_Event_1' });
         //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.searchPendingApproach = [
-            {
-                text: '-Te dije tres árboles, y necesito que sean de diferentes zonas del pueblo. Si no los encuentras no pasa nada, pero no podré ponerme a buscar ingredientes para el médico hasta que los localice.'
-            },
-            {
-                text: 'Aceptar'
-            }
-        ];
-        this.searchCompletedApproach = [
-            {
-                text: '-Los encontraste.- El tono de su voz denota una sorpresa agradable, sin llegar a ser una exclamación -Pues genial, talaré esos árboles y me pondré de inmediato a buscar el medicamento de tu hermano. Me has hecho un gran favor, y aunque no lo sepa, al bosque también. Te lo agradezco de verdad.'
-            },
-            {
-                text: 'Aceptar y despedirte del leñador',
-                cb: () => {
-                    this.info.player.scene.nextObjective();
-                    this.completeEvent(40, 15);
-                }
-            }
-        ];
+        this.backgroundImage = 'mainEventMenu';
         this.content = this.content = [
             {
                 text: 'El leñador sigue en su trabajo, y no parece alterarse por tu presencia.'
             },
             {
                 text: 'Llamar su atención',
-                cb: () => {
-                    if (this.info.prevScene.treesFound >= 3)
-                        this.approach = this.searchCompletedApproach;
-                    else
-                        this.approach = this.searchPendingApproach;
-                },
-                next: this.approach
+                failedText: 'Aún no has encontrado todos los árboles enfermos',
+                condition: function (ref) {
+                    return ( ref.scene.get('sickTree_Event_0').completed === true)
+                }, 
+                next: [
+                    {
+                        text: '-Los encontraste.- El tono de su voz denota una sorpresa agradable, sin llegar a ser una exclamación -Pues genial, talaré esos árboles y me pondré de inmediato a buscar el medicamento de tu hermano. Me has hecho un gran favor, y aunque no lo sepa, al bosque también. Te lo agradezco de verdad.'
+                    },
+                    {
+                        text: 'Aceptar y despedirte del leñador',
+                        cb: () => {
+                            this.completeMainEvent(40, 15);
+                        }
+                    }
+                ]
+            },
+            {
+                text: 'Irse'
             }
         ]
     }
 }
 
-export class lumberjackEvent_2 extends eventScene {
+export class lumberjack_Event_2 extends eventScene {
     constructor() {
-        super({ key: 'lumberjack_Event_' });
+        super({ key: 'lumberjack_Event_2' });
         //array con los elementos de un evento
         this.backgroundImage = 'mainEventMenu';
         this.content = [
@@ -1711,9 +1745,9 @@ export class painterEvent_1 extends eventScene {
     }
 }
 
-export class sickTreeEvent_Idle extends eventScene {
+export class sickTree_Event_Idle extends eventScene {
     constructor() {
-        super({ key: 'sickTreeEvent_0' });
+        super({ key: 'sickTree_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
@@ -1727,9 +1761,9 @@ export class sickTreeEvent_Idle extends eventScene {
     }
 }
 
-export class sickTreeEvent_0 extends eventScene {
+export class sickTree_Event_0 extends eventScene {
     constructor() {
-        super({ key: 'sickTreeEvent_0' });
+        super({ key: 'sickTree_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
@@ -1739,48 +1773,7 @@ export class sickTreeEvent_0 extends eventScene {
             {
                 text: 'Anotar posición para el leñador',
                 cb: () => {
-                    this.info.prevScene.treesFound++;
-                    this.completeEvent(10, 0);
-                },
-            }
-        ]
-    }
-}
-
-export class sickTreeEvent_1 extends eventScene {
-    constructor() {
-        super({ key: 'sickTreeEvent_1' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
-            },
-            {
-                text: 'Anotar posición para el leñador',
-                cb: () => {
-                    this.info.prevScene.treesFound++;
-                    this.completeEvent(10, 0);
-                },
-            }
-        ]
-    }
-}
-
-export class sickTreeEvent_2 extends eventScene {
-    constructor() {
-        super({ key: 'sickTreeEvent_2' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
-            },
-            {
-                text: 'Anotar posición para el leñador',
-                cb: () => {
-                    this.info.prevScene.treesFound++;
-                    this.completeEvent(10, 0);
+                    this.completeMainEvent(10, 0);
                 },
             }
         ]

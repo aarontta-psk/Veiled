@@ -74,17 +74,7 @@ export default class GameScene extends Phaser.Scene {
                 case 'treeSmell1':
                     stim = new treeSmell(smells, position);
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim,
-                        [this.scene.get('sickTreeEvent_0')]));
-                    break;
-                case 'treeSmell2':
-                    stim = new treeSmell(smells, position);
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim,
-                        [this.scene.get('sickTreeEvent_1')]));
-                    break;
-                case 'treeSmell3':
-                    stim = new treeSmell(smells, position);
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim,
-                        [this.scene.get('sickTreeEvent_2')]));
+                        [this.scene.get('sickTree_Event_Idle'), this.scene.get('sickTree_Event_0')]));
                     break;
                 case 'glasses':
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,

@@ -94,7 +94,7 @@ export default class Level1 extends NewGameScene {
             ),
             this.generateNPC(
                 'lumberjack', false, 60,
-                [this.scene.get('lumberjackEvent_0'), this.scene.get('lumberjackEvent_1')]
+                [this.scene.get('lumberjack_Event_Idle'),this.scene.get('lumberjack_Event_0'), this.scene.get('lumberjack_Event_1')]
             ),
             this.generateNPC(
                 'vagabond', true, 60,

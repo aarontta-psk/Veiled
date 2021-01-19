@@ -262,7 +262,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":11
+                         "value":9
                         }],
                  "rotation":0,
                  "type":"",
@@ -295,28 +295,6 @@
                 }, 
                 {
                  "height":32,
-                 "id":88,
-                 "name":"objective",
-                 "properties":[
-                        {
-                         "name":"faithReq",
-                         "type":"int",
-                         "value":55
-                        }, 
-                        {
-                         "name":"num",
-                         "type":"int",
-                         "value":5
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1664,
-                 "y":3424
-                }, 
-                {
-                 "height":32,
                  "id":89,
                  "name":"objective",
                  "properties":[
@@ -328,7 +306,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":8
+                         "value":6
                         }],
                  "rotation":0,
                  "type":"",
@@ -350,7 +328,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":9
+                         "value":7
                         }],
                  "rotation":0,
                  "type":"",
@@ -372,7 +350,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":10
+                         "value":8
                         }],
                  "rotation":0,
                  "type":"",
@@ -394,7 +372,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":12
+                         "value":10
                         }],
                  "rotation":0,
                  "type":"",
@@ -416,14 +394,14 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":13
+                         "value":11
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":4338,
-                 "y":2169
+                 "x":4352.66666666667,
+                 "y":2175.66666666667
                 }, 
                 {
                  "height":32,
@@ -438,14 +416,14 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":11
+                         "value":12
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2902,
-                 "y":2856
+                 "x":2900.66666666667,
+                 "y":2852
                 }, 
                 {
                  "height":32,
@@ -471,28 +449,6 @@
                 }, 
                 {
                  "height":32,
-                 "id":121,
-                 "name":"objective",
-                 "properties":[
-                        {
-                         "name":"faithReq",
-                         "type":"int",
-                         "value":55
-                        }, 
-                        {
-                         "name":"num",
-                         "type":"int",
-                         "value":6
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":3072,
-                 "y":3728
-                }, 
-                {
-                 "height":32,
                  "id":122,
                  "name":"objective",
                  "properties":[
@@ -504,7 +460,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":7
+                         "value":5
                         }],
                  "rotation":0,
                  "type":"",
@@ -602,17 +558,6 @@
          "name":"eventTriggers",
          "objects":[
                 {
-                 "height":16,
-                 "id":43,
-                 "name":"treeSmell2",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1664,
-                 "y":3408
-                }, 
-                {
                  "height":27,
                  "id":65,
                  "name":"grave",
@@ -688,17 +633,6 @@
                  "width":16,
                  "x":1856,
                  "y":2144
-                }, 
-                {
-                 "height":16,
-                 "id":120,
-                 "name":"treeSmell3",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":3072,
-                 "y":3728
                 }],
          "offsetx":0,
          "offsety":-2,
