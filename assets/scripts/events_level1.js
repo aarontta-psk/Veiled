@@ -324,7 +324,7 @@ export class seller_Event_1 extends eventScene {
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Bolsa con monedas');
                             this.info.prevScene.insertItem(new LessDeathItem(this.info.prevScene.matter.world,
-                                0, 0, this.info.prevScene.itemFrames[0], this.info.player));
+                                0, 0, this.info.prevScene.itemFrames[11], this.info.player));
                         }
                     },
                     {

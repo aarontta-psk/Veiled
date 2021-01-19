@@ -164,7 +164,7 @@ export default class Level1 extends NewGameScene {
                     this.flower = new FoodItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[7], this.player);
                     break;
                 case 'totem':
-                    this.totem = new AvoidDeathItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[11], this.player);
+                    this.totem = new AvoidDeathItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
                     break;
             }
         }        
