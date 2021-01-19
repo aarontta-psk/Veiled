@@ -141,27 +141,39 @@ Ejemplo de una evento de texto sencillo
 
 ### NPCs
 
-#### Nivel 01
+#### PRELUDIO (Tutorial)
 
-- **Doctor**: posición en el mapa, evento, sprite
+| Sprite | Nombre | Utilidad |
+|--------|--------|--------|
+| ![](./assets/sprites/items/dad.gif)| Padre | Permite continuar el tutorial del preludio |
 
-- **Pintora**: posición en el mapa, evento, sprite
+#### PUEBLO
 
-- **Leñador**: posición en el mapa, evento, sprite
+| Sprite | Nombre | Utilidad |
+|--------|--------|--------|
+| ![](./assets/media/features/npcs/brother.gif)| Hermano | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/doctor.gif)| Doctor | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/elder.gif)| Anciana | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/foreigner.gif)| Extranjero | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/glasses.gif)| SEÑOR??? | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/kid.gif)| Niño | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/lumberjack.gif)| Leñador | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/painter.gif)| Pintora | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/seller.gif)| Vendedor | Permite continuar el tutorial del preludio |
 
 ### Items
 
 - **PRELUDIO (Tutorial)**
 
 | Sprite | Nombre | Utilidad |
-| -------- |-------- |-------- |
+|--------|--------|--------|
 | ![](./assets/sprites/items/item_photo.png)| Foto | Permite continuar el tutorial del preludio |
 | ![](./assets/sprites/items/item_pendant.png)| Colgante | Aumenta la fe (+60) |
 
 - **CLAVE**
 
-| Sprite | Nombre | Evento |
-| -------- |-------- |-------- |
+| Sprite | Nombre | Utilidad |
+|--------|--------|--------|
 | ![](./assets/sprites/items/item_avoiddeath.png)| Figura tallada | Te Permite sobrevivir al evento de muerte |
 | ![](./assets/sprites/items/item_baston.png)| Baston | Permite terminar el evento del vagabundo | 
 | ![](./assets/sprites/items/item_booze.png)| Botella | Permite terminar el evento de anciano |
