@@ -198,25 +198,6 @@ export class testSilueta_5 extends eventScene{
     }
 }
 
-export class testSilueta_5 extends eventScene{
-    constructor() {
-        super({ key: 'testSilueta_5' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'ir a vagabundo'
-            },
-            {
-                text: 'ok',
-                cb: () => {
-                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
-                }
-            }
-        ]
-    }
-}
-
 export class testSilueta_6 extends eventScene{
     constructor() {
         super({ key: 'testSilueta_6' });
@@ -224,7 +205,7 @@ export class testSilueta_6 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a tabernero'
+                text: 'ir a vagabundo'
             },
             {
                 text: 'ok',
@@ -243,7 +224,7 @@ export class testSilueta_7 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'coger el baston'
+                text: 'ir a tabernero'
             },
             {
                 text: 'ok',
@@ -262,7 +243,7 @@ export class testSilueta_8 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'volver con el vagabundo'
+                text: 'coger el baston'
             },
             {
                 text: 'ok',
@@ -281,7 +262,7 @@ export class testSilueta_9 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a medico una ultima vez'
+                text: 'volver con el vagabundo'
             },
             {
                 text: 'ok',
@@ -296,6 +277,25 @@ export class testSilueta_9 extends eventScene{
 export class testSilueta_10 extends eventScene{
     constructor() {
         super({ key: 'testSilueta_10' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'ir a medico una ultima vez'
+            },
+            {
+                text: 'ok',
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
+            }
+        ]
+    }
+}
+
+export class testSilueta_11 extends eventScene{
+    constructor() {
+        super({ key: 'testSilueta_11' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [

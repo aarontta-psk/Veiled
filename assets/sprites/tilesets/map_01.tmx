@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="22" nextobjectid="116">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="22" nextobjectid="117">
  <editorsettings>
   <export target="map_01.json" format="json"/>
  </editorsettings>
@@ -83,7 +83,7 @@
     <property name="num" type="int" value="0"/>
    </properties>
   </object>
-  <object id="86" name="objective" x="4451" y="3030" width="32" height="32">
+  <object id="86" name="objective" x="1838" y="3064" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="1"/>
     <property name="num" type="int" value="8"/>
@@ -107,28 +107,34 @@
     <property name="num" type="int" value="5"/>
    </properties>
   </object>
-  <object id="90" name="objective" x="2140" y="3061" width="32" height="32">
+  <object id="90" name="objective" x="4404" y="3026" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="70"/>
     <property name="num" type="int" value="6"/>
    </properties>
   </object>
-  <object id="91" name="objective" x="1822" y="3051" width="32" height="32">
+  <object id="91" name="objective" x="2156" y="3065" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="80"/>
     <property name="num" type="int" value="7"/>
    </properties>
   </object>
-  <object id="92" name="objective" x="4319" y="2183" width="32" height="32">
+  <object id="92" name="objective" x="4444" y="3025" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="85"/>
     <property name="num" type="int" value="9"/>
    </properties>
   </object>
-  <object id="93" name="objective" x="2926" y="2869" width="32" height="32">
+  <object id="93" name="objective" x="4338" y="2169" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="90"/>
     <property name="num" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="116" name="objective" x="2902" y="2856" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="90"/>
+    <property name="num" type="int" value="11"/>
    </properties>
   </object>
  </objectgroup>
