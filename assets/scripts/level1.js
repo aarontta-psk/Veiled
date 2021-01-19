@@ -14,8 +14,6 @@ import NewGameScene from './game_scene.js'
 import EventHandler from './event_handler.js';
 import ObjectiveMarker from './objective_marker.js';
 
-const LEVEL_FAITH_REQUERIMENT = 40;
-
 export default class Level1 extends NewGameScene {
     constructor() {
         super('level1');
@@ -236,10 +234,14 @@ export default class Level1 extends NewGameScene {
             }
         });
         this.player.cursorsPlayer.interactGhost.on('down', event => {
-            if (this.blindfold.blind && this.player.sanity > LEVEL_FAITH_REQUERIMENT) {
-                let silEvent = this.silhouette.nextEvent();
-                if (silEvent != null)
-                    this.changeScene(silEvent);
+            if (this.blindfold.blind){
+                //if de si tienes suficiente fe
+                console.log(this.objectives[this.currentObjective].faithReq);
+                if(this.player.faith >= this.objectives[this.currentObjective].faithReq){
+                    let silEvent = this.silhouette.nextEvent();
+                    if (silEvent != null)
+                        this.changeScene(silEvent);
+                }
             }
         });
         this.player.cursorsPlayer.invToggle.on('down', event => {

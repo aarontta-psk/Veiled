@@ -11,7 +11,7 @@ export default class EventHandler extends Phaser.Physics.Matter.Sprite {
     //cambio de evento
     nextEvent() {
         let i = 0;
-        while (i < this.eventList.length && this.eventList[i].completed == true) i++;
+        while (i < this.eventList.length && this.eventList[i].completed) i++;
 
         if (i < this.eventList.length)
             return this.eventList[i];

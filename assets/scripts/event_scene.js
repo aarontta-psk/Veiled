@@ -6,7 +6,7 @@ export default class eventScene extends Phaser.Scene {
     layout(options, group) {
         this.scene.bringToTop();
         //variable para separar las opciones en el eje y
-        let distancia = 340;
+        let distancia = 270;
         //antes de mostrar las opciones, borro las anteriores
         group.removeAll(true);
 
@@ -26,7 +26,7 @@ export default class eventScene extends Phaser.Scene {
             }).setInteractive().setResolution(1.6).setScale(1.6);
             //lo añado al container para borrarlo mas adelante
             group.add(optionText);
-            distancia += 75;
+            distancia += 70;
 
             //llamo a un callback en caso de que sea pulsado
             optionText.on('pointerdown', () => {
@@ -80,6 +80,7 @@ export default class eventScene extends Phaser.Scene {
     completeMainEvent(sanityToAdd, faithToAdd){
         this.completeEvent(sanityToAdd, faithToAdd);
         this.info.prevScene.nextObjective();
+        this.info.prevScene.silhouette.nextEvent().completed = true;
     }
 }
 
@@ -430,7 +431,9 @@ export class testSilueta_0 extends eventScene{
             },
             {
                 text: 'ok',
-                cb: () => { this.completeMainEvent(5,0)},
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
             }
         ]
     }
@@ -447,7 +450,9 @@ export class testSilueta_1 extends eventScene{
             },
             {
                 text: 'ok',
-                cb: () => { this.completeMainEvent(5,0)},
+                cb: () => {
+                    this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
+                }
             }
         ]
     }

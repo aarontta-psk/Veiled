@@ -32,7 +32,7 @@ export class elder_Event_0 extends eventScene {
                             {
                                 text: '...Preocupada, te sientes tentada a preguntarle algunas cosas',
                                 cb: () => {
-                                    this.completeEvent(10,10);
+                                    this.completeMainEvent(30,30);
                                 },
                             }
 
