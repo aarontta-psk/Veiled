@@ -37,7 +37,7 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('seller', './assets/sprites/spritesheets/seller_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('tavern', './assets/sprites/spritesheets/tavern_sheet.png',
+        this.load.spritesheet('inkKeeper', './assets/sprites/spritesheets/tavern_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('vagabond', './assets/sprites/spritesheets/vagabond_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
@@ -148,7 +148,7 @@ export default class Boot extends Phaser.Scene {
         this.createAnims('painter', 4);
         this.createAnims('police', 4);
         this.createAnims('seller', 4);
-        this.createAnims('tavern', 4);
+        this.createAnims('inkKeeper', 4);
         this.createAnims('vagabond', 4);
         this.createAnims('dad', 4);
 

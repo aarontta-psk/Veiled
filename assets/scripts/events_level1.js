@@ -176,56 +176,56 @@ export class hungryKid_Event_0 extends eventScene {
     }
 }
 
-export class grandMother_Event_0 extends eventScene {
-    constructor() {
-        super({ key: 'grandMother_Event_0' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'secondaryEventMenu';
-        this.content = [
-            {
-                text: '-¡María! Dichosos mis ojos, ¿hace cuanto que has vuelto? Deberías haber avisado.\n' +
-                    'Es importante contar con la familia en estos momentos de adversidad.'
-            },
-            {
-                text: 'Perdona, pero la muerte de padre...',
-                next: [
-                    {
-                        text: 'Ah si. Tu padre. Fue un gran hombre. Nunca te he hablado demasiado de cuando él\n' +
-                            'era tan solo un mozo. ¿Quieres que lo cuente?'
-                    },
-                    {
-                        text: 'Prefiero no ahondar en el pasado',
-                    },
-                    {
-                        text: 'Me encantaría, le echo mucho de menos',
-                        next: [
-                            {
-                                text: 'PONER HISTORIA, RESTAR CORDURA POR CADA TEXTO NEXT[] QUE TE CUENTA Y DAR FE AL FINAL'
-                            },
-                            {
-                                text: 'Acabar',
-                                cb: () => {
-                                    this.completeMainEvent(1, 1);
-                                }
-                            }
-                        ]
-                    },
-                ]
-            },
-            {
-                text: 'Necesito un tiempo',
-                next: [
-                    {
-                        text: 'Bueno, te estaré esperando aquí, cuando te sientas lista ven a verme'
-                    },
-                    {
-                        text: 'Asentir e irse'
-                    }
-                ]
-            }
-        ]
-    }
-}
+// export class grandMother_Event_0 extends eventScene {
+//     constructor() {
+//         super({ key: 'grandMother_Event_0' });
+//         //array con los elementos de un evento
+//         this.backgroundImage = 'secondaryEventMenu';
+//         this.content = [
+//             {
+//                 text: '-¡María! Dichosos mis ojos, ¿hace cuanto que has vuelto? Deberías haber avisado.\n' +
+//                     'Es importante contar con la familia en estos momentos de adversidad.'
+//             },
+//             {
+//                 text: 'Perdona, pero la muerte de padre...',
+//                 next: [
+//                     {
+//                         text: 'Ah si. Tu padre. Fue un gran hombre. Nunca te he hablado demasiado de cuando él\n' +
+//                             'era tan solo un mozo. ¿Quieres que lo cuente?'
+//                     },
+//                     {
+//                         text: 'Prefiero no ahondar en el pasado',
+//                     },
+//                     {
+//                         text: 'Me encantaría, le echo mucho de menos',
+//                         next: [
+//                             {
+//                                 text: 'PONER HISTORIA, RESTAR CORDURA POR CADA TEXTO NEXT[] QUE TE CUENTA Y DAR FE AL FINAL'
+//                             },
+//                             {
+//                                 text: 'Acabar',
+//                                 cb: () => {
+//                                     this.completeMainEvent(1, 1);
+//                                 }
+//                             }
+//                         ]
+//                     },
+//                 ]
+//             },
+//             {
+//                 text: 'Necesito un tiempo',
+//                 next: [
+//                     {
+//                         text: 'Bueno, te estaré esperando aquí, cuando te sientas lista ven a verme'
+//                     },
+//                     {
+//                         text: 'Asentir e irse'
+//                     }
+//                 ]
+//             }
+//         ]
+//     }
+// }
 
 export class seller_Event_0 extends eventScene {
     constructor() {
@@ -872,9 +872,9 @@ export class vagabond_Event_Idle extends eventScene {
     }
 }
 
-export class tavern_Event_Idle extends eventScene {
+export class  inkKeeper_Event_Idle extends eventScene {
     constructor() {
-        super({ key: 'tavern_Event_Idle' });
+        super({ key: 'inkKeeper_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
@@ -906,7 +906,7 @@ export class cane_Event_Idle extends eventScene {
 
 export class grandmother_Event_Idle extends eventScene {
     constructor() {
-        super({ key: 'tavern_Event_Idle' });
+        super({ key: 'grandmother_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
@@ -1205,7 +1205,10 @@ export class doctorEvent_2 extends eventScene {
                         text: 'No me molesta',
                         next:[
                             {
-                                text: 'Estaré esperando a oir noticias tuyas entonces',
+                                text: 'Estaré esperando a oir noticias tuyas entonces'
+                            },
+                            {
+                                text: 'Despedirse',
                                 cb: () => {
                                     this.completeMainEvent(10,10);
                                     this.scene.get('vagabond_Event_Idle').completed = true;
@@ -1218,6 +1221,9 @@ export class doctorEvent_2 extends eventScene {
                     }
                 ]
             },
+            {
+                text: 'Aún no he terminado'
+            }
 
         ]
     }
@@ -1249,10 +1255,14 @@ export class doctorEvent_3 extends eventScene {
                     {
                         text: 'Sonriendo, asientes y te despides del doctor',
                         cb: () => {
-                            this.completeEvent(20, 20);
+                            this.scene.get('grandmother_Event_Idle').completed = true;
+                            this.completeMainEvent(20, 20);
                         }
                     }
                 ]
+            }
+            ,{
+                text: 'Aún no'
             }
         ]
     }
@@ -1458,7 +1468,8 @@ export class vagabond_Event_0 extends eventScene {
                                             {
                                                 text: 'Ir a buscarlo',
                                                 cb: () => {
-                                                    this.completeEvent(10, 10);
+                                                    this.scene.get('inkKeeper_Event_Idle').completed = true;
+                                                    this.completeMainEvent(10, 10);
                                                 }
                                             }
                                         ]
@@ -1549,7 +1560,7 @@ export class cane_Event_0 extends eventScene {
                 cb: () => {
                     this.info.prevScene.insertItem(new CaneItem(this.info.prevScene.matter.world,
                         0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeEvent(5, 5);
+                    this.completeMainEvent(10, 10);
                 }
             },
             {
@@ -1572,7 +1583,7 @@ export class vagabond_Event_1 extends eventScene {
                 text: 'Entregarle su bastón y contarle que ocurrió',
                 failedText: 'No tienes el bastón',
                 condition: function (ref) {
-                    return (ref.info.player.inventory.contains('Bastón'))
+                    return (ref.info.player.inventory.contains('Baston'))
                 },
                 next: [
                     {
@@ -1582,7 +1593,8 @@ export class vagabond_Event_1 extends eventScene {
                     {
                         text: 'Cuidate',
                         cb: () => {
-                            this.completeEvent(10, 10);
+                            this.info.player.inventory.removeObjectByKey('Baston');
+                            this.completeMainEvent(10, 10);
                         }
                     }
                 ]
@@ -1594,9 +1606,9 @@ export class vagabond_Event_1 extends eventScene {
     }
 }
 
-export class grandMother_Event_1 extends eventScene {
+export class grandmother_Event_0 extends eventScene {
     constructor() {
-        super({ key: 'grandMother_Event_1' });
+        super({ key: 'grandmother_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'mainEventMenu';
         this.content = [

@@ -86,7 +86,8 @@ export default class Level1 extends NewGameScene {
         this.npcs = [
             this.generateNPC(
                 'doctor', false, 60,
-                [this.scene.get('doctor_Event_Idle'), this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1')]
+                [this.scene.get('doctor_Event_Idle'), this.scene.get('doctorEvent_0'), this.scene.get('doctorEvent_1'),
+                 this.scene.get('doctorEvent_2'), this.scene.get('doctorEvent_3')]
             ),
             this.generateNPC(
                 'painter', false, 60,
@@ -117,12 +118,20 @@ export default class Level1 extends NewGameScene {
                 [this.scene.get('hungryKid_Event_0')]
             ),
             this.generateNPC(
-                'elder', true, 60,
+                'fisherman', true, 60,
                 [this.scene.get('elder_Event_0'), this.scene.get('elder_Event_1')]
             ),
             this.generateNPC(
                 'brother', false, 60,
                 [this.scene.get('brother_Event_Idle'), this.scene.get('brother_Event_0')]
+            ),
+            this.generateNPC(
+                'inkKeeper', true, 60,
+                [this.scene.get('inkKeeper_Event_Idle'), this.scene.get('inkKeeper_Event_0')]
+            ),
+            this.generateNPC(
+                'elder', true, 60,
+                [this.scene.get('grandmother_Event_Idle'), this.scene.get('grandmother_Event_0')]
             )
         ];
 

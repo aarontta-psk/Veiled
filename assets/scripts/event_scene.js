@@ -79,8 +79,11 @@ export default class eventScene extends Phaser.Scene {
 
     completeMainEvent(sanityToAdd, faithToAdd){
         this.completeEvent(sanityToAdd, faithToAdd);
+        //si devuelve false, ya no quedan objetivos
         this.info.prevScene.nextObjective();
         this.info.prevScene.silhouette.nextEvent().completed = true;
+        this.info.prevScene.gui.silhouetteTooltip.setVisible(true); 
+
     }
 }
 
@@ -186,7 +189,7 @@ export class testSilueta_5 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a medico, llevarle medicina'
+                text: 'volver con el leñador'
             },
             {
                 text: 'ok',
@@ -205,7 +208,7 @@ export class testSilueta_6 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a vagabundo'
+                text: 'ir a medico, llevarle medicina'
             },
             {
                 text: 'ok',
@@ -224,7 +227,7 @@ export class testSilueta_7 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a tabernero'
+                text: 'ir a vagabundo '
             },
             {
                 text: 'ok',
@@ -243,7 +246,7 @@ export class testSilueta_8 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'coger el baston'
+                text: 'ir a tabernero '
             },
             {
                 text: 'ok',
@@ -281,7 +284,7 @@ export class testSilueta_10 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a medico una ultima vez'
+                text: 'ir a medico una ultima vez '
             },
             {
                 text: 'ok',
@@ -311,6 +314,7 @@ export class testSilueta_11 extends eventScene{
         ]
     }
 }
+
 
 // export class testSilueta_2 extends eventScene{
 //     constructor() {
