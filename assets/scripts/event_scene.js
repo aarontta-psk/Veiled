@@ -87,6 +87,7 @@ export default class eventScene extends Phaser.Scene {
     }
 }
 
+
 export class testSilueta_0 extends eventScene{
     constructor() {
         super({ key: 'testSilueta_0' });
@@ -94,10 +95,13 @@ export class testSilueta_0 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a elder'
+                text: 'Como me gustaba este pueblo, con su tranquilidad y su belleza. Todo el mundo vive en paz aqui,' +
+                ' haciendo sus cosas sin molestar a nadie. Que pena que estes perdiendo mi memoria ' +
+                ' cada dia que pasa. A lo mejor deberias tener un poco más de fe en ti misma. ¡Oh, mira!, en ese' +
+                ' banco hay alguien, a lo mejor te interesa hablarle.'
             },
             {
-                text: 'ok',
+                text: '...Vale',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -113,10 +117,13 @@ export class testSilueta_1 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a brother'
+                text: '¡Anda!, se ve que aun puedo hablarte. Se ve que esa conversacion te ha debido ayudar en tu ' +
+                'intento por recuperar tu fe. Estoy seguro que más gente en el pueblo te puede ayudar. Puede que tu hermano aun esté ' +
+                'por aqui, a lo mejor te viene bien visitarle para recordar los viejos tiempos. Piensa que mientras más te mejores, ' +
+                'más conversaciones podré tener contigo'
             },
             {
-                text: 'ok',
+                text: '...Eso haré',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -132,10 +139,12 @@ export class testSilueta_2 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a medico'
+                text: 'Siempre me arrepentí de no poder decirle todo lo que quería a tu hermano. Los últimos meses ' +
+                'estuve constantemente tambaleándome entre nuestra casa y el hospital. Ah, cuanto le debo a ese doctor.' + 
+                'Seguro que si le hablas te cuenta algo interesante.'
             },
             {
-                text: 'ok',
+                text: '...Vale',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -151,10 +160,11 @@ export class testSilueta_3 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a leñador'
+                text: '!Hey, cuanto tiempo! Siempre agradeceré todo lo que el médico me ayudó en mis peores momentos. Por ' +
+                'cierto, el leñador que estaba cerca de nuestra casa siempre ha sido muy excentrico. A lo mejor te cae bien.'
             },
             {
-                text: 'ok',
+                text: '...Puede ser',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -170,10 +180,11 @@ export class testSilueta_4 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a arbol'
+                text: '¡Árbol enfermo! Que cosas más raras dice el leñador, pero bueno, viéndome a mi,' +
+                ' creo que hay cosas más raras en este mundo. Deberías hacerle el favor a ese buen hombre'
             },
             {
-                text: 'ok',
+                text: 'Vale, padre',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -189,10 +200,10 @@ export class testSilueta_5 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'volver con el leñador'
+                text: 'Creo que ya es hora de devolverle lo que nos pidió a nuestro extraño vecino, ¿no crees?'
             },
             {
-                text: 'ok',
+                text: 'Debería, sí',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -208,10 +219,11 @@ export class testSilueta_6 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a medico, llevarle medicina'
+                text: '¡Con que de ahí sacaba sus mejunjes el doctor! No me extraña que siempre fuesen tan gratificantes. ' +
+                'Quizá otra visita para hablar con el te ayudaría a avanzar en tu recuperación.'
             },
             {
-                text: 'ok',
+                text: 'Podría ser, debería hacerlo',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -227,10 +239,12 @@ export class testSilueta_7 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a vagabundo '
+                text: 'Ah, él. Siempre fue un hombre inteligente y astuto, pero la edad, como puedes observar, no perdona. ' +
+                'Ahora él tambien sufre las mismas desgracias que tu padecías. A lo mejor esto te muestra la bendición que ' + 
+                'realmente te ha acaecido. Intenta hablar con él para que veas como se siente.'
             },
             {
-                text: 'ok',
+                text: 'Puede que tengas razón',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -246,10 +260,11 @@ export class testSilueta_8 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a tabernero '
+                text: 'Ese hombre, siempre fue un cascarrabias. Tiene buen corazón pero se deja llevar mucho por sus emociones.' +
+                ' Bueno, no todo el mundo puede ser perfecto. Ve a recuperar lo que te ha pedido el señor.'
             },
             {
-                text: 'ok',
+                text: 'Voy',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -265,10 +280,11 @@ export class testSilueta_9 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'volver con el vagabundo'
+                text: 'Esto demuestra lo muy ruin que puede ser la gente con personas en circunstancias desafortunadas. ' +
+                'Que suerte que esto ya no te puede ocurrir a tí, hija mia. Volvamos con el señor.'
             },
             {
-                text: 'ok',
+                text: 'Voy a ayudarle, sí',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -284,10 +300,12 @@ export class testSilueta_10 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a medico una ultima vez '
+                text: 'Ah, empiezo a sentir como por fin estas dejando atrás las cadenas que te hacen sufrir al usar tus ojos. ' + 
+                'El doctor estaría muy orgulloso de tus avances. Quizá una última visita le dejaría muy contento, ' + 
+                ' y te enseñaría lo mucho que este pueblo se preocupa por tu salud.'
             },
             {
-                text: 'ok',
+                text: 'Es verdad, padre, iré a verle.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -303,10 +321,12 @@ export class testSilueta_11 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'ir a grandMother'
+                text: 'Bueno, parece ser que mi tiempo aquí está acabando. Que sepas que, como ya te había dicho, te quiero con ' +
+                'todo mi corazón, y, pese a que ya no te pueda ver crecer más, me alegro de que por fin puedas disfrutar de manera plena ' +
+                'lo que la ceguera te quito. Si vas a hablar con tu abuela, ella tendrá algo que probablemente te haga feliz'
             },
             {
-                text: 'ok',
+                text: '...Padre ...*sniff* yo también te quiero ...Adiós',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -314,31 +334,3 @@ export class testSilueta_11 extends eventScene{
         ]
     }
 }
-
-
-// export class testSilueta_2 extends eventScene{
-//     constructor() {
-//         super({ key: 'testSilueta_2' });
-//         //array con los elementos de un evento
-//         this.backgroundImage = 'eventMenu';
-//         this.content = [
-//             {
-//                 text: '3'
-//             },
-//             {
-//                 condition: function (ref) {
-//                     return ref.info.player.faith > 25;
-//                 },
-//                 failedText: 'Aun no tienes la fe necesaria',
-//                 text: 'Completar este nivel al tener la fe necesaria',
-//                 cb: () => {
-//                     this.completeEvent(0,10);
-//                 },
-//             },
-//             {
-//                 text: 'Seguir explorando',
-//                 cb: () => {}
-//             }
-//         ]
-//     }
-// }
