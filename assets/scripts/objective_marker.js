@@ -10,7 +10,7 @@ export default class ObjectiveMarker extends Phaser.Physics.Matter.Sprite {
         this.setCollidesWith(null);
         this.setDepth(100);
         this.setVisible(true);
-        this.distanceToHide = 800;
+        this.distanceToHide = 200;
     }
 
     updateObjectiveMarker(){

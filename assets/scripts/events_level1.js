@@ -787,35 +787,24 @@ export class brother_Event_0 extends eventScene {
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         
-        this.event1 = [
+        this.event4 =[
             {
-                text: '¡Pues es una señal de la caridad de Dios! Nuestro padre estaba muriendo mucho antes de tu recuperación. Este milagro te permitió verle una última vez antes de que lo perdiésemos.\n¿Dime, al menos has intentado quitarte otra vez la venda?'
+                text: '-Pedro parece encantado. -Genial. Gracias, te aseguro que no lo arrepentirás.- Tornas para irte, pero te interrumpe otra vez -Espera, si vas a ver al doctor, ¿podrías pedirle si puede prepararme otra tarro de medicina para las migrañas? Casi no me queda.'
             },
             {
-                text: 'No desde entonces.',
-                cb: () => {},
-                next: this.event2
-            }
-        ];
-        this.event2 = [
-            {
-                text: 'Tu hermano no cede: -Él habría querido que vieses de nuevo.'
-            },
-            {
-                text: 'Para.',
+                text: '¿Con quién hablar?',
+        
                 cb: () => {},
                 next: [
                     {
-                        text: '-Para. No quiero. Me niego',
-                        cb: () => {},
-                        next: this.event3
+                        text: 'Aceptar y seguir en busca del doctor.',
+                        cb: () => {
+                            this.completeEvent(10,10);
+                            this.info.player.scene.npcs.doctorNpc.setActive(true);
+                            this.info.player.scene.nextObjective();
+                        }
                     }
                 ]
-            },
-            {
-                text: 'Habría querido que fuese feliz.',
-                cb: () => {},
-                next: this.event3
             }
         ];
         this.event3 = [
@@ -849,24 +838,35 @@ export class brother_Event_0 extends eventScene {
                 ]
             }
         ];
-        this.event4 =[
+        this.event2 = [
             {
-                text: '-Pedro parece encantado. -Genial. Gracias, te aseguro que no lo arrepentirás.- Tornas para irte, pero te interrumpe otra vez -Espera, si vas a ver al doctor, ¿podrías pedirle si puede prepararme otra tarro de medicina para las migrañas? Casi no me queda.'
+                text: 'Tu hermano no cede: -Él habría querido que vieses de nuevo.'
             },
             {
-                text: '¿Con quién hablar?',
-
+                text: 'Para.',
                 cb: () => {},
                 next: [
                     {
-                        text: 'Aceptar y seguir en busca del doctor.',
-                        cb: () => {
-                            this.completeEvent(10,10);
-                            this.info.player.scene.npcs.doctorNpc.setActive(true);
-                            this.info.player.scene.nextObjective();
-                        }
+                        text: '-Para. No quiero. Me niego',
+                        cb: () => {},
+                        next: this.event3
                     }
                 ]
+            },
+            {
+                text: 'Habría querido que fuese feliz.',
+                cb: () => {},
+                next: this.event3
+            }
+        ];
+        this.event1 = [
+            {
+                text: '¡Pues es una señal de la caridad de Dios! Nuestro padre estaba muriendo mucho antes de tu recuperación. Este milagro te permitió verle una última vez antes de que lo perdiésemos.\n¿Dime, al menos has intentado quitarte otra vez la venda?'
+            },
+            {
+                text: 'No desde entonces.',
+                cb: () => {},
+                next: this.event2
             }
         ];
         this.content = [
