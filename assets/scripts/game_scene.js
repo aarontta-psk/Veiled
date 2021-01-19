@@ -34,11 +34,11 @@ export default class GameScene extends Phaser.Scene {
             }
         }
 
-        if(this.scene.key !== 'level0'){
+        if (this.scene.key !== 'level0') {
             for (const trigger of this.triggerEvents) {
-            if (trigger.tooltip.visible && trigger.nextEvent() === null)
-                trigger.tooltip.setVisible(false);
-        }
+                if (trigger.tooltip.visible && trigger.nextEvent() === null)
+                    trigger.tooltip.setVisible(false);
+            }
         }
 
         //actualizacion barra de cordura
@@ -71,10 +71,20 @@ export default class GameScene extends Phaser.Scene {
             let stim;
             let position = { 'x': eventTrigger.x, 'y': eventTrigger.y };
             switch (eventTrigger.name) {
-                case 'treeSmell':
+                case 'treeSmell1':
                     stim = new treeSmell(smells, position);
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim,
-                        [this.scene.get('sickTreeEvent')]));
+                        [this.scene.get('sickTreeEvent_0')]));
+                    break;
+                case 'treeSmell2':
+                    stim = new treeSmell(smells, position);
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim,
+                        [this.scene.get('sickTreeEvent_1')]));
+                    break;
+                case 'treeSmell3':
+                    stim = new treeSmell(smells, position);
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim,
+                        [this.scene.get('sickTreeEvent_2')]));
                     break;
                 case 'glasses':
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
