@@ -1,10 +1,8 @@
 import NewGameScene from './game_scene.js'
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, {
-    PotionItem, SickTreeItem, BlessingItem, PositiveWordItem,
-    OffensiveWordItem, SacredFireItem, AvoidDeathItem, BoozeItem, FoodItem
-} from './item.js';
+import Item, { PotionItem, SickTreeItem, BlessingItem, SacredFireItem,
+    AvoidDeathItem, BoozeItem, FoodItem} from './item.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
 import Silhouette from './silhouette.js'

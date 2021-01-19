@@ -447,10 +447,11 @@ export class coins_Event_0 extends eventScene {
             },
             {
                 text: 'Coger la bolsa de monedas',
-                cb: () => [
+                cb: () => {
                     this.info.prevScene.insertItem(new MoneyBagItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[12], this.info.player))
-                ]
+                        0, 0, this.info.prevScene.itemFrames[12], this.info.player));
+                    this.completeEvent(0, 0);
+                }
             },
             {
                 text: 'Dejar la bolsa allí'
