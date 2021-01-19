@@ -9,8 +9,6 @@ import Silhouette from './silhouette.js'
 import NewGameScene from './game_scene.js'
 import EventHandler from './event_handler.js';
 
-const LEVEL_FAITH_REQUERIMENT = 40;
-
 export default class Level0 extends NewGameScene {
     constructor() {
         super('level0');
