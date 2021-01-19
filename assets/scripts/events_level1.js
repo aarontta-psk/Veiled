@@ -1133,6 +1133,7 @@ export class lumberjackEvent_0 extends eventScene {
         super({ key: 'lumberjackEvent_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
+        this.info.prevScene.treesFound = 0;
         this.missionAccepted = [
             {
                 text: '-En ese caso, creo que puedo ayudar. \n-Bien.- Responde el leñador- Si encuentras tres árboles enfermos, dime dónde están y yo me encargaré.- Y vuelve sin más a su trabajo.'
@@ -1152,7 +1153,7 @@ export class lumberjackEvent_0 extends eventScene {
             {
                 text: 'Aceptar propuesta',
                 cb: () => {
-                    this.completeEvent(20, 20);
+                    this.completeEvent(20, 10);
                 },
                 next: this.missionAccepted
             }
@@ -1253,7 +1254,7 @@ export class lumberjackEvent_1 extends eventScene {
             {
                 text: 'Llamar su atención',
                 cb: () => {
-                    if (this.info.player.scene.currentObjective >= 4)
+                    if (this.info.prevScene.treesFound >= 3)
                         this.approach = this.searchCompletedApproach;
                     else
                         this.approach = this.searchPendingApproach;
@@ -1608,6 +1609,22 @@ export class painterEvent_1 extends eventScene {
     }
 }
 
+export class sickTreeEvent_Idle extends eventScene {
+    constructor() {
+        super({ key: 'sickTreeEvent_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Este árbol desprende un ligero olor agrio. Extraño.'
+            },
+            {
+                text: 'Continuar'
+            }
+        ]
+    }
+}
+
 export class sickTreeEvent_0 extends eventScene {
     constructor() {
         super({ key: 'sickTreeEvent_0' });
@@ -1618,11 +1635,10 @@ export class sickTreeEvent_0 extends eventScene {
                 text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
             },
             {
-                text: 'Recoger muestra para el leñador',
+                text: 'Anotar posición para el leñador',
                 cb: () => {
-                    this.info.prevScene.insertItem(new SickTreeItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeEvent(10, 10);
+                    this.info.prevScene.treesFound++;
+                    this.completeEvent(10, 0);
                 },
             }
         ]
@@ -1639,11 +1655,10 @@ export class sickTreeEvent_1 extends eventScene {
                 text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
             },
             {
-                text: 'Recoger muestra para el leñador',
+                text: 'Anotar posición para el leñador',
                 cb: () => {
-                    this.info.prevScene.insertItem(new SickTreeItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeEvent(10, 10);
+                    this.info.prevScene.treesFound++;
+                    this.completeEvent(10, 0);
                 },
             }
         ]
@@ -1660,11 +1675,10 @@ export class sickTreeEvent_2 extends eventScene {
                 text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
             },
             {
-                text: 'Recoger muestra para el leñador',
+                text: 'Anotar posición para el leñador',
                 cb: () => {
-                    this.info.prevScene.insertItem(new SickTreeItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeEvent(10, 10);
+                    this.info.prevScene.treesFound++;
+                    this.completeEvent(10, 0);
                 },
             }
         ]
