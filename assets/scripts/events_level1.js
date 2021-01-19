@@ -807,9 +807,9 @@ export class glasses_Event_2 extends eventScene {
 
 
 //#region MainEvents
-
+//#region Idles
 export class brother_Event_Idle extends eventScene {
-    constructor(npcName) {
+    constructor() {
         super({ key: 'brother_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
@@ -823,6 +823,88 @@ export class brother_Event_Idle extends eventScene {
         ]
     }
 }
+
+export class doctor_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'doctor_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Ves al medico, pero parece estar muy ocupado con unos papeles, y no parece estar disponible.'
+            },
+            {
+                text: 'Volver más tarde'
+            }
+        ]
+    }
+}
+
+export class vagabond_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'vagabond_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'El vagabundo esta confuso, perdido en sus pensamientos.'
+            },
+            {
+                text: 'Volver más tarde'
+            }
+        ]
+    }
+}
+
+export class tavern_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'tavern_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'El tavernero parece estar limpiando los cristales, parece ocupado.'
+            },
+            {
+                text: 'Volver más tarde'
+            }
+        ]
+    }
+}
+
+export class cane_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'cane_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'No pareces haber visto nada en especial.'
+            },
+            {
+                text: 'Volver más tarde'
+            }
+        ]
+    }
+}
+
+export class grandmother_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'tavern_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'La anciana, a quien no distingues, esta triste, llorando por alguien.'
+            },
+            {
+                text: 'Mejor no molestarla'
+            }
+        ]
+    }
+}
+//#endregion
+
 
 export class brother_Event_0 extends eventScene {
     constructor() {
