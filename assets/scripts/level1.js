@@ -1,16 +1,11 @@
+import NewGameScene from './game_scene.js'
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, {
-    PotionItem, KaleidoscopeItem, SketchItem, SickTreeItem, StampItem, BlessingItem, PositiveWordItem,
-    OffensiveWordItem, SacredFireItem, AvoidDeathItem, LessDeathItem, BetterBlindFoldItem, MoneyBagItem,
-    GlassesItem, CaneItem, BoozeItem, EmptyBucketItem, BucketItem, FlowerItem, FoodItem
-} from './item.js';
-import Npc from './npc.js';
+import Item, { PotionItem, SickTreeItem, BlessingItem, PositiveWordItem,
+    OffensiveWordItem, SacredFireItem, AvoidDeathItem, BoozeItem, FoodItem} from './item.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
-import { soundStimulus, smell } from './stimulus.js';
 import Silhouette from './silhouette.js'
-import NewGameScene from './game_scene.js'
 import EventHandler from './event_handler.js';
 import ObjectiveMarker from './objective_marker.js';
 
@@ -49,7 +44,6 @@ export default class Level1 extends NewGameScene {
         this.ground_03 = this.map.createStaticLayer('ground_03', tileset);
         this.building_01 = this.map.createStaticLayer('building_01', tileset);
         this.building_02 = this.map.createStaticLayer('building_02', tileset);
-
 
         this.triggersToSect = [];
         // Spawnea al player en un punto definido en Tiled.
@@ -156,12 +150,6 @@ export default class Level1 extends NewGameScene {
                     this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[18], this.player);
                     break;
                 //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
-                case 'kaleidoscope':
-                    this.coin = new KaleidoscopeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[9], this.player);
-                    break;
-                case 'sketch':
-                    this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[20], this.player);
-                    break;
                 case 'blessing':
                     this.blessing = new BlessingItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
                     break;

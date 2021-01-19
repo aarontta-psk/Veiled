@@ -1,12 +1,8 @@
+import NewGameScene from './game_scene.js'
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, { PictureItem, PendantItem } from './item.js';
-import Npc from './npc.js';
-import Trigger from './trigger.js';
+import Item, { PictureItem } from './item.js';
 import GUI from './gui.js';
-import { soundStimulus, smell } from './stimulus.js';
-import Silhouette from './silhouette.js'
-import NewGameScene from './game_scene.js'
 import EventHandler from './event_handler.js';
 
 export default class Level0 extends NewGameScene {
