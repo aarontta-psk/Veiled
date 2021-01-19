@@ -1265,6 +1265,22 @@ export class lumberjackEvent_1 extends eventScene {
     }
 }
 
+export class lumberjackEvent_2 extends eventScene {
+    constructor() {
+        super({ key: 'lumberjack_Event_' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: '-Prepararé mis herramientas y enseguida salgo a frenar esa infección.'
+            },
+            {
+                text: 'Continuar',
+            }
+        ]
+    }
+}
+
 export class homeless_Event_0 extends eventScene {
     constructor() {
         super({ key: 'homeless_Event_0' });

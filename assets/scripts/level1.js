@@ -296,6 +296,9 @@ export default class Level1 extends NewGameScene {
 
         // Inicia la animacíon de las tiles
         this.animatedTiles.init(this.map);
+
+        //Atributos del nivel
+        this.treesFound = 0;
     }
 
     update(time, delta) {
