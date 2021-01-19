@@ -246,8 +246,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2528,
-                 "y":4112
+                 "x":2512,
+                 "y":4176
                 }, 
                 {
                  "height":32,
@@ -466,30 +466,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":3008,
-                 "y":4320
-                }, 
-                {
-                 "height":32,
-                 "id":19,
-                 "name":"kaleidoscope",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2688,
-                 "y":4352
-                }, 
-                {
-                 "height":32,
-                 "id":21,
-                 "name":"sketch",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2928,
-                 "y":4368
+                 "x":1568,
+                 "y":3616
                 }, 
                 {
                  "height":32,
@@ -499,41 +477,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2624,
-                 "y":4208
-                }, 
-                {
-                 "height":32,
-                 "id":95,
-                 "name":"offensive",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2720,
-                 "y":4144
-                }, 
-                {
-                 "height":32,
-                 "id":96,
-                 "name":"positive",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2832,
-                 "y":4144
-                }, 
-                {
-                 "height":32,
-                 "id":97,
-                 "name":"stamp",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2944,
-                 "y":4144
+                 "x":4064,
+                 "y":2768
                 }, 
                 {
                  "height":32,
@@ -543,96 +488,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":3024,
-                 "y":4144
-                }, 
-                {
-                 "height":32,
-                 "id":99,
-                 "name":"laudano",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2576,
-                 "y":4304
-                }, 
-                {
-                 "height":32,
-                 "id":100,
-                 "name":"flower",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":3040,
-                 "y":4224
-                }, 
-                {
-                 "height":32,
-                 "id":101,
-                 "name":"money",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2784,
-                 "y":4368
-                }, 
-                {
-                 "height":32,
-                 "id":102,
-                 "name":"glasses",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2512,
-                 "y":4448
-                }, 
-                {
-                 "height":32,
-                 "id":103,
-                 "name":"booze",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2624,
-                 "y":4448
-                }, 
-                {
-                 "height":32,
-                 "id":104,
-                 "name":"cane",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2752,
-                 "y":4448
-                }, 
-                {
-                 "height":32,
-                 "id":105,
-                 "name":"emptyBucket",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2832,
-                 "y":4432
-                }, 
-                {
-                 "height":32,
-                 "id":106,
-                 "name":"bucket",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2960,
-                 "y":4448
+                 "x":4512,
+                 "y":1952
                 }, 
                 {
                  "height":32,
@@ -642,8 +499,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":3024,
-                 "y":4400
+                 "x":2208,
+                 "y":2288
                 }, 
                 {
                  "height":32,
@@ -653,30 +510,19 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":3088,
-                 "y":4448
+                 "x":3152,
+                 "y":2864
                 }, 
                 {
                  "height":32,
-                 "id":109,
-                 "name":"flowerw",
+                 "id":117,
+                 "name":"booze",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2976,
-                 "y":3952
-                }, 
-                {
-                 "height":32,
-                 "id":110,
-                 "name":"betBlindfold",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2816,
-                 "y":3968
+                 "x":2528,
+                 "y":4304
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -712,15 +558,15 @@
                  "y":3208
                 }, 
                 {
-                 "height":24,
+                 "height":34,
                  "id":67,
                  "name":"coins",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":24,
-                 "x":4496,
-                 "y":1959
+                 "width":32,
+                 "x":1184,
+                 "y":2016
                 }, 
                 {
                  "height":26,
@@ -1392,8 +1238,8 @@
                  "type":"",
                  "visible":true,
                  "width":34.6667,
-                 "x":2383.33165,
-                 "y":2924.33331666667
+                 "x":2383.33,
+                 "y":2924.33
                 }, 
                 {
                  "height":34.6667,
@@ -1414,8 +1260,8 @@
                  "type":"",
                  "visible":true,
                  "width":34.6667,
-                 "x":2454.00165,
-                 "y":2943.33331666667
+                 "x":2454,
+                 "y":2943.33
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1563,7 +1409,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":117,
+ "nextobjectid":118,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
