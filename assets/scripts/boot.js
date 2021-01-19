@@ -5,6 +5,8 @@ export default class Boot extends Phaser.Scene {
         // Carga de datos de juego
         this.load.spritesheet('player', './assets/sprites/spritesheets/player_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('playerblind', './assets/sprites/spritesheets/playerblind_sheet.png',
+            { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('boatofficial', './assets/sprites/spritesheets/boatofficial_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('brother', './assets/sprites/spritesheets/brother_sheet.png',
@@ -130,6 +132,7 @@ export default class Boot extends Phaser.Scene {
 
         //creacion de animaciones
         this.createAnims('player', 8);
+        this.createAnims('playerblind', 8);
         this.createAnims('boatofficial', 4);
         this.createAnims('brother', 4);
         this.createAnims('captain', 4);

@@ -2,7 +2,7 @@ import Inventory from './inventory.js';
 
 export default class Player extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y, spawnPoint, startingFaith, scale) {
-        super(world, x, y, 'player'); //llama a la constructora de Sprite
+        super(world, x, y, 'playerblind'); //llama a la constructora de Sprite
 
         this.setBody({
             type: 'rectangle',
