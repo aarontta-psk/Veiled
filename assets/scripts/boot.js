@@ -61,6 +61,8 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 128 });
         this.load.spritesheet('lmbTooltip', './assets/sprites/lmb_tooltip.png',
             { frameWidth: 64, frameHeight: 128 });
+        this.load.spritesheet('ghostTooltip', './assets/sprites/r_tooltip.png',
+            { frameWidth: 64, frameHeight: 128 });
 
         // Carga de datos de menus
         this.load.image('pauseMenu', './assets/sprites/ui/pause_menu.png');
