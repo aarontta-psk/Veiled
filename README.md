@@ -143,13 +143,13 @@ Ejemplo de una evento de texto sencillo
 
 #### PRELUDIO (Tutorial)
 
-| Sprite | Nombre | Utilidad |
+| Sprite | Nombre | Evento |
 |--------|--------|--------|
-| ![](./assets/sprites/items/dad.gif)| Padre | Permite continuar el tutorial del preludio |
+| ![](./assets/media/features/npcs/brother.gif)| Padre | Permite continuar el tutorial del preludio |
 
 #### PUEBLO
 
-| Sprite | Nombre | Utilidad |
+| Sprite | Nombre | Evento |
 |--------|--------|--------|
 | ![](./assets/media/features/npcs/brother.gif)| Hermano | Permite continuar el tutorial del preludio |
 | ![](./assets/media/features/npcs/doctor.gif)| Doctor | Permite continuar el tutorial del preludio |
