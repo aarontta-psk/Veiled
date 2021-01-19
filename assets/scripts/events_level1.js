@@ -939,42 +939,35 @@ export class doctorEvent_0 extends eventScene {
         super({ key: 'doctorEvent_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
-        this.content = [
+        this.adviceAccepted = [
             {
-                text: 'El olor a tabaco viejo te alerta a la presencia del doctor Abel, sentado como de costumbre en ' +
-                    'el portal de su casa, perdido en sus pensamientos. No es hasta que le saludas que se alerta ' +
-                    'a tu presencia, pero cuando lo hace, su sonrisa es audible. Se levanta y, antes de que puedas ' +
-                    'reaccionar, te envuelve en un abrazo. Tras calmarse un poco el aire, os envolvéis en una larga ' +
-                    'conversación para poneos al día. El doctor consigue resumir en breve más de una década de ' +
-                    'ocurrencias en el pueblo, y luego escucha pacientemente mientras le relatas la reciente milagrosa ' +
-                    'recuperación de tu vista.\nSe queda pensativo un tiempo antes de ofrecerte su consejo: \n\n' +
+                text: '-¿Ves? -responde el doctor- Realmente no necesitabas que te dijera yo esto, me imagino que habrías ' +
+                    'llegado a la misma conclusión tú sola. Y si tú prefieres mantenerte para siempre en las tinieblas, ' +
+                    'estoy seguro de que volveras a ser tan feliz como siempre fuiste. Pero te urgiría, aunque sea muy ' +
+                    'poco a poco, a que al menos probases quitártela, por unos momentos a la vez, y te permitas aprender ' +
+                    'a valorar la belleza del mundo visual. Y si te disgusta o te decepciona, siempre podrás ponerte la ' +
+                    'venda y volver a la oscuridad.'
+            },
+            {
+                text: 'Asentir y despedirte del viejo doctor',
+                cb: () => {
+                    //this.info.player.enableBlindfold();
+                    this.completeEvent(31, 31);
+                }
+            }
+        ];
+        this.advice = [
+            {
+                text: 'El anciano se queda pensativo un tiempo antes de ofrecerte su consejo: \n\n' +
                     '-¿Y tú rechazas este milagro? Entendible. Me imagino que muchos harían lo mismo, o peor. ' +
                     'Pero te veo ahora con esta venda, y no puedo dejar de pensar que realmente no has perdido nada.'
             },
             {
-                text: 'Estar de acuerdo',
-                cb: () => { },
-                next: [
-                    {
-                        text: '-¿Ves? -responde el doctor- Realmente no necesitabas que te dijera yo esto, me imagino que habrías ' +
-                            'llegado a la misma conclusión tú sola. Y si tú prefieres mantenerte para siempre en las tinieblas, ' +
-                            'estoy seguro de que volveras a ser tan feliz como siempre fuiste. Pero te urgiría, aunque sea muy ' +
-                            'poco a poco, a que al menos probases quitártela, por unos momentos a la vez, y te permitas aprender ' +
-                            'a valorar la belleza del mundo visual. Y si te disgusta o te decepciona, siempre podrás ponerte la ' +
-                            'venda y volver a la oscuridad.'
-                    },
-                    {
-                        text: 'Asentir y despedirte del viejo doctor',
-                        cb: () => {
-                            //this.info.player.enableBlindfold();
-                            this.completeMainEvent(31, 31);
-                        }
-                    }
-                ]
+                text: 'Aceptar consejo',
+                next: this.adviceAccepted
             },
             {
                 text: 'Preguntar a qué se refiere',
-                cb: () => { },
                 next: [
                     {
                         text: '-Digo que, aunque no te sientas cómoda con este mundo visual, siempre podrás simplemente ponerte ' +
@@ -985,14 +978,26 @@ export class doctorEvent_0 extends eventScene {
                             'tus manos para moverte entre ellas.',
                     },
                     {
-                        text: 'Dar las gracias y aceptar consejo',
-                        cb: () => {
-                            //this.info.player.enableBlindfold();
-                            this.completeMainEvent(31, 31);
-                        }
+                        text: 'Aceptar consejo',
+                        next: this.adviceAccepted
                     }
                 ]
 
+            },
+        ];
+        this.content = [
+            {
+                text: 'El olor a tabaco viejo te alerta a la presencia del doctor Abel, sentado como de costumbre en ' +
+                    'el portal de su casa, perdido en sus pensamientos. No es hasta que le saludas que se alerta ' +
+                    'a tu presencia, pero cuando lo hace, su sonrisa es audible. Se levanta y, antes de que puedas ' +
+                    'reaccionar, te envuelve en un abrazo. Tras calmarse un poco el aire, os envolvéis en una larga ' +
+                    'conversación para poneos al día. El doctor consigue resumir en breve más de una década de ' +
+                    'ocurrencias en el pueblo, y luego escucha pacientemente mientras le relatas la reciente milagrosa ' +
+                    'recuperación de tu vista.'
+            },
+            {
+                text: 'Continuar',
+                next: this.advice
             },
         ]
     }
