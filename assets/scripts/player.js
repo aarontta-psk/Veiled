@@ -63,6 +63,9 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     }
 
     preUpdate(time, delta) {
+        if (this.scene.blindfold.blind && this.texture.key !== 'playerblind') this.setTexture('playerblind');
+        else if (!this.scene.blindfold.blind && this.texture.key !== 'player') this.setTexture('player');
+
         super.preUpdate(time, delta); //preUpdate de Sprite (necesario para animaciones)
 
         //Calculamos la velocidad
