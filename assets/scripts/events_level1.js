@@ -324,7 +324,7 @@ export class seller_Event_1 extends eventScene {
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Bolsa con monedas');
                             this.info.prevScene.insertItem(new LessDeathItem(this.info.prevScene.matter.world,
-                                0, 0, this.info.prevScene.itemFrames[11], this.info.player));
+                                0, 0, this.info.prevScene.itemFrames[0], this.info.player));
                         }
                     },
                     {
@@ -349,7 +349,7 @@ export class seller_Event_1 extends eventScene {
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Bolsa con monedas');
                             this.info.prevScene.insertItem(new StampItem(this.info.prevScene.matter.world,
-                                0, 0, this.info.prevScene.itemFrames[21], this.info.player));
+                                0, 0, this.info.prevScene.itemFrames[19], this.info.player));
                         }
                     },
                     {
@@ -479,7 +479,7 @@ export class well_Event_0 extends eventScene {
                 cb: () => {
                     this.info.player.inventory.removeObjectByKey('Cubo vacio');
                     this.info.prevScene.insertItem(new BucketItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[22], this.info.player));
+                        0, 0, this.info.prevScene.itemFrames[5], this.info.player));
                     this.completeEvent(0, 0);
                 }
             },
@@ -1513,7 +1513,7 @@ export class painterEvent_0 extends eventScene {
                         text: 'Agradecer y aceptar regalo',
                         cb: () => {
                             this.info.prevScene.insertItem(new SketchItem(this.info.prevScene.matter.world,
-                                0, 0, this.info.prevScene.itemFrames[20], this.info.player));
+                                0, 0, this.info.prevScene.itemFrames[18], this.info.player));
                             this.completeEvent(0, 20);
                         }
                     }
