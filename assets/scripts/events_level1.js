@@ -1,8 +1,10 @@
 import eventScene from './event_scene.js'
-import {CaneItem, /*cane_event_0*/ GlassesItem, /*glassesItem_Event_0*/ EmptyBucketItem, /*tavern_Event_0*/ 
-BucketItem, /*well_event_0*/ StampItem, LessDeathItem, BetterBlindFoldItem, /*seller_event_0*/ 
-FlowerItem, /*hungryKid_Event_0*/ MoneyBagItem, /*foreigner_Event_1, coins_Event_0, grave_Event_0*/
-SickTreeItem, /*sickTreeEvent*/ KaleidoscopeItem, SketchItem /*painterEvent_0*/ } from './item.js'
+import {
+    CaneItem, /*cane_event_0*/ GlassesItem, /*glassesItem_Event_0*/ EmptyBucketItem, /*tavern_Event_0*/
+    BucketItem, /*well_event_0*/ StampItem, LessDeathItem, BetterBlindFoldItem, /*seller_event_0*/
+    FlowerItem, /*hungryKid_Event_0*/ MoneyBagItem, /*foreigner_Event_1, coins_Event_0, grave_Event_0*/
+    SickTreeItem, /*sickTreeEvent*/ KaleidoscopeItem, SketchItem /*painterEvent_0*/
+} from './item.js'
 
 //#region SecondaryEvents
 export class elder_Event_0 extends eventScene {
@@ -13,15 +15,15 @@ export class elder_Event_0 extends eventScene {
         this.content = [
             {
                 text: 'Reposando en un banco se encuentra alguien. Está callado. No te habrías dado cuenta de que está ahí de\n' +
-                'no ser porque tose muy fuerte. Se nota que su salud no es muy buena'
+                    'no ser porque tose muy fuerte. Se nota que su salud no es muy buena'
             },
             {
                 text: '¿Se encuentra bien?',
                 next: [
                     {
                         text: '-Claramente no. ¿No lo ves? Claro que no lo ves. En fin, se te nota perdida por aqui. ¿Hace tiempo\n' +
-                        'que no caminas por el pueblo? Te puedo contar como va todo por aqui, pero antes acercame mi botella,\n' +
-                        '¿quieres? Esta justo aqui al lado, pero no quiero levantarme'
+                            'que no caminas por el pueblo? Te puedo contar como va todo por aqui, pero antes acercame mi botella,\n' +
+                            '¿quieres? Esta justo aqui al lado, pero no quiero levantarme'
                     },
                     {
                         text: 'Darle la botella',
@@ -38,6 +40,7 @@ export class elder_Event_0 extends eventScene {
                                 cb: () => {
                                     this.info.player.inventory.removeObjectByKey('Botella');
                                     this.completeMainEvent(30,30);
+
                                 },
                             }
 
@@ -69,7 +72,7 @@ export class elder_Event_1 extends eventScene {
                 next: [
                     {
                         text: '-Bueno, ya sabes, es donde vive la gente y donde hacen principalmente su vida. Tenemos un mercado sencillo \n' +
-                        'y una posada, aunque está cerrada. Ah, y un pozo del que sacamos agua.'
+                            'y una posada, aunque está cerrada. Ah, y un pozo del que sacamos agua.'
                     },
                     {
                         text: 'Gracias por la información'
@@ -81,8 +84,8 @@ export class elder_Event_1 extends eventScene {
                 next: [
                     {
                         text: '-Allí no encontrarás mucho. Es una zona apartada que da al bosque en la que solo habita el leñador. Hace días\n' +
-                        'que no pasa por la plaza. ¿Podrías ir a verlo por mi? Es un viejo amigo mio, aunque ya no puedo ir a verle a\n' +
-                        'menudo. Estoy un poco preocupado por él'
+                            'que no pasa por la plaza. ¿Podrías ir a verlo por mi? Es un viejo amigo mio, aunque ya no puedo ir a verle a\n' +
+                            'menudo. Estoy un poco preocupado por él'
                     },
                     {
                         text: 'Lo tendré en cuenta'
@@ -94,8 +97,8 @@ export class elder_Event_1 extends eventScene {
                 next: [
                     {
                         text: '-Puedes encontrar al doctor allí. Suele estar ocupado, pero es una buena persona. Ayuda a la gente, tal\n' +
-                        'vez quieras visitarlo. Si vas de camino encontrarás el cementerio. Ya lo sé, bastante preocupante que\n' +
-                        'ambos sitios estén tan cerca. Pero bueno, tal vez quieras presentarle tus respetos a alguien'
+                            'vez quieras visitarlo. Si vas de camino encontrarás el cementerio. Ya lo sé, bastante preocupante que\n' +
+                            'ambos sitios estén tan cerca. Pero bueno, tal vez quieras presentarle tus respetos a alguien'
                     },
                     {
                         text: 'Si...Gracias'
@@ -107,7 +110,7 @@ export class elder_Event_1 extends eventScene {
                 next: [
                     {
                         text: '-Solo sé que es dónde vive una pintora bastante reconocida. No se mucho de ella, solo que es muy buena en lo\n'
-                        + 'suyo. Si te interesa, puedes ir a verla, pero no te puedo decir más'
+                            + 'suyo. Si te interesa, puedes ir a verla, pero no te puedo decir más'
                     },
                     {
                         text: 'Vale, gracias.'
@@ -126,8 +129,8 @@ export class hungryKid_Event_0 extends eventScene {
         this.content = [
             {
                 text: 'Escuchas cerca a un niño caminando por el campo. Al centrarte en él, te das cuenta de que\n' +
-                'está buscando flores. Al acercarte se fija en ti y se acerca corriendo\n' +
-                '-Hola, ¿sería usted tan amable de darme algo de comer *Cof *Cof?'
+                    'está buscando flores. Al acercarte se fija en ti y se acerca corriendo\n' +
+                    '-Hola, ¿sería usted tan amable de darme algo de comer *Cof *Cof?'
 
             },
             {
@@ -135,7 +138,7 @@ export class hungryKid_Event_0 extends eventScene {
                 next: [
                     {
                         text: 'El niño, al ver que no puedes hacer nada por él, decide seguir buscando flores\n' +
-                        '-Que pena, hace tiempo que no me llevo nada a la boca',
+                            '-Que pena, hace tiempo que no me llevo nada a la boca',
                     },
                     {
                         text: 'Sintiéndote un poco mal por él, te alejas',
@@ -154,19 +157,19 @@ export class hungryKid_Event_0 extends eventScene {
                 next: [
                     {
                         text: 'El niño se lleva corriendo la comida a la boca. Parece que no haya comido en días.\n' +
-                        '-Creo que me encuentro mejor ¡Gracias! Aunque no tengo dinero para pagarla... Pero tengo' +
-                        'estas flores si las quieres'
+                            '-Creo que me encuentro mejor ¡Gracias! Aunque no tengo dinero para pagarla... Pero tengo' +
+                            'estas flores si las quieres'
                     },
                     {
                         text: 'Aceptar su regalo',
                         cb: () => {
                             this.info.prevScene.insertItem(new FlowerItem(this.info.prevScene.matter.world,
-                                0, 0, this.info.prevScene.itemFrames[6], this.info.player)); 
-                            this.completeEvent(15,10)
+                                0, 0, this.info.prevScene.itemFrames[6], this.info.player));
+                            this.completeEvent(15, 10)
                         }
                     }
                 ]
-                
+
             }
         ]
     }
@@ -180,14 +183,14 @@ export class grandMother_Event_0 extends eventScene {
         this.content = [
             {
                 text: '-¡María! Dichosos mis ojos, ¿hace cuanto que has vuelto? Deberías haber avisado.\n' +
-                'Es importante contar con la familia en estos momentos de adversidad.'
+                    'Es importante contar con la familia en estos momentos de adversidad.'
             },
             {
                 text: 'Perdona, pero la muerte de padre...',
                 next: [
                     {
                         text: 'Ah si. Tu padre. Fue un gran hombre. Nunca te he hablado demasiado de cuando él\n' +
-                        'era tan solo un mozo. ¿Quieres que lo cuente?'
+                            'era tan solo un mozo. ¿Quieres que lo cuente?'
                     },
                     {
                         text: 'Prefiero no ahondar en el pasado',
@@ -201,7 +204,7 @@ export class grandMother_Event_0 extends eventScene {
                             {
                                 text: 'Acabar',
                                 cb: () => {
-                                    this.completeMainEvent(1,1);
+                                    this.completeMainEvent(1, 1);
                                 }
                             }
                         ]
@@ -231,8 +234,8 @@ export class seller_Event_0 extends eventScene {
         this.content = [
             {
                 text: '-!Buenos dias! Tengo disponibles numerosos artículos disponibles en mi tienda. Seguro que\n' +
-                'tengo algo que te pueda ser de utilidad. Pero solo podremos hacer un trato si tienes algo con lo\n' +
-                'que pagar.'
+                    'tengo algo que te pueda ser de utilidad. Pero solo podremos hacer un trato si tienes algo con lo\n' +
+                    'que pagar.'
             },
             {
                 text: 'Mostrarle dinero',
@@ -242,13 +245,13 @@ export class seller_Event_0 extends eventScene {
                 },
                 next: [
                     {
-                        text:  '-Oh, eso es otra cosa. Estaré encantado de hacer negocios contigo'
+                        text: '-Oh, eso es otra cosa. Estaré encantado de hacer negocios contigo'
 
                     },
                     {
                         text: 'Con curiosidad, te sientes tentada a investigar la tienda',
                         cb: () => {
-                            this.completeEvent(15,15);
+                            this.completeEvent(15, 15);
                         }
                     }
                 ]
@@ -276,16 +279,16 @@ export class seller_Event_1 extends eventScene {
         this.content = [
             {
                 text: 'Echale un vistazo... Bueno, mejor te cuento que te puede ser de utilidad\n' +
-                'Por esa cantidad de dinero puedo ofrecerte:'
+                    'Por esa cantidad de dinero puedo ofrecerte:'
             },
             {
                 text: 'Venda de tela resistente',
                 next: [
                     {
                         text: '-¿Pero que haces con esos harapos? Te vendrá mucho mejor una venda de verdad,\n' +
-                        'que se sujete bien y este hecha con telas resistentes.-\n' +
-                        'Te ofrece la venda para que la pruebes con el tacto. Tiene razón, es de buena calidad.\n' +
-                        '(Aumenta la cordura máxima que se puede recuperar)'
+                            'que se sujete bien y este hecha con telas resistentes.-\n' +
+                            'Te ofrece la venda para que la pruebes con el tacto. Tiene razón, es de buena calidad.\n' +
+                            '(Aumenta la cordura máxima que se puede recuperar)'
                     },
                     {
                         text: 'Comprar la venda',
@@ -309,7 +312,7 @@ export class seller_Event_1 extends eventScene {
                 next: [
                     {
                         text: '-Te noto cansada. Esta medicina puede ayudarte a sentirte mejor, te recomiendo que la pruebes.\n' +
-                        '(Disminuye la probabilidad de desmayarte al perder la cordura)'
+                            '(Disminuye la probabilidad de desmayarte al perder la cordura)'
                     },
                     {
                         text: 'Comprar la medicina',
@@ -333,8 +336,8 @@ export class seller_Event_1 extends eventScene {
                 next: [
                     {
                         text: '- En los tiempos que corren es importante tener fe. Esta estampita es muy especial. Es de\n' +
-                        'nada mas y nada menos que nuestro creador Unamu... ¿Quién? Quería decir Dios\n' +
-                        '(Aumenta algo la fe)'
+                            'nada mas y nada menos que nuestro creador Unamu... ¿Quién? Quería decir Dios\n' +
+                            '(Aumenta algo la fe)'
                     },
                     {
                         text: 'Comprar la estampita',
@@ -345,7 +348,7 @@ export class seller_Event_1 extends eventScene {
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Bolsa con monedas');
                             this.info.prevScene.insertItem(new StampItem(this.info.prevScene.matter.world,
-                                0, 0, this.info.prevScene.itemFrames[21], this.info.player)); 
+                                0, 0, this.info.prevScene.itemFrames[21], this.info.player));
                         }
                     },
                     {
@@ -368,15 +371,15 @@ export class grave_Event_0 extends eventScene {
         this.content = [
             {
                 text: 'Te acercas al cementerio donde recuerdas que está la tumba de tu padre. El recuerdo de su muerte\n' +
-                'es reciente y no es nada agradable.'
+                    'es reciente y no es nada agradable.'
             },
             {
                 text: 'Observar la tumba',
                 next: [
                     {
                         text: 'Te quitas la venda brevemente. Por un momento sientes una gran tristeza al ver su tumba, e\n' +
-                        'inmediatamente te vuelves a poner la venda. Te ha dado tiempo a ver que la tumba no está en muy buen\n' +
-                        'estado. Hay hierbajos y unas flores marchitas como ofrenda. Da pena ver lo mal cuidadas que están'
+                            'inmediatamente te vuelves a poner la venda. Te ha dado tiempo a ver que la tumba no está en muy buen\n' +
+                            'estado. Hay hierbajos y unas flores marchitas como ofrenda. Da pena ver lo mal cuidadas que están'
                     },
                     {
                         text: 'Reincorporarse e irse',
@@ -391,7 +394,7 @@ export class grave_Event_0 extends eventScene {
                 next: [
                     {
                         text: 'Te quitas la venda brevemente. Todas las tumbas están algo descuidadas. Es una imagen triste que\n' +
-                        'se te va a quedar grabada'
+                            'se te va a quedar grabada'
                     },
                     {
                         text: 'Irse',
@@ -410,15 +413,15 @@ export class grave_Event_0 extends eventScene {
                 next: [
                     {
                         text: 'Colocas las flores que te dio el niño como ofrenda. Eran las favoritas de tu padre\n' +
-                        'Recordarlo te alivia y te hace sentir mejor. Tambien arrancas algunos hierbajos para\n' +
-                        'dejar el lugar cuidado. Al hacerlo ves una bolsa con algunas monedas.'
+                            'Recordarlo te alivia y te hace sentir mejor. Tambien arrancas algunos hierbajos para\n' +
+                            'dejar el lugar cuidado. Al hacerlo ves una bolsa con algunas monedas.'
                     },
                     {
                         text: 'Coger las monedas',
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Flores');
                             this.info.prevScene.insertItem(new MoneyBagItem(this.info.prevScene.matter.world,
-                                0, 0, this.info.prevScene.itemFrames[12], this.info.player)); 
+                                0, 0, this.info.prevScene.itemFrames[12], this.info.player));
                         }
                     }
                 ]
@@ -438,7 +441,7 @@ export class coins_Event_0 extends eventScene {
         this.content = [
             {
                 text: 'Escuchabas un ruido extraño y decidiste comprobar que era. Resulta que eran una bolsa de monedas' +
-                'Podría serte útil'
+                    'Podría serte útil'
             },
             {
                 text: 'Coger la bolsa de monedas',
@@ -462,7 +465,7 @@ export class well_Event_0 extends eventScene {
         this.content = [
             {
                 text: 'Te acercas a donde se supone que estaba el pozo, en el centro del poblado. Con el tacto\n' +
-                'te orientas y confirmas que efectivamente estas en el sitio indicado'
+                    'te orientas y confirmas que efectivamente estas en el sitio indicado'
             },
             {
                 text: 'Sacar algo de agua',
@@ -483,28 +486,28 @@ export class well_Event_0 extends eventScene {
     }
 }
 
-export class foreigner_Event_0 extends eventScene{
-    constructor(){
+export class foreigner_Event_0 extends eventScene {
+    constructor() {
         super({ key: 'foreigner_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'secondaryEventMenu';
         this.content = [
             {
                 text: 'Te acercas a alguien muy ruidoso. Habla bastante alto y se nota que no es de por aquí. Tiene un acento extraño que ' +
-                'no sabes muy bien de dónde es. -Hey, la de la venda. Tengo un problema. La posada está cerrada. ¡Necesito un lugar ' +
-                'para dormir! ¿Puedes hacer algo? Llamando a la puerta no me hacen ni caso'
+                    'no sabes muy bien de dónde es. -Hey, la de la venda. Tengo un problema. La posada está cerrada. ¡Necesito un lugar ' +
+                    'para dormir! ¿Puedes hacer algo? Llamando a la puerta no me hacen ni caso'
             },
             {
                 text: '¿Por que yo?',
                 next: [
                     {
                         text: '-Nadie mas me ayuda. En este pueblo sois muy antipáticos. Mira, si me ayudas te daré unas monedas. Encontrarás la ' +
-                        'posada al suroeste de la plaza'
+                            'posada al suroeste de la plaza'
                     },
                     {
                         text: '*Suspirar* Bueno, pasaré por la posada',
                         cb: () => {
-                            this.completeEvent(10,10);
+                            this.completeEvent(10, 10);
                         }
                     },
                     {
@@ -516,12 +519,12 @@ export class foreigner_Event_0 extends eventScene{
     }
 }
 
-export class foreigner_Event_1 extends eventScene{
-    constructor(){
+export class foreigner_Event_1 extends eventScene {
+    constructor() {
         super({ key: 'foreigner_Event_1' });
         //array con los elementos de un evento
         this.backgroundImage = 'secondaryEventMenu';
-        
+
         this.content = [
             {
                 text: '-¿Lo has conseguido?',
@@ -531,8 +534,8 @@ export class foreigner_Event_1 extends eventScene{
                 },
                 next: [
                     {
-                        text: '-¡Sabía que podía contar contigo! Bueno, lo prometido es deuda.-\n' + 
-                        'Te entrega una bolsa con algunas monedas'
+                        text: '-¡Sabía que podía contar contigo! Bueno, lo prometido es deuda.-\n' +
+                            'Te entrega una bolsa con algunas monedas'
                     },
                     {
                         text: 'No hay de qué',
@@ -550,15 +553,15 @@ export class foreigner_Event_1 extends eventScene{
     }
 }
 
-export class tavern_Event_0 extends eventScene{
-    constructor(){
+export class tavern_Event_0 extends eventScene {
+    constructor() {
         super({ key: 'tavern_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'secondaryEventMenu';
         this.content = [
             {
                 text: 'Tras un rato buscando encuntras la posada de la que te ha hablado el extranjero. ' +
-                'Está cerrada, como ya te ha dicho'
+                    'Está cerrada, como ya te ha dicho'
             },
             {
                 text: 'Llamar a la puerta',
@@ -576,7 +579,7 @@ export class tavern_Event_0 extends eventScene{
                 next: [
                     {
                         text: 'Dando pequeños golpes a la ventana, escuchas como alguien se levanta y la abre.' +
-                        'Una mujer somnolienta te habla -*Bostezo* ¿Si? ¿Que ocurre?'
+                            'Una mujer somnolienta te habla -*Bostezo* ¿Si? ¿Que ocurre?'
                     },
                     {
                         text: '¿Está la posada abierta?',
@@ -594,22 +597,22 @@ export class tavern_Event_0 extends eventScene{
                         next: [
                             {
                                 text: '-¿Qué? Creo que me he quedado dormido. Normalmente es Miguel quien se encarga de recibir ' +
-                                'a los clientes. Salió hace rato. Si quieres algo tendrás que hablar con él'
+                                    'a los clientes. Salió hace rato. Si quieres algo tendrás que hablar con él'
                             },
                             {
                                 text: 'Ire a buscarle pues',
                                 next: [
                                     {
                                         text: '-Espera un segundo. Miguel se pasa el dia en las nubes. No te hara caso así como así. ' +
-                                        'Toma esto-Te ofrece un cubo de madera vacío -Llena este cubo con agua. Ya lo entenderás cuando lo ' +
-                                        'veas.'
+                                            'Toma esto-Te ofrece un cubo de madera vacío -Llena este cubo con agua. Ya lo entenderás cuando lo ' +
+                                            'veas.'
                                     },
                                     {
                                         text: 'Coger el cubo y marcharse',
                                         cb: () => {
                                             this.info.prevScene.insertItem(new EmptyBucketItem(this.info.prevScene.matter.world,
                                                 0, 0, this.info.prevScene.itemFrames[5], this.info.player));
-                                            this.completeEvent(10,10);
+                                            this.completeEvent(10, 10);
                                         }
                                     }
                                 ]
@@ -633,7 +636,7 @@ export class tavern_Event_0 extends eventScene{
     }
 }
 
-export class glasses_Event_0 extends eventScene{
+export class glasses_Event_0 extends eventScene {
     constructor() {
         super({ key: 'glasses_Event_0' });
         //array con los elementos de un evento
@@ -641,7 +644,7 @@ export class glasses_Event_0 extends eventScene{
         this.content = [
             {
                 text: 'En la orilla del rio se encuentra alguien. Por algún motivo huele mucho a colonia. No te presta ' +
-                'atención, está demasiado concentrado en algo.'
+                    'atención, está demasiado concentrado en algo.'
             },
             {
                 text: '¿Te ocurre algo?',
@@ -670,7 +673,7 @@ export class glasses_Event_0 extends eventScene{
                     {
                         text: '...Parece que ahora si escuchas',
                         cb: () => {
-                            this.completeEvent(10,10);
+                            this.completeEvent(10, 10);
                         }
                     }
                 ]
@@ -679,7 +682,7 @@ export class glasses_Event_0 extends eventScene{
     }
 }
 
-export class glasses_Event_1 extends eventScene{
+export class glasses_Event_1 extends eventScene {
     constructor() {
         super({ key: 'glasses_Event_1' });
         //array con los elementos de un evento
@@ -693,19 +696,19 @@ export class glasses_Event_1 extends eventScene{
                 next: [
                     {
                         text: '...Maldita. En cuanto vuelva me las va a pagar. Habría vuelto hace rato, pero ' +
-                        'he perdido mis gafas. Sin ellas no puedo trabajar. LLevo horas buscando pero no aparecen'
+                            'he perdido mis gafas. Sin ellas no puedo trabajar. LLevo horas buscando pero no aparecen'
                     },
                     {
                         text: 'Puedo ayudarte a buscarlas',
                         next: [
                             {
                                 text: 'Eso sería muy amable por tu parte. Tienen que estar en la ribera del río ' +
-                                'Cuando paseo no me gusta llevarlas puestas, es probable que se me cayeran.' 
+                                    'Cuando paseo no me gusta llevarlas puestas, es probable que se me cayeran.'
                             },
                             {
                                 text: 'Voy a buscarlas',
                                 cb: () => {
-                                    this.completeEvent(15,15);
+                                    this.completeEvent(15, 15);
                                 }
                             }
                         ]
@@ -717,7 +720,7 @@ export class glasses_Event_1 extends eventScene{
                 next: [
                     {
                         text: '-Si solo vienes a molestar ya puedes irte, estoy bastante ocupado y ahora además empapado.- ' +
-                        'Te das cuenta de que no le ha sentado nada bien, te hace sentir un poco mal'
+                            'Te das cuenta de que no le ha sentado nada bien, te hace sentir un poco mal'
                     },
                     {
                         text: 'Irse',
@@ -740,13 +743,13 @@ export class glassesItem_Event_0 extends eventScene {
         this.content = [
             {
                 text: 'Siguiendo la orilla del río te percatas de unas gafas que se encuentran ocultas en la hierba.' +
-                'Huelen igual que la colonia del señor del río'
+                    'Huelen igual que la colonia del señor del río'
             },
             {
                 text: 'Coger las gafas',
                 cb: () => {
                     this.info.prevScene.insertItem(new GlassesItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[8], this.info.player)); 
+                        0, 0, this.info.prevScene.itemFrames[8], this.info.player));
                 }
             },
             {
@@ -756,7 +759,7 @@ export class glassesItem_Event_0 extends eventScene {
     }
 }
 
-export class glasses_Event_2 extends eventScene{
+export class glasses_Event_2 extends eventScene {
     constructor() {
         super({ key: 'glasses_Event_2' });
         //array con los elementos de un evento
@@ -776,7 +779,7 @@ export class glasses_Event_2 extends eventScene{
                         text: '-¡Estupendo! Ya puedo volver a trabajar. La posada abrirá de noche',
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Gafas');
-                            this.completeEvent(10,10);
+                            this.completeEvent(10, 10);
                         }
                     },
                     {
@@ -817,20 +820,20 @@ export class brother_Event_0 extends eventScene {
         super({ key: 'brother_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
-        
-        this.event4 =[
+
+        this.event4 = [
             {
                 text: '-Pedro parece encantado. -Genial. Gracias, te aseguro que no lo arrepentirás.- Tornas para irte, pero te interrumpe otra vez -Espera, si vas a ver al doctor, ¿podrías pedirle si puede prepararme otra tarro de medicina para las migrañas? Casi no me queda.'
             },
             {
                 text: '¿Con quién hablar?',
-        
-                cb: () => {},
+
+                cb: () => { },
                 next: [
                     {
                         text: 'Aceptar y seguir en busca del doctor.',
                         cb: () => {
-                            this.completeEvent(10,10);
+                            this.completeEvent(10, 10);
                             this.info.player.scene.npcs.doctorNpc.setActive(true);
                             this.info.player.scene.nextObjective();
                         }
@@ -845,25 +848,25 @@ export class brother_Event_0 extends eventScene {
             {
                 text: '¿Con quién hablar?',
 
-                cb: () => {},
+                cb: () => { },
                 next: [
                     {
                         text: 'Puedes sentir su alivio cuando le preguntas. -¿El doctor Abel, quizá? Siempre fue bueno contigo. Todavía vive donde siempre, arriba del cementerio.\n',
                     },
                     {
                         text: 'Continuar',
-                        cb: () => {},
+                        cb: () => { },
                         next: this.event4
                     }
                 ]
             },
             {
                 text: 'Darle razón.',
-                cb: () => {},
+                cb: () => { },
                 next: [
                     {
                         text: 'Sientes el alivio de tu hermano al oír tus palabras: -Vale. Concedo. Hablaré con el doctor Abel. Siempre fue empático conmigo. \n¿Aún vive al lado del cementerio?- Pedro afirma -Pues ahí voy.',
-                        cb: () => {},
+                        cb: () => { },
                         next: this.event4
                     }
                 ]
@@ -875,18 +878,18 @@ export class brother_Event_0 extends eventScene {
             },
             {
                 text: 'Para.',
-                cb: () => {},
+                cb: () => { },
                 next: [
                     {
                         text: '-Para. No quiero. Me niego',
-                        cb: () => {},
+                        cb: () => { },
                         next: this.event3
                     }
                 ]
             },
             {
                 text: 'Habría querido que fuese feliz.',
-                cb: () => {},
+                cb: () => { },
                 next: this.event3
             }
         ];
@@ -896,7 +899,7 @@ export class brother_Event_0 extends eventScene {
             },
             {
                 text: 'No desde entonces.',
-                cb: () => {},
+                cb: () => { },
                 next: this.event2
             }
         ];
@@ -909,18 +912,18 @@ export class brother_Event_0 extends eventScene {
                 next: [
                     {
                         text: 'Explicas: -Verle así, después de tanto tiempo... Tú pudiste ver su deterioro. Para mí, lo repentino fue verle así, como si de primera vez se tratase. \nNo he visto nada desde que fui una niña, y recupero mi visión justo a tiempo para ver morir a mi padre. ¡Si eso no es una señal, no sé qué lo es!',
-                        cb: () => {},
+                        cb: () => { },
                         next: this.event1
                     }
                 ]
             },
             {
                 text: 'No me sorprendió. Pero llegó en muy mal momento.',
-                cb: () => {},
+                cb: () => { },
                 next: [
                     {
                         text: 'Explicas: -No me sorprendió. Pero fue casi lo primero que había visto en casi veinte años. Odio eso. Odio poder ver. Toda mi vida encontré paz en las tinieblas. Eran mi mundo. Aún lo son. Y de la nada recupero la vista, pero solo para ver morir a mi padre. ¿Qué clase de portento es ese?',
-                        cb: () => {},
+                        cb: () => { },
                         next: this.event1
                     }
                 ]
@@ -962,7 +965,7 @@ export class doctorEvent_0 extends eventScene {
                         text: 'Asentir y despedirte del viejo doctor',
                         cb: () => {
                             //this.info.player.enableBlindfold();
-                            this.completeMainEvent(31,31);
+                            this.completeMainEvent(31, 31);
                         }
                     }
                 ]
@@ -983,7 +986,7 @@ export class doctorEvent_0 extends eventScene {
                         text: 'Dar las gracias y aceptar consejo',
                         cb: () => {
                             //this.info.player.enableBlindfold();
-                            this.completeMainEvent(31,31);
+                            this.completeMainEvent(31, 31);
                         }
                     }
                 ]
@@ -993,12 +996,12 @@ export class doctorEvent_0 extends eventScene {
     }
 }
 
-export class doctorEvent_1 extends eventScene{
+export class doctorEvent_1 extends eventScene {
     constructor() {
         super({ key: 'doctorEvent_1' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
-        this.fernandoIntroduction= [
+        this.fernandoIntroduction = [
             {
                 text: '-Sí, Fernando, el leñador. La gente la llama brusco, pero es el hombre más directo y sincero que conozco. Si él dice que hay un problema, me fío de su palabra y no le hago preguntas. Pero si quieres saber más, no seas tímida y habla con él. Trabaja al otro lado del pueblo, así que tienes un buen paseo. \n-Y juzgando por el color de tu cara,- añade con una preocupación -te vendría bien un poco de aire fresco'
             },
@@ -1015,7 +1018,7 @@ export class doctorEvent_1 extends eventScene{
                 }
             }
         ];
-        this.problem= [
+        this.problem = [
             {
                 text: '-No lo sé, pero si me Fernando me dice que hay un problema, me fío de su palabra. Siempre puedes preguntarle si quieres; vive al otro lado del pueblo.'
             },
@@ -1050,8 +1053,8 @@ export class doctorEvent_2 extends eventScene {
         this.content = [
             {
                 text: 'El doctor suelta una risita cuando te vuelves a acercar \n' +
-                '-No necesitas oír más a este viejo. Si en realidad yo sé muy poco, solo que hablo mucho. ¡Ja! Ese es ' + 
-                'el secreto para que te llamen sabio.'
+                    '-No necesitas oír más a este viejo. Si en realidad yo sé muy poco, solo que hablo mucho. ¡Ja! Ese es ' +
+                    'el secreto para que te llamen sabio.'
             },
             {
                 text: 'Reír al comentario y continuar'
@@ -1068,7 +1071,7 @@ export class doctorEvent_3 extends eventScene {
         this.content = [
             {
                 text: 'El doctor te saluda desde lejos con una grande sonrisa en su rostro. \n' +
-                '-¿Has cumplido con lo que te pedi?'
+                    '-¿Has cumplido con lo que te pedi?'
             },
             {
                 text: 'Si, me lo agradeció y todo',
@@ -1079,14 +1082,14 @@ export class doctorEvent_3 extends eventScene {
                 next: [
                     {
                         text: '-Ya veo...Ya has visto. Te niegas a ver la realidad como es, pero cuando necesitas ' +
-                        'hacerlo, realmente ayudas a la gente. ¿No lo ves? Confío en que entiendes de lo que te hablo.- ' +
-                        'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela paso por aquí hace un momento. ' +
-                        'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho,'
+                            'hacerlo, realmente ayudas a la gente. ¿No lo ves? Confío en que entiendes de lo que te hablo.- ' +
+                            'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela paso por aquí hace un momento. ' +
+                            'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho,'
                     },
                     {
                         text: 'Sonriendo, asientes y te despides del doctor',
                         cb: () => {
-                            this.completeEvent(20,20);
+                            this.completeEvent(20, 20);
                         }
                     }
                 ]
@@ -1100,7 +1103,7 @@ export class lumberjackEvent_0 extends eventScene {
         super({ key: 'lumberjackEvent_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
-        this.missionAccepted =[
+        this.missionAccepted = [
             {
                 text: '-En ese caso, creo que puedo ayudar. \n-Bien.- Responde el leñador- Si encuentras tres árboles enfermos, dime dónde están y yo me encargaré.- Y vuelve sin más a su trabajo.'
             },
@@ -1112,14 +1115,14 @@ export class lumberjackEvent_0 extends eventScene {
                 }
             }
         ]
-        this.infectionExplanation =[
+        this.infectionExplanation = [
             {
                 text: '-Por su aspecto, es invisible. Lo único que diferencia un árbol infectado de uno sano es un ligero olor agrio emanando de las hojas.'
             },
             {
                 text: 'Aceptar propuesta',
                 cb: () => {
-                    this.completeEvent(20,20);
+                    this.completeEvent(20, 20);
                 },
                 next: this.missionAccepted
             }
@@ -1142,7 +1145,7 @@ export class lumberjackEvent_0 extends eventScene {
             },
             {
                 text: 'Vengo a ayudar',
-                cb: () => {},
+                cb: () => { },
                 next: [
                     {
                         text: 'El hombre no parece echarse atrás a la idea. -De acuerdo. El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los robles de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
@@ -1155,7 +1158,7 @@ export class lumberjackEvent_0 extends eventScene {
             },
             {
                 text: '¿Cuál es el problema?',
-                cb: () => {},
+                cb: () => { },
                 next: [
                     {
                         text: '-El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los robles de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
@@ -1173,7 +1176,7 @@ export class lumberjackEvent_0 extends eventScene {
             },
             {
                 text: 'Avanzar',
-                cb: () => { 
+                cb: () => {
                     if (this.info.player.scene.blindfold.blind)
                         this.approach = this.blindedApproach;
                     else
@@ -1219,7 +1222,7 @@ export class lumberjackEvent_1 extends eventScene {
             },
             {
                 text: 'Llamar su atención',
-                cb: () => { 
+                cb: () => {
                     if (this.info.player.scene.currentObjective >= 4)
                         this.approach = this.searchCompletedApproach;
                     else
@@ -1231,7 +1234,7 @@ export class lumberjackEvent_1 extends eventScene {
     }
 }
 
-export class homeless_Event_0 extends eventScene{
+export class homeless_Event_0 extends eventScene {
     constructor() {
         super({ key: 'homeless_Event_0' });
         //array con los elementos de un evento
@@ -1239,15 +1242,15 @@ export class homeless_Event_0 extends eventScene{
         this.content = [
             {
                 text: 'Te cruzas con una persona con una forma de caminar bastante inusual. Lo oyes murmurando algo por lo bajo. -Ese viejo zorro... ' +
-                'Se cree muy listo solo por saber cuatro cosas sobre medicina. Ya sabré yo mejor como está mi salud, ' +
-                'que para algo este es mi cuerpo y no el suyo. Espera, ¿quién anda ahí?'
+                    'Se cree muy listo solo por saber cuatro cosas sobre medicina. Ya sabré yo mejor como está mi salud, ' +
+                    'que para algo este es mi cuerpo y no el suyo. Espera, ¿quién anda ahí?'
             },
             {
                 text: 'Hola, vengo de parte del doctor',
                 next: [
                     {
                         text: '-Si queria algo más me lo podría haber dicho justo ahora que he hablado con él. No necesito ' +
-                        'que me traiga un mensajero. Anda, dejame tranquilo.-'
+                            'que me traiga un mensajero. Anda, dejame tranquilo.-'
                     },
                     {
                         text: 'Abandonarle un poco ofendida',
@@ -1261,9 +1264,9 @@ export class homeless_Event_0 extends eventScene{
                 text: 'Saludarle con la mano',
                 next: [
                     {
-                        text: '-¿Nadie? Me lo habré imaginado.- No parece haberte visto. Fijándote en el sonido de sus pasos '+
-                        'te das cuenta de que camina raro. Esa forma de caminar es la misma que como caminabas poco después de ' +
-                        'quedarte ciega'
+                        text: '-¿Nadie? Me lo habré imaginado.- No parece haberte visto. Fijándote en el sonido de sus pasos ' +
+                            'te das cuenta de que camina raro. Esa forma de caminar es la misma que como caminabas poco después de ' +
+                            'quedarte ciega'
                     },
                     {
                         text: 'Perdona, ¿acaso eres ciego?',
@@ -1276,8 +1279,8 @@ export class homeless_Event_0 extends eventScene{
                                 next: [
                                     {
                                         text: '-Sin mi bastón caminar se vuelve una tarea imposible. Un día estaba durmiendo tranquilamente ' +
-                                        'en la plaza y al despertarme desapareció así sin más. Seguro que el tabernero sabe algo, ese tipo me ' +
-                                        'odia desde que nací sin motivo ninguno.'
+                                            'en la plaza y al despertarme desapareció así sin más. Seguro que el tabernero sabe algo, ese tipo me ' +
+                                            'odia desde que nací sin motivo ninguno.'
                                     },
                                     {
                                         text: 'Si tanto lo necesitas puedo ir a buscarlo',
@@ -1288,7 +1291,7 @@ export class homeless_Event_0 extends eventScene{
                                             {
                                                 text: 'Ir a buscarlo',
                                                 cb: () => {
-                                                    this.completeEvent(10,10);
+                                                    this.completeEvent(10, 10);
                                                 }
                                             }
                                         ]
@@ -1317,7 +1320,7 @@ export class homeless_Event_0 extends eventScene{
     }
 }
 
-export class inkKeeper_Event_0 extends eventScene{
+export class inkKeeper_Event_0 extends eventScene {
     constructor() {
         super({ key: 'inkKeeper_Event_0' });
         //array con los elementos de un evento
@@ -1325,7 +1328,7 @@ export class inkKeeper_Event_0 extends eventScene{
         this.content = [
             {
                 text: 'En las proximidades de la taberna encuentras a una persona. Huele bastante a tabaco y ligeramente a alcohol. ' +
-                'Debe de ser el tabernero.'
+                    'Debe de ser el tabernero.'
             },
             {
                 text: '¿Me pones algo de beber?',
@@ -1343,15 +1346,15 @@ export class inkKeeper_Event_0 extends eventScene{
                 next: [
                     {
                         text: '¿Qué si lo conozco? Bueno si lo conozco. Ese ruín se queda todas las noches hasta las tantas bebiendo ' +
-                        'hasta que se queda dormido justo en la puerta de la taberna. A veces incluso se duerme dentro. Suerte ' +
-                        'que no le vamos a volver a ver por aquí. Ahuyentaba a la clientela.'
+                            'hasta que se queda dormido justo en la puerta de la taberna. A veces incluso se duerme dentro. Suerte ' +
+                            'que no le vamos a volver a ver por aquí. Ahuyentaba a la clientela.'
                     },
                     {
                         text: '¿Qué quieres decir con eso?',
                         next: [
                             {
                                 text: 'Exactamente lo que he dicho. Sin su bastón ese desgraciado no volverá a asomar por aqui. Lo he tirado detrás ' +
-                                'de la posada. Le he hecho un favor a todo el pueblo'
+                                    'de la posada. Le he hecho un favor a todo el pueblo'
                             },
                             {
                                 text: 'Ah, ya veo'
@@ -1371,15 +1374,15 @@ export class cane_Event_0 extends eventScene {
         this.backgroundImage = 'mainEventMenu';
         this.content = [
             {
-                text: 'Detrás de la taberna encuentras un viejo bastón, el cuál está bastante deteriorado por su uso. '+
-                'Estará bastante gastado, pero con probarlo un poco te das cuenta de que es bastante resistente'
+                text: 'Detrás de la taberna encuentras un viejo bastón, el cuál está bastante deteriorado por su uso. ' +
+                    'Estará bastante gastado, pero con probarlo un poco te das cuenta de que es bastante resistente'
             },
             {
                 text: 'Coger el bastón',
                 cb: () => {
                     this.info.prevScene.insertItem(new CaneItem(this.info.prevScene.matter.world,
                         0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeEvent(5,5);
+                    this.completeEvent(5, 5);
                 }
             },
             {
@@ -1389,7 +1392,7 @@ export class cane_Event_0 extends eventScene {
     }
 }
 
-export class homeless_Event_1 extends eventScene{
+export class homeless_Event_1 extends eventScene {
     constructor() {
         super({ key: 'homeless_Event_1' });
         //array con los elementos de un evento
@@ -1407,12 +1410,12 @@ export class homeless_Event_1 extends eventScene{
                 next: [
                     {
                         text: '-¿Lo has encontrado? Te lo agradezco, gracias por tu ayuda. ¿Cómo? ¿De verdad fue el tabernero? ' +
-                        'Sabía que no podía fiarme de él. Iré con más cuidado a partir de ahora.'
+                            'Sabía que no podía fiarme de él. Iré con más cuidado a partir de ahora.'
                     },
                     {
                         text: 'Cuidate',
                         cb: () => {
-                            this.completeEvent(10,10);
+                            this.completeEvent(10, 10);
                         }
                     }
                 ]
@@ -1438,12 +1441,12 @@ export class grandMother_Event_1 extends eventScene {
                 next: [
                     {
                         text: '-¡María!- Comienza a llorar al darse cuenta de lo que estas haciendo. -Tu padre... antes ' +
-                        'de morir, dejó esta carta. Creo que deberías ser tú quien la lea primero'
+                            'de morir, dejó esta carta. Creo que deberías ser tú quien la lea primero'
                     },
                     {
                         text: 'Coger la carta y comenzar a leer',
                         cb: () => {
-                            this.completeEvent(10,10)
+                            this.completeEvent(10, 10)
                         }
                     }
                 ]
@@ -1481,7 +1484,7 @@ export class painterEvent_0 extends eventScene {
                         cb: () => {
                             this.info.prevScene.insertItem(new SketchItem(this.info.prevScene.matter.world,
                                 0, 0, this.info.prevScene.itemFrames[20], this.info.player));
-                            this.completeEvent(0,20);
+                            this.completeEvent(0, 20);
                         }
                     }
                 ]
@@ -1501,7 +1504,7 @@ export class painterEvent_0 extends eventScene {
                         cb: () => {
                             this.info.prevScene.insertItem(new KaleidoscopeItem(this.info.prevScene.matter.world,
                                 0, 0, this.info.prevScene.itemFrames[9], this.info.player));
-                            this.completeEvent(0,20);
+                            this.completeEvent(0, 20);
                         }
                     }
                 ]
@@ -1519,7 +1522,7 @@ export class painterEvent_0 extends eventScene {
                     {
                         text: 'Animar y despedir',
                         cb: () => {
-                            this.completeEvent(30,20);
+                            this.completeEvent(30, 20);
                         }
                     }
                 ]
@@ -1554,7 +1557,7 @@ export class painterEvent_0 extends eventScene {
                 next: this.event1
             },
         ];
-        
+
     }
 }
 
@@ -1586,10 +1589,10 @@ export class sickTreeEvent extends eventScene {
             },
             {
                 text: 'Recoger muestra para el leñador',
-                cb: () => { 
-                    this.info.prevScene,insertItem(new SickTreeItem(this.info.prevScene.matter.world,
+                cb: () => {
+                    this.info.prevScene.insertItem(new SickTreeItem(this.info.prevScene.matter.world,
                         0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeEvent(10,10);
+                    this.completeEvent(10, 10);
                 },
             }
         ]
@@ -1614,9 +1617,10 @@ export class maxFaithEvent_0 extends eventScene {
                     //este evento no cuenta para el numero de eventos completados
                     this.info.player.numCompletedEvents--;
                     this.scene.stop();
-                    this.scene.run('infoLevel', { obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
-                    mainText: 'Meter texto de fin de nivel'
-                })
+                    this.scene.run('infoLevel', {
+                        obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
+                        mainText: 'Meter texto de fin de nivel'
+                    })
                 },
                 end: true
             }
@@ -1638,19 +1642,19 @@ export class deathEvent_0 extends eventScene {
                 text: 'No resistirse',
                 cb: () => {
                     this.info.player.setDead();
-                    this.completeEvent(0,0);
+                    this.completeEvent(0, 0);
                 },
                 next: [
                     {
                         text: 'Decides rendirte. Todo se vuelve borroso y te desmayas. \n' +
-                        'Te despiertas en otro lugar sientiéndote menos segura.'
+                            'Te despiertas en otro lugar sientiéndote menos segura.'
                     },
                     {
                         text: 'Levantarse',
                         cb: () => {
                             this.info.player.addFaith(-5);
                             this.info.player.setDead();
-                        }      
+                        }
                     }
                 ]
             },
@@ -1660,11 +1664,11 @@ export class deathEvent_0 extends eventScene {
                 },
                 failedText: 'No tienes la figura tallada',
                 text: 'Aferrarse a la figura tallada',
-                cb: () => {},
+                cb: () => { },
                 next: [
                     {
                         text: 'Agarras con fuerza la figura y percibes su forma humana a través del tacto. \n' +
-                        'Al hacerlo te sientes algo mejor, pero has apretado tanto la figura que se parte en trozos.'
+                            'Al hacerlo te sientes algo mejor, pero has apretado tanto la figura que se parte en trozos.'
                     },
                     {
                         text: 'Reincorporarse',
@@ -1677,11 +1681,11 @@ export class deathEvent_0 extends eventScene {
             {
                 text: 'Resistirse desesperadamente',
                 cb: () => {
-                    if(Math.random() > this.info.player.deathProbability) {
+                    if (Math.random() > this.info.player.deathProbability) {
                         this.content[3].next = [
                             {
                                 text: 'Intentas mantenerte de pie con todas tus fuerzas, pero te desmayas. \n' +
-                                'Te despiertas en otro lugar sientiéndote menos segura.'
+                                    'Te despiertas en otro lugar sientiéndote menos segura.'
                             },
                             {
                                 text: 'Levantarse',
@@ -1699,7 +1703,7 @@ export class deathEvent_0 extends eventScene {
                             },
                             {
                                 text: 'Continuar',
-                                cb: () => {}
+                                cb: () => { }
                             }
                         ]
                     }

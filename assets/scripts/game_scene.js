@@ -28,7 +28,15 @@ export default class GameScene extends Phaser.Scene {
         }
 
         for (const npc of this.npcs) {
-            npc.updateTooltip();
+            if (npc.tooltip.visible) {
+                if (npc.nextEvent() !== null) npc.updateTooltip();
+                else npc.tooltip.setVisible(false);
+            }
+        }
+
+        for (const trigger of this.triggerEvents) {
+            if (trigger.tooltip.visible && trigger.nextEvent() === null)
+                trigger.tooltip.setVisible(false);
         }
 
         //actualizacion barra de cordura
@@ -63,7 +71,8 @@ export default class GameScene extends Phaser.Scene {
             switch (eventTrigger.name) {
                 case 'treeSmell':
                     stim = new treeSmell(smells, position);
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim, [this.scene.get('sickTreeEvent')]));
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim,
+                        [this.scene.get('sickTreeEvent')]));
                     break;
                 case 'glasses':
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
