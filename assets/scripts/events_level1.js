@@ -1,7 +1,8 @@
 import eventScene from './event_scene.js'
 import {CaneItem, /*cane_event_0*/ GlassesItem, /*glassesItem_Event_0*/ EmptyBucketItem, /*tavern_Event_0*/ 
 BucketItem, /*well_event_0*/ StampItem, LessDeathItem, BetterBlindFoldItem, /*seller_event_0*/ 
-FlowerItem, /*hungryKid_Event_0*/ MoneyBagItem /*foreigner_Event_1, coins_Event_0, grave_Event_0*/} from './item.js'
+FlowerItem, /*hungryKid_Event_0*/ MoneyBagItem, /*foreigner_Event_1, coins_Event_0, grave_Event_0*/
+SickTreeItem, /*sickTreeEvent*/ KaleidoscopeItem, SketchItem /*painterEvent_0*/ } from './item.js'
 
 //#region SecondaryEvents
 export class elder_Event_0 extends eventScene {
@@ -1462,7 +1463,8 @@ export class painterEvent_0 extends eventScene {
                     {
                         text: 'Agradecer y aceptar regalo',
                         cb: () => {
-                            this.info.player.inventory.collect('Boceto');
+                            this.info.prevScene.insertItem(new SketchItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[20], this.info.player));
                             this.completeEvent(0,20);
                         }
                     }
@@ -1481,7 +1483,8 @@ export class painterEvent_0 extends eventScene {
                     {
                         text: 'Agradecer y aceptar regalo',
                         cb: () => {
-                            this.info.player.inventory.collect('Caleidoscopio');
+                            this.info.prevScene.insertItem(new KaleidoscopeItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[9], this.info.player));
                             this.completeEvent(0,20);
                         }
                     }
@@ -1568,7 +1571,8 @@ export class sickTreeEvent extends eventScene {
             {
                 text: 'Recoger muestra para el leñador',
                 cb: () => { 
-                    this.info.player.inventory.collect('Rama enferma');
+                    this.info.prevScene,insertItem(new SickTreeItem(this.info.prevScene.matter.world,
+                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
                     this.completeEvent(10,10);
                 },
             }

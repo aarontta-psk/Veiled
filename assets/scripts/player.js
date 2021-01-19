@@ -178,7 +178,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         //me aseguro de que su valor nunca es negativo
         if (this.faith < 0) this.faith = 0;
         this.scene.gui.viewFaith(this.faith);
-        if(this.scene.objectiveMarker.visible) this.scene.gui.silhouetteTooltip.setVisible(true);
+        if (this.scene.objectiveMarker !== undefined && this.scene.objectiveMarker.visible)
+            this.scene.gui.silhouetteTooltip.setVisible(true);
     }
 
     //metodo que establece la muerte del jugador
