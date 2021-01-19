@@ -11,7 +11,7 @@ export class elder_Event_0 extends eventScene {
     constructor() {
         super({ key: 'elder_Event_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'secondaryEventMenu';
+        this.backgroundImage = 'mainEventMenu';
         this.content = [
             {
                 text: 'Reposando en un banco se encuentra alguien. Está callado. No te habrías dado cuenta de que está ahí de\n' +
@@ -39,8 +39,8 @@ export class elder_Event_0 extends eventScene {
                                 text: '...Preocupada, te sientes tentada a preguntarle algunas cosas',
                                 cb: () => {
                                     this.info.player.inventory.removeObjectByKey('Botella');
-                                    this.completeMainEvent(30, 30);
-
+                                    this.scene.get('brother_Event_Idle').completed = true;
+                                    this.completeMainEvent(10, 10);
                                 },
                             }
 
@@ -840,6 +840,22 @@ export class doctor_Event_Idle extends eventScene {
     }
 }
 
+export class lumberjack_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'lumberjack_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'Parece que hay alguien trabajando aquí. Mejor no molestar.'
+            },
+            {
+                text: 'Continuar',
+            }
+        ]
+    }
+}
+
 export class vagabond_Event_Idle extends eventScene {
     constructor() {
         super({ key: 'vagabond_Event_Idle' });
@@ -1000,13 +1016,17 @@ export class brother_Event_0 extends eventScene {
             },
             {
                 text: 'Me sorprendió su aspecto.',
-                next: [
-                    {
-                        text: 'Explicas: -Verle así, después de tanto tiempo... Tú pudiste ver su deterioro. Para mí, lo repentino fue verle así, como si de primera vez se tratase. \nNo he visto nada desde que fui una niña, y recupero mi visión justo a tiempo para ver morir a mi padre. ¡Si eso no es una señal, no sé qué lo es!',
-                        cb: () => { },
-                        next: this.event1
-                    }
-                ]
+                cb: () => {
+                    this.scene.get('doctor_Event_Idle').completed = true;
+                    this.completeMainEvent(10, 10)
+                }
+                // next: [
+                //     {
+                //         text: 'Explicas: -Verle así, después de tanto tiempo... Tú pudiste ver su deterioro. Para mí, lo repentino fue verle así, como si de primera vez se tratase. \nNo he visto nada desde que fui una niña, y recupero mi visión justo a tiempo para ver morir a mi padre. ¡Si eso no es una señal, no sé qué lo es!',
+                //         cb: () => { },
+                //         next: this.event1
+                //     }
+                // ]
             },
             {
                 text: 'No me sorprendió. Pero llegó en muy mal momento.',
@@ -1041,7 +1061,8 @@ export class doctorEvent_0 extends eventScene {
                 text: 'Asentir y despedirte del viejo doctor',
                 cb: () => {
                     //this.info.player.enableBlindfold();
-                    this.completeEvent(30, 20);
+                    this.scene.get('vagabond_Event_Idle').completed = true;
+                    this.completeMainEvent(10, 10);
                 }
             }
         ];
@@ -1173,7 +1194,7 @@ export class doctorEvent_3 extends eventScene {
                 text: 'Si, me lo agradeció y todo',
                 failedText: 'No has ayudado aún al vagabundo',
                 condition: function (ref) {
-                    return (ref.scene.get('homeless_Event_1').completed)
+                    return (ref.scene.get('vagabond_Event_1').completed)
                 },
                 next: [
                     {
@@ -1189,22 +1210,6 @@ export class doctorEvent_3 extends eventScene {
                         }
                     }
                 ]
-            }
-        ]
-    }
-}
-
-export class lumberjack_Event_Idle extends eventScene {
-    constructor() {
-        super({ key: 'lumberjack_Event_Idle' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'mainEventMenu';
-        this.content = [
-            {
-                text: 'Parece que hay alguien trabajando aquí. Mejor no molestar.'
-            },
-            {
-                text: 'Continuar',
             }
         ]
     }
@@ -1362,9 +1367,9 @@ export class lumberjackEvent_2 extends eventScene {
     }
 }
 
-export class homeless_Event_0 extends eventScene {
+export class vagabond_Event_0 extends eventScene {
     constructor() {
-        super({ key: 'homeless_Event_0' });
+        super({ key: 'vagabond_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'mainEventMenu';
         this.content = [
@@ -1520,9 +1525,9 @@ export class cane_Event_0 extends eventScene {
     }
 }
 
-export class homeless_Event_1 extends eventScene {
+export class vagabond_Event_1 extends eventScene {
     constructor() {
-        super({ key: 'homeless_Event_1' });
+        super({ key: 'vagabond_Event_1' });
         //array con los elementos de un evento
         this.backgroundImage = 'mainEventMenu';
         this.content = [
