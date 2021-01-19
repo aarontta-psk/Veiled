@@ -39,7 +39,7 @@ export class dad_Event_1 extends eventScene {
                 cb: () => {
                     this.info.player.inventory.removeObjectByKey('Foto');
                     this.info.prevScene.insertItem(new PendantItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[14], this.info.player));
+                        0, 0, this.info.prevScene.itemFrames[13], this.info.player));
                     this.completeEvent(0, 20);
                 },
                 next: [

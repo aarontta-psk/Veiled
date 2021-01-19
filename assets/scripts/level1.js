@@ -148,14 +148,14 @@ export default class Level1 extends NewGameScene {
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             switch (itemPos.name) {
                 case 'potion':
-                    this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[18], this.player);
+                    this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[16], this.player);
                     break;
                 //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
                 case 'blessing':
                     this.blessing = new BlessingItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
                     break;
                 case 'sacredFire':
-                    this.sacredFire = new SacredFireItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[19], this.player);
+                    this.sacredFire = new SacredFireItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[17], this.player);
                     break;
                 case 'booze':
                     this.booze = new BoozeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[4], this.player);
@@ -164,11 +164,10 @@ export default class Level1 extends NewGameScene {
                     this.flower = new FoodItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[7], this.player);
                     break;
                 case 'totem':
-                    this.totem = new AvoidDeathItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);
+                    this.totem = new AvoidDeathItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[11], this.player);
                     break;
             }
-        }
-        let sickTree = new SickTreeItem(this.matter.world, 0, 0, this.itemFrames[10], this.player)
+        }        
 
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
 
