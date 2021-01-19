@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="22" nextobjectid="117">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="22" nextobjectid="118">
  <editorsettings>
   <export target="map_01.json" format="json"/>
  </editorsettings>
@@ -77,7 +77,7 @@
     <property name="num" type="int" value="1"/>
    </properties>
   </object>
-  <object id="85" name="objective" x="2528" y="4112" width="32" height="32">
+  <object id="85" name="objective" x="2512" y="4176" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="0"/>
     <property name="num" type="int" value="0"/>
@@ -139,31 +139,17 @@
   </object>
  </objectgroup>
  <objectgroup id="6" name="collectable">
-  <object id="18" name="potion" x="3008" y="4320" width="32" height="32"/>
-  <object id="19" name="kaleidoscope" x="2688" y="4352" width="32" height="32"/>
-  <object id="21" name="sketch" x="2928" y="4368" width="32" height="32"/>
-  <object id="94" name="sacredFire" x="2624" y="4208" width="32" height="32"/>
-  <object id="95" name="offensive" x="2720" y="4144" width="32" height="32"/>
-  <object id="96" name="positive" x="2832" y="4144" width="32" height="32"/>
-  <object id="97" name="stamp" x="2944" y="4144" width="32" height="32"/>
-  <object id="98" name="blessing" x="3024" y="4144" width="32" height="32"/>
-  <object id="99" name="laudano" x="2576" y="4304" width="32" height="32"/>
-  <object id="100" name="flower" x="3040" y="4224" width="32" height="32"/>
-  <object id="101" name="money" x="2784" y="4368" width="32" height="32"/>
-  <object id="102" name="glasses" x="2512" y="4448" width="32" height="32"/>
-  <object id="103" name="booze" x="2624" y="4448" width="32" height="32"/>
-  <object id="104" name="cane" x="2752" y="4448" width="32" height="32"/>
-  <object id="105" name="emptyBucket" x="2832" y="4432" width="32" height="32"/>
-  <object id="106" name="bucket" x="2960" y="4448" width="32" height="32"/>
-  <object id="107" name="totem" x="3024" y="4400" width="32" height="32"/>
-  <object id="108" name="food" x="3088" y="4448" width="32" height="32"/>
-  <object id="109" name="flowerw" x="2976" y="3952" width="32" height="32"/>
-  <object id="110" name="betBlindfold" x="2816" y="3968" width="32" height="32"/>
+  <object id="18" name="potion" x="1568" y="3616" width="32" height="32"/>
+  <object id="94" name="sacredFire" x="4064" y="2768" width="32" height="32"/>
+  <object id="98" name="blessing" x="4512" y="1952" width="32" height="32"/>
+  <object id="107" name="totem" x="2208" y="2288" width="32" height="32"/>
+  <object id="108" name="food" x="3152" y="2864" width="32" height="32"/>
+  <object id="117" name="booze" x="2528" y="4304" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="eventTriggers" offsetx="0" offsety="-2">
   <object id="43" name="treeSmell" x="2688" y="4064" width="16" height="16"/>
   <object id="65" name="grave" x="4065" y="3208" width="27" height="27"/>
-  <object id="67" name="coins" x="4496" y="1959" width="24" height="24"/>
+  <object id="67" name="coins" x="1184" y="2016" width="32" height="34"/>
   <object id="69" name="well" x="2847" y="3165" width="26" height="26"/>
   <object id="70" name="cane" x="3039" y="2729" width="29" height="29"/>
   <object id="81" name="tavern" x="2100.33" y="3424.33" width="29.3333" height="29.3333"/>

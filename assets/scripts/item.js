@@ -115,7 +115,8 @@ export class SacredFireItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
         this.name = "Fuego sagrado";
-        this.description = "Al mirarlo detenidamente tu cordura maxima disminuye, pero aumenta bastante tu fe";
+        this.description = "Tu cordura maxima disminuye, pero aumenta bastante tu fe";
+        this.itemPointer.setVisible(false);
     }
 
     doSomething(player) {
@@ -190,7 +191,7 @@ export class EmptyBucketItem extends Item{
 export class BucketItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
-        this.name = "Cubo";
+        this.name = "Cubo con agua";
         this.description = "Parece tener agua dentro";
     }
 }

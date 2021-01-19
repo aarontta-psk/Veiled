@@ -155,12 +155,6 @@ export default class Level1 extends NewGameScene {
                 case 'blessing':
                     this.blessing = new BlessingItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
                     break;
-                case 'offensive':
-                    this.offWord = new OffensiveWordItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[13], this.player);
-                    break;
-                case 'positive':
-                    this.posWord = new PositiveWordItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[17], this.player);
-                    break;
                 case 'sacredFire':
                     this.sacredFire = new SacredFireItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[19], this.player);
                     break;

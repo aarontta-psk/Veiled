@@ -39,7 +39,7 @@ export class elder_Event_0 extends eventScene {
                                 text: '...Preocupada, te sientes tentada a preguntarle algunas cosas',
                                 cb: () => {
                                     this.info.player.inventory.removeObjectByKey('Botella');
-                                    this.completeMainEvent(30,30);
+                                    this.completeMainEvent(30, 30);
 
                                 },
                             }
@@ -423,7 +423,7 @@ export class grave_Event_0 extends eventScene {
                             this.info.player.inventory.removeObjectByKey('Flor');
                             this.info.prevScene.insertItem(new MoneyBagItem(this.info.prevScene.matter.world,
                                 0, 0, this.info.prevScene.itemFrames[12], this.info.player));
-                                this.completeEvent(-10, 5);
+                            this.completeEvent(-10, 5);
                         }
                     }
                 ]
@@ -473,12 +473,13 @@ export class well_Event_0 extends eventScene {
                 text: 'Sacar algo de agua',
                 failedText: 'No tienes un cubo',
                 condition: function (ref) {
-                    return (ref.info.player.inventory.contains('Cubo vacío'));
+                    return (ref.info.player.inventory.contains('Cubo vacio'));
                 },
                 cb: () => {
-                    this.info.player.inventory.removeObjectByKey('Cubo vacío');
+                    this.info.player.inventory.removeObjectByKey('Cubo vacio');
                     this.info.prevScene.insertItem(new BucketItem(this.info.prevScene.matter.world,
                         0, 0, this.info.prevScene.itemFrames[22], this.info.player));
+                    this.completeEvent(0, 0);
                 }
             },
             {
@@ -530,9 +531,12 @@ export class foreigner_Event_1 extends eventScene {
         this.content = [
             {
                 text: '-¿Lo has conseguido?',
+            },
+            {
+                text: 'En teoria si',
                 failedText: 'La posada no está abierta',
                 condition: function (ref) {
-                    return (ref.scene.get('glassesItem_Event_0').completed === true);
+                    return (ref.scene.get('glasses_Event_2').completed);
                 },
                 next: [
                     {
@@ -544,6 +548,7 @@ export class foreigner_Event_1 extends eventScene {
                         cb: () => {
                             this.info.prevScene.insertItem(new MoneyBagItem(this.info.prevScene.matter.world,
                                 0, 0, this.info.prevScene.itemFrames[12], this.info.player));
+                            this.completeEvent(0, 0);
                         }
                     }
                 ]
@@ -638,6 +643,32 @@ export class tavern_Event_0 extends eventScene {
     }
 }
 
+//activar trigger en el evento anterior
+export class glassesItem_Event_0 extends eventScene {
+    constructor() {
+        super({ key: 'glassesItem_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'secondaryEventMenu';
+        this.content = [
+            {
+                text: 'Siguiendo la orilla del río te percatas de unas gafas que se encuentran ocultas en la hierba. ' +
+                    'Huelen igual que la colonia del señor del río'
+            },
+            {
+                text: 'Coger las gafas',
+                cb: () => {
+                    this.info.prevScene.insertItem(new GlassesItem(this.info.prevScene.matter.world,
+                        0, 0, this.info.prevScene.itemFrames[8], this.info.player));
+                    this.completeEvent(0, 0);
+                }
+            },
+            {
+                text: 'No coger las gafas'
+            }
+        ]
+    }
+}
+
 export class glasses_Event_0 extends eventScene {
     constructor() {
         super({ key: 'glasses_Event_0' });
@@ -698,13 +729,13 @@ export class glasses_Event_1 extends eventScene {
                 next: [
                     {
                         text: '...Maldita. En cuanto vuelva me las va a pagar. Habría vuelto hace rato, pero ' +
-                            'he perdido mis gafas. Sin ellas no puedo trabajar. LLevo horas buscando pero no aparecen'
+                            'he perdido mis gafas. Sin ellas no puedo trabajar. Llevo horas buscando pero no aparecen.'
                     },
                     {
                         text: 'Puedo ayudarte a buscarlas',
                         next: [
                             {
-                                text: 'Eso sería muy amable por tu parte. Tienen que estar en la ribera del río ' +
+                                text: 'Eso sería muy amable por tu parte. Tienen que estar en la ribera del río. ' +
                                     'Cuando paseo no me gusta llevarlas puestas, es probable que se me cayeran.'
                             },
                             {
@@ -736,31 +767,6 @@ export class glasses_Event_1 extends eventScene {
     }
 }
 
-//activar trigger en el evento anterior
-export class glassesItem_Event_0 extends eventScene {
-    constructor() {
-        super({ key: 'glassesItem_Event_0' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'secondaryEventMenu';
-        this.content = [
-            {
-                text: 'Siguiendo la orilla del río te percatas de unas gafas que se encuentran ocultas en la hierba.' +
-                    'Huelen igual que la colonia del señor del río'
-            },
-            {
-                text: 'Coger las gafas',
-                cb: () => {
-                    this.info.prevScene.insertItem(new GlassesItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[8], this.info.player));
-                }
-            },
-            {
-                text: 'No coger las gafas'
-            }
-        ]
-    }
-}
-
 export class glasses_Event_2 extends eventScene {
     constructor() {
         super({ key: 'glasses_Event_2' });
@@ -776,13 +782,13 @@ export class glasses_Event_2 extends eventScene {
                 condition: function (ref) {
                     return (ref.info.player.inventory.contains('Gafas'))
                 },
+                cb: () => {
+                    this.info.player.inventory.removeObjectByKey('Gafas');
+                    this.completeEvent(10, 10);
+                },
                 next: [
                     {
                         text: '-¡Estupendo! Ya puedo volver a trabajar. La posada abrirá de noche',
-                        cb: () => {
-                            this.info.player.inventory.removeObjectByKey('Gafas');
-                            this.completeEvent(10, 10);
-                        }
                     },
                     {
                         text: 'Gracias'
@@ -801,14 +807,14 @@ export class glasses_Event_2 extends eventScene {
 
 //#region MainEvents
 
-export class brother_Idle_Event extends eventScene {
+export class brother_Event_Idle extends eventScene {
     constructor(npcName) {
         super({ key: 'brother_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'Aunque te encuentras a tu hermano, sientes que no es el momento de hablar con él.'
+                text: 'Encuentras a tu hermano, sientes que no es el momento de hablar con él.'
             },
             {
                 text: 'Volver más tarde'
@@ -1100,6 +1106,22 @@ export class doctorEvent_3 extends eventScene {
                         }
                     }
                 ]
+            }
+        ]
+    }
+}
+
+export class lumberjack_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'lumberjack_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'Parece que hay alguien trabajando aquí. Mejor no molestar.'
+            },
+            {
+                text: 'Continuar',
             }
         ]
     }
