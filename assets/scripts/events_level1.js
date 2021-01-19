@@ -801,14 +801,14 @@ export class glasses_Event_2 extends eventScene {
 
 //#region MainEvents
 
-export class brother_Idle_Event extends eventScene {
+export class brother_Event_Idle extends eventScene {
     constructor(npcName) {
         super({ key: 'brother_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'Aunque te encuentras a tu hermano, sientes que no es el momento de hablar con él.'
+                text: 'Encuentras a tu hermano, sientes que no es el momento de hablar con él.'
             },
             {
                 text: 'Volver más tarde'
@@ -1100,6 +1100,22 @@ export class doctorEvent_3 extends eventScene {
                         }
                     }
                 ]
+            }
+        ]
+    }
+}
+
+export class lumberjack_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'lumberjack_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'Parece que hay alguien trabajando aquí. Mejor no molestar.'
+            },
+            {
+                text: 'Continuar',
             }
         ]
     }
