@@ -126,7 +126,7 @@ export class PositiveWordItem extends Item{
 export class BetterBlindFoldItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
-        this.name = "Venda de tela";;
+        this.name = "Venda de tela";
         this.description = "Una venda de mejor calidad que aumenta la cordura máxima";
     }
 
@@ -138,7 +138,7 @@ export class BetterBlindFoldItem extends Item{
 export class SacredFireItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
-        this.name = "Fuego sagrado";;
+        this.name = "Fuego sagrado";
         this.description = "Al mirarlo detenidamente tu cordura maxima disminuye, pero aumenta bastante tu fe";
     }
 

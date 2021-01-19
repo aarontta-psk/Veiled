@@ -100,14 +100,12 @@ export default class Level0 extends NewGameScene {
         this.item = undefined; //undefined para la comprobacion del evento de interaccion
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
-        this.itemContainer = [];
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             if (itemPos.name === 'picture') {
                 this.picture = new PictureItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[16], this.player);
                 this.picture.setScale(2);
                 this.picture.itemPointer.setVisible(false);
-                this.itemContainer.push(this.picture);
             }
         }
 
