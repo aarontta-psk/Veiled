@@ -246,7 +246,7 @@ export class GlassesItem extends Item{
 export class MoneyBagItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);
-        this.name = "Bolsa de monedas";
+        this.name = "Bolsa con monedas";
         this.description = "Al vendedor le encantará";
     }
 }

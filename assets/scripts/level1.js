@@ -1,8 +1,10 @@
 import NewGameScene from './game_scene.js'
 import Blindfold from './blindfold.js';
 import Player from './player.js';
-import Item, { PotionItem, SickTreeItem, BlessingItem, PositiveWordItem,
-    OffensiveWordItem, SacredFireItem, AvoidDeathItem, BoozeItem, FoodItem} from './item.js';
+import Item, {
+    PotionItem, SickTreeItem, BlessingItem, PositiveWordItem,
+    OffensiveWordItem, SacredFireItem, AvoidDeathItem, BoozeItem, FoodItem
+} from './item.js';
 import Trigger from './trigger.js';
 import GUI from './gui.js';
 import Silhouette from './silhouette.js'
@@ -117,7 +119,7 @@ export default class Level1 extends NewGameScene {
             ),
             this.generateNPC(
                 'brother', false, 60,
-                [this.scene.get('brother_Event_0')]
+                [this.scene.get('brother_Event_Idle'),this.scene.get('brother_Event_0')]
             )
         ];
 
@@ -190,19 +192,19 @@ export default class Level1 extends NewGameScene {
             if (this.auxEventHandler !== null) {
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 let npcEvent = this.auxEventHandler.nextEvent();
-                if (npcEvent != null)
+                if (npcEvent !== null) 
                     this.changeScene(npcEvent);
             }
-            else if (this.item != undefined) {
+            else if (this.item !== undefined) {
                 this.item.itemPointer.setVisible(false);
                 this.insertItem(this.item);
             }
         });
         this.player.cursorsPlayer.interactGhost.on('down', event => {
-            if (this.blindfold.blind){
+            if (this.blindfold.blind) {
                 //if de si tienes suficiente fe
                 console.log(this.objectives[this.currentObjective].faithReq);
-                if(this.player.faith >= this.objectives[this.currentObjective].faithReq){
+                if (this.player.faith >= this.objectives[this.currentObjective].faithReq) {
                     let silEvent = this.silhouette.nextEvent();
                     if (silEvent != null)
                         this.changeScene(silEvent);

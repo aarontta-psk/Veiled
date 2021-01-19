@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="22" nextobjectid="116">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="90" height="90" tilewidth="64" tileheight="64" infinite="0" nextlayerid="22" nextobjectid="117">
  <editorsettings>
   <export target="map_01.json" format="json"/>
  </editorsettings>
@@ -83,10 +83,10 @@
     <property name="num" type="int" value="0"/>
    </properties>
   </object>
-  <object id="86" name="objective" x="2272" y="2848" width="32" height="32">
+  <object id="86" name="objective" x="1838" y="3064" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="1"/>
-    <property name="num" type="int" value="15"/>
+    <property name="num" type="int" value="8"/>
    </properties>
   </object>
   <object id="87" name="objective" x="1232" y="2080" width="32" height="32">
@@ -101,34 +101,40 @@
     <property name="num" type="int" value="4"/>
    </properties>
   </object>
-  <object id="89" name="objective" x="4272" y="2208" width="32" height="32">
+  <object id="89" name="objective" x="4302" y="2171" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="60"/>
     <property name="num" type="int" value="5"/>
    </properties>
   </object>
-  <object id="90" name="objective" x="4448" y="3104" width="32" height="32">
+  <object id="90" name="objective" x="4404" y="3026" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="70"/>
     <property name="num" type="int" value="6"/>
    </properties>
   </object>
-  <object id="91" name="objective" x="2000" y="3392" width="32" height="32">
+  <object id="91" name="objective" x="2156" y="3065" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="80"/>
     <property name="num" type="int" value="7"/>
    </properties>
   </object>
-  <object id="92" name="objective" x="4464" y="3104" width="32" height="32">
+  <object id="92" name="objective" x="4444" y="3025" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="85"/>
     <property name="num" type="int" value="9"/>
    </properties>
   </object>
-  <object id="93" name="objective" x="4048" y="3120" width="32" height="32">
+  <object id="93" name="objective" x="4338" y="2169" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="90"/>
     <property name="num" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="116" name="objective" x="2902" y="2856" width="32" height="32">
+   <properties>
+    <property name="faithReq" type="int" value="90"/>
+    <property name="num" type="int" value="11"/>
    </properties>
   </object>
  </objectgroup>
@@ -160,7 +166,7 @@
   <object id="67" name="coins" x="4496" y="1959" width="24" height="24"/>
   <object id="69" name="well" x="2847" y="3165" width="26" height="26"/>
   <object id="70" name="cane" x="3039" y="2729" width="29" height="29"/>
-  <object id="81" name="tavern" x="2089.33" y="3401.33" width="29.3333" height="29.3333"/>
+  <object id="81" name="tavern" x="2100.33" y="3424.33" width="29.3333" height="29.3333"/>
   <object id="84" name="glasses" x="3636.83" y="3645"/>
  </objectgroup>
  <objectgroup id="19" name="npcs">
