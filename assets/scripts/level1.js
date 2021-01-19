@@ -162,9 +162,6 @@ export default class Level1 extends NewGameScene {
                 case 'sketch':
                     this.sketch = new SketchItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[20], this.player);
                     break;
-                case 'stamp':
-                    this.stamp = new StampItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[21], this.player);
-                    break;
                 case 'blessing':
                     this.blessing = new BlessingItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
                     break;
@@ -174,38 +171,14 @@ export default class Level1 extends NewGameScene {
                 case 'positive':
                     this.posWord = new PositiveWordItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[17], this.player);
                     break;
-                case 'betBlindfold':
-                    this.betBlindfold = new BetterBlindFoldItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[3], this.player);
-                    break;
                 case 'sacredFire':
                     this.sacredFire = new SacredFireItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[19], this.player);
-                    break;
-                case 'laudano':
-                    this.laudano = new LessDeathItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[11], this.player);
-                    break;
-                case 'money':
-                    this.moneyBag = new MoneyBagItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[12], this.player);
-                    break;
-                case 'cane':
-                    this.cane = new CaneItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[1], this.player);
                     break;
                 case 'booze':
                     this.booze = new BoozeItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[4], this.player);
                     break;
-                case 'emptyBucket':
-                    this.emptyBucket = new EmptyBucketItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[5], this.player);
-                    break;
-                case 'bucket':
-                    this.bucket = new BucketItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[22], this.player);
-                    break;
-                case 'flower':
-                    this.flower = new FlowerItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[6], this.player);
-                    break;
                 case 'food':
                     this.flower = new FoodItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[7], this.player);
-                    break;
-                case 'glasses':
-                    this.glasses = new GlassesItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[8], this.player);
                     break;
                 case 'totem':
                     this.totem = new AvoidDeathItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[0], this.player);

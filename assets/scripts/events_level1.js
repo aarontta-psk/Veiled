@@ -1,4 +1,7 @@
 import eventScene from './event_scene.js'
+import {CaneItem, /*cane_event_0*/ GlassesItem, /*glassesItem_Event_0*/ EmptyBucketItem, /*tavern_Event_0*/ 
+BucketItem, /*well_event_0*/ StampItem, LessDeathItem, BetterBlindFoldItem, /*seller_event_0*/ 
+FlowerItem, /*hungryKid_Event_0*/ MoneyBagItem /*foreigner_Event_1, coins_Event_0, grave_Event_0*/} from './item.js'
 
 //#region SecondaryEvents
 export class elder_Event_0 extends eventScene {
@@ -32,7 +35,8 @@ export class elder_Event_0 extends eventScene {
                             {
                                 text: '...Preocupada, te sientes tentada a preguntarle algunas cosas',
                                 cb: () => {
-                                    this.completeMainEvent(30,30);
+                                    this.info.player.inventory.removeObjectByKey('Botella');
+                                    this.completeEvent(30,30);
                                 },
                             }
 
@@ -155,7 +159,8 @@ export class hungryKid_Event_0 extends eventScene {
                     {
                         text: 'Aceptar su regalo',
                         cb: () => {
-                            this.info.player.inventory.collect('Flores');
+                            this.info.prevScene.insertItem(new FlowerItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[6], this.info.player)); 
                             this.completeEvent(15,10)
                         }
                     }
@@ -289,7 +294,8 @@ export class seller_Event_1 extends eventScene {
                         },
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Bolsa con monedas');
-                            this.info.player.inventory.collect('Venda de tela');
+                            this.info.prevScene.insertItem(new BetterBlindFoldItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[3], this.info.player));
                         }
                     },
                     {
@@ -312,7 +318,8 @@ export class seller_Event_1 extends eventScene {
                         },
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Bolsa con monedas');
-                            this.info.player.inventory.collect('Laúdano');
+                            this.info.prevScene.insertItem(new LessDeathItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[11], this.info.player));
                         }
                     },
                     {
@@ -336,7 +343,8 @@ export class seller_Event_1 extends eventScene {
                         },
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Bolsa con monedas');
-                            this.info.player.inventory.collect('Estampita');
+                            this.info.prevScene.insertItem(new StampItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[21], this.info.player)); 
                         }
                     },
                     {
@@ -408,7 +416,8 @@ export class grave_Event_0 extends eventScene {
                         text: 'Coger las monedas',
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Flores');
-                            this.info.player.inventory.collect('Bolsa con monedas');
+                            this.info.prevScene.insertItem(new MoneyBagItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[12], this.info.player)); 
                         }
                     }
                 ]
@@ -433,7 +442,8 @@ export class coins_Event_0 extends eventScene {
             {
                 text: 'Coger la bolsa de monedas',
                 cb: () => [
-                    this.info.player.inventory.collect('Bolsa con monedas')
+                    this.info.prevScene.insertItem(new MoneyBagItem(this.info.prevScene.matter.world,
+                        0, 0, this.info.prevScene.itemFrames[12], this.info.player))
                 ]
             },
             {
@@ -461,7 +471,8 @@ export class well_Event_0 extends eventScene {
                 },
                 cb: () => {
                     this.info.player.inventory.removeObjectByKey('Cubo vacío');
-                    this.info.player.inventory.collect('Cubo lleno');
+                    this.info.prevScene.insertItem(new BucketItem(this.info.prevScene.matter.world,
+                        0, 0, this.info.prevScene.itemFrames[22], this.info.player));
                 }
             },
             {
@@ -525,7 +536,8 @@ export class foreigner_Event_1 extends eventScene{
                     {
                         text: 'No hay de qué',
                         cb: () => {
-                            this.info.player.inventory.collect('Bolsa con monedas');
+                            this.info.prevScene.insertItem(new MoneyBagItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[12], this.info.player));
                         }
                     }
                 ]
@@ -594,7 +606,8 @@ export class tavern_Event_0 extends eventScene{
                                     {
                                         text: 'Coger el cubo y marcharse',
                                         cb: () => {
-                                            this.info.player.inventory.collect('Cubo vacío');
+                                            this.info.prevScene.insertItem(new EmptyBucketItem(this.info.prevScene.matter.world,
+                                                0, 0, this.info.prevScene.itemFrames[5], this.info.player));
                                             this.completeEvent(10,10);
                                         }
                                     }
@@ -731,7 +744,8 @@ export class glassesItem_Event_0 extends eventScene {
             {
                 text: 'Coger las gafas',
                 cb: () => {
-                    this.info.player.inventory.collect('Gafas');
+                    this.info.prevScene.insertItem(new GlassesItem(this.info.prevScene.matter.world,
+                        0, 0, this.info.prevScene.itemFrames[8], this.info.player)); 
                 }
             },
             {
@@ -1346,7 +1360,8 @@ export class cane_Event_0 extends eventScene {
             {
                 text: 'Coger el bastón',
                 cb: () => {
-                    this.info.player.inventory.collect('Bastón');
+                    this.info.prevScene.insertItem(new CaneItem(this.info.prevScene.matter.world,
+                        0, 0, this.info.prevScene.itemFrames[1], this.info.player));
                     this.completeEvent(5,5);
                 }
             },
