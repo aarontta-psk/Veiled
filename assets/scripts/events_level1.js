@@ -158,11 +158,12 @@ export class hungryKid_Event_0 extends eventScene {
                     {
                         text: 'El niño se lleva corriendo la comida a la boca. Parece que no haya comido en días.\n' +
                             '-Creo que me encuentro mejor ¡Gracias! Aunque no tengo dinero para pagarla... Pero tengo' +
-                            'estas flores si las quieres'
+                            ' estas flores si las quieres'
                     },
                     {
                         text: 'Aceptar su regalo',
                         cb: () => {
+                            this.info.player.inventory.removeObjectByKey('Comida');
                             this.info.prevScene.insertItem(new FlowerItem(this.info.prevScene.matter.world,
                                 0, 0, this.info.prevScene.itemFrames[6], this.info.player));
                             this.completeEvent(15, 10)
@@ -408,7 +409,7 @@ export class grave_Event_0 extends eventScene {
                 text: 'Hacer una ofrenda',
                 failedText: 'No tienes flores que colocar',
                 condition: function (ref) {
-                    return (ref.info.player.inventory.contains('Flores'));
+                    return (ref.info.player.inventory.contains('Flor'));
                 },
                 next: [
                     {
@@ -419,9 +420,10 @@ export class grave_Event_0 extends eventScene {
                     {
                         text: 'Coger las monedas',
                         cb: () => {
-                            this.info.player.inventory.removeObjectByKey('Flores');
+                            this.info.player.inventory.removeObjectByKey('Flor');
                             this.info.prevScene.insertItem(new MoneyBagItem(this.info.prevScene.matter.world,
                                 0, 0, this.info.prevScene.itemFrames[12], this.info.player));
+                                this.completeEvent(-10, 5);
                         }
                     }
                 ]
