@@ -151,29 +151,40 @@ Ejemplo de una evento de texto sencillo
 
 ### Items
 
+- **PRELUDIO (Tutorial)**
+
+| Sprite | Nombre | Utilidad |
+| -------- |-------- |-------- |
+| ![](./assets/sprites/items/item_photo.png)| Foto | Permite continuar el tutorial del preludio |
+| ![](./assets/sprites/items/item_pendant.png)| Colgante | Aumenta la fe (+60) |
+
 - **CLAVE**
 
-| Nombre | Efecto | Descripción |
-|--------|--------|-------------|
-| Llave | Abre una puerta | N/A |
-| N/A | N/A  | N/A |
-| N/A | N/A  | N/A |
+| Sprite | Nombre | Evento |
+| -------- |-------- |-------- |
+| ![](./assets/sprites/items/item_avoiddeath.png)| Figura tallada | Te Permite sobrevivir al evento de muerte |
+| ![](./assets/sprites/items/item_baston.png)| Baston | Permite terminar el evento del vagabundo | 
+| ![](./assets/sprites/items/item_booze.png)| Botella | Permite terminar el evento de anciano |
+| ![](./assets/sprites/items/item_emptybucket.png)| Cubo vacio | Permite iniciar el evento del pozo |
+| ![](./assets/sprites/items/item_waterbucket.png)| Cubo con agua | Permite terminar el evento del pozo |
+| ![](./assets/sprites/items/item_flower.png)| Flor | Permite terminar el evento del cementerio |
+| ![](./assets/sprites/items/item_food.png)| Comida | Permite terminar el evento del niño |
+| ![](./assets/sprites/items/item_glasses.png)| Gafas | Permite terminar HMMMMMM  |
+| ![](./assets/sprites/items/item_sketch.png)| Boceto | HMMMMMMMM |
+| ![](./assets/sprites/items/item_moneybag.png)| Bolsa con monedas | Permite comprar un consumible a HMMMMMMMM |
 
 - **CONSUMIBLES**
 
-| Nombre | Efecto | Descripción |
-|--------|--------|-------------|
-| Caleidoscopio | :heavy_minus_sign: Consumo de cordura con la visión activada | N/A |
-| Venda de neopreno | Recupera cordura | N/A |
-| N/A | :heavy_plus_sign: velocidad :heavy_plus_sign: consumo de cordura | N/A |
-| Trompetilla | :heavy_plus_sign: radio de visión con venda | N/A |
-| N/A | Objeto genérico que ayuda a resolver un evento secundario  | N/A |
-| N/A | Permite hablar con una silueta cuando la cordura esta baja | N/A |
-| Estampa de Unamuno | :heavy_plus_sign: Fe | N/A |
-| Palabra ofensiva en braile | :heavy_minus_sign: Cordura | N/A |
-| N/A | :heavy_plus_sign: Cordura/ RNG / :heavy_minus_sign: Cordura  | N/A |
-| Cuerda Huida | Tp al centro del mapa   | N/A |
-| N/A | N/A  | N/A |
+| Sprite | Nombre | Utilidad |
+|--------|--------|--------|
+| ![](./assets/sprites/items/item_potion.png)| Poción | Recupera cordura (+30) |
+| ![](./assets/sprites/items/item_kaleidoscope.png)| Caleidoscopio | Reduce el gasto de cordura con la venda quitada (50%) |
+| ![](./assets/sprites/items/item_stamp.png)| Estampita | Aumenta la fe (+10) |
+| ![](./assets/sprites/items/item_blessing.png)| Bendición | Aumenta bastante la fe (+30) |
+| ![](./assets/sprites/items/item_blindfold.png)| Venda de tela | Aumenta la cordura máxima (+30) |
+| ![](./assets/sprites/items/item_sacredfire.png)| Fuego sagrado | Tu cordura maxima disminuye (-30), pero aumenta bastante tu fe |
+| ![](./assets/sprites/items/item_lessdeath.png)| Láudano | Menos probabiblidad de morir durante la opcion RNG del evento de muerte |
+
 
 ![Estética](./assets/media/headers/h_estetica.png)
 

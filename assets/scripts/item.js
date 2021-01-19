@@ -130,7 +130,7 @@ export class SacredFireItem extends Item{
 export class LessDeathItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, true);
-        this.name = "Laudano";
+        this.name = "Láudano";
         this.description = "Al usarse es menos probable morir";
     }
 
