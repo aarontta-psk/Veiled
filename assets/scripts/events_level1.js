@@ -1215,7 +1215,6 @@ export class lumberjackEvent_0 extends eventScene {
         super({ key: 'lumberjackEvent_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
-        this.info.prevScene.treesFound = 0;
         this.missionAccepted = [
             {
                 text: '-En ese caso, creo que puedo ayudar. \n-Bien.- Responde el leñador- Si encuentras tres árboles enfermos, dime dónde están y yo me encargaré.- Y vuelve sin más a su trabajo.'
