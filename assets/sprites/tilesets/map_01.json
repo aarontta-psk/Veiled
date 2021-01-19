@@ -262,7 +262,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":8
+                         "value":11
                         }],
                  "rotation":0,
                  "type":"",
@@ -301,19 +301,19 @@
                         {
                          "name":"faithReq",
                          "type":"int",
-                         "value":50
+                         "value":55
                         }, 
                         {
                          "name":"num",
                          "type":"int",
-                         "value":4
+                         "value":5
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2672,
-                 "y":4000
+                 "x":1664,
+                 "y":3424
                 }, 
                 {
                  "height":32,
@@ -328,7 +328,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":5
+                         "value":8
                         }],
                  "rotation":0,
                  "type":"",
@@ -350,7 +350,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":6
+                         "value":9
                         }],
                  "rotation":0,
                  "type":"",
@@ -372,7 +372,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":7
+                         "value":10
                         }],
                  "rotation":0,
                  "type":"",
@@ -394,7 +394,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":9
+                         "value":12
                         }],
                  "rotation":0,
                  "type":"",
@@ -416,7 +416,7 @@
                         {
                          "name":"num",
                          "type":"int",
-                         "value":10
+                         "value":13
                         }],
                  "rotation":0,
                  "type":"",
@@ -446,6 +446,72 @@
                  "width":32,
                  "x":2902,
                  "y":2856
+                }, 
+                {
+                 "height":32,
+                 "id":118,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":50
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":4
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1856,
+                 "y":2128
+                }, 
+                {
+                 "height":32,
+                 "id":121,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":55
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":6
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":3072,
+                 "y":3728
+                }, 
+                {
+                 "height":32,
+                 "id":122,
+                 "name":"objective",
+                 "properties":[
+                        {
+                         "name":"faithReq",
+                         "type":"int",
+                         "value":60
+                        }, 
+                        {
+                         "name":"num",
+                         "type":"int",
+                         "value":7
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1088,
+                 "y":2208
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -526,7 +592,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -543,8 +609,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":2688,
-                 "y":4064
+                 "x":1664,
+                 "y":3408
                 }, 
                 {
                  "height":27,
@@ -611,12 +677,34 @@
                  "width":0,
                  "x":3636.83,
                  "y":3645
+                }, 
+                {
+                 "height":16,
+                 "id":119,
+                 "name":"treeSmell",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1856,
+                 "y":2144
+                }, 
+                {
+                 "height":16,
+                 "id":120,
+                 "name":"treeSmell",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":3072,
+                 "y":3728
                 }],
          "offsetx":0,
          "offsety":-2,
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -1265,7 +1353,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -1409,7 +1497,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":118,
+ "nextobjectid":123,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
