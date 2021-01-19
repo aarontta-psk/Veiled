@@ -119,8 +119,11 @@ export default class GameScene extends Phaser.Scene {
     //Si currentObjective === -1, es que se han completado todos los objetivos
     nextObjective() {
         this.currentObjective++;
-        if (this.currentObjective >= this.objectives.length)
+        if (this.currentObjective >= this.objectives.length){
             this.currentObjective = -1;
+            return false;
+        }
+        else return true;
     }
 
     //transicion a nueva seccion
