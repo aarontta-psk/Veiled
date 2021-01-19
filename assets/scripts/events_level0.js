@@ -10,8 +10,8 @@ export class dad_Event_0 extends eventScene {
             {
                 text: 'Tras duros meses de batalla, intentando acabar con los dolores que su enfermedad le causaba, ' +
                     'ves como tu padre esta tendido en su cama, augurando el momento en el que todo esto acabe.\n' +
-                    '-Ay, María, ya me queda poco tiempo en este pueblo que tanto aprecio. Jamas perdonaré a esta enfermedad ' +
-                    'por privarme de poder verte más. Te pido un ultimo favor antes de irme, ¿podrias traerme la foto que está al lado de la mesa?',
+                    '-Ay, María, ya me queda poco tiempo en este pueblo que tanto aprecio. Jamás perdonaré a esta enfermedad ' +
+                    'por privarme de poder verte más. Te pido un áltimo favor antes de irme, ¿podráas traerme la foto que está al lado de la mesa?',
             },
             {
                 text: 'Por supuesto, padre',
@@ -28,7 +28,7 @@ export class dad_Event_1 extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'María, me duele cada vez mas la cabeza, ¿me has traido ya la foto que te pedí?',
+                text: 'María, me duele cada vez más la cabeza, ¿me has traído ya la foto que te pedí?',
             },
             {
                 text: 'Claro, padre',
@@ -44,7 +44,7 @@ export class dad_Event_1 extends eventScene {
                 },
                 next: [
                     {
-                        text: 'Oh, que recuerdos me da esta foto. Que bonitos dias pase con todos vosotros en aquel viaje a '
+                        text: 'Oh, que recuerdos me da esta foto. Que bonitos días pase con todos vosotros en aquel viaje a '
                             + 'la ciudad. Que divertidas fueron las tardes, las fiestas y los paseos.\n'
                             + 'En fin, quería darte éste colgante que me dejó tu madre antes de morir por esta misma enfermedad'
                             + ' que estoy sufriendo. Póntelo y vuelve a ver como te queda. Ah, y,'
@@ -59,7 +59,7 @@ export class dad_Event_1 extends eventScene {
                 text: 'Aun no, padre',
                 next: [
                     {
-                        text: 'Por favor, apresurate, que no se cuanto aguantaré con este dolor.'
+                        text: 'Por favor, apresúrate, que no se cuanto aguantaré con este dolor.'
                     },
                     {
                         text: 'Vale, padre'
@@ -97,9 +97,9 @@ export class dad_Event_2 extends eventScene {
                         this.content[1].next = [
                             {
                                 text: '¡Ah! Que suerte que heredaste la belleza de tu madre. Que alegría poder ver esos ojos '
-                                    + 'por última vez. Como deseo que puedas observar las maravillas de este mundo ahora que puedes'
+                                    + 'por última vez. Cómo deseo que puedas observar las maravillas de este mundo ahora que puedes'
                                     + ' verlas por primera vez.\nCreo que ya ha llegado mi hora. María, quiero que sepas que siempre os he querido'
-                                    + ' tanto a ti como a toda la familia con todas mis fuerzas. Espero que tenga una gran vida por delante.',
+                                    + ' tanto a ti como a toda la familia con todas mis fuerzas. Espero que tengas una gran vida por delante.',
                             },
                             {
                                 text: '...Padre',
@@ -112,7 +112,7 @@ export class dad_Event_2 extends eventScene {
                                         obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
                                         totalLevelEvents: this.info.prevScene.totalLevelEvents,
                                         mainText: 'Apesadumbrada, te aferra a la venda que nunca te enseño '
-                                            + 'los horrores\ndel mundo fisico, pero las últimas palabras de tu padre quedan grabadas\nen tu mente, '
+                                            + 'los horrores\ndel mundo físico, pero las últimas palabras de tu padre quedan grabadas\nen tu mente, '
                                             + 'influenciando tus pensamientos e ideales.'
                                     })
                                 },
