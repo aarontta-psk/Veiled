@@ -952,7 +952,7 @@ export class doctorEvent_0 extends eventScene {
                 text: 'Asentir y despedirte del viejo doctor',
                 cb: () => {
                     //this.info.player.enableBlindfold();
-                    this.completeEvent(31, 31);
+                    this.completeEvent(30, 20);
                 }
             }
         ];
@@ -1015,13 +1015,13 @@ export class doctorEvent_1 extends eventScene {
             {
                 text: 'Vale',
                 cb: () => {
-                    this.completeEvent(15, 10);
+                    this.completeMainEvent(5, 0);
                 }
             },
             {
                 text: '[Ligeramente ofendida] Vale',
                 cb: () => {
-                    this.completeEvent(14, 10);
+                    this.completeMainEvent(4, 0);
                 }
             }
         ];
@@ -1032,7 +1032,7 @@ export class doctorEvent_1 extends eventScene {
             {
                 text: 'Vale, veré que ocurre',
                 cb: () => {
-                    this.completeEvent(15, 10);
+                    this.completeMainEvent(5, 0);
                 }
             }
         ];
