@@ -834,10 +834,10 @@ export class doctor_Event_Idle extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'Ves al medico, pero parece estar muy ocupado con unos papeles, y no parece estar disponible.'
+                text: 'Encuentras al Doctor Abel, el médico del pueblo, en el jardín de su casa. Te gustaría pararte a saludar, pero tienes cosas que hacer primero.\nEn otro momento, quizá.'
             },
             {
-                text: 'Volver más tarde'
+                text: 'Volver más tarde.'
             }
         ]
     }
@@ -853,7 +853,7 @@ export class lumberjack_Event_Idle extends eventScene {
                 text: 'Parece que hay alguien trabajando aquí. Mejor no molestar.'
             },
             {
-                text: 'Continuar',
+                text: 'Continuar.',
             }
         ]
     }
@@ -869,7 +869,7 @@ export class vagabond_Event_Idle extends eventScene {
                 text: 'El vagabundo esta confuso, perdido en sus pensamientos.'
             },
             {
-                text: 'Volver más tarde'
+                text: 'Volver más tarde.'
             }
         ]
     }
@@ -882,10 +882,10 @@ export class  inkKeeper_Event_Idle extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'El tavernero parece estar limpiando los cristales, parece ocupado.'
+                text: 'El tabernero parece estar limpiando los cristales, parece ocupado.'
             },
             {
-                text: 'Volver más tarde'
+                text: 'Volver más tarde.'
             }
         ]
     }
@@ -901,7 +901,7 @@ export class cane_Event_Idle extends eventScene {
                 text: 'No pareces haber visto nada en especial.'
             },
             {
-                text: 'Volver más tarde'
+                text: 'Volver más tarde.'
             }
         ]
     }
@@ -914,10 +914,10 @@ export class grandmother_Event_Idle extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'La anciana, a quien no distingues, esta triste, llorando por alguien.'
+                text: 'La anciana, a quien no distingues, está triste, llorando por alguien.'
             },
             {
-                text: 'Mejor no molestarla'
+                text: 'Mejor no molestarla.'
             }
         ]
     }
@@ -1063,7 +1063,7 @@ export class doctorEvent_0 extends eventScene {
                 next: this.adviceAccepted
             },
             {
-                text: 'Preguntar a qué se refiere',
+                text: 'Preguntar a qué se refiere.',
                 next: [
                     {
                         text: '-Digo que, aunque no te sientas cómoda con este mundo visual, siempre podrás simplemente ponerte ' +
@@ -1074,7 +1074,7 @@ export class doctorEvent_0 extends eventScene {
                             'tus manos para moverte entre ellas.',
                     },
                     {
-                        text: 'Aceptar consejo',
+                        text: 'Aceptar consejo.',
                         next: this.adviceAccepted
                     }
                 ]
@@ -1083,16 +1083,15 @@ export class doctorEvent_0 extends eventScene {
         ];
         this.content = [
             {
-                text: 'El olor a tabaco viejo te alerta a la presencia del doctor Abel, sentado como de costumbre en ' +
-                    'el portal de su casa, perdido en sus pensamientos. No es hasta que le saludas que se alerta ' +
+                text: 'Encuentras al doctor Abel paseando sin rumbo por el patio de su casa de campo, disfrutando del sol y perdido en sus pensamientos. No es hasta que le saludas que se alerta ' +
                     'a tu presencia, pero cuando lo hace, su sonrisa es audible. Se levanta y, antes de que puedas ' +
-                    'reaccionar, te envuelve en un abrazo. Tras calmarse un poco el aire, os envolvéis en una larga ' +
-                    'conversación para poneos al día. El doctor consigue resumir en breve más de una década de ' +
-                    'ocurrencias en el pueblo, y luego escucha pacientemente mientras le relatas la reciente milagrosa ' +
+                    'reaccionar, te envuelve en un abrazo. \n\nTras calmarse un poco el aire, os envolvéis en una larga ' +
+                    'conversación para poneos al día. \nEl doctor consigue resumir en breve más de una década de ' +
+                    'ocurrencias en el pueblo, y luego escucha pacientemente mientras le explicas la milagrosa ' +
                     'recuperación de tu vista.'
             },
             {
-                text: 'Continuar',
+                text: 'Continuar.',
                 next: this.advice
             },
         ]
@@ -1109,14 +1108,14 @@ export class doctorEvent_1 extends eventScene {
                 text: '-Sí, Fernando, el leñador. La gente la llama brusco, pero es el hombre más directo y sincero que conozco. Si él dice que hay un problema, me fío de su palabra y no le hago preguntas. Pero si quieres saber más, no seas tímida y habla con él. Trabaja al otro lado del pueblo, así que tienes un buen paseo. \n-Y juzgando por el color de tu cara,- añade con una preocupación -te vendría bien un poco de aire fresco'
             },
             {
-                text: 'Vale',
+                text: 'Vale.',
                 cb: () => {
                     this.scene.get('lumberjack_Event_Idle').completed = true;
                     this.completeMainEvent(10, 10);
                 }
             },
             {
-                text: '[Ligeramente ofendida] Vale',
+                text: '[Ligeramente ofendida] Vale.',
                 cb: () => {
                     this.scene.get('lumberjack_Event_Idle').completed = true;
                     this.completeMainEvent(5, 10);
@@ -1128,7 +1127,7 @@ export class doctorEvent_1 extends eventScene {
                 text: '-No lo sé, pero si me Fernando me dice que hay un problema, me fío de su palabra. Siempre puedes preguntarle si quieres; vive al otro lado del pueblo.'
             },
             {
-                text: 'Vale, veré que ocurre',
+                text: 'Vale, veré que ocurre.',
                 cb: () => {
                     this.completeMainEvent(5, 10);
                 }
@@ -1178,8 +1177,8 @@ export class doctorEvent_2 extends eventScene {
                 text: 'Bueno, ¿has solucionado el problema con el leñador?'
             },
             {
-                text: 'Si',
-                failedText: 'No has ayudado al leñador aún',
+                text: 'Sí.',
+                failedText: 'No has ayudado al leñador aún.',
                 condition: function (ref) {
                     return (ref.scene.get('lumberjack_Event_1').completed)
                 },
@@ -1189,13 +1188,13 @@ export class doctorEvent_2 extends eventScene {
                         'rondar cerca de la iglesia?. Creo que podrías ayudarle. Además, seguro que tú sabrás empatizar con él tú mejor que yo'
                     },
                     {
-                        text: 'No me molesta',
+                        text: 'No me molesta.',
                         next:[
                             {
-                                text: 'Estaré esperando a oir noticias tuyas entonces'
+                                text: 'Estaré esperando a oir noticias tuyas entonces.'
                             },
                             {
-                                text: 'Despedirse',
+                                text: 'Despedirse.',
                                 cb: () => {
                                     this.completeMainEvent(10,10);
                                     this.scene.get('vagabond_Event_Idle').completed = true;
@@ -1204,12 +1203,12 @@ export class doctorEvent_2 extends eventScene {
                         ]
                     },
                     {
-                        text: 'Tal vez en otro momento'
+                        text: 'Tal vez en otro momento.'
                     }
                 ]
             },
             {
-                text: 'Aún no he terminado'
+                text: 'Aún no he terminado.'
             }
 
         ]
@@ -1224,11 +1223,11 @@ export class doctorEvent_3 extends eventScene {
         this.content = [
             {
                 text: 'El doctor te saluda desde lejos con una grande sonrisa en su rostro. \n' +
-                    '-¿Has cumplido con lo que te pedi?'
+                    '-¿Has cumplido con lo que te pedí?'
             },
             {
-                text: 'Si, me lo agradeció y todo',
-                failedText: 'No has ayudado aún al vagabundo',
+                text: 'Si, me lo agradeció y todo.',
+                failedText: 'No has ayudado aún al vagabundo.',
                 condition: function (ref) {
                     return (ref.scene.get('vagabond_Event_1').completed)
                 },
@@ -1237,10 +1236,10 @@ export class doctorEvent_3 extends eventScene {
                         text: '-Ya veo...Ya has visto. Te niegas a ver la realidad como es, pero cuando necesitas ' +
                             'hacerlo, realmente ayudas a la gente. ¿No lo ves? Confío en que entiendes de lo que te hablo.- ' +
                             'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela paso por aquí hace un momento. ' +
-                            'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho,'
+                            'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho.'
                     },
                     {
-                        text: 'Sonriendo, asientes y te despides del doctor',
+                        text: 'Sonriendo, asientes y te despides del doctor.',
                         cb: () => {
                             this.scene.get('grandmother_Event_Idle').completed = true;
                             this.completeMainEvent(20, 20);
@@ -1249,7 +1248,7 @@ export class doctorEvent_3 extends eventScene {
                 ]
             }
             ,{
-                text: 'Aún no'
+                text: 'Aún no.'
             }
         ]
     }
@@ -1265,7 +1264,7 @@ export class lumberjack_Event_0 extends eventScene {
                 text: '-En ese caso, creo que puedo ayudar. \n-Bien.- Responde el leñador- Si encuentras algún árbol enfermo, dime dónde está y yo me encargaré.- Y vuelve sin más a su trabajo.'
             },
             {
-                text: 'Continuar',
+                text: 'Continuar.',
                 cb: () => {
                     this.completeMainEvent(20, 10);
                     this.scene.get('sickTree_Event_Idle').completed = true;
@@ -1277,7 +1276,7 @@ export class lumberjack_Event_0 extends eventScene {
                 text: '-Por su aspecto, es invisible. Lo único que diferencia un árbol infectado de uno sano es un ligero olor agrio emanando de las hojas.'
             },
             {
-                text: 'Aceptar propuesta',
+                text: 'Aceptar propuesta.',
                 next: this.missionAccepted
             }
         ]
@@ -1287,11 +1286,11 @@ export class lumberjack_Event_0 extends eventScene {
                 text: 'Cuando te acercas al leñador, ves un hombre de tez oscura reposando su hacha en un tronco recién caído. \n-Adelante- dice, cruzándose de brazos -¿Para qué vienes?'
             },
             {
-                text: 'Vengo a ayudar',
+                text: 'Vengo a ayudar.',
                 cb: () => { },
                 next: [
                     {
-                        text: 'El hombre no parece echarse atrás a la idea. -De acuerdo. El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los robles de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
+                        text: 'El hombre no parece echarse atrás a la idea. -De acuerdo. El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los cipreses de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
                     },
                     {
                         text: '¿Cómo se identifica la enfermedad?',
@@ -1319,11 +1318,11 @@ export class lumberjack_Event_0 extends eventScene {
                 text: '-Hola- oyes una voz sorprendentemente suave y compuesta de la dirección del ruido -Mira, sé quién eres, y he oído lo que te ha pasado. Si bienes buscando mi ayuda, lo siento, pero tengo asuntos importantes que atender. \nPero si vienes para ayudar, déjate de tonterías y quítate esa venda de los ojos. No tengo tiempo para tu autocompasión.'
             },
             {
-                text: 'Quitar la venda',
+                text: 'Quitar la venda.',
                 next: this.nonBlindApproach
             },
             {
-                text: 'Abandonar a este hombre con sus malos modales'
+                text: 'Abandonar a este hombre con sus malos modales.'
             }
         ];
         
@@ -1332,7 +1331,7 @@ export class lumberjack_Event_0 extends eventScene {
                 text: 'Puedes oler el olor a pino y oír los golpes regulares de un hacha cortando madera. Te paras un momento, insegura de si entrar en este lugar de trabajo.'
             },
             {
-                text: 'Avanzar',
+                text: 'Avanzar.',
                 cb: () => {
                     if (this.info.player.scene.blindfold.blind)
                         this.content[1].next = this.blindedApproach;
@@ -1342,7 +1341,7 @@ export class lumberjack_Event_0 extends eventScene {
                 next: 'Changes on callback'
             },
             {
-                text: 'Darte la vuelta y retornar'
+                text: 'Darte la vuelta y retornar.'
             },
         ]
     }
@@ -1358,7 +1357,7 @@ export class lumberjack_Event_1 extends eventScene {
                 text: 'El leñador sigue en su trabajo, y no parece alterarse por tu presencia.'
             },
             {
-                text: 'Llamar su atención',
+                text: 'Llamar su atención.',
                 failedText: 'Aún no has encontrado todos los árboles enfermos',
                 condition: function (ref) {
                     return ( ref.scene.get('sickTree_Event_0').completed === true)
@@ -1368,7 +1367,7 @@ export class lumberjack_Event_1 extends eventScene {
                         text: '-Los encontraste.- El tono de su voz denota una sorpresa agradable, sin llegar a ser una exclamación -Pues genial, talaré esos árboles y me pondré de inmediato a buscar el medicamento de tu hermano. Me has hecho un gran favor, y aunque no lo sepa, al bosque también. Te lo agradezco de verdad.'
                     },
                     {
-                        text: 'Aceptar y despedirte del leñador',
+                        text: 'Aceptar y despedirte del leñador.',
                         cb: () => {
                             this.completeMainEvent(40, 15);
                         }
@@ -1376,7 +1375,7 @@ export class lumberjack_Event_1 extends eventScene {
                 ]
             },
             {
-                text: 'Irse'
+                text: 'Irse.'
             }
         ]
     }
@@ -1392,7 +1391,7 @@ export class lumberjack_Event_2 extends eventScene {
                 text: '-Prepararé mis herramientas y enseguida salgo a frenar esa infección.'
             },
             {
-                text: 'Continuar',
+                text: 'Continuar.',
             }
         ]
     }
@@ -1410,14 +1409,14 @@ export class vagabond_Event_0 extends eventScene {
                     'que para algo este es mi cuerpo y no el suyo. Espera, ¿quién anda ahí?'
             },
             {
-                text: 'Hola, vengo de parte del doctor',
+                text: 'Hola, vengo de parte del doctor.',
                 next: [
                     {
                         text: '-Si queria algo más me lo podría haber dicho justo ahora que he hablado con él. No necesito ' +
                             'que me traiga un mensajero. Anda, dejame tranquilo.-'
                     },
                     {
-                        text: 'Abandonarle un poco ofendida',
+                        text: 'Abandonarle un poco ofendida.',
                         cb: () => {
                             this.info.player.addSanity(-5);
                         }
@@ -1425,7 +1424,7 @@ export class vagabond_Event_0 extends eventScene {
                 ]
             },
             {
-                text: 'Saludarle con la mano',
+                text: 'Saludarle con la mano.',
                 next: [
                     {
                         text: '-¿Nadie? Me lo habré imaginado.- No parece haberte visto. Fijándote en el sonido de sus pasos ' +
@@ -1436,10 +1435,10 @@ export class vagabond_Event_0 extends eventScene {
                         text: 'Perdona, ¿acaso eres ciego?',
                         next: [
                             {
-                                text: '-No hay que ser muy listo para darse cuenta, basta con mirarme'
+                                text: '-No hay que ser muy listo para darse cuenta, basta con mirarme.'
                             },
                             {
-                                text: 'Yo también lo soy. Pero caminas muy raro',
+                                text: 'Yo también lo soy. Pero caminas muy raro.',
                                 next: [
                                     {
                                         text: '-Sin mi bastón caminar se vuelve una tarea imposible. Un día estaba durmiendo tranquilamente ' +
@@ -1447,13 +1446,13 @@ export class vagabond_Event_0 extends eventScene {
                                             'odia desde que nací sin motivo ninguno.'
                                     },
                                     {
-                                        text: 'Si tanto lo necesitas puedo ir a buscarlo',
+                                        text: 'Si tanto lo necesitas puedo ir a buscarlo.',
                                         next: [
                                             {
-                                                text: '-Si así quieres, yo de aqui no voy a moverme sin él'
+                                                text: '-Si así quieres, yo de aqui no voy a moverme sin él.'
                                             },
                                             {
-                                                text: 'Ir a buscarlo',
+                                                text: 'Ir a buscarlo.',
                                                 cb: () => {
                                                     this.scene.get('inkKeeper_Event_Idle').completed = true;
                                                     this.completeMainEvent(10, 10);
@@ -1468,7 +1467,7 @@ export class vagabond_Event_0 extends eventScene {
                                                 text: 'Nada de nada, la duda ofende. Soy la persona más respetable de este pueblo'
                                             },
                                             {
-                                                text: 'Irse dudando de sus palabras'
+                                                text: 'Irse dudando de sus palabras.'
                                             }
                                         ]
                                     }
@@ -1499,10 +1498,10 @@ export class inkKeeper_Event_0 extends eventScene {
                 text: '¿Me pones algo de beber?',
                 next: [
                     {
-                        text: 'Estoy en mi descanso, olvídalo'
+                        text: 'Estoy en mi descanso, olvídalo.'
                     },
                     {
-                        text: 'Irse'
+                        text: 'Irse.'
                     }
                 ]
             },
@@ -1519,10 +1518,10 @@ export class inkKeeper_Event_0 extends eventScene {
                         next: [
                             {
                                 text: 'Exactamente lo que he dicho. Sin su bastón ese desgraciado no volverá a asomar por aqui. Lo he tirado detrás ' +
-                                    'de la posada. Le he hecho un favor a todo el pueblo'
+                                    'de la posada. Le he hecho un favor a todo el pueblo.'
                             },
                             {
-                                text: 'Ah, ya veo'
+                                text: 'Ah, ya veo.'
                             }
                         ]
                     }
@@ -1540,10 +1539,10 @@ export class cane_Event_0 extends eventScene {
         this.content = [
             {
                 text: 'Detrás de la taberna encuentras un viejo bastón, el cuál está bastante deteriorado por su uso. ' +
-                    'Estará bastante gastado, pero con probarlo un poco te das cuenta de que es bastante resistente'
+                    'Estará bastante gastado, pero con probarlo un poco compruebas que es bastante resistente.'
             },
             {
-                text: 'Coger el bastón',
+                text: 'Coger el bastón.',
                 cb: () => {
                     this.info.prevScene.insertItem(new CaneItem(this.info.prevScene.matter.world,
                         0, 0, this.info.prevScene.itemFrames[1], this.info.player));
@@ -1551,7 +1550,7 @@ export class cane_Event_0 extends eventScene {
                 }
             },
             {
-                text: 'No coger el bastón'
+                text: 'No coger el bastón.'
             }
         ]
     }
@@ -1567,8 +1566,8 @@ export class vagabond_Event_1 extends eventScene {
                 text: '-¿Ya estás de vuelta? Hecho bastante en falta mi bastón'
             },
             {
-                text: 'Entregarle su bastón y contarle que ocurrió',
-                failedText: 'No tienes el bastón',
+                text: 'Entregarle su bastón y contarle que ocurrió.',
+                failedText: 'No tienes el bastón.',
                 condition: function (ref) {
                     return (ref.info.player.inventory.contains('Baston'))
                 },
@@ -1578,7 +1577,7 @@ export class vagabond_Event_1 extends eventScene {
                             'Sabía que no podía fiarme de él. Iré con más cuidado a partir de ahora.'
                     },
                     {
-                        text: 'Cuidate',
+                        text: 'Cuídate.',
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Baston');
                             this.completeMainEvent(10, 10);
@@ -1587,7 +1586,7 @@ export class vagabond_Event_1 extends eventScene {
                 ]
             },
             {
-                text: 'Aún no lo he encontrado'
+                text: 'Aún no lo he encontrado.'
             }
         ]
     }
@@ -1604,18 +1603,18 @@ export class grandmother_Event_0 extends eventScene {
                 '(Punto de no retorno: Una vez te quites la venda terminará el nivel. Si quieres hacer algo más, vuelve más tarde)'
             },
             {
-                text: 'Quitarse la venda (Terminar el nivel)',
+                text: 'Quitarse la venda (Terminar el nivel).',
                 next: [
                     {
                         text: '-¡María!- Comienza a llorar al darse cuenta de lo que estas haciendo. -Tu padre... antes ' +
                             'de morir, dejó esta carta. Creo que deberías ser tú quien la lea primero'
                     },
                     {
-                        text: 'Coges la carta, y te preparas para leerla',
+                        text: 'Coges la carta, y te preparas para leerla.',
                         condition: function (ref) {
                             return (ref.info.player.faith >= LEVEL_FAITH_NEEDED);
                         },
-                        failedText: 'Aún no tienes suficiente fe. Ayuda a otra gente para conseguir más',
+                        failedText: 'Aún no tienes suficiente fe. Ayuda a otra gente para conseguir más.',
                         end: true,
                         cb: () => {
                             this.completeEvent(0, 0);
@@ -1624,7 +1623,7 @@ export class grandmother_Event_0 extends eventScene {
                                 obtainedFaith: this.info.player.faith,
                                 numEvents: this.info.player.numCompletedEvents,
                                 nextLevel: 'level1',
-                                mainText: 'Meter texto de fin de nivel',
+                                mainText: 'Meter texto de fin de nivel.',
                                 totalLevelEvents: TOTAL_EVENTS
                             });
                         }
@@ -1632,7 +1631,7 @@ export class grandmother_Event_0 extends eventScene {
                 ]
             },
             {
-                text: 'Aun no estoy lista'
+                text: 'Aún no estoy lista.'
             }
         ]
     }
@@ -1651,7 +1650,7 @@ export class painterEvent_0 extends eventScene {
                     'en sus colores, dándole un toque surreal.'
             },
             {
-                text: 'Adular',
+                text: 'Adular.',
                 cb: () => { },
                 next: [
                     {
@@ -1660,7 +1659,7 @@ export class painterEvent_0 extends eventScene {
                             'cada mención, y te regala un boceto en agradecimiento.',
                     },
                     {
-                        text: 'Agradecer y aceptar regalo',
+                        text: 'Agradecer y aceptar regalo.',
                         cb: () => {
                             this.info.prevScene.insertItem(new SketchItem(this.info.prevScene.matter.world,
                                 0, 0, this.info.prevScene.itemFrames[18], this.info.player));
@@ -1670,7 +1669,7 @@ export class painterEvent_0 extends eventScene {
                 ]
             },
             {
-                text: 'Crítica positiva',
+                text: 'Crítica positiva.',
                 cb: () => { },
                 next: [
                     {
@@ -1680,7 +1679,7 @@ export class painterEvent_0 extends eventScene {
                             'caleidoscopio, el cual te regala como agradecimiento.',
                     },
                     {
-                        text: 'Agradecer y aceptar regalo',
+                        text: 'Agradecer y aceptar regalo.',
                         cb: () => {
                             this.info.prevScene.insertItem(new KaleidoscopeItem(this.info.prevScene.matter.world,
                                 0, 0, this.info.prevScene.itemFrames[9], this.info.player));
@@ -1690,7 +1689,7 @@ export class painterEvent_0 extends eventScene {
                 ]
             },
             {
-                text: 'Crítica analítica',
+                text: 'Crítica analítica.',
                 cb: () => { },
                 next: [
                     {
@@ -1700,7 +1699,7 @@ export class painterEvent_0 extends eventScene {
                             'te da las gracias- sinceridad a cambio de sinceridad.',
                     },
                     {
-                        text: 'Animar y despedir',
+                        text: 'Animar y despedir.',
                         cb: () => {
                             this.completeEvent(30, 20);
                         }
@@ -1718,7 +1717,7 @@ export class painterEvent_0 extends eventScene {
                     'cuéntame un poco, ¿qué te trae por estas zonas?'
             },
             {
-                text: 'Conversar con la artista',
+                text: 'Conversar con la artista.',
                 cb: () => { },
                 next: [
                     {
@@ -1727,13 +1726,13 @@ export class painterEvent_0 extends eventScene {
                             'comentas con una leve sonrisa conocedora que ya conoces los colores.',
                     },
                     {
-                        text: 'Continuar',
+                        text: 'Continuar.',
                         next: this.event1
                     }
                 ]
             },
             {
-                text: 'Quitar la venda para evaluar el cuadro',
+                text: 'Quitar la venda para evaluar el cuadro.',
                 next: this.event1
             },
         ];
@@ -1751,7 +1750,7 @@ export class painterEvent_1 extends eventScene {
                 text: '-Creo que seguiré pintando hasta que anochezca.'
             },
             {
-                text: 'Sonreírle y continuar',
+                text: 'Sonreírle y continuar.',
                 cb: () => { },
             }
         ]
@@ -1765,10 +1764,10 @@ export class sickTree_Event_Idle extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'Este árbol desprende un ligero olor agrio. Extraño.'
+                text: 'Un ligero olor agrio se entremezcla con el aroma natural de este pino. Extraño.'
             },
             {
-                text: 'Continuar'
+                text: 'Continuar.'
             }
         ]
     }
@@ -1781,10 +1780,10 @@ export class sickTree_Event_0 extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'Este árbol desprende un extraño olor. Debe de estar afectando al resto de árboles\n'
+                text: 'Este árbol desprende un extraño olor. Debe de ser el árbol infectado del que hablaba el leñador.\n'
             },
             {
-                text: 'Anotar posición para el leñador',
+                text: 'Anotar posición para el leñador.',
                 cb: () => {
                     this.completeMainEvent(10, 0);
                 },
@@ -1802,10 +1801,10 @@ export class maxFaithEvent_0 extends eventScene {
         this.content = [
             {
                 text: 'Tus acciones se ven recompensadas. Sientes como a medida que ayudas a otras personas tu fe ' +
-                    'aumenta. Y eso te hace feliz'
+                    'aumenta. Y eso te hace feliz.'
             },
             {
-                text: 'Avanzar al siguiente nivel',
+                text: 'Avanzar al siguiente nivel.',
                 cb: () => {
                     this.completeEvent(0, 0);
                     //este evento no cuenta para el numero de eventos completados
@@ -1813,7 +1812,7 @@ export class maxFaithEvent_0 extends eventScene {
                     this.scene.stop();
                     this.scene.run('infoLevel', {
                         obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
-                        mainText: 'Meter texto de fin de nivel'
+                        mainText: 'Meter texto de fin de nivel.'
                     })
                 },
                 end: true
@@ -1830,10 +1829,10 @@ export class deathEvent_0 extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'No te sientes bien. Te sientes perdida y confusa. Poco a poco vas perdiendo tus fuerzas'
+                text: 'No te sientes bien. Te sientes perdida y confusa. Poco a poco vas perdiendo tus fuerzas.'
             },
             {
-                text: 'No resistirse',
+                text: 'No resistirse.',
                 cb: () => {
                     this.info.player.setDead();
                     this.completeEvent(0, 0);
@@ -1844,7 +1843,7 @@ export class deathEvent_0 extends eventScene {
                             'Te despiertas en otro lugar sientiéndote menos segura.'
                     },
                     {
-                        text: 'Levantarse',
+                        text: 'Levantarse.',
                         cb: () => {
                             this.info.player.addFaith(-5);
                             this.info.player.setDead();
@@ -1856,8 +1855,8 @@ export class deathEvent_0 extends eventScene {
                 condition: function (ref) {
                     return (ref.info.player.inventory.contains('Figura tallada'))
                 },
-                failedText: 'No tienes la figura tallada',
-                text: 'Aferrarse a la figura tallada',
+                failedText: 'No tienes la figura tallada.',
+                text: 'Aferrarse a la figura tallada.',
                 cb: () => { },
                 next: [
                     {
@@ -1865,7 +1864,7 @@ export class deathEvent_0 extends eventScene {
                             'Al hacerlo te sientes algo mejor, pero has apretado tanto la figura que se parte en trozos.'
                     },
                     {
-                        text: 'Reincorporarse',
+                        text: 'Reincorporarse.',
                         cb: () => {
                             this.info.player.inventory.removeObjectByKey('Figura tallada');
                         },
@@ -1882,7 +1881,7 @@ export class deathEvent_0 extends eventScene {
                                     'Te despiertas en otro lugar sientiéndote menos segura.'
                             },
                             {
-                                text: 'Levantarse',
+                                text: 'Levantarse.',
                                 cb: () => {
                                     this.info.player.addFaith(-5);
                                     this.info.player.setDead();
@@ -1896,7 +1895,7 @@ export class deathEvent_0 extends eventScene {
                                 text: 'Utilizas todas tus fuerzas para seguir despierta. A duras penas, resistes.'
                             },
                             {
-                                text: 'Continuar',
+                                text: 'Continuar.',
                                 cb: () => { }
                             }
                         ]
