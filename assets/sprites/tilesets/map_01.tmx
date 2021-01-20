@@ -125,7 +125,7 @@
     <property name="num" type="int" value="11"/>
    </properties>
   </object>
-  <object id="118" name="objective" x="1856" y="2128" width="32" height="32">
+  <object id="118" name="objective" x="3072" y="3728" width="32" height="32">
    <properties>
     <property name="faithReq" type="int" value="50"/>
     <property name="num" type="int" value="4"/>
@@ -153,7 +153,7 @@
   <object id="70" name="cane" x="1836.33" y="3022.33" width="29" height="29"/>
   <object id="81" name="tavern" x="2100.33" y="3424.33" width="29.3333" height="29.3333"/>
   <object id="84" name="glasses" x="3636.83" y="3645"/>
-  <object id="119" name="treeSmell1" x="1856" y="2144" width="16" height="16"/>
+  <object id="119" name="treeSmell1" x="3072" y="3728" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="19" name="npcs">
   <object id="22" name="doctor" x="4256" y="2144" width="32" height="32">
