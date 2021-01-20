@@ -50,6 +50,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('itemFX', './assets/sprites/item_fx.png');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
+        this.load.image('letter', './assets/sprites/letter.jpg')
 
         this.load.spritesheet('soundCircle', './assets/sprites/sound_circle.png',
             { frameWidth: 860, frameHeight: 904 });

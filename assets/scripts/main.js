@@ -4,6 +4,7 @@ import Options from "./options.js";
 import levelSelector from "./level_selector_menu.js";
 import Level0 from "./level0.js";
 import Level1 from "./level1.js";
+import Level2 from "./level2.js";
 import InfoLevel from "./infoLevel.js";
 import PauseScene from "./pause_scene.js";
 import {testSilueta_0, testSilueta_1, testSilueta_2, testSilueta_3, testSilueta_4, testSilueta_5, testSilueta_6, testSilueta_7, testSilueta_8, testSilueta_9,
@@ -37,7 +38,7 @@ const config = {
             }
         }
     },
-    scene: [Boot, MainMenu, Options, levelSelector, Level0, Level1, InfoLevel, PauseScene,
+    scene: [Boot, MainMenu, Options, levelSelector, Level0, Level1, Level2, InfoLevel, PauseScene,
         //eventos generales
         brother_Event_Idle,
         //eventos de nivel 0
