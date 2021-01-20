@@ -936,19 +936,11 @@ export class brother_Event_0 extends eventScene {
                 text: '-Pedro parece encantado. -Genial. Gracias, te aseguro que no lo arrepentirás.- Tornas para irte, pero te interrumpe otra vez -Espera, si vas a ver al doctor, ¿podrías pedirle si puede prepararme otra tarro de medicina para las migrañas? Casi no me queda.'
             },
             {
-                text: '¿Con quién hablar?',
-
-                cb: () => { },
-                next: [
-                    {
-                        text: 'Aceptar y seguir en busca del doctor.',
-                        cb: () => {
-                            this.completeEvent(10, 10);
-                            this.info.player.scene.npcs.doctorNpc.setActive(true);
-                            this.info.player.scene.nextObjective();
-                        }
-                    }
-                ]
+                text: 'Aceptar y seguir en busca del doctor.',
+                cb: () => {
+                    this.completeMainEvent(30, 10);
+                    this.scene.get('doctor_Event_Idle').completed = true;
+                }
             }
         ];
         this.event3 = [
@@ -957,26 +949,24 @@ export class brother_Event_0 extends eventScene {
             },
             {
                 text: '¿Con quién hablar?',
-
-                cb: () => { },
                 next: [
                     {
                         text: 'Puedes sentir su alivio cuando le preguntas. -¿El doctor Abel, quizá? Siempre fue bueno contigo. Todavía vive donde siempre, arriba del cementerio.\n',
                     },
                     {
-                        text: 'Continuar',
-                        cb: () => { },
+                        text: 'Continuar.',
                         next: this.event4
                     }
                 ]
             },
             {
                 text: 'Darle razón.',
-                cb: () => { },
                 next: [
                     {
                         text: 'Sientes el alivio de tu hermano al oír tus palabras: -Vale. Concedo. Hablaré con el doctor Abel. Siempre fue empático conmigo. \n¿Aún vive al lado del cementerio?- Pedro afirma -Pues ahí voy.',
-                        cb: () => { },
+                    },
+                    {
+                        text: 'Continuar.',
                         next: this.event4
                     }
                 ]
@@ -988,18 +978,10 @@ export class brother_Event_0 extends eventScene {
             },
             {
                 text: 'Para.',
-                cb: () => { },
-                next: [
-                    {
-                        text: '-Para. No quiero. Me niego',
-                        cb: () => { },
-                        next: this.event3
-                    }
-                ]
+                next: this.event3
             },
             {
                 text: 'Habría querido que fuese feliz.',
-                cb: () => { },
                 next: this.event3
             }
         ];
@@ -1009,35 +991,37 @@ export class brother_Event_0 extends eventScene {
             },
             {
                 text: 'No desde entonces.',
-                cb: () => { },
                 next: this.event2
             }
         ];
         this.content = [
             {
-                text: 'Al salir de la casa, tu hermano te espera. -Por fin saliste. Mira, sé que esto ha sido difícil para ti. Para mí también. Pero ya sabíamos de hace tiempo que venía. No pudo haberte sorprendido.\n'
+                text: 'Al volver a casa, tu hermano te espera. -¡Por fin saliste de la casa!, comenzaba a preocuparme. Mira, sé que esto ha sido difícil para ti. Para mí también. Pero ya sabíamos de hace tiempo que venía. No pudo haberte sorprendido.\n'
             },
             {
                 text: 'Me sorprendió su aspecto.',
                 cb: () => {
                     this.scene.get('doctor_Event_Idle').completed = true;
                     this.completeMainEvent(10, 10)
-                }
-                // next: [
-                //     {
-                //         text: 'Explicas: -Verle así, después de tanto tiempo... Tú pudiste ver su deterioro. Para mí, lo repentino fue verle así, como si de primera vez se tratase. \nNo he visto nada desde que fui una niña, y recupero mi visión justo a tiempo para ver morir a mi padre. ¡Si eso no es una señal, no sé qué lo es!',
-                //         cb: () => { },
-                //         next: this.event1
-                //     }
-                // ]
+                },
+                next: [
+                    {
+                        text: 'Explicas: -Verle así, después de tanto tiempo... Tú pudiste ver su deterioro. Para mí, lo repentino fue verle así, como si de primera vez se tratase. \nNo he visto nada desde que fui una niña, y recupero mi visión justo a tiempo para ver morir a mi padre. ¡Si eso no es una señal, no sé qué lo es!',
+                    },
+                    {
+                        text: 'Continuar.',
+                        next: this.event1
+                    }
+                 ]
             },
             {
                 text: 'No me sorprendió. Pero llegó en muy mal momento.',
-                cb: () => { },
                 next: [
                     {
                         text: 'Explicas: -No me sorprendió. Pero fue casi lo primero que había visto en casi veinte años. Odio eso. Odio poder ver. Toda mi vida encontré paz en las tinieblas. Eran mi mundo. Aún lo son. Y de la nada recupero la vista, pero solo para ver morir a mi padre. ¿Qué clase de portento es ese?',
-                        cb: () => { },
+                    },
+                    {
+                        text: 'Continuar.',
                         next: this.event1
                     }
                 ]
