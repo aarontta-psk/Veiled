@@ -1185,24 +1185,6 @@ export class doctorEvent_1 extends eventScene {
     }
 }
 
-// export class doctorEvent_2 extends eventScene {
-//     constructor() {
-//         super({ key: 'doctorEvent_2' });
-//         //array con los elementos de un evento
-//         this.backgroundImage = 'eventMenu';
-//         this.content = [
-//             {
-//                 text: 'El doctor suelta una risita cuando te vuelves a acercar \n' +
-//                     '-No necesitas oír más a este viejo. Si en realidad yo sé muy poco, solo que hablo mucho. ¡Ja! Ese es ' +
-//                     'el secreto para que te llamen sabio.'
-//             },
-//             {
-//                 text: 'Reír al comentario y continuar'
-//             }
-//         ]
-//     }
-// }
-
 export class doctorEvent_2 extends eventScene {
     constructor() {
         super({ key: 'doctorEvent_2' });
@@ -1221,7 +1203,7 @@ export class doctorEvent_2 extends eventScene {
                 next: [
                     {
                         text: '-Perfecto. Verás, aún me puedes hacer otro favor. ¿Te importaría ir a hablar con el vagabundo que suele ' +
-                        'rondar cerca de la iglesia?. Creo que podrías ayudarle. Además, seguro que tú sabrás empatizar con él tú mejor que yo'
+                        'rondar cerca de la iglesia?. Creo que podrías ayudarle. Además, seguro que tú sabrás empatizar con él tú mejor que yo.'
                     },
                     {
                         text: 'No me molesta.',
@@ -1476,7 +1458,7 @@ export class vagabond_Event_0 extends eventScene {
                                 text: '-No hay que ser muy listo para darse cuenta, basta con mirarme.'
                             },
                             {
-                                text: 'Yo también lo soy. Pero caminas muy raro.',
+                                text: 'Yo también lo era. Pero caminas muy raro.',
                                 next: [
                                     {
                                         text: '-Sin mi bastón caminar se vuelve una tarea imposible. Un día estaba durmiendo tranquilamente ' +
