@@ -4,6 +4,6 @@ export default class Level2 extends Phaser.Scene {
     };
 
     create(){
-        
+        this.add.image(400, 300, 'letter').setScale(0.68);
     }
 }
