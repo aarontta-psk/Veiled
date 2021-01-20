@@ -843,6 +843,46 @@ export class doctor_Event_Idle extends eventScene {
     }
 }
 
+export class doctor_Event_Idle_1 extends eventScene {
+    constructor() {
+        super({ key: 'doctor_Event_Idle_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: '¿Hablaste con Fernando?.'
+            },
+            {
+                text: 'Aún no.'
+            }
+        ]
+    }
+}
+
+export class doctor_Event_Idle_2 extends eventScene {
+    constructor() {
+        super({ key: 'doctor_Event_Idle_2' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: '-¿Hablaste con Fernando?.'
+            },
+            {
+                text: 'Sí, le estoy ayudando. ¿Has notado algún árbol que oliese agrio?.',
+                next: [
+                    {
+                        text: '-¿Agrio? Tengo que decir que no. Cuido bastante de mi jardín, ¡y te puedo asegurar de que ninguno de los míos huele mal!.'
+                    },
+                    {
+                        text: 'Gracias igualmente.',
+                    }
+                ]
+            }
+        ]
+    }
+}
+
 export class lumberjack_Event_Idle extends eventScene {
     constructor() {
         super({ key: 'lumberjack_Event_Idle' });
@@ -1118,7 +1158,7 @@ export class doctorEvent_1 extends eventScene {
                 text: '[Ligeramente ofendida] Vale.',
                 cb: () => {
                     this.scene.get('lumberjack_Event_Idle').completed = true;
-                    this.completeMainEvent(5, 10);
+                    this.completeMainEvent(9, 10);
                 }
             }
         ];
@@ -1268,6 +1308,7 @@ export class lumberjack_Event_0 extends eventScene {
                 cb: () => {
                     this.completeMainEvent(20, 10);
                     this.scene.get('sickTree_Event_Idle').completed = true;
+                    this.scene.get('doctor_Event_Idle_1').completed = true;
                 }
             }
         ]
@@ -1369,7 +1410,8 @@ export class lumberjack_Event_1 extends eventScene {
                     {
                         text: 'Aceptar y despedirte del leñador.',
                         cb: () => {
-                            this.completeMainEvent(40, 15);
+                            this.completeMainEvent(30, 15);
+                            this.scene.get('doctor_Event_Idle_1').completed = true;
                         }
                     }
                 ]
