@@ -1040,10 +1040,6 @@ export class brother_Event_0 extends eventScene {
             },
             {
                 text: 'Me sorprendió su aspecto.',
-                cb: () => {
-                    this.scene.get('doctor_Event_Idle').completed = true;
-                    this.completeMainEvent(10, 10)
-                },
                 next: [
                     {
                         text: 'Explicas: -Verle así, después de tanto tiempo... Tú pudiste ver su deterioro. Para mí, lo repentino fue verle así, como si de primera vez se tratase. \nNo he visto nada desde que fui una niña, y recupero mi visión justo a tiempo para ver morir a mi padre. ¡Si eso no es una señal, no sé qué lo es!',
@@ -1085,7 +1081,7 @@ export class doctorEvent_0 extends eventScene {
                     'venda y volver a la oscuridad.'
             },
             {
-                text: 'Asentir y despedirte del viejo doctor',
+                text: 'Asentir.',
                 cb: () => {
                     //this.info.player.enableBlindfold();
                     this.completeEvent(5,5);
@@ -1411,7 +1407,7 @@ export class lumberjack_Event_1 extends eventScene {
                         text: 'Aceptar y despedirte del leñador.',
                         cb: () => {
                             this.completeMainEvent(30, 15);
-                            this.scene.get('doctor_Event_Idle_1').completed = true;
+                            this.scene.get('doctor_Event_Idle_2').completed = true;
                         }
                     }
                 ]
@@ -1653,6 +1649,8 @@ export class grandmother_Event_0 extends eventScene {
                     },
                     {
                         text: 'Coges la carta, y te preparas para leerla.',
+
+                        //Pitch removing faith requirement for level completion
                         condition: function (ref) {
                             return (ref.info.player.faith >= LEVEL_FAITH_NEEDED);
                         },
@@ -1665,7 +1663,7 @@ export class grandmother_Event_0 extends eventScene {
                                 obtainedFaith: this.info.player.faith,
                                 numEvents: this.info.player.numCompletedEvents,
                                 nextLevel: 'level1',
-                                mainText: 'Meter texto de fin de nivel.',
+                                mainText: '    María. Mi hija. ¿Dónde comenzar? Desde la muerte de tu madre, tu hermano y tú habéis sido mi única soledad en este mundo. Verte crecer hasta ser la mujer que eres ahora ha sido el mayor orgullo de mi vida. Pero desde la infancia, tú nunca pudiste verlo. \n\n    Escribo esta carta desde la cama de mi muerte, y mis pensamientos comienzan a nublarse entre la ya inevitable proximidad de mi destino. En este estado me encuentro cuando me llega la noticia de que, en estos mismos momentos, ¡mi hija ha recuperado milagrosamente la vista! Mi hija, por quien no siempre hice bien.\n\n    Mi hija, condenada desde niña a la oscuridad, ahora caminas con nueva luz por ver. No me queda duda alguna de la naturaleza divina de este hecho, ni de que es una debida recompensa por tu vida virtuosa.\nSiempre has estado tan dispuesta a ignorar tus propios inconvenientes por el bien de los demás, por el bien mío. Ahora te toca a ti. Vive la vida que quieras vivir. No te aferres a mi memoria con tristeza. Solo te anclaré al pasado.\n\n    Vive sin mí y ve las maravillas que yo nunca te pude permitir.',
                                 totalLevelEvents: TOTAL_EVENTS
                             });
                         }
