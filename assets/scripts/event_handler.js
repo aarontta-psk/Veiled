@@ -22,6 +22,6 @@ export default class EventHandler extends Phaser.Physics.Matter.Sprite {
     //actualización de la posicion del tooltip
     updateTooltip(){
         if(!this.isStatic())
-            this.tooltip.setPosition(this.x, this.y- this.threshold)
+            this.tooltip.setPosition(this.x, this.y - this.threshold)
     }
 }

@@ -10,10 +10,6 @@ export default class Level0 extends NewGameScene {
         super('level0');
     };
 
-    preload() {
-        super.preload();
-    }
-
     create() {
         super.create();
 
