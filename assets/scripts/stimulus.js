@@ -95,5 +95,6 @@ export class footSteps extends soundStimulus{
         super(manager, {'x': 0, 'y': 0});
         this.tint = 0x197CD3;
         this.createEmitter(manager);
+        this.emitter.stop();
     }
 }

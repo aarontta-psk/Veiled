@@ -66,7 +66,8 @@ export default class Npc extends EventHandler {
             this.state = 'still';
             this.setVelocity(0.01, 0.01);
             this.footSteps.emitter.stop();
-            this.scene.time.delayedCall(this.path[this.nextPathPoint].pause, this.nextPath, null, this);
+            if (this.path.length !== 0)
+                this.scene.time.delayedCall(this.path[this.nextPathPoint].pause, this.nextPath, null, this);
         }
 
         //Reproducimos la animación que corresponda
