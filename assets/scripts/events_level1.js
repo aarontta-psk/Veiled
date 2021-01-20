@@ -818,7 +818,7 @@ export class brother_Event_Idle extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'Encuentras a tu hermano, sientes que no es el momento de hablar con él.'
+                text: 'El olor a tabaco barato te delata que tu hermano Pedro está sentado en la puerta de la casa fumando. Al igual que tú, los eventos recientes le han alterado. Mejor dejarle este momento de calma.'
             },
             {
                 text: 'Volver más tarde'
