@@ -256,7 +256,6 @@ export default class Level1 extends NewGameScene {
                     }
                     else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
                         this.auxEventHandler = cuerpo2.gameObject;
-                        console.log("start work")
                     }
                 }
             });
@@ -271,7 +270,6 @@ export default class Level1 extends NewGameScene {
                     if (cuerpo2.gameObject instanceof Trigger) this.newSection(cuerpo2.gameObject);
                     else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
                         this.auxEventHandler = null;
-                        console.log("end work")
                     }
                 }
             });

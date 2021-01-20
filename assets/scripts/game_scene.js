@@ -60,7 +60,10 @@ export default class GameScene extends Phaser.Scene {
         //asignación de pasos al npc
         let steps = new footSteps(this.soundParticle);
         steps.emitter.startFollow(npc);
-        npc.footSteps = steps;
+        if (!isStatic)
+            npc.footSteps = steps;
+        else
+            npc.footsteps = null;
         npc.setStatic(isStatic);
         return npc;
     }
