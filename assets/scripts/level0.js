@@ -130,7 +130,7 @@ export default class Level0 extends NewGameScene {
 
         this.player.cursorsPlayer.pause.on('down', event => {
             //guardo la info entre escenas y cambio de escena
-            this.infoNextScene = { player: this.player, prevScene: this };
+            this.infoNextScene = { player: this.player, prevSceneKey: 'level0' };
 
             this.scene.pause();
             this.scene.run('pauseScene', this.infoNextScene);

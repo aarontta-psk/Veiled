@@ -18,7 +18,7 @@ export default class mainMenuScene extends menuBasicScene{
         const levels = this.levelsButton(this.cameras.main.centerX - this.cameras.main.width/4,
                 this.cameras.main.centerY + (this.cameras.main.height/5), 1);
         const options = this.optionsButton(this.cameras.main.centerX - this.cameras.main.width/4,
-            this.cameras.main.height - (this.cameras.main.height/9), 1);
+            this.cameras.main.height - (this.cameras.main.height/9), 1, 'mainMenuScene');
         //callbacks de los botones:
         //pointerover
     }

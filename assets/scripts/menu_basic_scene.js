@@ -23,61 +23,55 @@ export default class menuBasicScene extends Phaser.Scene{
     }
 
     playButton(x,y, scale){
-        return this.createButton(x,y, scale, 'mainMenuPlay', function(ref){
-            ref.sound.stopAll();
-            ref.scene.start('level0');
+        return this.createButton(x,y, scale, 'mainMenuPlay', () => {
+            this.sound.stopAll();
+            this.scene.start('level0');
         });
     }
 
-    optionsButton(x, y, scale){
-        return this.createButton(x,y, scale, 'mainMenuSettings', function(ref){
-            ref.scene.stop();
-            ref.scene.run('optionsScene', {prevScene: ref });
+    optionsButton(x, y, scale, menuToReturnKey){
+        return this.createButton(x,y, scale, 'mainMenuSettings', () => {
+            this.scene.stop();
+            this.scene.start('optionsScene', {prevSceneKey: menuToReturnKey});
         });
     }
 
     volumeButton(x,y, scale, index){
-        return this.createButton(x,y, scale, 'volume', function(ref, button){
+        return this.createButton(x,y, scale, 'volume', (notUsedRef, button) => {
             if(index >= 3) index = 0;
             else index++;
             button.setFrame(index);
-            ref.sound.setVolume(index * 0.33);
+            this.sound.setVolume(index * 0.33);
         });
     }
 
     levelsButton(x,y, scale){
-        return this.createButton(x,y, scale, 'mainMenuLevels', function(ref){
-            ref.scene.stop();
-            ref.scene.run('levelSelectorScene', {prevScene: ref });
+        return this.createButton(x,y, scale, 'mainMenuLevels', () => {
+            this.scene.stop();
+            this.scene.start('levelSelectorScene');
         });
     }
 
-    returnButton(x,y, scale, info){
-        return this.createButton(x,y, scale, 'back', function(ref){
-            ref.scene.stop();
-            ref.scene.run(info.prevScene.scene.key);
+    //metodo solo usado para volver a la escena de juego
+    returnButton(x,y, scale, keyLastScene){
+        return this.createButton(x,y, scale, 'back', () => {
+            this.scene.stop();
+            //para volver a la escena anterior uso la key de la escena anterior
+            this.scene.run(keyLastScene);
         });
     }
 
     returnToMenuButton(x,y, scale){
-        return this.createButton(x,y, scale, 'pauseMenuToMainMenu', function(ref){
+        return this.createButton(x,y, scale, 'pauseMenuToMainMenu', (ref) => {
             const main = new Main();
             main.restartGame(ref);
         });
     }
     
-    goToSceneButton(x,y, scale, textureKey, nextScene){
-        return this.createButton(x,y, scale, textureKey, function(ref){
-            ref.sound.stopAll();
-            ref.scene.start(nextScene);
+    goToSceneButton(x,y, scale, textureKey, nextSceneKey){
+        return this.createButton(x,y, scale, textureKey, () => {
+            this.sound.stopAll();
+            this.scene.start(nextSceneKey);
         });
-    }
-
-    //metodo para reiniciar el juego
-    restartScenes(){
-        //restartea la escena correcta?
-        for(const scene of this.scene.systems.game.scene.scenes){
-            if(scene !== this.scene.get('boot') && scene !== this.scene.get('pauseScene')) scene.scene.restart();
-        }
     }
 }
