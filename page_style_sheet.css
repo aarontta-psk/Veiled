@@ -24,6 +24,40 @@ header{
     border-left: 4px solid #464b02d0;
 }
 
+a{
+    /* Fuente */
+    font-family: Neucha, bold;
+    /* Formato */
+    text-decoration:none;
+    /* Color */
+    color:#0066ff;
+    /* Tamaño */
+    font-size: 150%;                
+}
+
+h1{
+    /* Fuente */
+    font-family: Neucha, bold;
+    /* Formato */
+    text-decoration:underline;
+    /* Color */
+    color:#000269;
+    /* Tamaño */
+    font-size: 400%;
+}
+
+h2{
+    /* Fuente */
+    font-family: Neucha, bold;
+    /* Formato */
+    text-decoration:none;
+    /* Color */
+    color:#000000;
+    /* Tamaño */
+    font-size: 200%;
+    margin:auto;
+}
+
 nav{
     /* Ajustamos el margen para que este centrado */
     margin: auto;
@@ -61,27 +95,6 @@ nav a{
 /* Cuando pones el ratón encima de las palabras del header */
 nav a:hover{
     color: rgb(80, 80, 80);
-}
-
-/* Fondo para cada sección */
-#Play{
-    background: url("./assets/media/background.jpg") center top;
-}
-
-#Intro{
-    background: url("./assets/media/background.png") center top;
-}
-
-#Team{
-    background: url("./assets/media/background.png") center top;
-}
-
-#Contact{
-    background: url("./assets/media/background.jpg") center top;
-}
-
-#Title{
-    background: url("./assets/media/background.jpg") center top;
 }
 
 /* Formato del cuerpo */
