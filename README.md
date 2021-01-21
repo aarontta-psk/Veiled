@@ -45,7 +45,7 @@ Cuando la cordura esté por debajo del 10%, no se podrá interactuar con las mem
 
 #### Estímulos
 
-A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que, en algunas zonas del mapa, generarán una señal según el tipo de sentido al que apele. Esto permitirá distinguir zonas especificas del mapa, como, por ejemplo, la granja.
+A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que muestran ayudan a localizar a los npc (pasos) y tambien muestran objetivos como en algunos eventos (olor de un arbol).
 
 ### Fe
 
@@ -110,10 +110,10 @@ El juego tiene una dificultad baja y una longitud relativamente corta. Se espera
 ### Niveles
 
 #### Preludio
-El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una "pequeña" historia con el padre antes de morir.
+El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una "pequeña" historia con el padre antes de este morir.
 
 #### Pueblo
-El jugador continuara explorando su pueblo natal interactuando con personajes de su infancia. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren.
+María continuará explorando su pueblo natal interactuando con personajes de su infancia y otros nuevos conocidos. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren.
 ![pueblo](./assets/media/level_01.png)
 
 #### Epílogo
@@ -123,9 +123,9 @@ Tras un pequeño salto temporal, María llega a la catedral, donde el obispo le 
 
 María busca recuperar su fe en la misericordia de Dios, y en el proceso aprenderá a aceptar su nuevo don y a ver la belleza del mundo por un nuevo medio.
 
-Comenzará en su pueblo natal, justo al presenciar la muerte de su padre. A lo largo del juego, se adentrará en lugares progresivamente más desconocidos para ella, a la par que coge más confianza con su vista, permitiendo que su cordura se drene más lento mientras tenga la venda quitada. Al final de cada capítulo, se enfrentará a una silueta, una memoria de aspecto indefinido, de su pasado cegado. La silueta le guiará a través de una serie de eventos que le llevarán a una revelación personal.
+Tras haber recuperado su vista justo en el momento de la muerte de su padre, María decide vendarse los ojos para volver a la oscuridad. Se encierra en si misma, aferrándose a las tinieblas y a la memoria de su padre. En su estancia en su pueblo natal, conoce a varias personas que le abren los ojos, literal y metafóricamente, a las nuevas posibilidades que tiene por delante. 
 
-Al final del juego habrá un último paso hacia la iluminación en la que debe pasar por un «camino de lamentos» con la venda quitada todo el tiempo.
+Cuando su estado de ánimo ha sido restaurado, es capaz de conciliar su pena y dejar aceptar su nueva circunstancia.
 
 ### Eventos
 
@@ -169,7 +169,7 @@ Ejemplo de una evento de texto sencillo
 | Sprite | Nombre | Utilidad |
 |--------|--------|--------|
 | ![alt text](./assets/sprites/items/item_avoiddeath.png)| Figura tallada | Te Permite sobrevivir al evento de muerte |
-| ![alt text](./assets/sprites/items/item_baston.png)| Baston | Permite terminar el evento del vagabundo | 
+| ![alt text](./assets/sprites/items/item_baston.png)| Baston | Permite terminar el evento del vagabundo |
 | ![alt text](./assets/sprites/items/item_booze.png)| Botella | Permite terminar el evento de anciano |
 | ![alt text](./assets/sprites/items/item_emptybucket.png)| Cubo vacio | Permite iniciar el evento del pozo |
 | ![alt text](./assets/sprites/items/item_waterbucket.png)| Cubo con agua | Permite terminar el evento del pozo |
@@ -225,11 +225,11 @@ El juego ofrece tres menús al jugador: uno **principal** otro de **pausa** y un
 
 El juego ofrece varios indicadores de interfaz:
 
-- La **Barra de cordura** indica la cantidad de cordura y se muestra siempre en pantalla.
-- La **Barra de fé** indica la cantidad de fé y solo se muestra cuando este valor recibe cambios.
-- Los **Tooltips** se muestran al lado de los items y de los npcs y sirven de feedback al jugador.
-- Los **Controles** se muestran siempre en la esquina superior derecha.
-- El **Inventario** muestra los objetos que el jugador a recolectado durante la partida y solo se muestra al presionar la Q.
+- La **barra de cordura** indica la cantidad de cordura y se muestra siempre en pantalla.
+- La **barra de fé** indica la cantidad de fé y solo se muestra cuando este valor recibe cambios.
+- Los **tooltips** se muestran al lado de los items y de los npcs y sirven de feedback al jugador.
+- Los **controles** se muestran siempre en la esquina superior derecha.
+- El **inventario** muestra los objetos que el jugador a recolectado durante la partida y solo se muestra al presionar la Q.
 
 ![Inventario](./assets/media/features/inventory.gif)
 
