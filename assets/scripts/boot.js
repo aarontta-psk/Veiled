@@ -7,11 +7,7 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('playerblind', './assets/sprites/spritesheets/playerblind_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('boatofficial', './assets/sprites/spritesheets/boatofficial_sheet.png',
-            { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('brother', './assets/sprites/spritesheets/brother_sheet.png',
-            { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('captain', './assets/sprites/spritesheets/captain_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('hungryKid', './assets/sprites/spritesheets/child_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
@@ -27,13 +23,9 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('foreigner', './assets/sprites/spritesheets/foreigner_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('husband', './assets/sprites/spritesheets/husband_sheet.png',
-            { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('lumberjack', './assets/sprites/spritesheets/lumberjack_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('painter', './assets/sprites/spritesheets/painter_sheet.png',
-            { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet('police', './assets/sprites/spritesheets/police_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('seller', './assets/sprites/spritesheets/seller_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
@@ -43,14 +35,11 @@ export default class Boot extends Phaser.Scene {
             { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('dad', './assets/sprites/spritesheets/dad_sheet.png',
             { frameWidth: 64, frameHeight: 64 });
-
         this.load.spritesheet('ghost', './assets/sprites/spritesheets/oldman_sheet.png',
             { frameWidth: 128, frameHeight: 128 });
 
-        this.load.image('itemFX', './assets/sprites/item_fx.png');
         this.load.image('vision', './assets/sprites/black_circle.png');
         this.load.image('blindfold', './assets/sprites/black_background.png');
-        this.load.image('letter', './assets/sprites/letter.jpg')
 
         this.load.spritesheet('soundCircle', './assets/sprites/sound_circle.png',
             { frameWidth: 860, frameHeight: 904 });
@@ -114,9 +103,11 @@ export default class Boot extends Phaser.Scene {
         // Carga el codigo para usar webfonts
         this.load.script('webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 
-        // Carga de sonidos
-        this.load.audio('mainTheme', './assets/audio/music/theme.wav');
-        this.load.audio('menuSong', './assets/audio/music/menuSong.wav');
+        // Carga de musica
+        this.load.audio('mainTheme', './assets/audio/music/theme.mp3');
+        this.load.audio('menuSong', './assets/audio/music/menuSong.mp3');
+
+        // Carga de efectos de sonido
         this.load.audio('sfxActivateBlind', './assets/audio/sfx/blindfold_activate.wav');
         this.load.audio('sfxDesactivateBlind', './assets/audio/sfx/blindfold_deactivate.wav');
         this.load.audio('sfxSteps', './assets/audio/sfx/steps.wav');
@@ -138,20 +129,15 @@ export default class Boot extends Phaser.Scene {
         //creacion de animaciones
         this.createAnims('player', 8);
         this.createAnims('playerblind', 8);
-        this.createAnims('boatofficial', 4);
         this.createAnims('brother', 4);
-        this.createAnims('captain', 4);
         this.createAnims('hungryKid', 4);
         this.createAnims('doctor', 4);
         this.createAnims('glasses', 4);
         this.createAnims('elder', 4);
-        this.createAnims('farmer', 4);
         this.createAnims('fisherman', 4);
         this.createAnims('foreigner', 4);
-        this.createAnims('husband', 4);
         this.createAnims('lumberjack', 4);
         this.createAnims('painter', 4);
-        this.createAnims('police', 4);
         this.createAnims('seller', 4);
         this.createAnims('inkKeeper', 4);
         this.createAnims('vagabond', 4);
@@ -175,16 +161,17 @@ export default class Boot extends Phaser.Scene {
             google: {
                 families: ['Neucha']
             },
-            active: function () // se llama a esta función cuando está cargada
-            {
+            // se llama a esta función cuando está cargada
+            active: () =>{
                 // Inicializacion de la escena de juego
-                ref.scene.stop();
-                ref.scene.run('mainMenuScene');
+                this.scene.stop();
+                this.scene.run('mainMenuScene');
             }
         });
 
     }
 
+    //metodo generalizado para carga de animaciones de tooltips
     tooltipAnims(key, speed) {
         this.anims.create({
             key: key,
