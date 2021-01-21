@@ -27,18 +27,97 @@
         <link href="page_style_sheet.css" rel="stylesheet">
     </head>
 
-    <body> <!-- Color de fondo del cuerpo -->
-        <div class="center"> <!-- .center en el .css clase que lo centra arriba -->
-            <img src="./assets/media/headers/h_title_dark.png" alt="The Blind's Enlightenment: Unfold"
-                         style="width:800px;height:175px;">
-        </div>
-        <!-- 'a' para insertar el enlace-->
-        <!-- 'style position; right; top;' para colocarlo a la derecha -->
-        <a href="https://github.com/SrVonPsikerfy/TheBlindEnlightment" target="_blank" class="center">
-            <img src="./assets/media/headers/banner.png" alt="The Blind's Enlightenment: Unfold"
-                style="width:76px;height:147px;position:absolute;right:7%;top:0%;">
-        </a>
+    <body>
+        <!-- Encabezado con accesos a las secciones 'Jugar', 'Intro', 'Equipo' y 'Contacto' -->
+        <header>
+            <div>
+                <nav>
+                    <ul>
+                        <link><a href="#Play">Jugar</a> </link>
+                        <link><a href="#Intro">Intro</a> </link>
+                        <link><a href="#Team">Equipo</a> </link>
+                        <link><a href="#Contact">Contacto</a> </link>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <section id="Title"> 
+            <!-- Saltos de linea para poner el título bien colocado -->
+            <br>
+            <br>
+            <br>
+            <img src="./assets/media/headers/h_title_dark.png" alt="Veiled"
+                style="width:900px;height:200px;">
+        </section>
 
-        <script type="module" src="./assets/scripts/main.js"></script>
+        <section id="Intro">
+            <center>
+                <table width="50%">
+                    <tr>
+                        <td>
+                            <div align="justify">
+                                Historia breve, controles al lado
+                            </div>
+                        </td>
+                        <td width="50%">
+                            <img src="./assets/media/keybinds.png" alt="EAa"
+                            style="width:200px;height:90;">
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br>
+        </section>
+
+        <section id="Team">
+            <br>
+            <center>
+                <table width="50%">
+                    <tr>
+                        <td>
+                            <h1>EAa Team</h1>
+                            <div align="justify">
+                                cosas
+                            </div>
+                            
+                        </td>
+                        <td width="50%">
+                            <img src="./assets/media/branding/team_logo_blue.png" alt="EAa">
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br>
+        </section>     
+        
+        <section id="Contact">
+            <br>
+            <center>
+                <table width="20%">
+                    <tr>
+                        <td>
+                            <a href="https://github.com/SrVonPsikerfy/Veiled" target="_blank">
+                                <img src="./assets/media/github_logo.png" alt="EAa"
+                                    style="width:100px;height:90px;">
+                            </a>
+                        </td>
+                        <td width="50%">
+                            <a href="https://www.pivotaltracker.com/n/projects/2467983" target="_blank">
+                                <img src="./assets/media/pivotal_logo.png" alt="EAa"
+                                    style="width:100px;height:90px;">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <br>
+        </section>
+        
+        <section id="Play">
+            <script type="module" src="./assets/scripts/main.js"></script>
+        </section>
     </body>
 </html>
+
+
