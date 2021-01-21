@@ -2,16 +2,90 @@ img{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    size:initial;
 }
 
+/* Formato del encabezado */
+header{
+    /* Posición siempre en la parte superior */
+    position:fixed;
+
+    /* Ancho y alto */
+    width:100%;
+    height:50px;
+
+    /* Color de fondo y bordes */
+    background: #0064b6d0;
+    border-bottom: 4px solid #011c66e7;
+    border-left: 4px solid #464b02d0;
+}
+
+nav{
+    /* Ajustamos el margen para que este centrado */
+    margin: auto;
+    /* Alineamos el texto al centro */
+    text-align: center;
+    /* Ancho del menú dentro de la barra */
+    width:1000px;
+}
+
+nav link{ 
+    /* Posicion en el bloque */
+    display: inline-block;
+    margin-left: 80px;
+}
+
+nav ul{
+    /* Sin margen */
+    margin: 10;
+    padding: 0;
+    list-style: none;
+}
+
+/* Cosas de los enlaces del header */
+nav a{
+    /* Fuente */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* Formato */
+    text-decoration:none;
+    /* Color */
+    color:#000000;
+    /* Tamaño */
+    font-size: 150%;                
+}
+
+/* Cuando pones el ratón encima de las palabras del header */
+nav a:hover{
+    color: rgb(80, 80, 80);
+}
+
+/* Fondo para cada sección */
+#Play{
+    background: url("./assets/media/background.jpg") center top;
+}
+
+#Intro{
+    background: url("./assets/media/background.png") center top;
+}
+
+#Team{
+    background: url("./assets/media/background.png") center top;
+}
+
+#Contact{
+    background: url("./assets/media/background.jpg") center top;
+}
+
+#Title{
+    background: url("./assets/media/background.jpg") center top;
+}
+
+/* Formato del cuerpo */
 body {
-    background: url("./assets/media/background.jpg") no-repeat center top;
+    /* Imagen de fondo del cuerpo */
+    background: url("./assets/media/background.png") center top;
+    /* Cubre toda la pantalla */
+    background-size: cover;
+    margin:0px;
     min-height: 100%;
-    background-size:cover;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
