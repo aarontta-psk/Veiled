@@ -1,6 +1,5 @@
 import Npc from './npc.js';
 import { treeSmell, footSteps } from './stimulus.js';
-import Trigger, { EventTrigger } from './trigger.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor(key) {
@@ -66,45 +65,6 @@ export default class GameScene extends Phaser.Scene {
             npc.footsteps = null;
         npc.setStatic(isStatic);
         return npc;
-    }
-
-    generateStimulus(smells, sounds) {
-        this.triggerEvents = new Array();
-        for (const eventTrigger of this.map.getObjectLayer('eventTriggers').objects) {
-            let stim;
-            let position = { 'x': eventTrigger.x, 'y': eventTrigger.y };
-            switch (eventTrigger.name) {
-                case 'treeSmell1':
-                    stim = new treeSmell(smells, position);
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim,
-                        [this.scene.get('sickTree_Event_Idle'), this.scene.get('sickTree_Event_0')]));
-                    break;
-                case 'glasses':
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
-                        [this.scene.get('glassesItem_Event_0')]));
-                    break;
-                case 'tavern':
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
-                        [this.scene.get('tavern_Event_Idle'), this.scene.get('tavern_Event_0')]));
-                    break;
-                case 'cane':
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
-                        [this.scene.get('cane_Event_Idle'), this.scene.get('cane_Event_0')]));
-                    break;
-                case 'well':
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
-                        [this.scene.get('well_Event_0')]));
-                    break;
-                case 'coins':
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
-                        [this.scene.get('coins_Event_0')]));
-                    break;
-                case 'grave':
-                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
-                        [this.scene.get('grave_Event_0')]));
-                    break;
-            }
-        }
     }
 
     loadObjectives() {
