@@ -15,19 +15,22 @@ header{
     height:50px;
 
     /* Color de fondo y bordes */
-    background: #3cbd01d0;
-    border-bottom: 4px solid #194b02d0;
-    border-left: 4px solid #194b02d0;
+    background: #0064b6d0;
+    border-bottom: 4px solid #011c66e7;
+    border-left: 4px solid #464b02d0;
 }
 
 nav{
-    /*Ajustamos el margen para que este centrado*/
+    /* Ajustamos el margen para que este centrado */
     margin: auto;
-    /*Ancho del menú dentro de la barra*/
-    width:1000px; 
+    /* Alineamos el texto al centro */
+    text-align: center;
+    /* Ancho del menú dentro de la barra */
+    width:1000px;
 }
 
-nav link{  
+nav link{ 
+    /* Posicion en el bloque */
     display: inline-block;
     margin-left: 80px;
 }
@@ -53,7 +56,28 @@ nav a{
 
 /* Cuando pones el ratón encima de las palabras del header */
 nav a:hover{
-    color: red;
+    color: rgb(80, 80, 80);
+}
+
+/* Fondo para cada sección */
+#Play{
+    background: url("./assets/media/background.jpg") center top;
+}
+
+#Intro{
+    background: url("./assets/media/background.png") center top;
+}
+
+#Team{
+    background: url("./assets/media/background.png") center top;
+}
+
+#Contact{
+    background: url("./assets/media/background.jpg") center top;
+}
+
+#Title{
+    background: url("./assets/media/background.jpg") center top;
 }
 
 /* Formato del cuerpo */
