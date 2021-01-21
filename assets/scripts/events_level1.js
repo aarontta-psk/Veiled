@@ -1183,6 +1183,7 @@ export class doctorEvent_1 extends eventScene {
             {
                 text: 'Vale, veré que ocurre.',
                 cb: () => {
+                    this.scene.get('lumberjack_Event_Idle').completed = true;
                     this.completeMainEvent(5, 10);
                 }
             }
@@ -1493,7 +1494,7 @@ export class vagabond_Event_0 extends eventScene {
                                                 text: 'Ir a buscarlo.',
                                                 cb: () => {
                                                     this.scene.get('inkKeeper_Event_Idle').completed = true;
-                                                    this.scene.get('cane_Event_0').completed = true;
+                                                    this.scene.get('cane_Event_Idle').completed = true;
                                                     this.completeMainEvent(10, 10);
                                                 }
                                             }
