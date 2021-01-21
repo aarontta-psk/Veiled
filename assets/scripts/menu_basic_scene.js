@@ -1,6 +1,5 @@
 import Main from './main.js'
 
-
 export default class menuBasicScene extends Phaser.Scene{
     constructor(sceneKey){
         super({key: sceneKey});
@@ -64,7 +63,7 @@ export default class menuBasicScene extends Phaser.Scene{
     returnToMenuButton(x,y, scale){
         return this.createButton(x,y, scale, 'pauseMenuToMainMenu', (ref) => {
             const main = new Main();
-            main.restartGame(ref);
+            main.restartGame.apply(this);
         });
     }
     

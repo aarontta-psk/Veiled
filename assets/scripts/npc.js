@@ -1,8 +1,9 @@
 import EventHandler from './event_handler.js'
 
+//clase npc que puede moverse por el mapa y contiene una lista de eventos de texto
 export default class Npc extends EventHandler {
-    constructor(key, world, x, y, npcEvents, path, range) {
-        super(world, x, y, key, npcEvents); //llama a la constructora de Sprite
+    constructor(key, world, x, y, npcEvents, path, range) { 
+        super(world, x, y, key, npcEvents); //hereda de eventHandler, contiene una lista de eventos de las clases eventScene 
 
         this.scene.add.existing(this); //lo añades en la escena
         this.scene.matter.add.sprite(this);

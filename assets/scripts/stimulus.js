@@ -1,6 +1,7 @@
+//clase que se usa como estimulo general del que heredan el resto de estimulos
 export default class stimulus extends Phaser.GameObjects.Particles.ParticleEmitter{
     constructor(manager, position){
-        super(manager);
+        super(manager); //se crea el manager de particulas
         
         this.x = position.x;
         this.y = position.y;
@@ -20,7 +21,7 @@ export default class stimulus extends Phaser.GameObjects.Particles.ParticleEmitt
         this.emitzone = null;
         this.tint = null;
     }
-    createEmitter(manager){
+    createEmitter(manager){ //se crea el emisor con los parametros correspondientes
         this.emitter = manager.createEmitter({
             x:this.x,
             y:this.y,
@@ -37,6 +38,7 @@ export default class stimulus extends Phaser.GameObjects.Particles.ParticleEmitt
     }
 }
 
+//clase estimulo que representa una onda de sonido generica
 export class soundStimulus extends stimulus{
     constructor(manager, position){
         super(manager, position);
@@ -67,6 +69,7 @@ export class soundStimulus extends stimulus{
     }*/
 }
 
+//clase estimulo que representa un olor generico
 export class smell extends stimulus{
     constructor(manager, position){
         super(manager, position);
@@ -82,6 +85,7 @@ export class smell extends stimulus{
     }
 }
 
+//clase estimulo olor es usada en algunos eventTrigger
 export class treeSmell extends smell{
     constructor(manager, position){
         super(manager, position);
@@ -90,6 +94,7 @@ export class treeSmell extends smell{
     }
 }
 
+//clase estimulo sondio que es usada en los pasos de los npcs
 export class footSteps extends soundStimulus{
     constructor(manager){
         super(manager, {'x': 0, 'y': 0});
