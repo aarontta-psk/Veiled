@@ -1750,7 +1750,7 @@ export class vagabond_Event_0 extends eventScene {
                                         text: 'Algo le habrás hecho',
                                         next: [
                                             {
-                                                text: 'Nada de nada, la duda ofende. Soy la persona más respetable de este pueblo'
+                                                text: 'Nada de nada, la duda ofende. Soy la persona más respetable de este pueblo.'
                                             },
                                             {
                                                 text: 'Irse dudando de sus palabras.'
@@ -1764,7 +1764,7 @@ export class vagabond_Event_0 extends eventScene {
                 ]
             },
             {
-                text: 'Ignorarle'
+                text: 'Ignorarle.'
             }
         ]
     }
@@ -1795,7 +1795,7 @@ export class inkKeeper_Event_0 extends eventScene {
                 text: '¿Conoces al vagabundo?',
                 next: [
                     {
-                        text: '¿Qué si lo conozco? Bueno si lo conozco. Ese ruín se queda todas las noches hasta las tantas bebiendo ' +
+                        text: '¿Que si lo conozco? Bueno si lo conozco. Ese ruín se queda todas las noches hasta las tantas bebiendo ' +
                             'hasta que se queda dormido justo en la puerta de la taberna. A veces incluso se duerme dentro. Suerte ' +
                             'que no le vamos a volver a ver por aquí. Ahuyentaba a la clientela.'
                     },
@@ -1803,7 +1803,7 @@ export class inkKeeper_Event_0 extends eventScene {
                         text: '¿Qué quieres decir con eso?',
                         next: [
                             {
-                                text: 'Exactamente lo que he dicho. Sin su bastón ese desgraciado no volverá a asomar por aqui. Lo he tirado detrás ' +
+                                text: 'Exactamente lo que he dicho. Sin su bastón ese desgraciado no volverá a asomar por aquí. Lo he tirado detrás ' +
                                     'de la posada. Le he hecho un favor a todo el pueblo.'
                             },
                             {
@@ -1849,7 +1849,7 @@ export class vagabond_Event_1 extends eventScene {
         this.backgroundImage = 'mainEventMenu';
         this.content = [
             {
-                text: '-¿Ya estás de vuelta? Hecho bastante en falta mi bastón'
+                text: '-¿Ya estás de vuelta? Hecho bastante en falta mi bastón.'
             },
             {
                 text: 'Entregarle su bastón y contarle que ocurrió.',
@@ -1886,14 +1886,14 @@ export class grandmother_Event_0 extends eventScene {
         this.content = [
             {
                 text: 'Te acercas a tu abuela. Sabes que tiene algo importante que decirte, pero aún no sabes qué. \n' +
-                '(Punto de no retorno: Una vez te quites la venda terminará el nivel. Si quieres hacer algo más, vuelve más tarde)'
+                '(Punto de no retorno: Una vez te quites la venda terminará el nivel. Si quieres hacer algo más, vuelve más tarde).'
             },
             {
                 text: 'Quitarse la venda (Terminar el nivel).',
                 next: [
                     {
                         text: '-¡María!- Comienza a llorar al darse cuenta de lo que estas haciendo. -Tu padre... antes ' +
-                            'de morir, dejó esta carta. Creo que deberías ser tú quien la lea primero'
+                            'de morir, te dejó esta carta. Creo que deberías ser tú quien la lea primero.'
                     },
                     {
                         text: 'Coges la carta, y te preparas para leerla.',
@@ -1902,7 +1902,7 @@ export class grandmother_Event_0 extends eventScene {
                         condition: function (ref) {
                             return (ref.info.player.faith >= LEVEL_FAITH_NEEDED);
                         },
-                        failedText: 'Aún no tienes suficiente fe. Ayuda a otra gente para conseguir más.',
+                        failedText: 'Aún no tienes suficiente fe. Ayuda a otras personas para conseguir más.',
                         end: true,
                         cb: () => {
                             this.completeEvent(0, 0);
@@ -2162,7 +2162,7 @@ export class deathEvent_0 extends eventScene {
                 ]
             },
             {
-                text: 'Resistirse desesperadamente',
+                text: 'Resistirse desesperadamente.',
                 cb: () => {
                     if (Math.random() > this.info.player.deathProbability) {
                         this.content[3].next = [
