@@ -514,6 +514,7 @@ export class foreigner_Event_0 extends eventScene {
                     {
                         text: '*Suspirar* Bueno, pasaré por la posada',
                         cb: () => {
+                            this.scene.get('tavern_Event_Idle').completed = true;
                             this.completeEvent(10, 10);
                         }
                     },
