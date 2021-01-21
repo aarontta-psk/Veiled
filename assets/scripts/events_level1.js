@@ -514,6 +514,7 @@ export class foreigner_Event_0 extends eventScene {
                     {
                         text: '*Suspirar* Bueno, pasaré por la posada',
                         cb: () => {
+                            this.scene.get('tavern_Event_Idle').completed = true;
                             this.completeEvent(10, 10);
                         }
                     },
@@ -897,7 +898,7 @@ export class lumberjack_Event_Idle extends eventScene {
             }
         ]
     }
-}
+}   
 
 export class vagabond_Event_Idle extends eventScene {
     constructor() {
@@ -915,14 +916,14 @@ export class vagabond_Event_Idle extends eventScene {
     }
 }
 
-export class  inkKeeper_Event_Idle extends eventScene {
+export class  tavern_Event_Idle extends eventScene {
     constructor() {
-        super({ key: 'inkKeeper_Event_Idle' });
+        super({ key: 'tavern_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'El tabernero parece estar limpiando los cristales, parece ocupado.'
+                text: 'Hay una ventana cerrada. La posada parece estar cerrada'
             },
             {
                 text: 'Volver más tarde.'
@@ -962,6 +963,23 @@ export class grandmother_Event_Idle extends eventScene {
         ]
     }
 }
+
+export class inkKeeper_Event_Idle extends eventScene{
+    constructor() {
+        super({ key: 'inkKeeper_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'La anciana, a quien no distingues, está triste, llorando por alguien.'
+            },
+            {
+                text: 'Mejor no molestarla.'
+            }
+        ]
+    }
+}
+
 //#endregion
 
 
@@ -1475,6 +1493,7 @@ export class vagabond_Event_0 extends eventScene {
                                                 text: 'Ir a buscarlo.',
                                                 cb: () => {
                                                     this.scene.get('inkKeeper_Event_Idle').completed = true;
+                                                    this.scene.get('cane_Event_0').completed = true;
                                                     this.completeMainEvent(10, 10);
                                                 }
                                             }
