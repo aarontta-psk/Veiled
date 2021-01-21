@@ -78,12 +78,10 @@ export default class eventScene extends Phaser.Scene {
     }
 
     completeMainEvent(sanityToAdd, faithToAdd){
-        this.completeEvent(sanityToAdd, faithToAdd);
         //si devuelve false, ya no quedan objetivos
         this.info.prevScene.nextObjective();
         this.info.prevScene.silhouette.nextEvent().completed = true;
-        this.info.prevScene.gui.silhouetteTooltip.setVisible(true); 
-
+        this.completeEvent(sanityToAdd, faithToAdd);
     }
 }
 

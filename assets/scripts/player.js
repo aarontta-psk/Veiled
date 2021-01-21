@@ -37,6 +37,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.faith = startingFaith //al instanciarse en el nivel, tiene que recibir la de del nivel anterior
         this.faithCheck = 30; //cantidad de fe a partir de la cual no se podrá restar mas fe, dado que se necesita un minimo para completar el nivel
         this.numCompletedEvents = 0;
+        this.objective = 0;
 
         this.inventory = new Inventory(this.scene);
 
@@ -181,6 +182,17 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         //me aseguro de que su valor nunca es negativo
         if (this.faith < 0) this.faith = 0;
         this.scene.gui.viewFaith(this.faith);
+        
+        //al conseguir fe puede ser necesario mostrar el tooltip del padre
+        this.showSilhouetteTooltip();
+    }
+
+    showSilhouetteTooltip(){
+        if (this.scene.objectiveMarker !== undefined){
+            const obj = this.scene.objectives[this.scene.currentObjective];
+            if (obj.faithReq <= this.faith) this.scene.gui.silhouetteTooltip.setVisible(true);
+            else this.scene.gui.silhouetteTooltip.setVisible(false);
+        }   
     }
 
     //metodo que establece la muerte del jugador
