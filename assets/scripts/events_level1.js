@@ -1081,9 +1081,9 @@ export class brother_Event_0 extends eventScene {
     }
 }
 
-export class doctorEvent_0 extends eventScene {
+export class doctor_Event_0 extends eventScene {
     constructor() {
-        super({ key: 'doctorEvent_0' });
+        super({ key: 'doctor_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.adviceAccepted = [
@@ -1149,9 +1149,9 @@ export class doctorEvent_0 extends eventScene {
     }
 }
 
-export class doctorEvent_1 extends eventScene {
+export class doctor_Event_1 extends eventScene {
     constructor() {
-        super({ key: 'doctorEvent_1' });
+        super({ key: 'doctor_Event_1' });
         //array con los elementos de un evento
         this.backgroundImage = 'mainEventMenu';
         this.fernandoIntroduction = [
@@ -1201,9 +1201,9 @@ export class doctorEvent_1 extends eventScene {
     }
 }
 
-export class doctorEvent_2 extends eventScene {
+export class doctor_Event_2 extends eventScene {
     constructor() {
-        super({ key: 'doctorEvent_2' });
+        super({ key: 'doctor_Event_2' });
         //array con los elementos de un evento
         this.backgroundImage = 'mainEventMenu';
         this.content = [
@@ -1249,9 +1249,9 @@ export class doctorEvent_2 extends eventScene {
     }
 }
 
-export class doctorEvent_3 extends eventScene {
+export class doctor_Event_3 extends eventScene {
     constructor() {
-        super({ key: 'doctorEvent_3' });
+        super({ key: 'doctor_Event_3' });
         //array con los elementos de un evento
         this.backgroundImage = 'mainEventMenu';
         this.content = [
