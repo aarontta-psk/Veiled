@@ -1,3 +1,7 @@
+@font-face{
+    font-family: Neucha; src: url(./assets/font/neucha.otf)
+}
+
 img{
     display: block;
     margin-left: auto;
@@ -45,7 +49,7 @@ nav ul{
 /* Cosas de los enlaces del header */
 nav a{
     /* Fuente */
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Neucha, bold;
     /* Formato */
     text-decoration:none;
     /* Color */
