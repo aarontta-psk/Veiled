@@ -36,16 +36,15 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
 
         this.faith = startingFaith //al instanciarse en el nivel, tiene que recibir la de del nivel anterior
         this.faithCheck = 30; //cantidad de fe a partir de la cual no se podrá restar mas fe, dado que se necesita un minimo para completar el nivel
-        this.numCompletedEvents = 0;
-        this.objective = 0;
+        this.numCompletedEvents = 0; //numero de eventos completados que se muestran al final del nivel
 
-        this.inventory = new Inventory(this.scene);
+        this.inventory = new Inventory(this.scene); //inventario que contiene los items que se cogen a lo largo de la partida
 
-        this.spawnPoint = { x: x, y: y };
+        this.spawnPoint = { x: x, y: y }; //punto de aparicion
         this.spawnBounds = [spawnPoint.properties[3].value, spawnPoint.properties[1].value,
-        spawnPoint.properties[2].value, spawnPoint.properties[0].value]
+        spawnPoint.properties[2].value, spawnPoint.properties[0].value] //limites de la camara al reaparecer
 
-        this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas de direccion
+        this.cursorsPlayer = this.scene.input.keyboard.addKeys({ //teclas para el input por teclado
             up: Phaser.Input.Keyboard.KeyCodes.W,
             down: Phaser.Input.Keyboard.KeyCodes.S,
             left: Phaser.Input.Keyboard.KeyCodes.A,
@@ -57,13 +56,12 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
             pause: Phaser.Input.Keyboard.KeyCodes.ESC,
         });
 
-        console.log('faith: ' + this.faith);
-
         //Guardamos el sonido de los pasos
         this.stepSound = this.scene.sound.add('sfxSteps');
     }
 
     preUpdate(time, delta) {
+        //cambio de sprite del jugador en funcion de si lleva la venda puesta o no
         if (this.scene.blindfold.blind && this.texture.key !== 'playerblind') this.setTexture('playerblind');
         else if (!this.scene.blindfold.blind && this.texture.key !== 'player') this.setTexture('player');
 
@@ -90,8 +88,10 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
                 this.stepSound.loop = true;
             }
         }
+        //en caso contrario evitamos que el sonido continue
         else this.stepSound.loop = false;
 
+        //actualizamos la flecha que indica hacia donde ir
         if (this.scene.objectiveMarker !== undefined)
             this.scene.objectiveMarker.updateObjectiveMarker();
     }
@@ -149,10 +149,10 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
                 this.sanity -= (this.decay * this.sanity / this.sanityLogThreshold) * 0.9 + this.decay * 0.1;
         }
         if (this.sanity < 0.1 && this.death === this.deathState.Alive) {//si se gasta la cordura
-            this.enableInputs(false);
-            this.scene.cameras.main.fadeOut(2000);
-            this.death = this.deathState.CheckDeath;
-            this.scene.sound.play('sfxDeath');
+            this.enableInputs(false); //desactivamos el input
+            this.scene.cameras.main.fadeOut(2000); //hacemos un fundido a negro en la camara
+            this.death = this.deathState.CheckDeath; //cambiamos el estado de muerte
+            this.scene.sound.play('sfxDeath'); //sonido de muerte
         }
     }
 
@@ -164,6 +164,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         else if (this.sanity < 0) this.sanity = 0;
     }
 
+    //metodo para establecer una nueva cordura maxima
     setMaxSanity(newMax) {
         this.maxSanity = newMax;
     }
@@ -187,6 +188,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         this.showSilhouetteTooltip();
     }
 
+    //metodo para mostrar la el tooltip de la siluta (el padre) cuando sea necesario
     showSilhouetteTooltip(){
         if (this.scene.objectiveMarker !== undefined){
             const obj = this.scene.objectives[this.scene.currentObjective];
@@ -195,32 +197,34 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         }   
     }
 
-    //metodo que establece la muerte del jugador
+    //metodo que establece que el jugador esta muerto
     setDead() {
         this.death = this.deathState.Dead;
     }
 
+    //metodo que establece que el jugador esta vivo
     setAlive() {
         this.death = this.deathState.Alive;
     }
 
-    //reaparicion tras muerte
+    //metodo que reaparicion tras muerte
     die(blindfold, silhouette) {
+        //reiniciamos posicion y velocidad
         this.setPosition(this.spawnPoint.x, this.spawnPoint.y);
         this.setVelocity(0, 0);
 
-        this.scene.readjustTriggers();
-        this.scene.cameras.main.setBounds(this.spawnBounds[0], this.spawnBounds[1], this.spawnBounds[2], this.spawnBounds[3]);
-        this.scene.deathBlindfold(blindfold, silhouette);
+        this.scene.readjustTriggers(); //reajustmaos los triggers de cambio de seccion del mapa
+        this.scene.cameras.main.setBounds(this.spawnBounds[0], this.spawnBounds[1], this.spawnBounds[2], this.spawnBounds[3]); //restablecemos los bounds de la camara
+        this.scene.deathBlindfold(blindfold, silhouette); //reiniciamos la venda al morir
 
-        this.sanity = this.sanityLogThreshold;
-        this.death = this.deathState.Alive;
+        this.sanity = this.sanityLogThreshold; //cordura con la que se reaparece tras morir
+        this.death = this.deathState.Alive; //cambiamos el estado de muerte a vivo
     }
 
     //metodo para que el personaje no se quede pillado al moverse o al hacer otra accion
     resetInputs() {
         for (const property in this.cursorsPlayer) {
-            this.cursorsPlayer[property].reset();
+            this.cursorsPlayer[property].reset(); //reiniciamos cada tecla del input
         }
     }
 
@@ -230,6 +234,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         for (const property in this.cursorsPlayer) {
             this.cursorsPlayer[property].enabled = boolean;
         }
+        //cambiamos la animación del jugador para que se quede quieto
         this.anims.play('idle_' + this.frame.texture.key, true);
     }
 }
