@@ -207,7 +207,7 @@ Música Menu Principal: In The Light - David Renda
 
 ![Controles](./assets/media/headers/h_controles.png)
 
-Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario. Para los menus y eventos, se podrá interactuar utilizando el ratón, clicando en las posibles opciones que se presentan.
+Para jugar se necesitará el **teclado**, siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario y la R sera usada en ocasiones especiales para hablar con el fantasma de tu padre, la silueta. En los menus, eventos y para usar objetos de inventario se podrá interactuar utilizando el **ratón**.
 
 ![Keybinds](./assets/media/keybinds.png)
 
@@ -223,9 +223,13 @@ El juego ofrece tres menús al jugador: uno **principal** otro de **pausa** y un
 
 ### Interfaz
 
-La interfaz en la pantalla de juego es muy minimalista compuesta solo de la barra de ¿CORDURA?, contador de fe, pequeños _tooltips_ al acercarse a ciertos objetos con los que el jugador puede interactuar.
+El juego ofrece varios indicadores de interfaz:
 
-Además de la interfaz principal contara con un overlay simple de inventario donde se mostrarán lo objetos recolectados por el juagador durante la partida.
+- La **Barra de cordura** indica la cantidad de cordura y se muestra siempre en pantalla.
+- La **Barra de fé** indica la cantidad de fé y solo se muestra cuando este valor recibe cambios.
+- Los **Tooltips** se muestran al lado de los items y de los npcs y sirven de feedback al jugador.
+- Los **Controles** se muestran siempre en la esquina superior derecha.
+- El **Inventario** muestra los objetos que el jugador a recolectado durante la partida y solo se muestra al presionar la Q.
 
 ![Inventario](./assets/media/features/inventory.gif)
 
