@@ -109,13 +109,15 @@ El juego tiene una dificultad baja y una longitud relativamente corta. Se espera
 
 ### Niveles
 
-En un principio, el juego estará divido en **tres niveles principales** , además del **preludio** y el **nivel final** :
+#### Preludio
+El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una "pequeña" historia con el padre antes de morir.
 
-- Preludio: El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una "pequeña" historia con el padre antes de morir.
-- Pueblo: El jugador continuara explorando su pueblo natal interactuando con personajes de su infancia. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren.
-- Ciudad (Puerto): El jugador regresa a su casa en la zona portuaria de la ciudad y después de confrontar a su marido, el jugador tendrá que explorar zonas alrededor de su casa completando misiones. El nivel estará centrado en el puerto, una zona más pobre de la ciudad donde la mayoría de los habitantes viven de y para la industria generada por el mismo.
-- Ciudad (Centro): María se adentra en el centro de la ciudad originalmente en busca de alguien que pueda enseñarle a leer sin enfrentarse a la vergüenza de aprender con alguien conocido. El monumento central de este mapa es la iglesia.
-- Nivel Final: Tras un pequeño salto temporal, María llega a la catedral, donde el obispo le cuenta la reciente muerte de su hija. Tras hacer un paralelismo con su situación, se lee la carta de su padre. A mitad de la carta, llena de dolor, sale corriendo de la catedral, corriendo por un pasillo en el que se tiene que enfrentar a los susurros con los que ha hablado, hasta llegar al final del pasillo y encontrar la iluminación.
+#### Pueblo
+El jugador continuara explorando su pueblo natal interactuando con personajes de su infancia. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren.
+![pueblo](./assets/media/level_01.png)
+
+#### Epílogo
+Tras un pequeño salto temporal, María llega a la catedral, donde el obispo le cuenta la reciente muerte de su hija. Tras hacer un paralelismo con su situación, se lee la carta de su padre. A mitad de la carta, llena de dolor, sale corriendo de la catedral, corriendo por un pasillo en el que se tiene que enfrentar a los susurros con los que ha hablado, hasta llegar al final del pasillo y encontrar la iluminación.
 
 ### Historia
 
@@ -203,10 +205,6 @@ Resto del arte creado por nosotros, puedes consultar los archivos fuente en este
 
 Música Menu Principal: In The Light - David Renda
 
-[Ejemplo de efecto de sonido para cuando se baja un nivel de visión](https://www.storyblocks.com/audio/stock/big-object-falling-hit-hxbni32udhk0wxsh7x.html)
-
-[Ejemplo de efecto de sonido para cuando se sube un nivel de visión](https://www.storyblocks.com/audio/stock/chime-harmony-hexslt328dsk0wxut4d.html)
-
 ![Controles](./assets/media/headers/h_controles.png)
 
 Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario. Para los menus y eventos, se podrá interactuar utilizando el ratón, clicando en las posibles opciones que se presentan.
@@ -235,31 +233,15 @@ Además de la interfaz principal contara con un overlay simple de inventario don
 
 ![Prototipado](./assets/media/headers/h_prototipado.png)
 
-### Arquitectura
+![API](./assets/media/headers/h_arquitectura.png)
 
 ![Game API](./assets/media/game_API.png)
-
-### Nivel 1
-
-![Level 1](./assets/media/village_level.png)
-
-![Level 1 new](./assets/media/village_level_new.png)
-
-### Relación Fe-Cordura
-
-Cordura baja menos si Fe alta. Así el jugador es capaz de usar la venda con más frecuencia según avanza el juego.
-
-| | Principal | Eventos | Nivel |
-|--------|--------|--------|-------------|
-| **Recompensa** | Fe (~80 % del requisito del nivel) | Cordura (+ pequeña cant. Fe) | N/A |
-| **Requisitos** | Cordura alta  | Nada (salvo excepciones) | 100% Fe del nivel |
 
 ![Referencias](./assets/media/headers/h_referencias.png)
 
 - *La venda, Miguel de Unamuno, 1899. (Temática principal)*
 - *Zelda: Link's Awakening (mundo)*
 - *Into the Breach (mapa en cuanto a apariencia)*
-- *Dark Souls (Iglesia)*
 - *Stardew Valley (mapa en cuanto a distribución)*
 - *Perception (Mecánica de visión)*
 - *Lego Games (Fe)*
