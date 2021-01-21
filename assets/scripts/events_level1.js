@@ -569,35 +569,35 @@ export class tavern_Event_0 extends eventScene {
         this.backgroundImage = 'secondaryEventMenu';
         this.content = [
             {
-                text: 'Tras un rato buscando encuntras la posada de la que te ha hablado el extranjero. ' +
-                    'Está cerrada, como ya te ha dicho'
+                text: 'Tras un rato buscando encuentras la posada de la que te ha hablado el extranjero. ' +
+                    'Está cerrada, como ya te ha dicho.'
             },
             {
-                text: 'Llamar a la puerta',
+                text: 'Llamar a la puerta.',
                 next: [
                     {
-                        text: 'Aporreas la puerta 3 veces. Al rato vuelves a hacerlo. No hay respuesta'
+                        text: 'Aporreas la puerta tres veces. Al rato vuelves a hacerlo. No hay respuesta.'
                     },
                     {
-                        text: 'Irse'
+                        text: 'Irse.'
                     }
                 ]
             },
             {
-                text: 'Llamar a la ventana',
+                text: 'Llamar a la ventana.',
                 next: [
                     {
                         text: 'Dando pequeños golpes a la ventana, escuchas como alguien se levanta y la abre.' +
-                            'Una mujer somnolienta te habla -*Bostezo* ¿Si? ¿Que ocurre?'
+                            'Una mujer somnolienta te habla -*Bostezo* ¿Sí? ¿Qué ocurre?'
                     },
                     {
                         text: '¿Está la posada abierta?',
                         next: [
                             {
-                                text: 'En lo que le preguntabas...Se ha vuelto a quedar dormida'
+                                text: 'En lo que le preguntabas...Se ha vuelto a quedar dormida.'
                             },
                             {
-                                text: '*Suspiro* Tendre que llamar otra vez'
+                                text: '*Suspiro* Tendré que llamar otra vez.'
                             }
                         ]
                     },
@@ -605,19 +605,19 @@ export class tavern_Event_0 extends eventScene {
                         text: '¿Por qué me has ignorado?',
                         next: [
                             {
-                                text: '-¿Qué? Creo que me he quedado dormido. Normalmente es Miguel quien se encarga de recibir ' +
-                                    'a los clientes. Salió hace rato. Si quieres algo tendrás que hablar con él'
+                                text: '-¿Qué? Creo que me he quedado dormida. Normalmente es Miguel quien se encarga de recibir ' +
+                                    'a los clientes. Salió hace rato. Si quieres algo tendrás que hablar con él.'
                             },
                             {
-                                text: 'Ire a buscarle pues',
+                                text: 'Iré a buscarle pues.',
                                 next: [
                                     {
-                                        text: '-Espera un segundo. Miguel se pasa el dia en las nubes. No te hara caso así como así. ' +
-                                            'Toma esto-Te ofrece un cubo de madera vacío -Llena este cubo con agua. Ya lo entenderás cuando lo ' +
+                                        text: '-Espera un segundo. Miguel se pasa el día en las nubes. No te hara caso así como así. ' +
+                                            'Toma esto- Te ofrece un cubo de madera vacío -Llena este cubo con agua. Ya lo entenderás cuando lo ' +
                                             'veas.'
                                     },
                                     {
-                                        text: 'Coger el cubo y marcharse',
+                                        text: 'Coger el cubo y marcharse.',
                                         cb: () => {
                                             this.info.prevScene.insertItem(new EmptyBucketItem(this.info.prevScene.matter.world,
                                                 0, 0, this.info.prevScene.itemFrames[5], this.info.player));
@@ -631,13 +631,13 @@ export class tavern_Event_0 extends eventScene {
                 ]
             },
             {
-                text: 'Preguntar en alto si hay alguien ahí',
+                text: 'Preguntar en alto si hay alguien ahí.',
                 next: [
                     {
-                        text: 'Alzas la voz y preguntas -¿Hola? ¿Hay alguien?- No obtienes respuesta'
+                        text: 'Alzas la voz y preguntas -¿Hola? ¿Hay alguien?- No obtienes respuesta.'
                     },
                     {
-                        text: 'Irse'
+                        text: 'Irse.'
                     }
                 ]
             }
@@ -654,10 +654,10 @@ export class glassesItem_Event_0 extends eventScene {
         this.content = [
             {
                 text: 'Siguiendo la orilla del río te percatas de unas gafas que se encuentran ocultas en la hierba. ' +
-                    'Huelen igual que la colonia del señor del río'
+                    'Huelen igual que la colonia del señor del río.'
             },
             {
-                text: 'Coger las gafas',
+                text: 'Coger las gafas.',
                 cb: () => {
                     this.info.prevScene.insertItem(new GlassesItem(this.info.prevScene.matter.world,
                         0, 0, this.info.prevScene.itemFrames[8], this.info.player));
@@ -665,7 +665,7 @@ export class glassesItem_Event_0 extends eventScene {
                 }
             },
             {
-                text: 'No coger las gafas'
+                text: 'No coger las gafas.'
             }
         ]
     }
@@ -678,23 +678,23 @@ export class glasses_Event_0 extends eventScene {
         this.backgroundImage = 'secondaryEventMenu';
         this.content = [
             {
-                text: 'En la orilla del rio se encuentra alguien. Por algún motivo huele mucho a colonia. No te presta ' +
+                text: 'En la orilla del río se encuentra alguien. Por algún motivo huele mucho a colonia. No te presta ' +
                     'atención, está demasiado concentrado en algo.'
             },
             {
                 text: '¿Te ocurre algo?',
                 next: [
                     {
-                        text: 'No responde, esta demasiado centrado en lo suyo'
+                        text: 'No responde, esta demasiado centrado en lo suyo.'
                     },
                     {
-                        text: 'Irse'
+                        text: 'Irse.'
                     }
                 ]
             },
             {
-                text: 'Llamar su atención',
-                failedText: 'No tienes un cubo con agua',
+                text: 'Llamar su atención.',
+                failedText: 'No tienes un cubo con agua.',
                 condition: function (ref) {
                     return (ref.info.player.inventory.contains('Cubo con agua'));
                 },
@@ -703,10 +703,10 @@ export class glasses_Event_0 extends eventScene {
                 },
                 next: [
                     {
-                        text: '¿Pero qué... se puede saber qué haces? Si querías algo de mí podrías habermelo dicho',
+                        text: '¿Pero qué... se puede saber qué haces? Si querías algo de mí, podrías habérmelo dicho.',
                     },
                     {
-                        text: '...Parece que ahora si escuchas',
+                        text: '...Parece que ahora sí escuchas.',
                         cb: () => {
                             this.completeEvent(10, 10);
                         }
@@ -727,21 +727,21 @@ export class glasses_Event_1 extends eventScene {
                 text: '¿A qué ha venido eso de tirarme un cubo de agua?'
             },
             {
-                text: 'Eso es de parte de alguien de la posada',
+                text: 'Eso es de parte de alguien de la posada.',
                 next: [
                     {
                         text: '...Maldita. En cuanto vuelva me las va a pagar. Habría vuelto hace rato, pero ' +
                             'he perdido mis gafas. Sin ellas no puedo trabajar. Llevo horas buscando pero no aparecen.'
                     },
                     {
-                        text: 'Puedo ayudarte a buscarlas',
+                        text: 'Puedo ayudarte a buscarlas.',
                         next: [
                             {
                                 text: 'Eso sería muy amable por tu parte. Tienen que estar en la ribera del río. ' +
                                     'Cuando paseo no me gusta llevarlas puestas, es probable que se me cayeran.'
                             },
                             {
-                                text: 'Voy a buscarlas',
+                                text: 'Voy a buscarlas.',
                                 cb: () => {
                                     this.completeEvent(15, 15);
                                 }
@@ -751,14 +751,14 @@ export class glasses_Event_1 extends eventScene {
                 ]
             },
             {
-                text: 'No me estabas escuchando',
+                text: 'No me estabas escuchando.',
                 next: [
                     {
                         text: '-Si solo vienes a molestar ya puedes irte, estoy bastante ocupado y ahora además empapado.- ' +
-                            'Te das cuenta de que no le ha sentado nada bien, te hace sentir un poco mal'
+                            'Te das cuenta de que no le ha sentado nada bien, te hace sentir un poco mal.'
                     },
                     {
-                        text: 'Irse',
+                        text: 'Irse.',
                         cb: () => {
                             this.info.player.addSanity(-5);
                         }
@@ -779,8 +779,8 @@ export class glasses_Event_2 extends eventScene {
                 text: '¿Encontraste las gafas?'
             },
             {
-                text: 'Mostrarle las gafas',
-                failedText: 'Aun no has encontrado las gafas',
+                text: 'Mostrarle las gafas.',
+                failedText: 'Aun no has encontrado las gafas.',
                 condition: function (ref) {
                     return (ref.info.player.inventory.contains('Gafas'))
                 },
@@ -790,15 +790,15 @@ export class glasses_Event_2 extends eventScene {
                 },
                 next: [
                     {
-                        text: '-¡Estupendo! Ya puedo volver a trabajar. La posada abrirá de noche',
+                        text: '-¡Estupendo! Ya puedo volver a trabajar. La posada abrirá de noche.',
                     },
                     {
-                        text: 'Gracias'
+                        text: 'Gracias.'
                     }
                 ]
             },
             {
-                text: 'Aún no, sigo buscando'
+                text: 'Aún no, sigo buscando.'
             }
         ]
     }
@@ -819,7 +819,7 @@ export class brother_Event_Idle extends eventScene {
                 text: 'El olor a tabaco barato te delata que tu hermano Pedro está sentado en la puerta de la casa fumando. Al igual que tú, los eventos recientes le han alterado. Mejor dejarle este momento de calma.'
             },
             {
-                text: 'Volver más tarde'
+                text: 'Volver más tarde.'
             }
         ]
     }
@@ -848,7 +848,7 @@ export class doctor_Event_Idle_1 extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: '¿Hablaste con Fernando?.'
+                text: '¿Hablaste con Fernando?'
             },
             {
                 text: 'Aún no.'
@@ -920,7 +920,7 @@ export class  tavern_Event_Idle extends eventScene {
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'Hay una ventana cerrada. La posada parece estar cerrada'
+                text: 'Hay una ventana cerrada. La posada parece estar cerrada.'
             },
             {
                 text: 'Volver más tarde.'
@@ -1225,7 +1225,7 @@ export class doctor_Event_2 extends eventScene {
                         text: 'No me molesta.',
                         next:[
                             {
-                                text: 'Estaré esperando a oir noticias tuyas entonces.'
+                                text: 'Estaré esperando a oír noticias tuyas entonces.'
                             },
                             {
                                 text: 'Despedirse.',
@@ -1256,7 +1256,7 @@ export class doctor_Event_3 extends eventScene {
         this.backgroundImage = 'mainEventMenu';
         this.content = [
             {
-                text: 'El doctor te saluda desde lejos con una grande sonrisa en su rostro. \n' +
+                text: 'El doctor te saluda desde lejos con una gran sonrisa en su rostro. \n' +
                     '-¿Has cumplido con lo que te pedí?'
             },
             {
@@ -1267,9 +1267,9 @@ export class doctor_Event_3 extends eventScene {
                 },
                 next: [
                     {
-                        text: '-Ya veo...Ya has visto. Te niegas a ver la realidad como es, pero cuando necesitas ' +
+                        text: '-Ya veo... Ya has visto. Te niegas a ver la realidad como es, pero cuando necesitas ' +
                             'hacerlo, realmente ayudas a la gente. ¿No lo ves? Confío en que entiendes de lo que te hablo.- ' +
-                            'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela paso por aquí hace un momento. ' +
+                            'El doctor hace se toma un momento para sentarse en el banco. -Tu abuela pasó por aquí hace un momento. ' +
                             'Decía que tenía algo para ti. Deberías ir a buscarla. Y por favor, piensa en lo que te he dicho.'
                     },
                     {
@@ -1393,7 +1393,7 @@ export class lumberjack_Event_1 extends eventScene {
             },
             {
                 text: 'Llamar su atención.',
-                failedText: 'Aún no has encontrado todos los árboles enfermos',
+                failedText: 'Aún no has encontrado todos los árboles enfermos.',
                 condition: function (ref) {
                     return ( ref.scene.get('sickTree_Event_0').completed === true)
                 }, 
@@ -1448,8 +1448,8 @@ export class vagabond_Event_0 extends eventScene {
                 text: 'Hola, vengo de parte del doctor.',
                 next: [
                     {
-                        text: '-Si queria algo más me lo podría haber dicho justo ahora que he hablado con él. No necesito ' +
-                            'que me traiga un mensajero. Anda, dejame tranquilo.-'
+                        text: '-Si quería algo más me lo podría haber dicho justo ahora que he hablado con él. No necesito ' +
+                            'que me traiga un mensajero. Anda, déjame tranquilo.'
                     },
                     {
                         text: 'Abandonarle un poco ofendida.',
@@ -1465,7 +1465,7 @@ export class vagabond_Event_0 extends eventScene {
                     {
                         text: '-¿Nadie? Me lo habré imaginado.- No parece haberte visto. Fijándote en el sonido de sus pasos ' +
                             'te das cuenta de que camina raro. Esa forma de caminar es la misma que como caminabas poco después de ' +
-                            'quedarte ciega'
+                            'quedarte ciega.'
                     },
                     {
                         text: 'Perdona, ¿acaso eres ciego?',
