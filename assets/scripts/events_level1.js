@@ -25,7 +25,7 @@ export class elder_Event_0 extends eventScene {
                 next: [
                     {
                         text: '-Claramente no. ¿No lo ves? Claro que no lo ves. En fin, se te nota perdida por aquí. ¿Hace tiempo\n' +
-                            'que no caminas por el pueblo? Te puedo contar como va todo por aquí- con dificultad, el hombre se sienta derecho -pero por favor, sé un ángel y acércame mi botella; está ahí caída. Toma un poco si quieres.\n' +
+                            'que no caminas por el pueblo? Te puedo contar como va todo por aquí- con dificultad, el hombre se sienta derecho -pero por favor, sé un ángel y acércame mi botella; está ahí caída. Toma un poco si quieres.'
                     },
                     {
                         text: 'Darle la botella.',
@@ -73,8 +73,8 @@ export class elder_Event_1 extends eventScene {
                 text: '¿Qué hay en la plaza?',
                 next: [
                     {
-                            'y una posada, aunque está cerrada. Ah, y un pozo del que sacamos agua.'
                         text: '-Bueno, ya sabes, es donde vive la gente y donde hacen principalmente su vida. Tenemos un mercado sencillo- el hombre traga saliva -' +
+                        'y una posada, aunque está cerrada. Ah, y un pozo del que sacamos agua.'
                     },
                     {
                         text: 'Gracias por la información'
