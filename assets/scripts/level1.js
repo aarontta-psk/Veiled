@@ -4,11 +4,12 @@ import Player from './player.js';
 import Item, {
     PotionItem, SickTreeItem, BlessingItem, SacredFireItem, AvoidDeathItem, BoozeItem, FoodItem
 } from './item.js';
-import Trigger from './trigger.js';
 import GUI from './gui.js';
 import Silhouette from './silhouette.js'
 import EventHandler from './event_handler.js';
 import ObjectiveMarker from './objective_marker.js';
+import Trigger, { EventTrigger } from './trigger.js';
+import { treeSmell, footSteps } from './stimulus.js';
 
 export default class Level1 extends NewGameScene {
     constructor() {
@@ -76,7 +77,7 @@ export default class Level1 extends NewGameScene {
         this.soundParticle = this.add.particles('soundCircle');
 
         //no es necesario pasar estos atributos como parametros, pero ayuda a la claridad
-        this.generateStimulus(this.smellParticle, this.soundParticle);
+        this.generateEventTriggers(this.smellParticle, this.soundParticle);
 
         // Añado un npc de prueba en un array
         this.npcs = [
@@ -313,5 +314,44 @@ export default class Level1 extends NewGameScene {
 
     update(time, delta) {
         super.update();
+    }
+    
+    generateEventTriggers(smells, sounds) {
+        this.triggerEvents = new Array();
+        for (const eventTrigger of this.map.getObjectLayer('eventTriggers').objects) {
+            let stim;
+            let position = { 'x': eventTrigger.x, 'y': eventTrigger.y };
+            switch (eventTrigger.name) {
+                case 'treeSmell1':
+                    stim = new treeSmell(smells, position);
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, stim,
+                        [this.scene.get('sickTree_Event_Idle'), this.scene.get('sickTree_Event_0')]));
+                    break;
+                case 'glasses':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('glassesItem_Event_0')]));
+                    break;
+                case 'tavern':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('tavern_Event_Idle'), this.scene.get('tavern_Event_0')]));
+                    break;
+                case 'cane':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('cane_Event_Idle'), this.scene.get('cane_Event_0')]));
+                    break;
+                case 'well':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('well_Event_0')]));
+                    break;
+                case 'coins':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('coins_Event_0')]));
+                    break;
+                case 'grave':
+                    this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
+                        [this.scene.get('grave_Event_0')]));
+                    break;
+            }
+        }
     }
 }

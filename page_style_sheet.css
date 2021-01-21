@@ -19,40 +19,38 @@ header{
     height:50px;
 
     /* Color de fondo y bordes */
-    background: #0064b6d0;
-    border-bottom: 4px solid #011c66e7;
-    border-left: 4px solid #464b02d0;
+    background: rgba(83, 71, 65, 0.582);;
+    border-bottom: 4px solid rgb(26, 26, 26);
+    border-left: 4px solid rgb(26, 26, 26);;
 }
 
 a{
     /* Fuente */
     font-family: Neucha, bold;
     /* Formato */
-    text-decoration:none;
+    text-decoration:underline;
     /* Color */
-    color:#0066ff;
+    color: rgb(26, 26, 26);
     /* Tamaño */
     font-size: 150%;                
 }
 
 h1{
     /* Fuente */
-    font-family: Neucha, bold;
-    /* Formato */
-    text-decoration:underline;
+    font-family: Neucha, bold;    
     /* Color */
-    color:#000269;
+    color: rgb(26, 26, 26);
     /* Tamaño */
     font-size: 300%;
 }
 
-h2{
+p{
     /* Fuente */
     font-family: Neucha;
     /* Formato */
     text-decoration:none;
     /* Color */
-    color:#000000;
+    color: rgb(26, 26, 26);
     /* Tamaño */
     font-size: 140%;
     margin:auto;
