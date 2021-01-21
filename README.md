@@ -139,21 +139,21 @@ Ejemplo de una evento de texto sencillo
 
 | Sprite | Nombre | Evento |
 |--------|--------|--------|
-| ![](./assets/media/features/npcs/dad.gif)| Padre | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/dad.gif)| Padre | Permite continuar el tutorial del preludio |
 
 #### PUEBLO
 
 | Sprite | Nombre | Evento |
 |--------|--------|--------|
-| ![](./assets/media/features/npcs/brother.gif)| Hermano | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/doctor.gif)| Doctor | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/elder.gif)| Anciana | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/foreigner.gif)| Extranjero | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/glasses.gif)| SEÑOR??? | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/kid.gif)| Niño | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/lumberjack.gif)| Leñador | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/painter.gif)| Pintora | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/seller.gif)| Vendedor | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/brother.gif)| Hermano | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/doctor.gif)| Doctor | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/elder.gif)| Anciana | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/foreigner.gif)| Extranjero | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/glasses.gif)| SEÑOR??? | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/kid.gif)| Niño | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/lumberjack.gif)| Leñador | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/painter.gif)| Pintora | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/seller.gif)| Vendedor | Permite continuar el tutorial del preludio |
 
 ### Items
 
@@ -161,35 +161,35 @@ Ejemplo de una evento de texto sencillo
 
 | Sprite | Nombre | Utilidad |
 |--------|--------|--------|
-| ![](./assets/sprites/items/item_photo.png)| Foto | Permite continuar el tutorial del preludio |
-| ![](./assets/sprites/items/item_pendant.png)| Colgante | Aumenta la fe (+60) |
+| ![alt text](./assets/sprites/items/item_photo.png)| Foto | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/sprites/items/item_pendant.png)| Colgante | Aumenta la fe (+60) |
 
 - **CLAVE**
 
 | Sprite | Nombre | Utilidad |
 |--------|--------|--------|
-| ![](./assets/sprites/items/item_avoiddeath.png)| Figura tallada | Te Permite sobrevivir al evento de muerte |
-| ![](./assets/sprites/items/item_baston.png)| Baston | Permite terminar el evento del vagabundo | 
-| ![](./assets/sprites/items/item_booze.png)| Botella | Permite terminar el evento de anciano |
-| ![](./assets/sprites/items/item_emptybucket.png)| Cubo vacio | Permite iniciar el evento del pozo |
-| ![](./assets/sprites/items/item_waterbucket.png)| Cubo con agua | Permite terminar el evento del pozo |
-| ![](./assets/sprites/items/item_flower.png)| Flor | Permite terminar el evento del cementerio |
-| ![](./assets/sprites/items/item_food.png)| Comida | Permite terminar el evento del niño |
-| ![](./assets/sprites/items/item_glasses.png)| Gafas | Permite terminar HMMMMMM  |
-| ![](./assets/sprites/items/item_sketch.png)| Boceto | HMMMMMMMM |
-| ![](./assets/sprites/items/item_moneybag.png)| Bolsa con monedas | Permite comprar un consumible a HMMMMMMMM |
+| ![alt text](./assets/sprites/items/item_avoiddeath.png)| Figura tallada | Te Permite sobrevivir al evento de muerte |
+| ![alt text](./assets/sprites/items/item_baston.png)| Baston | Permite terminar el evento del vagabundo | 
+| ![alt text](./assets/sprites/items/item_booze.png)| Botella | Permite terminar el evento de anciano |
+| ![alt text](./assets/sprites/items/item_emptybucket.png)| Cubo vacio | Permite iniciar el evento del pozo |
+| ![alt text](./assets/sprites/items/item_waterbucket.png)| Cubo con agua | Permite terminar el evento del pozo |
+| ![alt text](./assets/sprites/items/item_flower.png)| Flor | Permite terminar el evento del cementerio |
+| ![alt text](./assets/sprites/items/item_food.png)| Comida | Permite terminar el evento del niño |
+| ![alt text](./assets/sprites/items/item_glasses.png)| Gafas | Permite terminar HMMMMMM  |
+| ![alt text](./assets/sprites/items/item_sketch.png)| Boceto | HMMMMMMMM |
+| ![alt text](./assets/sprites/items/item_moneybag.png)| Bolsa con monedas | Permite comprar un consumible a HMMMMMMMM |
 
 - **CONSUMIBLES**
 
 | Sprite | Nombre | Utilidad |
 |--------|--------|--------|
-| ![](./assets/sprites/items/item_potion.png)| Poción | Recupera cordura (+30) |
-| ![](./assets/sprites/items/item_kaleidoscope.png)| Caleidoscopio | Reduce el gasto de cordura con la venda quitada (50%) |
-| ![](./assets/sprites/items/item_stamp.png)| Estampita | Aumenta la fe (+10) |
-| ![](./assets/sprites/items/item_blessing.png)| Bendición | Aumenta bastante la fe (+30) |
-| ![](./assets/sprites/items/item_blindfold.png)| Venda de tela | Aumenta la cordura máxima (+30) |
-| ![](./assets/sprites/items/item_sacredfire.png)| Fuego sagrado | Tu cordura maxima disminuye (-30), pero aumenta bastante tu fe |
-| ![](./assets/sprites/items/item_lessdeath.png)| Láudano | Menos probabiblidad de morir durante la opcion RNG del evento de muerte |
+| ![alt text](./assets/sprites/items/item_potion.png)| Poción | Recupera cordura (+30) |
+| ![alt text](./assets/sprites/items/item_kaleidoscope.png)| Caleidoscopio | Reduce el gasto de cordura con la venda quitada (50%) |
+| ![alt text](./assets/sprites/items/item_stamp.png)| Estampita | Aumenta la fe (+10) |
+| ![alt text](./assets/sprites/items/item_blessing.png)| Bendición | Aumenta bastante la fe (+30) |
+| ![alt text](./assets/sprites/items/item_blindfold.png)| Venda de tela | Aumenta la cordura máxima (+30) |
+| ![alt text](./assets/sprites/items/item_sacredfire.png)| Fuego sagrado | Tu cordura maxima disminuye (-30), pero aumenta bastante tu fe |
+| ![alt text](./assets/sprites/items/item_lessdeath.png)| Láudano | Menos probabiblidad de morir durante la opcion RNG del evento de muerte |
 
 ![Estética](./assets/media/headers/h_estetica.png)
 
@@ -228,10 +228,6 @@ La interfaz en la pantalla de juego es muy minimalista compuesta solo de la barr
 Además de la interfaz principal contara con un overlay simple de inventario donde se mostrarán lo objetos recolectados por el juagador durante la partida.
 
 ![Inventario](./assets/media/features/inventory.gif)
-
-¿Otro icono desde el cual abrir un historial de eventos como un historial de diálogo de un RPG?
-
-![Prototipado](./assets/media/headers/h_prototipado.png)
 
 ![API](./assets/media/headers/h_arquitectura.png)
 
