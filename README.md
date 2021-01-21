@@ -109,13 +109,15 @@ El juego tiene una dificultad baja y una longitud relativamente corta. Se espera
 
 ### Niveles
 
-En un principio, el juego estará divido en **tres niveles principales** , además del **preludio** y el **nivel final** :
+#### Preludio
+El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una "pequeña" historia con el padre antes de morir.
 
-- Preludio: El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una "pequeña" historia con el padre antes de morir.
-- Pueblo: El jugador continuara explorando su pueblo natal interactuando con personajes de su infancia. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren.
-- Ciudad (Puerto): El jugador regresa a su casa en la zona portuaria de la ciudad y después de confrontar a su marido, el jugador tendrá que explorar zonas alrededor de su casa completando misiones. El nivel estará centrado en el puerto, una zona más pobre de la ciudad donde la mayoría de los habitantes viven de y para la industria generada por el mismo.
-- Ciudad (Centro): María se adentra en el centro de la ciudad originalmente en busca de alguien que pueda enseñarle a leer sin enfrentarse a la vergüenza de aprender con alguien conocido. El monumento central de este mapa es la iglesia.
-- Nivel Final: Tras un pequeño salto temporal, María llega a la catedral, donde el obispo le cuenta la reciente muerte de su hija. Tras hacer un paralelismo con su situación, se lee la carta de su padre. A mitad de la carta, llena de dolor, sale corriendo de la catedral, corriendo por un pasillo en el que se tiene que enfrentar a los susurros con los que ha hablado, hasta llegar al final del pasillo y encontrar la iluminación.
+#### Pueblo
+El jugador continuara explorando su pueblo natal interactuando con personajes de su infancia. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren.
+![pueblo](./assets/media/level_01.png)
+
+#### Epílogo
+Tras un pequeño salto temporal, María llega a la catedral, donde el obispo le cuenta la reciente muerte de su hija. Tras hacer un paralelismo con su situación, se lee la carta de su padre. A mitad de la carta, llena de dolor, sale corriendo de la catedral, corriendo por un pasillo en el que se tiene que enfrentar a los susurros con los que ha hablado, hasta llegar al final del pasillo y encontrar la iluminación.
 
 ### Historia
 
@@ -137,21 +139,21 @@ Ejemplo de una evento de texto sencillo
 
 | Sprite | Nombre | Evento |
 |--------|--------|--------|
-| ![](./assets/media/features/npcs/dad.gif)| Padre | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/dad.gif)| Padre | Permite continuar el tutorial del preludio |
 
 #### PUEBLO
 
 | Sprite | Nombre | Evento |
 |--------|--------|--------|
-| ![](./assets/media/features/npcs/brother.gif)| Hermano | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/doctor.gif)| Doctor | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/elder.gif)| Anciana | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/foreigner.gif)| Extranjero | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/glasses.gif)| SEÑOR??? | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/kid.gif)| Niño | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/lumberjack.gif)| Leñador | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/painter.gif)| Pintora | Permite continuar el tutorial del preludio |
-| ![](./assets/media/features/npcs/seller.gif)| Vendedor | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/brother.gif)| Hermano | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/doctor.gif)| Doctor | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/elder.gif)| Anciana | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/foreigner.gif)| Extranjero | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/glasses.gif)| SEÑOR??? | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/kid.gif)| Niño | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/lumberjack.gif)| Leñador | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/painter.gif)| Pintora | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/seller.gif)| Vendedor | Permite continuar el tutorial del preludio |
 
 ### Items
 
@@ -159,35 +161,35 @@ Ejemplo de una evento de texto sencillo
 
 | Sprite | Nombre | Utilidad |
 |--------|--------|--------|
-| ![](./assets/sprites/items/item_photo.png)| Foto | Permite continuar el tutorial del preludio |
-| ![](./assets/sprites/items/item_pendant.png)| Colgante | Aumenta la fe (+60) |
+| ![alt text](./assets/sprites/items/item_photo.png)| Foto | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/sprites/items/item_pendant.png)| Colgante | Aumenta la fe (+60) |
 
 - **CLAVE**
 
 | Sprite | Nombre | Utilidad |
 |--------|--------|--------|
-| ![](./assets/sprites/items/item_avoiddeath.png)| Figura tallada | Te Permite sobrevivir al evento de muerte |
-| ![](./assets/sprites/items/item_baston.png)| Baston | Permite terminar el evento del vagabundo | 
-| ![](./assets/sprites/items/item_booze.png)| Botella | Permite terminar el evento de anciano |
-| ![](./assets/sprites/items/item_emptybucket.png)| Cubo vacio | Permite iniciar el evento del pozo |
-| ![](./assets/sprites/items/item_waterbucket.png)| Cubo con agua | Permite terminar el evento del pozo |
-| ![](./assets/sprites/items/item_flower.png)| Flor | Permite terminar el evento del cementerio |
-| ![](./assets/sprites/items/item_food.png)| Comida | Permite terminar el evento del niño |
-| ![](./assets/sprites/items/item_glasses.png)| Gafas | Permite terminar HMMMMMM  |
-| ![](./assets/sprites/items/item_sketch.png)| Boceto | HMMMMMMMM |
-| ![](./assets/sprites/items/item_moneybag.png)| Bolsa con monedas | Permite comprar un consumible a HMMMMMMMM |
+| ![alt text](./assets/sprites/items/item_avoiddeath.png)| Figura tallada | Te Permite sobrevivir al evento de muerte |
+| ![alt text](./assets/sprites/items/item_baston.png)| Baston | Permite terminar el evento del vagabundo | 
+| ![alt text](./assets/sprites/items/item_booze.png)| Botella | Permite terminar el evento de anciano |
+| ![alt text](./assets/sprites/items/item_emptybucket.png)| Cubo vacio | Permite iniciar el evento del pozo |
+| ![alt text](./assets/sprites/items/item_waterbucket.png)| Cubo con agua | Permite terminar el evento del pozo |
+| ![alt text](./assets/sprites/items/item_flower.png)| Flor | Permite terminar el evento del cementerio |
+| ![alt text](./assets/sprites/items/item_food.png)| Comida | Permite terminar el evento del niño |
+| ![alt text](./assets/sprites/items/item_glasses.png)| Gafas | Permite terminar HMMMMMM  |
+| ![alt text](./assets/sprites/items/item_sketch.png)| Boceto | HMMMMMMMM |
+| ![alt text](./assets/sprites/items/item_moneybag.png)| Bolsa con monedas | Permite comprar un consumible a HMMMMMMMM |
 
 - **CONSUMIBLES**
 
 | Sprite | Nombre | Utilidad |
 |--------|--------|--------|
-| ![](./assets/sprites/items/item_potion.png)| Poción | Recupera cordura (+30) |
-| ![](./assets/sprites/items/item_kaleidoscope.png)| Caleidoscopio | Reduce el gasto de cordura con la venda quitada (50%) |
-| ![](./assets/sprites/items/item_stamp.png)| Estampita | Aumenta la fe (+10) |
-| ![](./assets/sprites/items/item_blessing.png)| Bendición | Aumenta bastante la fe (+30) |
-| ![](./assets/sprites/items/item_blindfold.png)| Venda de tela | Aumenta la cordura máxima (+30) |
-| ![](./assets/sprites/items/item_sacredfire.png)| Fuego sagrado | Tu cordura maxima disminuye (-30), pero aumenta bastante tu fe |
-| ![](./assets/sprites/items/item_lessdeath.png)| Láudano | Menos probabiblidad de morir durante la opcion RNG del evento de muerte |
+| ![alt text](./assets/sprites/items/item_potion.png)| Poción | Recupera cordura (+30) |
+| ![alt text](./assets/sprites/items/item_kaleidoscope.png)| Caleidoscopio | Reduce el gasto de cordura con la venda quitada (50%) |
+| ![alt text](./assets/sprites/items/item_stamp.png)| Estampita | Aumenta la fe (+10) |
+| ![alt text](./assets/sprites/items/item_blessing.png)| Bendición | Aumenta bastante la fe (+30) |
+| ![alt text](./assets/sprites/items/item_blindfold.png)| Venda de tela | Aumenta la cordura máxima (+30) |
+| ![alt text](./assets/sprites/items/item_sacredfire.png)| Fuego sagrado | Tu cordura maxima disminuye (-30), pero aumenta bastante tu fe |
+| ![alt text](./assets/sprites/items/item_lessdeath.png)| Láudano | Menos probabiblidad de morir durante la opcion RNG del evento de muerte |
 
 ![Estética](./assets/media/headers/h_estetica.png)
 
@@ -203,13 +205,9 @@ Resto del arte creado por nosotros, puedes consultar los archivos fuente en este
 
 Música Menu Principal: In The Light - David Renda
 
-[Ejemplo de efecto de sonido para cuando se baja un nivel de visión](https://www.storyblocks.com/audio/stock/big-object-falling-hit-hxbni32udhk0wxsh7x.html)
-
-[Ejemplo de efecto de sonido para cuando se sube un nivel de visión](https://www.storyblocks.com/audio/stock/chime-harmony-hexslt328dsk0wxut4d.html)
-
 ![Controles](./assets/media/headers/h_controles.png)
 
-Para jugar solo se necesitará el **teclado** , siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario. Para los menus y eventos, se podrá interactuar utilizando el ratón, clicando en las posibles opciones que se presentan.
+Para jugar se necesitará el **teclado**, siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario y la R sera usada en ocasiones especiales para hablar con el fantasma de tu padre, la silueta. En los menus, eventos y para usar objetos de inventario se podrá interactuar utilizando el **ratón**.
 
 ![Keybinds](./assets/media/keybinds.png)
 
@@ -225,41 +223,25 @@ El juego ofrece tres menús al jugador: uno **principal** otro de **pausa** y un
 
 ### Interfaz
 
-La interfaz en la pantalla de juego es muy minimalista compuesta solo de la barra de ¿CORDURA?, contador de fe, pequeños _tooltips_ al acercarse a ciertos objetos con los que el jugador puede interactuar.
+El juego ofrece varios indicadores de interfaz:
 
-Además de la interfaz principal contara con un overlay simple de inventario donde se mostrarán lo objetos recolectados por el juagador durante la partida.
+- La **Barra de cordura** indica la cantidad de cordura y se muestra siempre en pantalla.
+- La **Barra de fé** indica la cantidad de fé y solo se muestra cuando este valor recibe cambios.
+- Los **Tooltips** se muestran al lado de los items y de los npcs y sirven de feedback al jugador.
+- Los **Controles** se muestran siempre en la esquina superior derecha.
+- El **Inventario** muestra los objetos que el jugador a recolectado durante la partida y solo se muestra al presionar la Q.
 
 ![Inventario](./assets/media/features/inventory.gif)
 
-¿Otro icono desde el cual abrir un historial de eventos como un historial de diálogo de un RPG?
-
-![Prototipado](./assets/media/headers/h_prototipado.png)
-
-### Arquitectura
+![API](./assets/media/headers/h_arquitectura.png)
 
 ![Game API](./assets/media/game_API.png)
-
-### Nivel 1
-
-![Level 1](./assets/media/village_level.png)
-
-![Level 1 new](./assets/media/village_level_new.png)
-
-### Relación Fe-Cordura
-
-Cordura baja menos si Fe alta. Así el jugador es capaz de usar la venda con más frecuencia según avanza el juego.
-
-| | Principal | Eventos | Nivel |
-|--------|--------|--------|-------------|
-| **Recompensa** | Fe (~80 % del requisito del nivel) | Cordura (+ pequeña cant. Fe) | N/A |
-| **Requisitos** | Cordura alta  | Nada (salvo excepciones) | 100% Fe del nivel |
 
 ![Referencias](./assets/media/headers/h_referencias.png)
 
 - *La venda, Miguel de Unamuno, 1899. (Temática principal)*
 - *Zelda: Link's Awakening (mundo)*
 - *Into the Breach (mapa en cuanto a apariencia)*
-- *Dark Souls (Iglesia)*
 - *Stardew Valley (mapa en cuanto a distribución)*
 - *Perception (Mecánica de visión)*
 - *Lego Games (Fe)*
