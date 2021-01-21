@@ -24,6 +24,6 @@ export default class options extends menuBasicScene{
             this.cameras.main.centerY + (this.cameras.main.height/3.5), 'keybinds').setScale(0.25);*/
 
             this.returnMenu = this.returnButton(this.cameras.main.centerX + this.cameras.main.width/3,
-                this.cameras.main.centerY + (this.cameras.main.height/5), 0.5, this.info).setScale(0.5);
+                this.cameras.main.centerY + (this.cameras.main.height/5), 0.5, this.info.prevSceneKey).setScale(0.5);
     }
 }

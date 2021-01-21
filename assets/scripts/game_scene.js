@@ -85,11 +85,11 @@ export default class GameScene extends Phaser.Scene {
                     break;
                 case 'tavern':
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
-                        [this.scene.get('tavern_Event_0')]));
+                        [this.scene.get('tavern_Event_Idle'), this.scene.get('tavern_Event_0')]));
                     break;
                 case 'cane':
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,
-                        [this.scene.get('cane_Event_0')]));
+                        [this.scene.get('cane_Event_Idle'), this.scene.get('cane_Event_0')]));
                     break;
                 case 'well':
                     this.triggerEvents.push(new EventTrigger(this.matter.world, position.x, position.y, 100, 100, null,

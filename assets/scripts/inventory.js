@@ -31,7 +31,7 @@ export default class Inventory extends Phaser.GameObjects.GameObject{
         //si se encuentra un objeto del mismo tipo, se borra
         if(i !== this.objects.length) {
             let temporalItem = this.objects[i];
-            this.objects.splice(i);       
+            this.objects.splice(i, 1);       
             this.scene.gui.relocateInventory();
             //se destruye (y desaparece de GUI)
             temporalItem.destroy();

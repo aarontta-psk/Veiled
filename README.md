@@ -83,14 +83,6 @@ A lo largo de la partida se podrán conseguir **objetos** , que afecten a las ca
 - **Claves** : Necesarios para avanzar en uno de los posibles eventos y llegar al siguiente nivel. (Ejemplo: Hacha que permite talar el árbol para llegar a la siguiente zona).
 - **Consumibles** : De un solo uso, permiten recuperar cordura o tener efectos beneficiosos temporales. (Ejemplo: Caleidoscopio que disminuye el gasto de cordura con la venda quitada). También pueden lanzar eventos secundarios.
 
-### Iglesia
-
-La **iglesia** es un punto del mapa que tiene asociado un evento que puede recuperar una parte variable de la cordura dependiendo de la fe (podrá &quot;rezar&quot; cada vez que su fe suba hasta 25%, por ejemplo). Además, servirá como punto de reaparición para el jugador en caso de que falle el evento de quedarse sin barra de cordura.
-
-**Nivel 1** --> Templo; **Nivel 2** --> Altar en la costa del puerto; **Nivel 3** --> Catedral.
-
-Si el jugador ha completado todos los objetivos secundarios del nivel, rezar en la iglesia le subirá hasta un nivel de cordura algo por encima del mínimo requerido para emprender el objetivo principal (indicado por un evento). Esto es para que no se pueda quedar bloqueada la partida si, tras completar todos los objetivos secundarios, se quita la venda demasiado y su cordura baja por debajo del nivel requerido para progresar, ya que podría no haber más fuentes de cordura en el nivel.
-
 ![Dinámicas](./assets/media/headers/h_dinamicas.png)
 
 ### Objetivo y conflictos

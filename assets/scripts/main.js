@@ -15,7 +15,7 @@ seller_Event_1, hungryKid_Event_0, elder_Event_0, elder_Event_1, tavern_Event_0,
 doctorEvent_0, doctorEvent_1, doctorEvent_2, vagabond_Event_0, vagabond_Event_1, lumberjack_Event_0, lumberjack_Event_1,
 painterEvent_0, painterEvent_1, sickTree_Event_0, deathEvent_0, maxFaithEvent_0, doctor_Event_Idle, doctor_Event_Idle_1, doctor_Event_Idle_2, vagabond_Event_Idle, lumberjack_Event_Idle, sickTree_Event_Idle,
 grandmother_Event_Idle, doctorEvent_3,
-inkKeeper_Event_Idle, inkKeeper_Event_0
+inkKeeper_Event_Idle, inkKeeper_Event_0, cane_Event_Idle, tavern_Event_Idle
 } from "./events_level1.js"
 
 const config = {
@@ -52,7 +52,7 @@ const config = {
         glasses_Event_1, glasses_Event_2, foreigner_Event_0, foreigner_Event_1, grandmother_Event_0, seller_Event_0, seller_Event_1,
         hungryKid_Event_0, elder_Event_0, elder_Event_1, tavern_Event_0, cane_Event_0, well_Event_0, coins_Event_0, grave_Event_0,
         brother_Event_0, doctor_Event_Idle, doctor_Event_Idle_1, doctor_Event_Idle_2, vagabond_Event_Idle, vagabond_Event_0, vagabond_Event_1, sickTree_Event_Idle,
-        lumberjack_Event_Idle, inkKeeper_Event_Idle, inkKeeper_Event_0, grandmother_Event_Idle, doctorEvent_3  //escenas a cargar
+        lumberjack_Event_Idle, inkKeeper_Event_Idle, inkKeeper_Event_0, grandmother_Event_Idle, doctorEvent_3, cane_Event_Idle, tavern_Event_Idle  //escenas a cargar
     ]
 }
 
