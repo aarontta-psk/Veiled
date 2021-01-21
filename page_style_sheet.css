@@ -44,6 +44,16 @@ h1{
     font-size: 300%;
 }
 
+h2{
+    /* Fuente */
+    font-family: Neucha, bold;    
+    /* Color */
+    color: rgb(26, 26, 26);
+    /* Tamaño */
+    font-size: 100%;
+    text-align: center;
+}
+
 p{
     /* Fuente */
     font-family: Neucha;
