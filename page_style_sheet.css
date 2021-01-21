@@ -43,18 +43,18 @@ h1{
     /* Color */
     color:#000269;
     /* Tamaño */
-    font-size: 400%;
+    font-size: 300%;
 }
 
 h2{
     /* Fuente */
-    font-family: Neucha, bold;
+    font-family: Neucha;
     /* Formato */
     text-decoration:none;
     /* Color */
     color:#000000;
     /* Tamaño */
-    font-size: 200%;
+    font-size: 140%;
     margin:auto;
 }
 

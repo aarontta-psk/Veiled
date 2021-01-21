@@ -11,7 +11,7 @@
 
 ![Descripción](./assets/media/headers/h_descripcion.png)
 
-_**Veiled**_ es un juego de exploración en el que el jugador controla a una protagonista en su búsqueda por alcanzar la iluminación definitiva. Durante la exploración, la protagonista llevará una venda puesta, que no le permitirá ver de manera correcta el mundo que le rodea. Así, a lo largo de los eventos obtendrá fe, lo que le podrá permitir avanzar en los niveles (y por tanto en su bsuqueda), pero si pierde toda su fe perderá el nivel. Además, la cordura de la protagonista obligará al jugador a manejar correctamente.
+_**Veiled**_ es un juego de exploración en el que el jugador controla a María en su búsqueda por alcanzar la iluminación definitiva. Durante la exploración, la protagonista llevará una venda puesta, que no le permitirá ver de manera correcta el mundo que le rodea. Así, a lo largo de los eventos, María obtendrá fe, lo que le podrá permitir avanzar en los niveles (y por tanto en su búsqueda). Además, la cordura de la protagonista obligará al jugador a manejar correctamente el uso/desuso de la venda.
 
 ![Game screen](./assets/media/game_screen.png)
 
