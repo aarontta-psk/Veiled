@@ -126,6 +126,9 @@ export default class Boot extends Phaser.Scene {
         this.load.audio('sfxCloseInventory', './assets/audio/sfx/closeInventory.wav');
         this.load.audio('sfxClick', './assets/audio/sfx/click.wav');
         this.load.audio('sfxPickItem', './assets/audio/sfx/pickItem.wav');
+
+        // Carga del video final
+        this.load.video('ending','assets/media/ending.mp4');
     }
 
     create() {
