@@ -17,13 +17,13 @@ export class testSilueta_0 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: 'Como me gustaba este pueblo, con su tranquilidad y su belleza. Todo el mundo vive en paz aqui,' +
-                ' haciendo sus cosas sin molestar a nadie. Que pena que estes perdiendo mi memoria ' +
-                ' cada dia que pasa. A lo mejor deberias tener un poco más de fe en ti misma. ¡Oh, mira!, en ese' +
+                text: 'Cómo me gustaba este pueblo, con su tranquilidad y su belleza. Todo el mundo vive en paz aquí,' +
+                ' haciendo sus cosas sin molestar a nadie. Que pena que estés perdiendo mi memoria ' +
+                ' cada día que pasa. A lo mejor deberías tener un poco más de fe en ti misma. ¡Oh, mira!, en ese' +
                 ' banco hay alguien, a lo mejor te interesa hablarle.'
             },
             {
-                text: '...Vale',
+                text: '...Vale.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -39,13 +39,13 @@ export class testSilueta_1 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: '¡Anda!, se ve que aun puedo hablarte. Se ve que esa conversacion te ha debido ayudar en tu ' +
-                'intento por recuperar tu fe. Estoy seguro que más gente en el pueblo te puede ayudar. Puede que tu hermano aun esté ' +
-                'por aqui, a lo mejor te viene bien visitarle para recordar los viejos tiempos. Piensa que mientras más te mejores, ' +
-                'más conversaciones podré tener contigo'
+                text: '¡Anda!, se ve que aún puedo hablarte. Se ve que esa conversación te ha debido ayudar en tu ' +
+                'intento por recuperar tu fe. Estoy seguro que más gente en el pueblo te puede ayudar. Puede que tu hermano aún esté ' +
+                'por aquí, a lo mejor te viene bien visitarle para recordar los viejos tiempos. Piensa que mientras más te mejores, ' +
+                'más conversaciones podré tener contigo.'
             },
             {
-                text: '...Eso haré',
+                text: '...Eso haré.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -62,11 +62,11 @@ export class testSilueta_2 extends eventScene{
         this.content = [
             {
                 text: 'Siempre me arrepentí de no poder decirle todo lo que quería a tu hermano. Los últimos meses ' +
-                'estuve constantemente tambaleándome entre nuestra casa y el hospital. Ah, cuanto le debo a ese doctor.' + 
+                'estuve constantemente tambaleándome entre nuestra casa y el hospital. Ah, cuánto le debo a ese doctor.' + 
                 'Seguro que si le hablas te cuenta algo interesante.'
             },
             {
-                text: '...Vale',
+                text: '...Vale.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -82,11 +82,11 @@ export class testSilueta_3 extends eventScene{
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: '!Hey, cuanto tiempo! Siempre agradeceré todo lo que el médico me ayudó en mis peores momentos. Por ' +
-                'cierto, el leñador que estaba cerca de nuestra casa siempre ha sido muy excentrico. A lo mejor te cae bien.'
+                text: '!Hey, cuánto tiempo! Siempre agradeceré todo lo que el médico me ayudó en mis peores momentos. Por ' +
+                'cierto, el leñador que estaba cerca de nuestra casa siempre ha sido muy eccéntrico. A lo mejor te cae bien.'
             },
             {
-                text: '...Puede ser',
+                text: '...Puede ser.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -103,10 +103,10 @@ export class testSilueta_4 extends eventScene{
         this.content = [
             {
                 text: '¡Árbol enfermo! Que cosas más raras dice el leñador, pero bueno, viéndome a mi,' +
-                ' creo que hay cosas más raras en este mundo. Deberías hacerle el favor a ese buen hombre'
+                ' creo que hay cosas más raras en este mundo. Deberías hacerle el favor a ese buen hombre.'
             },
             {
-                text: 'Vale, padre',
+                text: 'Vale, padre.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -125,7 +125,7 @@ export class testSilueta_5 extends eventScene{
                 text: 'Creo que ya es hora de devolverle lo que nos pidió a nuestro extraño vecino, ¿no crees?'
             },
             {
-                text: 'Debería, sí',
+                text: 'Debería, sí.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -142,7 +142,7 @@ export class testSilueta_6 extends eventScene{
         this.content = [
             {
                 text: '¡Con que de ahí sacaba sus mejunjes el doctor! No me extraña que siempre fuesen tan gratificantes. ' +
-                'Quizá otra visita para hablar con el te ayudaría a avanzar en tu recuperación.'
+                'Quizá otra visita para hablar con él te ayudaría a avanzar en tu recuperación.'
             },
             {
                 text: 'Podría ser, debería hacerlo',
@@ -163,10 +163,10 @@ export class testSilueta_7 extends eventScene{
             {
                 text: 'Ah, él. Siempre fue un hombre inteligente y astuto, pero la edad, como puedes observar, no perdona. ' +
                 'Ahora él tambien sufre las mismas desgracias que tu padecías. A lo mejor esto te muestra la bendición que ' + 
-                'realmente te ha acaecido. Intenta hablar con él para que veas como se siente.'
+                'realmente te ha acaecido. Intenta hablar con él para que veas cómo se siente.'
             },
             {
-                text: 'Puede que tengas razón',
+                text: 'Puede que tengas razón.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -183,10 +183,10 @@ export class testSilueta_8 extends eventScene{
         this.content = [
             {
                 text: 'Ese hombre, siempre fue un cascarrabias. Tiene buen corazón pero se deja llevar mucho por sus emociones.' +
-                ' Bueno, no todo el mundo puede ser perfecto. Ve a recuperar lo que te ha pedido el señor.'
+                ' Bueno, nadie es perfecto. Ve a recuperar lo que te ha pedido el señor.'
             },
             {
-                text: 'Voy',
+                text: 'Voy.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -206,7 +206,7 @@ export class testSilueta_9 extends eventScene{
                 'Que suerte que esto ya no te puede ocurrir a tí, hija mia. Volvamos con el señor.'
             },
             {
-                text: 'Voy a ayudarle, sí',
+                text: 'Voy a ayudarle, sí.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -245,10 +245,10 @@ export class testSilueta_11 extends eventScene{
             {
                 text: 'Bueno, parece ser que mi tiempo aquí está acabando. Que sepas que, como ya te había dicho, te quiero con ' +
                 'todo mi corazón, y, pese a que ya no te pueda ver crecer más, me alegro de que por fin puedas disfrutar de manera plena ' +
-                'lo que la ceguera te quito. Si vas a hablar con tu abuela, ella tendrá algo que probablemente te haga feliz'
+                'lo que la ceguera te quitó. Si vas a hablar con tu abuela, ella tendrá algo que probablemente te haga feliz.'
             },
             {
-                text: '...Padre ...*sniff* yo también te quiero ...Adiós',
+                text: '...Padre ...*sniff* yo también te quiero ...Adiós.',
                 cb: () => {
                     this.info.prevScene.gui.silhouetteTooltip.setVisible(false)
                 }
@@ -276,7 +276,7 @@ export class elder_Event_1 extends eventScene {
                         'y una posada, aunque está cerrada. Ah, y un pozo del que sacamos agua.'
                     },
                     {
-                        text: 'Gracias por la información'
+                        text: 'Gracias por la información.'
                     }
                 ]
             },
@@ -332,7 +332,7 @@ export class hungryKid_Event_0 extends eventScene {
 
             },
             {
-                text: 'No tengo nada, lo siento',
+                text: 'No tengo nada, lo siento.',
                 next: [
                     {
                         text: '-Oh, hace tiempo que no me llevo nada a la boca.\n' +
