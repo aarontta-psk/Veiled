@@ -1,3 +1,4 @@
+//clase que carga todos los recursos del juego antes de iniciarlo
 export default class Boot extends Phaser.Scene {
     constructor() { super({ key: 'boot' }) };
 
@@ -123,7 +124,7 @@ export default class Boot extends Phaser.Scene {
     }
 
     create() {
-        //desactiva iput del click derecho
+        //desactiva input del click derecho
         this.input.mouse.disableContextMenu();
 
         //creacion de animaciones
@@ -154,8 +155,6 @@ export default class Boot extends Phaser.Scene {
             repeat: -1
         });
 
-        //referencia a la escena
-        const ref = this;
         // Cargamos las webfonts que se van a usar
         WebFont.load({
             google: {

@@ -229,8 +229,7 @@ El juego ofrece varios indicadores de interfaz:
 
 - *La venda, Miguel de Unamuno, 1899. (Temática principal)*
 - *Zelda: Link's Awakening (mundo)*
-- *Into the Breach (mapa en cuanto a apariencia)*
-- *Stardew Valley (mapa en cuanto a distribución)*
+- *Stardew Valley (mapa en cuanto a distribución y apariencia)*
 - *Perception (Mecánica de visión)*
 - *Lego Games (Fe)*
 - *La Voluntad – Azorín (Barra de Cordura)*

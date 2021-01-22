@@ -1,28 +1,35 @@
+//clase venda que oscurece la pantalla aplicando un render texture por encima y haciendole un hueco donde se encuentra el jugador
 export default class Blindfold extends Phaser.GameObjects.Image {
 	constructor(scene, x, y, visionZone) {
-		super(scene, x, y, 'blindfold'); //llama a la constructora de Sprite
+		super(scene, x, y, 'blindfold'); //llama a la constructora de Image
 		this.scene.add.existing(this); //lo añades en la escena
 		this.setVisible(false);
 		this.setScale(3);
 
+		//creamos el renderTexture, una textura especial creada en ejecucion que permite dibujar otros GameObjects sobre ella
 		this.rt = this.scene.add.renderTexture(x, y, 940, 970);
 
+		//lo dibujamos en pantalla
 		this.rt.draw(this);
+		//cambiamos la opacidad para que se vea algo
 		this.rt.alpha = 0.8;
-
+		//variable de control que indica si el jugador esta vendado o noi
 		this.blind = true;
 	}
 
+	//metodo que invierte la visibilidad de la venda
 	setBlindfold() {
 		this.rt.setVisible(!this.blind);
 		this.blind = !this.blind;
 	}
 
+	//metodo que establece la visibilidad de la venda segun el booleano
 	setBlindfoldOn(boolean) {
 		this.rt.setVisible(boolean);
 		this.blind = boolean;
 	}
 
+	//metodo que coloca la zona oscura de la venda y borra sobre ella la zona de vison del jugador para que pueda ver
 	setVision(visionZone, playerX, playerY) {
 		//si la camara se está moviendo en ambos ejes,
 		if (this.prevWorldX !== Math.round(this.scene.cameras.main.worldView.x) ||

@@ -1,8 +1,10 @@
+//clase objeto que se puede coger en el mapa y puede tener distintos usos
 export default class Item extends Phaser.Physics.Matter.Sprite {
     constructor(world, x, y, frame, player, isUsable) {
         super(world, x, y, 'items', frame);
 
-        this.threshold = 15;
+        this.threshold = 15; //separacion entre el tooltip del item y el propio item
+        //tooltip que muestra con que boton se puede coger el item
         this.itemPointer = this.scene.add.sprite(x, y - this.threshold,
             'itemTooltip').setVisible(true).setDepth(11).setScale(0.8);
 
@@ -12,17 +14,22 @@ export default class Item extends Phaser.Physics.Matter.Sprite {
             height: 30         
         });  
 
-        this.scene.add.existing(this);
-        this.scene.matter.add.sprite(this);
-        this.setStatic(true);
-        this.setSensor(true);
+        this.scene.add.existing(this); //se añade a la escena
+        this.scene.matter.add.sprite(this); //se añade a matter
+        this.setStatic(true); //los items no se mueven
+        this.setSensor(true); //son sensores para funcionar como triggers
 
+        //al poner el cursor encima del item se muestra su descripcion por pantalla
         this.on('pointerover', () => {
             this.scene.gui.setInfoText(this.name + ": " + this.description);
         });
+
+        //al sacar el cursor fuera del item se borra su descripcion por pantalla
         this.on('pointerout', () => {
             this.scene.gui.setInfoText("");
         });
+
+        //si son consumibles
         if(isUsable){
             this.on('pointerdown', () => {
                 //se hace su efecto
@@ -138,7 +145,6 @@ export class LessDeathItem extends Item{
         player.deathProbability = 0.7;
     }
 }
-
 //#endregion
 
 //#region KeyItems (isUsable=false)
@@ -238,16 +244,3 @@ export class PictureItem extends Item{
     }
 }
 //#endregion
-
-// plantilla
-// export class NAME extends Item{
-//     constructor(world, x, y, frame, player){
-//         super(world, x, y, frame, player, true...false);
-//         this.name = "";
-//         this.description = "";
-//     }
-
-//     doSomething(player) {
-
-//     }
-// }
