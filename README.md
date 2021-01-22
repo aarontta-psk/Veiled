@@ -17,7 +17,7 @@ _**Veiled**_ es un juego de exploración en el que el jugador controla a María 
 
 ### Movimiento
 
-La protagonista se moverá en **8 direcciones**, siendo la velocidad de movimiento de aproximadamente de 3 casillas por segundo.
+La protagonista se moverá en **8 direcciones**, siendo la velocidad de movimiento un poco más rápida que el resto de NPCs.
 
 ### Barra de cordura
 
@@ -61,6 +61,12 @@ Los niveles contarán con varios NPCs interactuables, que recorren un camino pre
 
 ![Veiledsss](./assets/media/features/npc.gif)
 
+#### Silueta
+
+La silueta es un npc especial que representa el espíritu de tu difunto padre, esta solo aparece cuando María tiene la venda puesta y si se tiene cierto nivel de fe. Su función es la de servir como guía para hacer las misiones principales.  
+
+![alt text](./assets/media/features/npcs/ghost.gif)
+
 ### Objetos
 
 A lo largo de la partida se podrán conseguir **objetos** , que afecten a las características del jugador. Estos se podrán obtener siendo encontrados en el mapa o bien como recompensa tras un evento. Cada uno tendrá una descripción que indicará que hace cada uno. Se dividen en:
@@ -86,7 +92,7 @@ La búsqueda de pistas y objetos que te ayuden implica más exploración, la cua
 
 Cuando el jugador entre en un nivel, primero empezará a explorar un poco, probablemente encontrando y completando por el camino algún objetivo secundario. En algún momento encontrará la silueta del nivel, y ocurrirá una de dos cosas: o el jugador tendrá suficiente cordura para emprender el objetivo, en cual caso lo hará, o no la tendrá en cual caso se acordará de la posición de la silueta mientras vuelve a buscar incrementos de cordura.
 
-Cuando complete el objetivo principal, el jugador puede quedarse por el nivel, completando algún objetivo secundario que quiera o necesite (si encuentra y completa muy rápido el objetivo principal, es posible que no tenga suficiente fe para progresar al siguiente nivel). Para proceder al siguiente nivel, habrá que volver al punto de comienzo con la cantidad de fe requerida.
+Cuando complete el objetivo principal, el jugador puede quedarse por el nivel, completando algún objetivo secundario que quiera o necesite (si encuentra y completa muy rápido el objetivo principal, es posible que no tenga suficiente fe para progresar al siguiente nivel).
 
 El juego tiene una dificultad baja y una longitud relativamente corta. Se espera que cualquier jugador pueda completar el juego en menos de 2 horas (?).
 
@@ -98,7 +104,7 @@ El juego tiene una dificultad baja y una longitud relativamente corta. Se espera
 
 - En el **Pueblo** María continuará explorando su pueblo natal interactuando con personajes de su infancia y otros nuevos conocidos. El nivel estará compuesto por una zona residencial y algunos edificios más alejados como la casa del doctor o el aserradero del leñador.
 
-- Durante el **Epílogo** y tras completar la línea de eventos principal en el pueblo, el jugador, desbloqueara la posibilidad de hablar con su abuela que le entregara una carta de su padre. El video final del juego donde se ve el contenido de la carta se puede consultar en este mismo [repositorio](https://github.com/SrVonPsikerfy/Veiled/blob/main/assets/media/ending.mp4).
+- Durante el **Epílogo** y tras completar la línea de eventos principal en el pueblo, el jugador podra desbloquear la posibilidad de hablar con su abuela que le entregara una carta de su padre. El video final del juego donde se ve el contenido de la carta se puede consultar en este mismo [repositorio](https://github.com/SrVonPsikerfy/Veiled/blob/main/assets/media/ending.mp4).
 
 ![pueblo](./assets/media/level_01.png)
 
@@ -114,7 +120,7 @@ Cuando su estado de ánimo ha sido restaurado, es capaz de conciliar su pena y d
 
 Cada NPC cuenta con algún tipo de evento, en el preludio el padre tiene el evento inicial y durante el nivel del pueblo 12 NPCs cuentan con sus propios eventos, en algunos casos conectados entre ellos.
 
-Ejemplo de una evento de texto sencillo
+Ejemplo de un evento de texto.
 
 ![Evento de texto](./assets/media/features/text_event.gif)
 
@@ -140,7 +146,7 @@ Ejemplo de una evento de texto sencillo
 | ![alt text](./assets/media/features/npcs/lumberjack.gif)| Leñador | Te manda a buscar un árbol enfermo |
 | ![alt text](./assets/media/features/npcs/painter.gif)| Pintora | Puedes opinar sobre su obra |
 | ![alt text](./assets/media/features/npcs/seller.gif)| Vendedor | Intercambia objetos consumibles por bolsas de monedas |
-| ![alt text](./assets/media/features/npcs/tavern.gif)| Tavernero | Te manda a llenar un cubo con agua y así poder completar otro evento |
+| ![alt text](./assets/media/features/npcs/tavern.gif)| Tavernero | Te manda a buscar un bastón para poder avanzar la trama principal |
 | ![alt text](./assets/media/features/npcs/vagabond.gif)| Vagabundo | Parte del evento del doctor |
 
 ### Items
