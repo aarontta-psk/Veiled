@@ -111,7 +111,7 @@ export default class Level0 extends NewGameScene {
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(2500, 2320, 600, 840);
 
-        this.player.cursorsPlayer.interact.on('down', event => {
+        this.player.cursorsPlayer.interact.on('down', () => {
             if (this.auxEventHandler !== null) {
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 let npcEvent = this.auxEventHandler.nextEvent();
@@ -138,7 +138,7 @@ export default class Level0 extends NewGameScene {
             }
         });
 
-        this.player.cursorsPlayer.pause.on('down', event => {
+        this.player.cursorsPlayer.pause.on('down', () => {
             //guardo la info entre escenas y cambio de escena
             this.infoNextScene = { player: this.player, prevSceneKey: 'level0' };
 
@@ -164,7 +164,7 @@ export default class Level0 extends NewGameScene {
         //referencia al eventHandler con el que se está colisionando
         this.auxEventHandler = null;
         this.matter.world.on('collisionstart',
-            (evento, cuerpo1, cuerpo2) => {
+            (cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     if (cuerpo2.gameObject instanceof Item) {
                         this.item = cuerpo2.gameObject;
@@ -176,7 +176,7 @@ export default class Level0 extends NewGameScene {
             });
 
         this.matter.world.on('collisionend',
-            (evento, cuerpo1, cuerpo2) => {
+            (cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     if (cuerpo2.gameObject instanceof Item) {
                         //desasignamos el item en el que estuviese
@@ -188,14 +188,14 @@ export default class Level0 extends NewGameScene {
                 }
             });
 
-        this.events.on('wake', event => {
+        this.events.on('wake', () => {
             //la musica vuelve a sonar
             this.sound.play('mainTheme', {
                 mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
             });
         });
 
-        // Inicia la animacíon de las tiles
+        // Inicia la animacion de las tiles
         this.animatedTiles.init(this.map);
     }
 

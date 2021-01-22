@@ -164,14 +164,6 @@ export class SketchItem extends Item{
     }
 }
 
-export class SickTreeItem extends Item{
-    constructor(world, x, y, frame, player){
-        super(world, x, y, frame, player, false);
-        this.name = "Rama enferma";
-        this.description = "Parece demasiado frágil para un arbol corriente";
-    }
-}
-
 export class CaneItem extends Item{
     constructor(world, x, y, frame, player){
         super(world, x, y, frame, player, false);

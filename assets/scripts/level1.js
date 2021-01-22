@@ -2,15 +2,16 @@ import NewGameScene from './game_scene.js'
 import Blindfold from './blindfold.js';
 import Player from './player.js';
 import Item, {
-    PotionItem, SickTreeItem, BlessingItem, SacredFireItem, AvoidDeathItem, BoozeItem, FoodItem
+    PotionItem, BlessingItem, SacredFireItem, AvoidDeathItem, BoozeItem, FoodItem
 } from './item.js';
 import GUI from './gui.js';
 import Silhouette from './silhouette.js'
 import EventHandler from './event_handler.js';
 import ObjectiveMarker from './objective_marker.js';
 import Trigger, { EventTrigger } from './trigger.js';
-import { treeSmell, footSteps } from './stimulus.js';
+import { treeSmell } from './stimulus.js';
 
+//escena de nivel 1, pueblo, donde se desarrolla la mayor parte del juego
 export default class Level1 extends NewGameScene {
     constructor() {
         super('level1');
@@ -26,7 +27,7 @@ export default class Level1 extends NewGameScene {
             tileHeight: 64
         });
 
-        //sonidos
+        //activamos la musica de juego principal
         this.sound.play('mainTheme', {
             mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
         });
@@ -65,78 +66,80 @@ export default class Level1 extends NewGameScene {
             }
         }
 
+        //Activamos la interfaz
         this.gui = new GUI(this, 0, 0, this.player);
 
+        //creamos los triggers de sección, guardando los bounds correspondientes de cada uno
         for (const objeto of this.triggersToSect) {
             objeto.info2 = [this.spawnpoint.properties[0].value, this.spawnpoint.properties[1].value,
             this.spawnpoint.properties[2].value, this.spawnpoint.properties[3].value];
         }
 
-        //PRUEBAS DE ESTIMULOS
+        //creación de estímulos
         this.smellParticle = this.add.particles('smellCloud');
-        this.soundParticle = this.add.particles('soundCircle');
+        //creación de los eventos trigger, que pueden o no utilizar los estímulos 
+        this.generateEventTriggers(this.smellParticle);
 
-        //no es necesario pasar estos atributos como parametros, pero ayuda a la claridad
-        this.generateEventTriggers(this.smellParticle, this.soundParticle);
-
-        // Añado un npc de prueba en un array
+        //Añadimos los npcs en su array
         this.npcs = [
-            this.generateNPC(
+            this.generateNPC( //doctor
                 'doctor', false, 60,
                 [this.scene.get('doctor_Event_Idle'), this.scene.get('doctor_Event_0'), this.scene.get('doctor_Event_1'),
                 this.scene.get('doctor_Event_2'), this.scene.get('doctor_Event_3')]
             ),
-            this.generateNPC(
+            this.generateNPC( //pintora
                 'painter', false, 60,
                 [this.scene.get('painterEvent_0'), this.scene.get('painterEvent_1')]
             ),
-            this.generateNPC(
+            this.generateNPC( //leñador
                 'lumberjack', false, 60,
                 [this.scene.get('lumberjack_Event_Idle'),this.scene.get('lumberjack_Event_0'), this.scene.get('lumberjack_Event_1')]
             ),
-            this.generateNPC(
+            this.generateNPC( //vagabundo
                 'vagabond', true, 60,
                 [this.scene.get('vagabond_Event_Idle'), this.scene.get('vagabond_Event_0'), this.scene.get('vagabond_Event_1')]
             ),
-            this.generateNPC(
+            this.generateNPC( //ayudante
                 'glasses', false, 60,
                 [this.scene.get('glasses_Event_0'), this.scene.get('glasses_Event_1'), this.scene.get('glasses_Event_2')]
             ),
-            this.generateNPC(
+            this.generateNPC( //extranjero
                 'foreigner', false, 60,
                 [this.scene.get('foreigner_Event_0'), this.scene.get('foreigner_Event_1')]
             ),
-            this.generateNPC(
+            this.generateNPC( //vendedor
                 'seller', true, 60,
                 [this.scene.get('seller_Event_0'), this.scene.get('seller_Event_1')]
             ),
-            this.generateNPC(
+            this.generateNPC( //niño
                 'hungryKid', false, 60,
                 [this.scene.get('hungryKid_Event_0')]
             ),
-            this.generateNPC(
+            this.generateNPC( //pescador
                 'fisherman', true, 60,
                 [this.scene.get('elder_Event_0'), this.scene.get('elder_Event_1')]
             ),
-            this.generateNPC(
+            this.generateNPC( //hermano
                 'brother', false, 60,
                 [this.scene.get('brother_Event_Idle'), this.scene.get('brother_Event_0')]
             ),
-            this.generateNPC(
+            this.generateNPC( //posada
                 'inkKeeper', true, 60,
                 [this.scene.get('inkKeeper_Event_Idle'), this.scene.get('inkKeeper_Event_0')]
             ),
-            this.generateNPC(
+            this.generateNPC( //abuela
                 'elder', true, 60,
                 [this.scene.get('grandmother_Event_Idle'), this.scene.get('grandmother_Event_0')]
             )
         ];
 
+        //Añadimos la silueta con sus eventos
         this.silhouette = new Silhouette(this.matter.world, 750, 550,
             [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('testSilueta_3'), this.scene.get('testSilueta_4'),
             this.scene.get('testSilueta_5'), this.scene.get('testSilueta_6'), this.scene.get('testSilueta_7'), this.scene.get('testSilueta_8'), this.scene.get('testSilueta_9'),
             this.scene.get('testSilueta_10'), this.scene.get('testSilueta_11')]);
 
+            //creamos los objetivos y su marcador
         this.objectiveMarker = new ObjectiveMarker(this.matter.world, this.player);
         this.loadObjectives();
 
@@ -155,14 +158,12 @@ export default class Level1 extends NewGameScene {
         this.item = undefined; //undefined para la comprobacion del evento de interaccion
         this.items = this.textures.get('items');
         this.itemFrames = this.items.getFrameNames();
-        console.log(this.itemFrames);
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
             switch (itemPos.name) {
                 case 'potion':
                     this.potion = new PotionItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[16], this.player);
                     break;
-                //meto el caleidoscopio aqui para probar el item, aunque no vaya a tener este sprite
                 case 'blessing':
                     this.blessing = new BlessingItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[2], this.player);
                     break;
@@ -181,18 +182,20 @@ export default class Level1 extends NewGameScene {
             }
         }        
 
+        //creamos la venda
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
 
+        //establecemos los bounds de comienzo con respecto al spawnpoint
         const height = this.spawnpoint.properties[0].value, heightBg = this.spawnpoint.properties[1].value,
             width = this.spawnpoint.properties[2].value, widthBg = this.spawnpoint.properties[3].value;
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(widthBg, heightBg, width, height);
 
-
-        this.player.cursorsPlayer.blindfold.on('down', event => {
+        //si se presiona el espacio, cambiamos la venda
+        this.player.cursorsPlayer.blindfold.on('down', () => {
             this.onBlindChange();
         });
-        this.player.cursorsPlayer.interact.on('down', event => {
+        this.player.cursorsPlayer.interact.on('down', () => {
             if (this.auxEventHandler !== null) {
                 //si se esta pulsando la tecla de interactuar, se llama al evento del npc
                 let npcEvent = this.auxEventHandler.nextEvent();
@@ -200,14 +203,14 @@ export default class Level1 extends NewGameScene {
                     this.changeScene(npcEvent);
             }
             else if (this.item !== undefined) {
+                //si cogemos un item, lo insertamos en el inventario y ocultamos su tooltip
                 this.item.itemPointer.setVisible(false);
                 this.insertItem(this.item);
             }
         });
-        this.player.cursorsPlayer.interactGhost.on('down', event => {
+        this.player.cursorsPlayer.interactGhost.on('down', () => {
             if (this.blindfold.blind) {
-                //if de si tienes suficiente fe
-                console.log('obj', this.currentObjective, 'req', this.objectives[this.currentObjective].faithReq, 'mi fe', this.player.faith);
+                //si puedes hablar con la silueta (estas vendada con suficiente fe)
                 if (this.player.faith >= this.objectives[this.currentObjective].faithReq) {
                     let silEvent = this.silhouette.nextEvent();
                     if (silEvent != null)
@@ -215,14 +218,12 @@ export default class Level1 extends NewGameScene {
                 }
             }
         });
-        this.player.cursorsPlayer.invToggle.on('down', event => {
-            this.gui.toggleInventory();
+        this.player.cursorsPlayer.invToggle.on('down', () => {
+            this.gui.toggleInventory(); //enseñamos el inventario
         });
-
-        this.player.cursorsPlayer.pause.on('down', event => {
+        this.player.cursorsPlayer.pause.on('down', () => {
             //guardo la info entre escenas y cambio de escena
             this.infoNextScene = { player: this.player, prevSceneKey: 'level1' };
-
             this.scene.pause();
             this.scene.run('pauseScene', this.infoNextScene);
             //evito que se queden pillado el input al cambiar de escena
@@ -245,7 +246,7 @@ export default class Level1 extends NewGameScene {
         //referencia al eventHandler con el que se está colisionando
         this.auxEventHandler = null;
         this.matter.world.on('collisionstart',
-            (evento, cuerpo1, cuerpo2) => {
+            (cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     if (cuerpo2.gameObject instanceof Item) {
                         this.item = cuerpo2.gameObject;
@@ -257,68 +258,66 @@ export default class Level1 extends NewGameScene {
             });
 
         this.matter.world.on('collisionend',
-            (evento, cuerpo1, cuerpo2) => {
+            (cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
                     this.item = undefined;
 
-                    // //buscamos si sale de un trigger de seccion
+                    //buscamos si sale de un trigger de seccion
                     if (cuerpo2.gameObject instanceof Trigger) this.newSection(cuerpo2.gameObject);
+                    //en caso de que sea un npc, ccomprobamos que salimos de su sensor, no de su colision
                     else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
                         this.auxEventHandler = null;
                     }
                 }
             });
 
-        this.scene.scene.cameras.main.on('camerafadeoutcomplete', event => {
+        this.scene.scene.cameras.main.on('camerafadeoutcomplete', () => {
             if (this.player.death === this.player.deathState.CheckDeath) {
+                //tras acabar el fadeout de muerte, vamos a la escena de muerte, y reactivamos los inputs
                 this.changeScene('deathEvent_0');
                 this.cameras.main.fadeIn(2000);
                 this.player.enableInputs(true);
             }
-            console.log("outComplete")
         });
 
-        this.scene.scene.cameras.main.on('camerafadeincomplete', event => {
-            console.log("inComplete")
-        });
-
-        this.events.on('wake', event => {
+        this.events.on('wake', () => {
+            //cada vez que la escena vuelve a estar en pantalla (tras volver de un evento)
             //la musica vuelve a sonar
             this.sound.play('mainTheme', {
                 mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
             });
-
+            //si ha muerto en la escena de muerte, hacemos que el jugador reaparezca en el spawnpoint
             if (this.player !== undefined && this.player.death === this.player.deathState.Dead) {
                 this.player.die(this.blindfold, this.silhouette);
             }
             else {
+                //si ha sobrevivido, le damos cordura al jugador, y restauramos 
+                //su estado a 'alive'
                 if (this.player.death === this.player.deathState.CheckDeath) {
                     this.player.addSanity(this.player.maxSanity / 2);
                     this.deathBlindfold(this.blindfold, this.silhouette);
                     this.player.setAlive();
                 }
-                else {
+                else { //si vuelve de un evento que no es el de muerte
+                    //simplemente actualizamos el estado de la venda
                     if (!this.blindfold.blind) this.onBlindChange();
                 }
             }
         });
 
-        // Inicia la animacíon de las tiles
+        // Inicia la animacion de las tiles
         this.animatedTiles.init(this.map);
 
         //Atributos del nivel
         this.treesFound = 0;
     }
-
-    update(time, delta) {
-        super.update();
-    }
     
-    generateEventTriggers(smells, sounds) {
-        this.triggerEvents = new Array();
+    //metodo para generar los event triggers en la escena de nivel 
+    generateEventTriggers(smells) {
+        this.triggerEvents = new Array(); //creamos el array
         for (const eventTrigger of this.map.getObjectLayer('eventTriggers').objects) {
-            let stim;
+            let stim; //agregamos cada elemento acorde a su nombre en Tiled
             let position = { 'x': eventTrigger.x, 'y': eventTrigger.y };
             switch (eventTrigger.name) {
                 case 'treeSmell1':
