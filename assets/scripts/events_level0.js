@@ -81,29 +81,29 @@ export class dad_Event_2 extends eventScene {
                 text: "María, ¿has hecho lo que te pedí?"
             },
             {
-                text: "Claro, padre",
+                text: "Claro, padre.",
                 cb: () => {
                     if (this.info.player.inventory.contains('Colgante') || this.info.blindfold.blind) {
                         this.content[1].next = [
                             {
-                                text: 'María, mi ultimo deseo es verte en tu máximo esplendor.'
-                                    + ' Por favor, ponte el colgante y dejame ver tus ojos por última vez.'
+                                text: 'María, mi último deseo es verte en tu máximo esplendor.'
+                                    + ' Por favor, ponte el colgante y déjame ver tus ojos por última vez.'
                             },
                             {
-                                text: 'Vale, padre'
+                                text: 'Vale, padre.'
                             }
                         ]
                     }
                     else {
                         this.content[1].next = [
                             {
-                                text: '¡Ah! Que suerte que heredaste la belleza de tu madre. Que alegría poder ver esos ojos '
+                                text: '¡Áh! Qué suerte que heredaste la belleza de tu madre. Que alegría poder ver esos ojos '
                                     + 'por última vez. Cómo deseo que puedas observar las maravillas de este mundo ahora que puedes'
                                     + ' verlas por primera vez.\nCreo que ya ha llegado mi hora. María, quiero que sepas que siempre os he querido'
                                     + ' tanto a ti como a toda la familia con todas mis fuerzas. Espero que tengas una gran vida por delante.',
                             },
                             {
-                                text: '...Padre',
+                                text: '...Padre.',
                                 cb: () => {
                                     this.completeEvent(0, 100);
                                     //este evento no cuenta para el numero de eventos completados
