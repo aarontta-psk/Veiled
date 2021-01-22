@@ -75,7 +75,6 @@ export class dad_Event_1 extends eventScene {
 export class dad_Event_2 extends eventScene {
     constructor() {
         super({ key: 'dad_Event_2' });
-        //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
@@ -109,7 +108,7 @@ export class dad_Event_2 extends eventScene {
                                     this.completeEvent(0, 100);
                                     //este evento no cuenta para el numero de eventos completados
                                     this.info.player.numCompletedEvents--;
-                                    this.scene.stop();
+                                    this.scene.stop(); //activamos escenea infoLevel 
                                     this.scene.run('infoLevel', {
                                         obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
                                         totalLevelEvents: this.info.prevScene.totalLevelEvents,
