@@ -21,9 +21,7 @@ La protagonista se moverá en **8 direcciones**, siendo la velocidad de movimien
 
 ### Barra de cordura
 
-El personaje tendrá un medidor que representa su **cordura**. Funcionará a modo de barra de vida, pues al agotarse toda la barra, el jugador se verá obligado a hacer un evento, tras el cual podrá, o bien recuperar un poco de cordura y continuar, o bien tener que reiniciar desde el último punto de guardado (iglesia).
-
-A lo largo de la partida, la cantidad de cordura especifica tendrá una serie de efectos en el jugador, como comenzar a percibir alucinaciones visuales y sonoras (que irán empeorando cuanto menor sea la cordura), además de pequeños impedimentos sensoriales, con el fin de recordarle que no puede mantenerse todo el rato sin venda.
+El personaje tendrá un medidor que representa su **cordura**. Funcionará a modo de barra de vida, pues al agotarse toda la barra, el jugador se verá obligado a hacer un evento, en el cual, se le mostrrán varias opciones con distintos requisitos para salvarse y continuar el nivel.
 
 El progreso de la barra sigue una escala logarítmica tanto en positivo como en negativo, tal que cuando está baja las pérdidas son reducidas y cuando esté alta los incrementos son reducidos.
 
@@ -33,13 +31,7 @@ El progreso de la barra sigue una escala logarítmica tanto en positivo como en 
 
 #### Venda
 
-El jugador tendrá puesta constantemente una **venda** , que le impide ver el mapa salvo un radio de 1 casilla alrededor del personaje (el rango de sonido de sus pasos). Aun así, es posible quitarse la venda, lo que permitirá ver mayor parte del mapa y percibir colores, pero hará que disminuya la barra de cordura hasta que vuelva a ponérsela (y no incrementa al volver a ponérsela).
-
-Con respecto a la alteración de la visión en base a la cordura, a menos de 60% de cordura, el rango de detección de estímulos no visuales (sonidos) se limitará estrictamente al radio de detección. Por encima de este nivel, el radio define el límite de detección clara, con un efecto de difumado a todo lo que haya más allá de este punto. Este cambio tiene que ocurrir lo suficientemente rápido para ser visible.
-
-A menos de 35% de cordura, todos estos mismos objetos se seguirán detectando, pero no se podrán identificar a simple vista en pantalla; se indicará que hay algo sin especificar el qué.
-
-Cuando la cordura esté por debajo del 10%, no se podrá interactuar con las memorias. Se seguirá viendo en pantalla las localizaciones de estas, pero todavía sin mostrar detalle.
+El jugador tendrá puesta constantemente una **venda** , que le impide ver el mapa salvo un radio pequeño alrededor del personaje (el rango de sonido de sus pasos). Aun así, es posible quitarse la venda, lo que permitirá ver mayor parte del mapa, pero hará que disminuya la barra de cordura hasta que vuelva a ponérsela (y no incrementa al volver a ponérsela).
 
 #### Estímulos
 
@@ -47,26 +39,21 @@ A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olf
 
 ### Fe
 
-La **fe** sirve como principal medidor de progreso del juego. Además, en cada nivel habrá un medidor de fe conseguida a lo largo del mismo (estilo barra True Jedi del Lego Star Wars)
+La **fe** sirve como principal medidor de progreso del juego y se indicara mediante un barra durante el nivel (estilo barra True Jedi del Lego Star Wars).
 
-Después de cada nivel, se indica la fe obtenida y cuantas "misiones" has hecho en la pantalla de nivel completado.
-
-Además, según tu nivel de fe obtenida, algunos eventos en los niveles siguientes tendrán nuevas opciones (acortar el evento principal, pero obteniendo la misma fe, por ejemplo).
+Al finalizar el nivel, se indicará la fe obtenida y cuantos eventos se han completado mediante una pantalla de información.
 
 ### Eventos
 
-En el mapa, habrá esparcidos una serie de **eventos de texto** (por interactuar con un objeto, con una silueta, o aleatoriamente) que permitirán responder desde con 2 a 4 opciones. Hay distintos tipos:
+Mediante los npc y algunas situaciones concretas podremos acceder a una serie de **eventos de texto** que presentaran un problema o una historia al jugador y podrán ser resueltos siguiendo su árbol de diálogos correspondiente.
 
-- **Eventos localizados:** Se encuentran en un punto concreto del mapa, se lanzan mediante interacción o posición.
-  - Principales: Serán aquellos que avanzarán la trama principal de juego, y, por tanto, del nivel. Estos serán activados por los diferentes NPCs del nivel (hermano, marido, etc), y serán recordados por la silueta, un ente que aparece solo al tener la venda puesta, y que recordará al jugador que evento debe hacer. Esta linea de eventos concluirá en un gran incremento de fe y desbloqueará el siguiente nivel.
-  - Secundarios: sirven para expandir la historia, obtener recompensas (cordura, fe, consumibles)
+- **Principales:** Serán aquellos que avanzarán la trama principal de juego. Estos serán activados por los diferentes NPCs del nivel (hermano, marido, etc), y serán recordados por la silueta, un ente que aparece solo al tener la venda puesta, y que recordará al jugador que evento debe hacer. Esta linea de eventos concluirá en un gran incremento de fe y desbloqueará el final del juego.
 
-- **Eventos no localizados:** se lanzan en cualquier punto del mapa sin necesidad de interacción.
+- **Secundarios:** sirven para expandir la historia, obtener recompensas (cordura, fe, consumibles).
 
-  - Trigger: se lanzan al cumplir ciertos objetivos, por ejemplo, alcanzar un _threshold_ de cordura.
-  - Informativo: se lanzan para informar al jugador ya sea de un aspecto jugable (tutoriales, consejos, etc) o de historia (conversaciones).
+- **Trigger:** se lanzan al cumplir ciertos objetivos, por ejemplo, alcanzar un _threshold_ de cordura (evento de "muerte").
 
-Así, cada uno tiene un indicador de que tipo es: de avanzar en la historia, de desafío, para conseguir un objeto.... Además, algunas de estas opciones pueden tener requisitos para ser respondidas, como tener un objeto clave o tener cierto nivel de cordura.
+Algunos de estos eventos pueden tener requisitos para ser iniciados y completados, como haber progresado lo suficiente con otro npc o estar en posesión del objeto clave correspondiente.
 
 ### NPCs
 
@@ -76,10 +63,10 @@ Los niveles contarán con varios NPCs interactuables, que recorren un camino pre
 
 ### Objetos
 
-A lo largo de la partida se podrán conseguir **objetos** , que afecten a las características del jugador (número de casillas visibles, cantidad de cordura...). Estos se podrán obtener siendo encontrados en el mapa o bien como recompensa tras un evento. Cada uno tendrá una descripción que indicará que hace cada uno. Se dividen en:
+A lo largo de la partida se podrán conseguir **objetos** , que afecten a las características del jugador. Estos se podrán obtener siendo encontrados en el mapa o bien como recompensa tras un evento. Cada uno tendrá una descripción que indicará que hace cada uno. Se dividen en:
 
-- **Claves** : Necesarios para avanzar en uno de los posibles eventos y llegar al siguiente nivel. (Ejemplo: Hacha que permite talar el árbol para llegar a la siguiente zona).
-- **Consumibles** : De un solo uso, permiten recuperar cordura o tener efectos beneficiosos temporales. (Ejemplo: Caleidoscopio que disminuye el gasto de cordura con la venda quitada). También pueden lanzar eventos secundarios.
+- **Claves** : Necesarios para avanzar en uno de los posibles eventos. (Ejemplo: encontrar la comida que le puedes dar al niño cerca del molino).
+- **Consumibles** : De un solo uso, permiten recuperar cordura o tener efectos beneficiosos temporales. (Ejemplo: poción/medicina que recupera una poco de cordura).
 
 ![Dinámicas](./assets/media/headers/h_dinamicas.png)
 
@@ -124,6 +111,8 @@ Tras haber recuperado su vista justo en el momento de la muerte de su padre, Mar
 Cuando su estado de ánimo ha sido restaurado, es capaz de conciliar su pena y dejar aceptar su nueva circunstancia.
 
 ### Eventos
+
+Cada NPC cuenta con algún tipo de evento, en el preludio el padre tiene el evento inicial y durante el nivel del pueblo 12 NPCs cuentan con sus propios eventos, en algunos casos conectados entre ellos.
 
 Ejemplo de una evento de texto sencillo
 
