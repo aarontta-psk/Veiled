@@ -13,8 +13,6 @@
 
 _**Veiled**_ es un juego de exploración en el que el jugador controla a María en su búsqueda por alcanzar la iluminación definitiva. Durante la exploración, la protagonista llevará una venda puesta, que no le permitirá ver de manera correcta el mundo que le rodea. Así, a lo largo de los eventos, María obtendrá fe, lo que le podrá permitir avanzar en los niveles (y por tanto en su búsqueda). Además, la cordura de la protagonista obligará al jugador a manejar correctamente el uso/desuso de la venda.
 
-![Game screen](./assets/media/game_screen.png)
-
 ![Mecánicas](./assets/media/headers/h_mecanicas.png)
 
 ### Movimiento
@@ -146,14 +144,18 @@ Ejemplo de una evento de texto sencillo
 | Sprite | Nombre | Evento |
 |--------|--------|--------|
 | ![alt text](./assets/media/features/npcs/brother.gif)| Hermano | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/doctor.gif)| Doctor | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/elder.gif)| Anciana | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/foreigner.gif)| Extranjero | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/glasses.gif)| SEÑOR??? | Permite continuar el tutorial del preludio |
 | ![alt text](./assets/media/features/npcs/kid.gif)| Niño | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/doctor.gif)| Doctor | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/glasses.gif)| SEÑOR??? | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/elder.gif)| Anciana | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/farmer.gif)| AAAAAA | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/fisherman.gif)| AAAAAA | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/foreigner.gif)| Extranjero | Permite continuar el tutorial del preludio |
 | ![alt text](./assets/media/features/npcs/lumberjack.gif)| Leñador | Permite continuar el tutorial del preludio |
 | ![alt text](./assets/media/features/npcs/painter.gif)| Pintora | Permite continuar el tutorial del preludio |
 | ![alt text](./assets/media/features/npcs/seller.gif)| Vendedor | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/tavern.gif)| AAAAAA | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/vagabond.gif)| AAAAAA | Permite continuar el tutorial del preludio |
 
 ### Items
 
@@ -175,9 +177,9 @@ Ejemplo de una evento de texto sencillo
 | ![alt text](./assets/sprites/items/item_waterbucket.png)| Cubo con agua | Permite terminar el evento del pozo |
 | ![alt text](./assets/sprites/items/item_flower.png)| Flor | Permite terminar el evento del cementerio |
 | ![alt text](./assets/sprites/items/item_food.png)| Comida | Permite terminar el evento del niño |
-| ![alt text](./assets/sprites/items/item_glasses.png)| Gafas | Permite terminar HMMMMMM  |
-| ![alt text](./assets/sprites/items/item_sketch.png)| Boceto | HMMMMMMMM |
-| ![alt text](./assets/sprites/items/item_moneybag.png)| Bolsa con monedas | Permite comprar un consumible a HMMMMMMMM |
+| ![alt text](./assets/sprites/items/item_glasses.png)| Gafas | Necesario para completar el vento del SEÑOR  |
+| ![alt text](./assets/sprites/items/item_sketch.png)| Boceto | Utilizado durante el evento de la pintora |
+| ![alt text](./assets/sprites/items/item_moneybag.png)| Bolsa con monedas | Permite comprar un consumible al vendedor de la plaza |
 
 - **CONSUMIBLES**
 
