@@ -748,7 +748,7 @@ export class well_Event_0 extends eventScene {
                 cb: () => {
                     this.info.player.inventory.removeObjectByKey('Cubo vacio');
                     this.info.prevScene.insertItem(new BucketItem(this.info.prevScene.matter.world,
-                        0, 0, this.info.prevScene.itemFrames[5], this.info.player));
+                        0, 0, this.info.prevScene.itemFrames[20], this.info.player));
                     this.completeEvent(0, 0);
                 }
             },
