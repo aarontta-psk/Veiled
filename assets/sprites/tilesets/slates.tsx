@@ -5955,11 +5955,17 @@
   <properties>
    <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="32" width="64" height="32"/>
+  </objectgroup>
  </tile>
  <tile id="1151">
   <properties>
    <property name="obstacle" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="2" x="0" y="0" width="64" height="32"/>
+  </objectgroup>
  </tile>
  <tile id="1152">
   <properties>
