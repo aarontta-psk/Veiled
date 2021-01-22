@@ -5,6 +5,8 @@ import Item, { PictureItem } from './item.js';
 import GUI from './gui.js';
 import EventHandler from './event_handler.js';
 
+//escena de nivel 0, preludio, que funciona como tutorial 
+//e introduccion narrativa a la historia
 export default class Level0 extends NewGameScene {
     constructor() {
         super('level0');
@@ -19,6 +21,7 @@ export default class Level0 extends NewGameScene {
             GetItem: 'getItem',
             UseItemAndBlindfold: 'useItemAndBlindfold'
         }
+        //empezamos por talk
         this.prelude = this.preludeState.Talk;
 
         // Creamos un mapa a partir de los datos en cache
@@ -28,7 +31,7 @@ export default class Level0 extends NewGameScene {
             tileHeight: 64
         });
 
-        //sonidos
+        //activamos la musica de juego principal
         this.sound.play('mainTheme', {
             mute: false, volume: 0.5, rate: 1, detune: 0, seek: 0, loop: true, delay: 0
         });
@@ -59,11 +62,12 @@ export default class Level0 extends NewGameScene {
             }
         }
 
+        //Activamos la interfaz
         this.gui = new GUI(this, 0, 0, this.player);
-
+        //Activamos el efecto de sonido del padre cada 'x' tiempo
         this.soundParticle = this.add.particles('soundCircle');
 
-        // Añado un npc de prueba en un array
+        // Añado el npc del padre en el array de npcs
         this.npcs = [
             this.dadNpc = this.generateNPC(
                 'dad', true, 160,
@@ -75,6 +79,7 @@ export default class Level0 extends NewGameScene {
         this.dadNpc.setScale(2.2);
         this.dadNpc.body.parts[1].circleRadius = 130;
 
+        //número total de eventos en el nivel
         this.totalLevelEvents = 2;
 
         // Colocamos la vision en la posicion del jugador
@@ -94,14 +99,15 @@ export default class Level0 extends NewGameScene {
         this.itemFrames = this.items.getFrameNames();
         // Creacion de objetos segun el Tilemap
         for (const itemPos of this.map.getObjectLayer('collectable').objects) {
-            if (itemPos.name === 'picture') {
+            if (itemPos.name === 'picture') { //colocamos la imagen
                 this.picture = new PictureItem(this.matter.world, itemPos.x, itemPos.y, this.itemFrames[15], this.player);
-                this.picture.setScale(2);
+                this.picture.setScale(2); //hacemos unos reajustes para que la imagen este en mejor escala 
                 this.picture.itemPointer.setVisible(false).setScale(1).setPosition(itemPos.x, itemPos.y - 30);
             }
         }
-
+        //creamos la venda
         this.blindfold = new Blindfold(this, 940, 970, this.vision);
+        //establecemos los límites de la cámara
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(2500, 2320, 600, 840);
 
@@ -111,15 +117,19 @@ export default class Level0 extends NewGameScene {
                 let npcEvent = this.auxEventHandler.nextEvent();
                 if (npcEvent != null) {
                     if (this.player.inventory.objects.length === 0 && this.player.faith === 0) {
+                        //si toca coger item, cambiamos a ese estado
                         this.prelude = this.preludeState.GetItem;
                         this.picture.itemPointer.setVisible(true);
                     }
+                    //desactivamos los elementos pertinentes
                     this.gui.wasdTooltip.setVisible(false);
                     this.gui.updateInventory(this.prelude);
                     this.changeScene(npcEvent);
                 }
             }
             else if (this.prelude === this.preludeState.GetItem && this.item !== undefined) {
+                //si estamos en el estado de seleccionar item, y decidimos cogerlo,
+                //lo cogemos y actualizamos el estado del preludio
                 this.item.itemPointer.setVisible(false);
                 this.insertItem(this.item);
                 this.prelude = this.preludeState.Talk;
@@ -161,7 +171,6 @@ export default class Level0 extends NewGameScene {
                     }
                     else if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
                         this.auxEventHandler = cuerpo2.gameObject;
-                        console.log("start work")
                     }
                 }
             });
@@ -175,7 +184,6 @@ export default class Level0 extends NewGameScene {
                     }
                     if (cuerpo2.gameObject instanceof EventHandler && cuerpo2.isSensor) {
                         this.auxEventHandler = null;
-                        console.log("end work")
                     }
                 }
             });
@@ -194,30 +202,41 @@ export default class Level0 extends NewGameScene {
     update(time, delta) {
         super.update();
 
+        //para cuando pueda quitarse la venda, establecemos un límite para que vea como baja,
+        //pero a la vez no tenga que morir aún
         if (this.player.sanity < 50)
             this.player.sanity = 50;
 
+        //cambiamos el estado para el caso de que se tenga que ir a activar inventario y venda
         this.stateChanging();
     }
 
+    //metodo para que el colgante pueda desactivar los tooltips correspondientes
     changeTooltips() {
         this.gui.arrowTooltip.setVisible(false);
         this.gui.spaceTooltip.setVisible(true);
     }
 
+    //metodo que actualiza el estado del preludio en el update
     stateChanging() {
         if (this.prelude === this.preludeState.Talk && this.player.faith === 20) {
+            //cuando hablas por segunda vez al padre, recibes 20 de fe, asi que cambiamos
+            //el estado de juego a activar inventario y venda, junto con sus tooltips acordes
             this.prelude = this.preludeState.UseItemAndBlindfold
             this.gui.qTooltip.setVisible(true);
             this.gui.updateInventory(this.prelude);
         }
         if (this.prelude === this.preludeState.UseItemAndBlindfold) {
+            //estando en el estado de activar inventario y venda
             if (this.player.cursorsPlayer.invToggle.isDown & !this.gui.backgroundInventory.visible) {
+                //cuando presione la Q, mostramos el inventario (con sus tooltips correspondientes) 
                 this.gui.toggleInventory();
                 this.gui.arrowTooltip.setVisible(true);
                 this.gui.qTooltip.setVisible(false);
             }
             else if (this.player.cursorsPlayer.blindfold.isDown && this.player.faith > 20) {
+                //cuando pueda quitarse la venda (es decir, cuando tenga más de 20 de fe tras haber usado el colgante),
+                //y decida quitarsela, actualizamos tooltips y volvemos al estado de hablar con el padre (por ultima vez)
                 this.blindfold.setBlindfold();
                 this.dadNpc.setVisible(true);
                 this.sound.play('sfxDesactivateBlind');
