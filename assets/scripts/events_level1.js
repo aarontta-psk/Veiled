@@ -1312,7 +1312,7 @@ export class doctor_Event_1 extends eventScene {
                 text: '[Ligeramente ofendida] Vale.',
                 cb: () => {
                     this.scene.get('lumberjack_Event_Idle').completed = true;
-                    this.completeMainEvent(9, 10);
+                    this.completeMainEvent(5, 10);
                 }
             }
         ];
@@ -1324,7 +1324,7 @@ export class doctor_Event_1 extends eventScene {
                 text: 'Vale, veré que ocurre.',
                 cb: () => {
                     this.scene.get('lumberjack_Event_Idle').completed = true;
-                    this.completeMainEvent(5, 10);
+                    this.completeMainEvent(10, 10);
                 }
             }
         ];
@@ -1419,7 +1419,7 @@ export class doctor_Event_3 extends eventScene {
                         text: 'Sonriendo, asientes y te despides del doctor.',
                         cb: () => {
                             this.scene.get('grandmother_Event_Idle').completed = true;
-                            this.completeMainEvent(20, 20);
+                            this.completeMainEvent(20, 10);
                         }
                     }
                 ]
@@ -1536,7 +1536,7 @@ export class sickTree_Event_0 extends eventScene {
             {
                 text: 'Anotar posición para el leñador.',
                 cb: () => {
-                    this.completeMainEvent(10, 0);
+                    this.completeMainEvent(10, 5);
                 },
             }
         ]
@@ -1565,7 +1565,7 @@ export class lumberjack_Event_1 extends eventScene {
                     {
                         text: 'Aceptar y despedirte del leñador.',
                         cb: () => {
-                            this.completeMainEvent(30, 15);
+                            this.completeMainEvent(30, 10);
                         }
                     }
                 ]
@@ -1743,7 +1743,7 @@ export class cane_Event_0 extends eventScene {
                 cb: () => {
                     this.info.prevScene.insertItem(new CaneItem(this.info.prevScene.matter.world,
                         0, 0, this.info.prevScene.itemFrames[1], this.info.player));
-                    this.completeMainEvent(10, 10);
+                    this.completeMainEvent(10, 5);
                 }
             },
             {
@@ -1867,46 +1867,6 @@ export class doctor_Event_Idle extends eventScene {
             },
             {
                 text: 'Volver más tarde.'
-            }
-        ]
-    }
-}
-
-export class doctor_Event_Idle_1 extends eventScene {
-    constructor() {
-        super({ key: 'doctor_Event_Idle_1' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: '¿Hablaste con Fernando?'
-            },
-            {
-                text: 'Aún no.'
-            }
-        ]
-    }
-}
-
-export class doctor_Event_Idle_2 extends eventScene {
-    constructor() {
-        super({ key: 'doctor_Event_Idle_2' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: '-¿Hablaste con Fernando?.'
-            },
-            {
-                text: 'Sí, le estoy ayudando. ¿Has notado algún árbol que oliese agrio?.',
-                next: [
-                    {
-                        text: '-¿Agrio? Tengo que decir que no. Cuido bastante de mi jardín, ¡y te puedo asegurar de que ninguno de los míos huele mal!.'
-                    },
-                    {
-                        text: 'Gracias igualmente.',
-                    }
-                ]
             }
         ]
     }
@@ -2049,7 +2009,6 @@ export class deathEvent_0 extends eventScene {
                     {
                         text: 'Levantarse.',
                         cb: () => {
-                            this.info.player.addFaith(-5);
                             this.info.player.setDead();
                         }
                     }
@@ -2087,7 +2046,6 @@ export class deathEvent_0 extends eventScene {
                             {
                                 text: 'Levantarse.',
                                 cb: () => {
-                                    this.info.player.addFaith(-5);
                                     this.info.player.setDead();
                                 }
                             }

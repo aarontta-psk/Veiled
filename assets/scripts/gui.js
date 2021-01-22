@@ -45,7 +45,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.add(this.faithBar);
 
         //Fe maxima
-        this.faithTop = 420;
+        this.faithTop = 250;
         this.hideFaith();
     }
 
