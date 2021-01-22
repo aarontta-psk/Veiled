@@ -8,14 +8,21 @@ import Level2 from "./level2.js";
 import InfoLevel from "./infoLevel.js";
 import PauseScene from "./pause_scene.js";
 import {dad_Event_0, dad_Event_1, dad_Event_2} from "./events_level0.js"
-import {testSilueta_0, testSilueta_1, testSilueta_2, testSilueta_3, testSilueta_4, testSilueta_5, testSilueta_6, testSilueta_7, testSilueta_8, testSilueta_9,
-    testSilueta_10, testSilueta_11,
-    glassesItem_Event_0, glasses_Event_0, glasses_Event_1, glasses_Event_2, foreigner_Event_0, foreigner_Event_1, grandmother_Event_0, seller_Event_0,
-seller_Event_1, hungryKid_Event_0, elder_Event_0, elder_Event_1, tavern_Event_0, cane_Event_0, well_Event_0, coins_Event_0, grave_Event_0, brother_Event_Idle, brother_Event_0,
-doctor_Event_0, doctor_Event_1, doctor_Event_2, vagabond_Event_0, vagabond_Event_1, lumberjack_Event_0, lumberjack_Event_1,
-painterEvent_0, painterEvent_1, sickTree_Event_0, deathEvent_0, maxFaithEvent_0, doctor_Event_Idle, doctor_Event_Idle_1, doctor_Event_Idle_2, vagabond_Event_Idle, lumberjack_Event_Idle, sickTree_Event_Idle,
-grandmother_Event_Idle, doctor_Event_3,
-inkKeeper_Event_Idle, inkKeeper_Event_0, cane_Event_Idle, tavern_Event_Idle
+import {
+    //eventos idle
+    brother_Event_Idle, doctor_Event_Idle, lumberjack_Event_Idle, sickTree_Event_Idle, vagabond_Event_Idle, inkKeeper_Event_Idle,
+    grandmother_Event_Idle, cane_Event_Idle, tavern_Event_Idle,
+    //eventos de la silueta
+    testSilueta_0, testSilueta_1, testSilueta_2, testSilueta_3, testSilueta_4, testSilueta_5, testSilueta_6, 
+    testSilueta_7, testSilueta_8, testSilueta_9,testSilueta_10, testSilueta_11,
+    //eventos principales
+    elder_Event_0, doctor_Event_0, doctor_Event_1, doctor_Event_2, doctor_Event_3, vagabond_Event_0, vagabond_Event_1, lumberjack_Event_0, lumberjack_Event_1, tavern_Event_0, cane_Event_0, sickTree_Event_0, grandmother_Event_0,
+    //eventos secundarios
+    glassesItem_Event_0, glasses_Event_0, glasses_Event_1, glasses_Event_2, foreigner_Event_0, foreigner_Event_1, seller_Event_0,
+    seller_Event_1, hungryKid_Event_0, elder_Event_1, well_Event_0, coins_Event_0, grave_Event_0, brother_Event_0, painterEvent_0, 
+    painterEvent_1, inkKeeper_Event_0,
+    //eventos especiales
+    deathEvent_0
 } from "./events_level1.js"
 
 const config = {
@@ -38,30 +45,34 @@ const config = {
             }
         }
     },
+    //escenas a cargar
     scene: [Boot, MainMenu, Options, levelSelector, Level0, Level1, Level2, InfoLevel, PauseScene,
-        //eventos generales
-        brother_Event_Idle,
-        //eventos de nivel 0
+        //eventos nivel 0
         dad_Event_0, dad_Event_1, dad_Event_2,
-        //eventos de nivel 1
-        deathEvent_0, maxFaithEvent_0, painterEvent_0, painterEvent_1, doctor_Event_0, doctor_Event_1, doctor_Event_2, lumberjack_Event_0,
-        lumberjack_Event_1, sickTree_Event_0, testSilueta_0, testSilueta_1, testSilueta_2,
-        testSilueta_3, testSilueta_4, testSilueta_5, testSilueta_6, testSilueta_7, testSilueta_8, testSilueta_9,
-        testSilueta_10, testSilueta_11,
-        glassesItem_Event_0, glasses_Event_0,
-        glasses_Event_1, glasses_Event_2, foreigner_Event_0, foreigner_Event_1, grandmother_Event_0, seller_Event_0, seller_Event_1,
-        hungryKid_Event_0, elder_Event_0, elder_Event_1, tavern_Event_0, cane_Event_0, well_Event_0, coins_Event_0, grave_Event_0,
-        brother_Event_0, doctor_Event_Idle, doctor_Event_Idle_1, doctor_Event_Idle_2, vagabond_Event_Idle, vagabond_Event_0, vagabond_Event_1, sickTree_Event_Idle,
-        lumberjack_Event_Idle, inkKeeper_Event_Idle, inkKeeper_Event_0, grandmother_Event_Idle, doctor_Event_3, cane_Event_Idle, tavern_Event_Idle  //escenas a cargar
+        //eventos idle
+        brother_Event_Idle, doctor_Event_Idle, lumberjack_Event_Idle, sickTree_Event_Idle, vagabond_Event_Idle, inkKeeper_Event_Idle,
+        grandmother_Event_Idle, cane_Event_Idle, tavern_Event_Idle,
+        //eventos de la silueta
+        testSilueta_0, testSilueta_1, testSilueta_2, testSilueta_3, testSilueta_4, testSilueta_5, testSilueta_6, 
+        testSilueta_7, testSilueta_8, testSilueta_9,testSilueta_10, testSilueta_11,
+        //eventos principales
+        elder_Event_0, doctor_Event_0, doctor_Event_1, doctor_Event_2, doctor_Event_3, vagabond_Event_0, vagabond_Event_1, lumberjack_Event_0, lumberjack_Event_1, tavern_Event_0, cane_Event_0, sickTree_Event_0, grandmother_Event_0,
+        //eventos secundarios
+        glassesItem_Event_0, glasses_Event_0, glasses_Event_1, glasses_Event_2, foreigner_Event_0, foreigner_Event_1, seller_Event_0,
+        seller_Event_1, hungryKid_Event_0, elder_Event_1, well_Event_0, coins_Event_0, grave_Event_0, brother_Event_0, painterEvent_0, 
+        painterEvent_1, inkKeeper_Event_0,
+        //eventos especiales
+        deathEvent_0
     ]
 }
 
 
-
+//creacion del juego
 new Phaser.Game(config);
 
 export default class Main{
     //metodo que destruye el juego y lo recarga
+    //(Destruir el juego no es la forma mas correcta de reiniciar el nivel, somos conscientes de ello)
     restartGame(ref){
         ref.sys.game.destroy(true);
         new Phaser.Game(config);

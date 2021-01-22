@@ -135,8 +135,7 @@ export default class Level1 extends NewGameScene {
         this.silhouette = new Silhouette(this.matter.world, 750, 550,
             [this.scene.get('testSilueta_0'), this.scene.get('testSilueta_1'), this.scene.get('testSilueta_2'), this.scene.get('testSilueta_3'), this.scene.get('testSilueta_4'),
             this.scene.get('testSilueta_5'), this.scene.get('testSilueta_6'), this.scene.get('testSilueta_7'), this.scene.get('testSilueta_8'), this.scene.get('testSilueta_9'),
-            this.scene.get('testSilueta_10'), this.scene.get('testSilueta_11'),     
-            this.scene.get('maxFaithEvent_0')]);
+            this.scene.get('testSilueta_10'), this.scene.get('testSilueta_11')]);
 
         this.objectiveMarker = new ObjectiveMarker(this.matter.world, this.player);
         this.loadObjectives();
