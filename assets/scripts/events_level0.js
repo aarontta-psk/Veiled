@@ -11,10 +11,10 @@ export class dad_Event_0 extends eventScene {
                 text: 'Tras duros meses de batalla, intentando acabar con los dolores que su enfermedad le causaba, ' +
                     'ves como tu padre esta tendido en su cama, augurando el momento en el que todo esto acabe.\n' +
                     '-Ay, María, ya me queda poco tiempo en este pueblo que tanto aprecio. Jamás perdonaré a esta enfermedad ' +
-                    'por privarme de poder verte más. Te pido un áltimo favor antes de irme, ¿podráas traerme la foto que está al lado de la mesa?',
+                    'por privarme de poder verte más. Te pido un último favor antes de irme, ¿podrás traerme la foto que está al lado de la mesa?',
             },
             {
-                text: 'Por supuesto, padre',
+                text: 'Por supuesto, padre.',
                 cb: () => { this.completeEvent(0, 0) }
             }
         ]
@@ -30,9 +30,9 @@ export class dad_Event_1 extends eventScene {
                 text: 'María, me duele cada vez más la cabeza, ¿me has traído ya la foto que te pedí?',
             },
             {
-                text: 'Claro, padre',
+                text: 'Claro, padre.',
                 //texto que se imprime si no se cumple la condicion
-                failedText: 'No tienes aun la foto',
+                failedText: 'No tienes aún la foto.',
                 //condicion que se tiene que cumplir para continuar el evento
                 condition: function (ref) {
                     return (ref.info.player.inventory.contains('Foto'));
@@ -47,24 +47,24 @@ export class dad_Event_1 extends eventScene {
                 next: [
                     {
                         text: 'Oh, que recuerdos me da esta foto. Que bonitos días pase con todos vosotros en aquel viaje a '
-                            + 'la ciudad. Que divertidas fueron las tardes, las fiestas y los paseos.\n'
-                            + 'En fin, quería darte éste colgante que me dejó tu madre antes de morir por esta misma enfermedad'
+                            + 'la ciudad. ¡Qué divertidas fueron las tardes, las fiestas y los paseos!\n'
+                            + 'En fin, quería darte este colgante que me dejó tu madre antes de morir por esta misma enfermedad'
                             + ' que estoy sufriendo. Póntelo y vuelve a ver como te queda. Ah, y,'
-                            + ' por favor, quitate la venda, que quiero ver tus bonitos ojos por ultima vez.'
+                            + ' por favor, quítate la venda, que quiero ver tus bonitos ojos por última vez.'
                     },
                     {
-                        text: 'Muchas gracias, padre'
+                        text: 'Muchas gracias, padre.'
                     }
                 ]
             },
             {
-                text: 'Aun no, padre',
+                text: 'Aún no, padre.',
                 next: [
                     {
-                        text: 'Por favor, apresúrate, que no se cuanto aguantaré con este dolor.'
+                        text: 'Por favor, apresúrate, que no sé cuánto aguantaré con este dolor.'
                     },
                     {
-                        text: 'Vale, padre'
+                        text: 'Vale, padre.'
                     }
                 ]
             }
