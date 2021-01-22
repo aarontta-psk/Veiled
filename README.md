@@ -107,21 +107,19 @@ El juego tiene una dificultad baja y una longitud relativamente corta. Se espera
 
 ### Niveles
 
-#### Preludio
-El jugador se encuentra en la habitación del padre, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una "pequeña" historia con el padre antes de este morir.
+- En el **Preludio** el jugador se encuentra en la habitación del padre de María, ya en su lecho de muerte. Ahí, será guiado por una serie de instrucciones para que se adapte a los controles mientras avanza una "pequeña" historia antes de ver al padre morir.
 
-#### Pueblo
-María continuará explorando su pueblo natal interactuando con personajes de su infancia y otros nuevos conocidos. El nivel estará compuesto por una zona residencial y algunos edificios clave como la casa del doctor o la estación de tren.
+- En el **Pueblo** María continuará explorando su pueblo natal interactuando con personajes de su infancia y otros nuevos conocidos. El nivel estará compuesto por una zona residencial y algunos edificios más alejados como la casa del doctor o el aserradero del leñador.
+
+- Durante el **Epílogo** y tras completar la línea de eventos principal en el pueblo, el jugador, desbloqueara la posibilidad de hablar con su abuela que le entregara una carta de su padre. El video final del juego donde se ve el contenido de la carta se puede consultar en este mismo [repositorio](https://github.com/SrVonPsikerfy/Veiled/blob/main/assets/media/ending.mp4).
+
 ![pueblo](./assets/media/level_01.png)
-
-#### Epílogo
-Tras un pequeño salto temporal, María llega a la catedral, donde el obispo le cuenta la reciente muerte de su hija. Tras hacer un paralelismo con su situación, se lee la carta de su padre. A mitad de la carta, llena de dolor, sale corriendo de la catedral, corriendo por un pasillo en el que se tiene que enfrentar a los susurros con los que ha hablado, hasta llegar al final del pasillo y encontrar la iluminación.
 
 ### Historia
 
 María busca recuperar su fe en la misericordia de Dios, y en el proceso aprenderá a aceptar su nuevo don y a ver la belleza del mundo por un nuevo medio.
 
-Tras haber recuperado su vista justo en el momento de la muerte de su padre, María decide vendarse los ojos para volver a la oscuridad. Se encierra en si misma, aferrándose a las tinieblas y a la memoria de su padre. En su estancia en su pueblo natal, conoce a varias personas que le abren los ojos, literal y metafóricamente, a las nuevas posibilidades que tiene por delante. 
+Tras haber recuperado su vista justo en el momento de la muerte de su padre, María decide vendarse los ojos para volver a la oscuridad. Se encierra en si misma, aferrándose a las tinieblas y a la memoria de su padre. En su estancia en su pueblo natal, conoce a varias personas que le abren los ojos, literal y metafóricamente, a las nuevas posibilidades que tiene por delante.
 
 Cuando su estado de ánimo ha sido restaurado, es capaz de conciliar su pena y dejar aceptar su nueva circunstancia.
 
