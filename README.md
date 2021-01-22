@@ -137,25 +137,24 @@ Ejemplo de una evento de texto sencillo
 
 | Sprite | Nombre | Evento |
 |--------|--------|--------|
-| ![alt text](./assets/media/features/npcs/dad.gif)| Padre | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/dad.gif)| Padre | Sirve de tutorial principal e introducción a la historia |
 
 #### PUEBLO
 
 | Sprite | Nombre | Evento |
 |--------|--------|--------|
-| ![alt text](./assets/media/features/npcs/brother.gif)| Hermano | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/kid.gif)| Niño | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/doctor.gif)| Doctor | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/glasses.gif)| SEÑOR??? | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/elder.gif)| Anciana | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/farmer.gif)| AAAAAA | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/fisherman.gif)| AAAAAA | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/foreigner.gif)| Extranjero | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/lumberjack.gif)| Leñador | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/painter.gif)| Pintora | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/seller.gif)| Vendedor | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/tavern.gif)| AAAAAA | Permite continuar el tutorial del preludio |
-| ![alt text](./assets/media/features/npcs/vagabond.gif)| AAAAAA | Permite continuar el tutorial del preludio |
+| ![alt text](./assets/media/features/npcs/brother.gif)| Hermano | Progresa la línea principal |
+| ![alt text](./assets/media/features/npcs/kid.gif)| Niño | Te cambia una flor por un poco de comida |
+| ![alt text](./assets/media/features/npcs/doctor.gif)| Doctor | Progresa la línea principal |
+| ![alt text](./assets/media/features/npcs/glasses.gif)| Ayudante | Le puedes ayudar a encontrar sus gafas |
+| ![alt text](./assets/media/features/npcs/elder.gif)| Abuela | Progresa la línea principal |
+| ![alt text](./assets/media/features/npcs/fisherman.gif)| Anciano | Recuerda mecánicas básicas al principio del nivel y apunta al jugador a distintas partes del pueblo |
+| ![alt text](./assets/media/features/npcs/foreigner.gif)| Extranjera | Te da una bolsa de monedas a cambio de ayuda |
+| ![alt text](./assets/media/features/npcs/lumberjack.gif)| Leñador | Te manda a buscar un árbol enfermo |
+| ![alt text](./assets/media/features/npcs/painter.gif)| Pintora | Puedes opinar sobre su obra |
+| ![alt text](./assets/media/features/npcs/seller.gif)| Vendedor | Intercambia objetos consumibles por bolsas de monedas |
+| ![alt text](./assets/media/features/npcs/tavern.gif)| Tavernero | Te manda a llenar un cubo con agua y así poder completar otro evento |
+| ![alt text](./assets/media/features/npcs/vagabond.gif)| Vagabundo | Parte del evento del doctor |
 
 ### Items
 
@@ -177,7 +176,7 @@ Ejemplo de una evento de texto sencillo
 | ![alt text](./assets/sprites/items/item_waterbucket.png)| Cubo con agua | Permite terminar el evento del pozo |
 | ![alt text](./assets/sprites/items/item_flower.png)| Flor | Permite terminar el evento del cementerio |
 | ![alt text](./assets/sprites/items/item_food.png)| Comida | Permite terminar el evento del niño |
-| ![alt text](./assets/sprites/items/item_glasses.png)| Gafas | Necesario para completar el vento del SEÑOR  |
+| ![alt text](./assets/sprites/items/item_glasses.png)| Gafas | Necesario para completar el evento del ayudante  |
 | ![alt text](./assets/sprites/items/item_sketch.png)| Boceto | Utilizado durante el evento de la pintora |
 | ![alt text](./assets/sprites/items/item_moneybag.png)| Bolsa con monedas | Permite comprar un consumible al vendedor de la plaza |
 
@@ -211,7 +210,7 @@ Música Menu Principal: In The Light - David Renda
 
 Para jugar se necesitará el **teclado**, siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario y la R sera usada en ocasiones especiales para hablar con el fantasma de tu padre, la silueta. En los menus, eventos y para usar objetos de inventario se podrá interactuar utilizando el **ratón**.
 
-![Keybinds](./assets/media/keybinds.png)
+![Keybinds](./assets/media/keybinds_gdd.png)
 
 ![Interfaz y Menús](./assets/media/headers/h_interfaz.png)
 
