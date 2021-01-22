@@ -6,8 +6,8 @@ import {
     KaleidoscopeItem, SketchItem /*painterEvent_0*/
 } from './item.js'
 
-const LEVEL_FAITH_NEEDED = 100; //fe necesaria para completar el nivel
-const TOTAL_EVENTS = 25 //eventos totales que el jugador puede completar en el nivel (no cuentan aquellos que no se completan)
+const LEVEL_FAITH_NEEDED = 170; //fe necesaria para completar el nivel
+const TOTAL_EVENTS = 26 //eventos totales que el jugador puede completar en el nivel (no cuentan aquellos que no se completan)
 
 //#region SilhouetteEvents
 export class testSilueta_0 extends eventScene{
@@ -595,7 +595,6 @@ export class painterEvent_0 extends eventScene {
             },
             {
                 text: 'Adular.',
-                cb: () => { },
                 next: [
                     {
                         text: 'Das una crítica increíblemente positiva sobre el cuadro, sin ser realmente específico en ningún ' +
@@ -614,7 +613,6 @@ export class painterEvent_0 extends eventScene {
             },
             {
                 text: 'Crítica positiva.',
-                cb: () => { },
                 next: [
                     {
                         text: 'Das una crítica mayoritariamente positiva sobre el cuadro, centrándote en la gama de colores tan ' +
@@ -634,7 +632,6 @@ export class painterEvent_0 extends eventScene {
             },
             {
                 text: 'Crítica analítica.',
-                cb: () => { },
                 next: [
                     {
                         text: 'Sin dejar que la amoción del momento te abrume, das tu opición más sincera sobre el cuadro, ' +
@@ -662,7 +659,6 @@ export class painterEvent_0 extends eventScene {
             },
             {
                 text: 'Conversar con la artista.',
-                cb: () => { },
                 next: [
                     {
                         text: 'Una breve conversación trivial lleva a la artista a envolverse un poco en temas de teoría de color.\n' +
@@ -695,7 +691,6 @@ export class painterEvent_1 extends eventScene {
             },
             {
                 text: 'Sonreírle y continuar.',
-                cb: () => { },
             }
         ]
     }
@@ -1464,7 +1459,6 @@ export class lumberjack_Event_0 extends eventScene {
             },
             {
                 text: 'Vengo a ayudar.',
-                cb: () => { },
                 next: [
                     {
                         text: 'El hombre no parece echarse atrás a la idea. -De acuerdo. El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los cipreses de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
@@ -1477,7 +1471,6 @@ export class lumberjack_Event_0 extends eventScene {
             },
             {
                 text: '¿Cuál es el problema?',
-                cb: () => { },
                 next: [
                     {
                         text: '-El problema que tengo es que no puedo seguir con mi trabajo habitual por una enfermedad que amenaza a los robles de la sierra. Les pudre el tronco por dentro y hace que se caigan espontáneamente. Por no decir nada de que la madera pierde su valor. \nAl parecer, hay algunos árboles ya infectados en el pueblo. Podré procuparme de otros encargos cuando encuentre esos árboles infectados.'
@@ -1828,6 +1821,9 @@ export class grandmother_Event_0 extends eventScene {
                                 totalLevelEvents: TOTAL_EVENTS
                             });
                         }
+                    },
+                    {
+                        text: 'Volver más tarde'
                     }
                 ]
             },
@@ -2020,7 +2016,6 @@ export class deathEvent_0 extends eventScene {
                 },
                 failedText: 'No tienes la figura tallada.',
                 text: 'Aferrarse a la figura tallada.',
-                cb: () => { },
                 next: [
                     {
                         text: 'Agarras con fuerza la figura y percibes su forma humana a través del tacto. \n' +
@@ -2058,7 +2053,6 @@ export class deathEvent_0 extends eventScene {
                             },
                             {
                                 text: 'Continuar.',
-                                cb: () => { }
                             }
                         ]
                     }

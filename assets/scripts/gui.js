@@ -45,7 +45,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.add(this.faithBar);
 
         //Fe maxima
-        this.faithTop = 250;
+        this.faithTop = 350;
         this.hideFaith();
     }
 
@@ -68,7 +68,10 @@ export default class GUI extends Phaser.GameObjects.Container {
     viewFaith(faith) {
         this.faithBack.setVisible(true);
         this.faithBar.setVisible(true);
-        this.faithBar.scaleX = faith / this.faithTop;
+        let faithBar;
+        if(faith > this.faithTop) faithBar = this.faithTop;
+        else faithBar = faith;
+        this.faithBar.scaleX = faithBar / this.faithTop;
         //tras 'x' tiempo, ocultamos la barra de fe
         this.scene.time.delayedCall(4000, this.hideFaith, null, this);
     }
