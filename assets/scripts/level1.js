@@ -84,7 +84,7 @@ export default class Level1 extends NewGameScene {
             this.generateNPC(
                 'doctor', false, 60,
                 [this.scene.get('doctor_Event_Idle'), this.scene.get('doctor_Event_0'), this.scene.get('doctor_Event_1'),
-                this.scene.get('doctor_Event_Idle_1'), this.scene.get('doctor_Event_Idle_2'), this.scene.get('doctor_Event_2'), this.scene.get('doctor_Event_3')]
+                this.scene.get('doctor_Event_2'), this.scene.get('doctor_Event_3')]
             ),
             this.generateNPC(
                 'painter', false, 60,

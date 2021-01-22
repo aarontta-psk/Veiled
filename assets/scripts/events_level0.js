@@ -4,8 +4,8 @@ import { PendantItem } from './item.js' //dad_event_1
 export class dad_Event_0 extends eventScene {
     constructor() {
         super({ key: 'dad_Event_0' });
-        //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
+        //contenido del evento
         this.content = [
             {
                 text: 'Tras duros meses de batalla, intentando acabar con los dolores que su enfermedad le causaba, ' +
@@ -24,7 +24,6 @@ export class dad_Event_0 extends eventScene {
 export class dad_Event_1 extends eventScene {
     constructor() {
         super({ key: 'dad_Event_1' });
-        //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
@@ -32,15 +31,18 @@ export class dad_Event_1 extends eventScene {
             },
             {
                 text: 'Claro, padre',
+                //texto que se imprime si no se cumple la condicion
                 failedText: 'No tienes aun la foto',
+                //condicion que se tiene que cumplir para continuar el evento
                 condition: function (ref) {
                     return (ref.info.player.inventory.contains('Foto'));
                 },
+                //callback que se ejecuta al cumplirse la condicion
                 cb: () => {
-                    this.info.player.inventory.removeObjectByKey('Foto');
-                    this.info.prevScene.insertItem(new PendantItem(this.info.prevScene.matter.world,
+                    this.info.player.inventory.removeObjectByKey('Foto'); //se elimina un item
+                    this.info.prevScene.insertItem(new PendantItem(this.info.prevScene.matter.world, //se inserta otro item
                         0, 0, this.info.prevScene.itemFrames[13], this.info.player));
-                    this.completeEvent(0, 20);
+                    this.completeEvent(0, 20); //se completa el evento
                 },
                 next: [
                     {
@@ -116,7 +118,7 @@ export class dad_Event_2 extends eventScene {
                                             + 'influenciando tus pensamientos e ideales.'
                                     })
                                 },
-                                end: true
+                                end: true //propiedad que indica que se termina el nivel
                             }
                         ]
                     }

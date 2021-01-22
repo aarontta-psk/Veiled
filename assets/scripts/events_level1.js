@@ -3,11 +3,11 @@ import {
     CaneItem, /*cane_event_0*/ GlassesItem, /*glassesItem_Event_0*/ EmptyBucketItem, /*tavern_Event_0*/
     BucketItem, /*well_event_0*/ StampItem, LessDeathItem, BetterBlindFoldItem, /*seller_event_0*/
     FlowerItem, /*hungryKid_Event_0*/ MoneyBagItem, /*foreigner_Event_1, coins_Event_0, grave_Event_0*/
-    SickTreeItem, /*sickTreeEvent*/ KaleidoscopeItem, SketchItem /*painterEvent_0*/
+    KaleidoscopeItem, SketchItem /*painterEvent_0*/
 } from './item.js'
 
-const LEVEL_FAITH_NEEDED = 100;
-const TOTAL_EVENTS = 20
+const LEVEL_FAITH_NEEDED = 100; //fe necesaria para completar el nivel
+const TOTAL_EVENTS = 20 //eventos totales que hay en el nivel
 
 //#region SilhouetteEvents
 export class testSilueta_0 extends eventScene{
@@ -259,56 +259,6 @@ export class testSilueta_11 extends eventScene{
 //#endregion
 
 //#region SecondaryEvents
-export class elder_Event_0 extends eventScene {
-    constructor() {
-        super({ key: 'elder_Event_0' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'mainEventMenu';
-        this.content = [
-            {
-                text: 'Reposando en un banco se encuentra alguien. Está callado. No te habrías dado cuenta de que está ahí de\n' +
-                    'no ser porque tose muy fuerte.'
-            },
-            {
-                text: '¿Se encuentra bien?',
-                next: [
-                    {
-                        text: '-Claramente no. ¿No lo ves? Claro que no lo ves. En fin, se te nota perdida por aquí. ¿Hace tiempo\n' +
-                            'que no caminas por el pueblo? Te puedo contar como va todo por aquí- con dificultad, el hombre se sienta derecho -pero por favor, sé un ángel y acércame mi botella; está ahí caída. Toma un poco si quieres.'
-                    },
-                    {
-                        text: 'Darle la botella.',
-                        condition: function (ref) {
-                            return (ref.info.player.inventory.contains('Botella'))
-                        },
-                        failedText: 'Aún no has cogido la botella.',
-                        next: [
-                            {
-                                text: '-¡Así me gusta! Nada mejor que un trago para despejarse por la mañana. *Hip*'
-                            },
-                            {
-                                text: '...Preocupada, te sientes tentada a preguntarle algunas cosas.',
-                                cb: () => {
-                                    this.info.player.inventory.removeObjectByKey('Botella');
-                                    this.scene.get('brother_Event_Idle').completed = true;
-                                    this.completeMainEvent(10, 10);
-                                },
-                            }
-
-                        ]
-                    },
-                    {
-                        text: 'Ir a buscar la botella.'
-                    }
-                ]
-            },
-            {
-                text: 'Seguir caminando.'
-            }
-        ]
-    }
-}
-
 export class elder_Event_1 extends eventScene {
     constructor() {
         super({ key: 'elder_Event_1' });
@@ -423,57 +373,6 @@ export class hungryKid_Event_0 extends eventScene {
         ]
     }
 }
-
-// export class grandMother_Event_0 extends eventScene {
-//     constructor() {
-//         super({ key: 'grandMother_Event_0' });
-//         //array con los elementos de un evento
-//         this.backgroundImage = 'secondaryEventMenu';
-//         this.content = [
-//             {
-//                 text: '-¡María! Dichosos mis ojos, ¿hace cuanto que has vuelto? Deberías haber avisado.\n' +
-//                     'Es importante contar con la familia en estos momentos de adversidad.'
-//             },
-//             {
-//                 text: 'Perdona, pero la muerte de padre...',
-//                 next: [
-//                     {
-//                         text: 'Ah si. Tu padre. Fue un gran hombre. Nunca te he hablado demasiado de cuando él\n' +
-//                             'era tan solo un mozo. ¿Quieres que lo cuente?'
-//                     },
-//                     {
-//                         text: 'Prefiero no ahondar en el pasado',
-//                     },
-//                     {
-//                         text: 'Me encantaría, le echo mucho de menos',
-//                         next: [
-//                             {
-//                                 text: 'PONER HISTORIA, RESTAR CORDURA POR CADA TEXTO NEXT[] QUE TE CUENTA Y DAR FE AL FINAL'
-//                             },
-//                             {
-//                                 text: 'Acabar',
-//                                 cb: () => {
-//                                     this.completeMainEvent(1, 1);
-//                                 }
-//                             }
-//                         ]
-//                     },
-//                 ]
-//             },
-//             {
-//                 text: 'Necesito un tiempo',
-//                 next: [
-//                     {
-//                         text: 'Bueno, te estaré esperando aquí, cuando te sientas lista ven a verme'
-//                     },
-//                     {
-//                         text: 'Asentir e irse'
-//                     }
-//                 ]
-//             }
-//         ]
-//     }
-// }
 
 export class seller_Event_0 extends eventScene {
     constructor() {
@@ -677,6 +576,126 @@ export class grave_Event_0 extends eventScene {
             },
             {
                 text: 'Abandonar el cementerio.'
+            }
+        ]
+    }
+}
+
+export class painterEvent_0 extends eventScene {
+    constructor() {
+        super({ key: 'painterEvent_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.event1 = [
+            {
+                text: 'La pintora se queda incrédula un segundo, pero se alegra notablemente al darse cuenta de lo que ' +
+                    'esto significa. La inmensa cantidad de luz del día soleado te hace doler los ojos, pero al pasar un ' +
+                    'momento te ajustas y ves los dos paisajes, el de pastel un reflejo de la realidad, pero más saturado ' +
+                    'en sus colores, dándole un toque surreal.'
+            },
+            {
+                text: 'Adular.',
+                cb: () => { },
+                next: [
+                    {
+                        text: 'Das una crítica increíblemente positiva sobre el cuadro, sin ser realmente específico en ningún ' +
+                            'detalle, pero no obstante inundando a la joven artista con positividad. Esta está encantada con ' +
+                            'cada mención, y te regala un boceto en agradecimiento.',
+                    },
+                    {
+                        text: 'Agradecer y aceptar regalo.',
+                        cb: () => {
+                            this.info.prevScene.insertItem(new SketchItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[18], this.info.player));
+                            this.completeEvent(0, 20);
+                        }
+                    }
+                ]
+            },
+            {
+                text: 'Crítica positiva.',
+                cb: () => { },
+                next: [
+                    {
+                        text: 'Das una crítica mayoritariamente positiva sobre el cuadro, centrándote en la gama de colores tan ' +
+                            'vistosa y agradable. La artista se sonroja un poco, parece que esto era de lo que más orgullosa ' +
+                            'estaba. En este tono te confiesa que la inspiración para su estilo lo debe en parte a un ' +
+                            'caleidoscopio, el cual te regala como agradecimiento.',
+                    },
+                    {
+                        text: 'Agradecer y aceptar regalo.',
+                        cb: () => {
+                            this.info.prevScene.insertItem(new KaleidoscopeItem(this.info.prevScene.matter.world,
+                                0, 0, this.info.prevScene.itemFrames[9], this.info.player));
+                            this.completeEvent(0, 20);
+                        }
+                    }
+                ]
+            },
+            {
+                text: 'Crítica analítica.',
+                cb: () => { },
+                next: [
+                    {
+                        text: 'Sin dejar que la amoción del momento te abrume, das tu opición más sincera sobre el cuadro, ' +
+                            'describiendo como te gusta la gama de colores, pero remarcando cómo las líneas del contorno tan ' +
+                            'marcadas mancillan el efecto de dichos colores. La artista no se lo toma mal, y con una sonrisa ' +
+                            'te da las gracias- sinceridad a cambio de sinceridad.',
+                    },
+                    {
+                        text: 'Animar y despedir.',
+                        cb: () => {
+                            this.completeEvent(30, 20);
+                        }
+                    }
+                ]
+            }
+        ];
+        this.content = [
+            {
+                text: 'Notas, entre las fragancias del bosque cercano, el olor a colores pastel. Al acercarte, una persona ' +
+                    'se torna hacia ti. -¡Ay, no esperaba visitas! -Una voz femenina exclama- La gente no suele venir por ' +
+                    'aquí, así que suelo venir cuando quiero pintar. Sinceramente, tenía alguna ilusión por que que alguien ' +
+                    'me criticase mi trabajo, pero ¡qué quisquilloso es el destino para acabar aquí tú de todas personas!\n' +
+                    '-Bueno, parece que tendré que esperar a otro día para encontrar a mi crítico, pero de mientras, ' +
+                    'cuéntame un poco, ¿qué te trae por estas zonas?'
+            },
+            {
+                text: 'Conversar con la artista.',
+                cb: () => { },
+                next: [
+                    {
+                        text: 'Una breve conversación trivial lleva a la artista a envolverse un poco en temas de teoría de color.\n' +
+                            'Comienza a intentar explicar el amarillo como a alguien ciego, y se sorprende mucho cuando le ' +
+                            'comentas con una leve sonrisa conocedora que ya conoces los colores.',
+                    },
+                    {
+                        text: 'Continuar.',
+                        next: this.event1
+                    }
+                ]
+            },
+            {
+                text: 'Quitar la venda para evaluar el cuadro.',
+                next: this.event1
+            },
+        ];
+
+    }
+}
+
+export class painterEvent_1 extends eventScene {
+    constructor() {
+        super({ key: 'painterEvent_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: '-Creo que seguiré pintando hasta que anochezca.'
+            },
+            {
+                text: 'Sonreírle y continuar.',
+                cb: () => { },
             }
         ]
     }
@@ -894,7 +913,6 @@ export class tavern_Event_0 extends eventScene {
     }
 }
 
-//activar trigger en el evento anterior
 export class glassesItem_Event_0 extends eventScene {
     constructor() {
         super({ key: 'glassesItem_Event_0' });
@@ -1054,180 +1072,56 @@ export class glasses_Event_2 extends eventScene {
 }
 //#endregion
 
-
-
 //#region MainEvents
-//#region Idles
-export class brother_Event_Idle extends eventScene {
+export class elder_Event_0 extends eventScene {
     constructor() {
-        super({ key: 'brother_Event_Idle' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'El olor a tabaco barato te delata que tu hermano Pedro está sentado en la puerta de la casa fumando. Al igual que tú, los eventos recientes le han alterado. Mejor dejarle este momento de calma.'
-            },
-            {
-                text: 'Volver más tarde.'
-            }
-        ]
-    }
-}
-
-export class doctor_Event_Idle extends eventScene {
-    constructor() {
-        super({ key: 'doctor_Event_Idle' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'Encuentras al Doctor Abel, el médico del pueblo, en el jardín de su casa. Te gustaría pararte a saludar, pero tienes cosas que hacer primero.\nEn otro momento, quizá.'
-            },
-            {
-                text: 'Volver más tarde.'
-            }
-        ]
-    }
-}
-
-export class doctor_Event_Idle_1 extends eventScene {
-    constructor() {
-        super({ key: 'doctor_Event_Idle_1' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: '¿Hablaste con Fernando?'
-            },
-            {
-                text: 'Aún no.'
-            }
-        ]
-    }
-}
-
-export class doctor_Event_Idle_2 extends eventScene {
-    constructor() {
-        super({ key: 'doctor_Event_Idle_2' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: '-¿Hablaste con Fernando?.'
-            },
-            {
-                text: 'Sí, le estoy ayudando. ¿Has notado algún árbol que oliese agrio?.',
-                next: [
-                    {
-                        text: '-¿Agrio? Tengo que decir que no. Cuido bastante de mi jardín, ¡y te puedo asegurar de que ninguno de los míos huele mal!.'
-                    },
-                    {
-                        text: 'Gracias igualmente.',
-                    }
-                ]
-            }
-        ]
-    }
-}
-
-export class lumberjack_Event_Idle extends eventScene {
-    constructor() {
-        super({ key: 'lumberjack_Event_Idle' });
+        super({ key: 'elder_Event_0' });
         //array con los elementos de un evento
         this.backgroundImage = 'mainEventMenu';
         this.content = [
             {
-                text: 'Parece que hay alguien trabajando aquí. Mejor no molestar.'
+                text: 'Reposando en un banco se encuentra alguien. Está callado. No te habrías dado cuenta de que está ahí de\n' +
+                    'no ser porque tose muy fuerte.'
             },
             {
-                text: 'Continuar.',
-            }
-        ]
-    }
-}   
+                text: '¿Se encuentra bien?',
+                next: [
+                    {
+                        text: '-Claramente no. ¿No lo ves? Claro que no lo ves. En fin, se te nota perdida por aquí. ¿Hace tiempo\n' +
+                            'que no caminas por el pueblo? Te puedo contar como va todo por aquí- con dificultad, el hombre se sienta derecho -pero por favor, sé un ángel y acércame mi botella; está ahí caída. Toma un poco si quieres.'
+                    },
+                    {
+                        text: 'Darle la botella.',
+                        condition: function (ref) {
+                            return (ref.info.player.inventory.contains('Botella'))
+                        },
+                        failedText: 'Aún no has cogido la botella.',
+                        next: [
+                            {
+                                text: '-¡Así me gusta! Nada mejor que un trago para despejarse por la mañana. *Hip*'
+                            },
+                            {
+                                text: '...Preocupada, te sientes tentada a preguntarle algunas cosas.',
+                                cb: () => {
+                                    this.info.player.inventory.removeObjectByKey('Botella');
+                                    this.scene.get('brother_Event_Idle').completed = true;
+                                    this.completeMainEvent(10, 10);
+                                },
+                            }
 
-export class vagabond_Event_Idle extends eventScene {
-    constructor() {
-        super({ key: 'vagabond_Event_Idle' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'El vagabundo esta confuso, perdido en sus pensamientos.'
+                        ]
+                    },
+                    {
+                        text: 'Ir a buscar la botella.'
+                    }
+                ]
             },
             {
-                text: 'Volver más tarde.'
-            }
-        ]
-    }
-}
-
-export class  tavern_Event_Idle extends eventScene {
-    constructor() {
-        super({ key: 'tavern_Event_Idle' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'Hay una ventana cerrada. La posada parece estar cerrada.'
-            },
-            {
-                text: 'Volver más tarde.'
-            }
-        ]
-    }
-}
-
-export class cane_Event_Idle extends eventScene {
-    constructor() {
-        super({ key: 'cane_Event_Idle' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'No pareces haber visto nada en especial.'
-            },
-            {
-                text: 'Volver más tarde.'
+                text: 'Seguir caminando.'
             }
         ]
     }
 }
-
-export class grandmother_Event_Idle extends eventScene {
-    constructor() {
-        super({ key: 'grandmother_Event_Idle' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'La anciana, a quien no distingues, está triste, llorando por alguien.'
-            },
-            {
-                text: 'Mejor no molestarla.'
-            }
-        ]
-    }
-}
-
-export class inkKeeper_Event_Idle extends eventScene{
-    constructor() {
-        super({ key: 'inkKeeper_Event_Idle' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'La anciana, a quien no distingues, está triste, llorando por alguien.'
-            },
-            {
-                text: 'Mejor no molestarla.'
-            }
-        ]
-    }
-}
-
-//#endregion
-
 
 export class brother_Event_0 extends eventScene {
     constructor() {
@@ -1551,7 +1445,6 @@ export class lumberjack_Event_0 extends eventScene {
                 cb: () => {
                     this.completeMainEvent(20, 10);
                     this.scene.get('sickTree_Event_Idle').completed = true;
-                    this.scene.get('doctor_Event_Idle_1').completed = true;
                 }
             }
         ]
@@ -1631,6 +1524,25 @@ export class lumberjack_Event_0 extends eventScene {
     }
 }
 
+export class sickTree_Event_0 extends eventScene {
+    constructor() {
+        super({ key: 'sickTree_Event_0' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Este árbol desprende un extraño olor. Debe de ser el árbol infectado del que hablaba el leñador.\n'
+            },
+            {
+                text: 'Anotar posición para el leñador.',
+                cb: () => {
+                    this.completeMainEvent(10, 0);
+                },
+            }
+        ]
+    }
+}
+
 export class lumberjack_Event_1 extends eventScene {
     constructor() {
         super({ key: 'lumberjack_Event_1' });
@@ -1654,7 +1566,6 @@ export class lumberjack_Event_1 extends eventScene {
                         text: 'Aceptar y despedirte del leñador.',
                         cb: () => {
                             this.completeMainEvent(30, 15);
-                            this.scene.get('doctor_Event_Idle_2').completed = true;
                         }
                     }
                 ]
@@ -1926,122 +1837,172 @@ export class grandmother_Event_0 extends eventScene {
         ]
     }
 }
+//#endregion
 
-export class painterEvent_0 extends eventScene {
+//#region Idles
+export class brother_Event_Idle extends eventScene {
     constructor() {
-        super({ key: 'painterEvent_0' });
+        super({ key: 'brother_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
-        this.event1 = [
-            {
-                text: 'La pintora se queda incrédula un segundo, pero se alegra notablemente al darse cuenta de lo que ' +
-                    'esto significa. La inmensa cantidad de luz del día soleado te hace doler los ojos, pero al pasar un ' +
-                    'momento te ajustas y ves los dos paisajes, el de pastel un reflejo de la realidad, pero más saturado ' +
-                    'en sus colores, dándole un toque surreal.'
-            },
-            {
-                text: 'Adular.',
-                cb: () => { },
-                next: [
-                    {
-                        text: 'Das una crítica increíblemente positiva sobre el cuadro, sin ser realmente específico en ningún ' +
-                            'detalle, pero no obstante inundando a la joven artista con positividad. Esta está encantada con ' +
-                            'cada mención, y te regala un boceto en agradecimiento.',
-                    },
-                    {
-                        text: 'Agradecer y aceptar regalo.',
-                        cb: () => {
-                            this.info.prevScene.insertItem(new SketchItem(this.info.prevScene.matter.world,
-                                0, 0, this.info.prevScene.itemFrames[18], this.info.player));
-                            this.completeEvent(0, 20);
-                        }
-                    }
-                ]
-            },
-            {
-                text: 'Crítica positiva.',
-                cb: () => { },
-                next: [
-                    {
-                        text: 'Das una crítica mayoritariamente positiva sobre el cuadro, centrándote en la gama de colores tan ' +
-                            'vistosa y agradable. La artista se sonroja un poco, parece que esto era de lo que más orgullosa ' +
-                            'estaba. En este tono te confiesa que la inspiración para su estilo lo debe en parte a un ' +
-                            'caleidoscopio, el cual te regala como agradecimiento.',
-                    },
-                    {
-                        text: 'Agradecer y aceptar regalo.',
-                        cb: () => {
-                            this.info.prevScene.insertItem(new KaleidoscopeItem(this.info.prevScene.matter.world,
-                                0, 0, this.info.prevScene.itemFrames[9], this.info.player));
-                            this.completeEvent(0, 20);
-                        }
-                    }
-                ]
-            },
-            {
-                text: 'Crítica analítica.',
-                cb: () => { },
-                next: [
-                    {
-                        text: 'Sin dejar que la amoción del momento te abrume, das tu opición más sincera sobre el cuadro, ' +
-                            'describiendo como te gusta la gama de colores, pero remarcando cómo las líneas del contorno tan ' +
-                            'marcadas mancillan el efecto de dichos colores. La artista no se lo toma mal, y con una sonrisa ' +
-                            'te da las gracias- sinceridad a cambio de sinceridad.',
-                    },
-                    {
-                        text: 'Animar y despedir.',
-                        cb: () => {
-                            this.completeEvent(30, 20);
-                        }
-                    }
-                ]
-            }
-        ];
         this.content = [
             {
-                text: 'Notas, entre las fragancias del bosque cercano, el olor a colores pastel. Al acercarte, una persona ' +
-                    'se torna hacia ti. -¡Ay, no esperaba visitas! -Una voz femenina exclama- La gente no suele venir por ' +
-                    'aquí, así que suelo venir cuando quiero pintar. Sinceramente, tenía alguna ilusión por que que alguien ' +
-                    'me criticase mi trabajo, pero ¡qué quisquilloso es el destino para acabar aquí tú de todas personas!\n' +
-                    '-Bueno, parece que tendré que esperar a otro día para encontrar a mi crítico, pero de mientras, ' +
-                    'cuéntame un poco, ¿qué te trae por estas zonas?'
+                text: 'El olor a tabaco barato te delata que tu hermano Pedro está sentado en la puerta de la casa fumando. Al igual que tú, los eventos recientes le han alterado. Mejor dejarle este momento de calma.'
             },
             {
-                text: 'Conversar con la artista.',
-                cb: () => { },
-                next: [
-                    {
-                        text: 'Una breve conversación trivial lleva a la artista a envolverse un poco en temas de teoría de color.\n' +
-                            'Comienza a intentar explicar el amarillo como a alguien ciego, y se sorprende mucho cuando le ' +
-                            'comentas con una leve sonrisa conocedora que ya conoces los colores.',
-                    },
-                    {
-                        text: 'Continuar.',
-                        next: this.event1
-                    }
-                ]
-            },
-            {
-                text: 'Quitar la venda para evaluar el cuadro.',
-                next: this.event1
-            },
-        ];
-
+                text: 'Volver más tarde.'
+            }
+        ]
     }
 }
 
-export class painterEvent_1 extends eventScene {
+export class doctor_Event_Idle extends eventScene {
     constructor() {
-        super({ key: 'painterEvent_1' });
+        super({ key: 'doctor_Event_Idle' });
         //array con los elementos de un evento
         this.backgroundImage = 'eventMenu';
         this.content = [
             {
-                text: '-Creo que seguiré pintando hasta que anochezca.'
+                text: 'Encuentras al Doctor Abel, el médico del pueblo, en el jardín de su casa. Te gustaría pararte a saludar, pero tienes cosas que hacer primero.\nEn otro momento, quizá.'
             },
             {
-                text: 'Sonreírle y continuar.',
-                cb: () => { },
+                text: 'Volver más tarde.'
+            }
+        ]
+    }
+}
+
+export class doctor_Event_Idle_1 extends eventScene {
+    constructor() {
+        super({ key: 'doctor_Event_Idle_1' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: '¿Hablaste con Fernando?'
+            },
+            {
+                text: 'Aún no.'
+            }
+        ]
+    }
+}
+
+export class doctor_Event_Idle_2 extends eventScene {
+    constructor() {
+        super({ key: 'doctor_Event_Idle_2' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: '-¿Hablaste con Fernando?.'
+            },
+            {
+                text: 'Sí, le estoy ayudando. ¿Has notado algún árbol que oliese agrio?.',
+                next: [
+                    {
+                        text: '-¿Agrio? Tengo que decir que no. Cuido bastante de mi jardín, ¡y te puedo asegurar de que ninguno de los míos huele mal!.'
+                    },
+                    {
+                        text: 'Gracias igualmente.',
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+export class lumberjack_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'lumberjack_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'mainEventMenu';
+        this.content = [
+            {
+                text: 'Parece que hay alguien trabajando aquí. Mejor no molestar.'
+            },
+            {
+                text: 'Continuar.',
+            }
+        ]
+    }
+}   
+
+export class vagabond_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'vagabond_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'El vagabundo esta confuso, perdido en sus pensamientos.'
+            },
+            {
+                text: 'Volver más tarde.'
+            }
+        ]
+    }
+}
+
+export class  tavern_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'tavern_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'Hay una ventana cerrada. La posada parece estar cerrada.'
+            },
+            {
+                text: 'Volver más tarde.'
+            }
+        ]
+    }
+}
+
+export class cane_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'cane_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'No pareces haber visto nada en especial.'
+            },
+            {
+                text: 'Volver más tarde.'
+            }
+        ]
+    }
+}
+
+export class grandmother_Event_Idle extends eventScene {
+    constructor() {
+        super({ key: 'grandmother_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'La anciana, a quien no distingues, está triste, llorando por alguien.'
+            },
+            {
+                text: 'Mejor no molestarla.'
+            }
+        ]
+    }
+}
+
+export class inkKeeper_Event_Idle extends eventScene{
+    constructor() {
+        super({ key: 'inkKeeper_Event_Idle' });
+        //array con los elementos de un evento
+        this.backgroundImage = 'eventMenu';
+        this.content = [
+            {
+                text: 'La anciana, a quien no distingues, está triste, llorando por alguien.'
+            },
+            {
+                text: 'Mejor no molestarla.'
             }
         ]
     }
@@ -2062,56 +2023,9 @@ export class sickTree_Event_Idle extends eventScene {
         ]
     }
 }
+//#endregion
 
-export class sickTree_Event_0 extends eventScene {
-    constructor() {
-        super({ key: 'sickTree_Event_0' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'Este árbol desprende un extraño olor. Debe de ser el árbol infectado del que hablaba el leñador.\n'
-            },
-            {
-                text: 'Anotar posición para el leñador.',
-                cb: () => {
-                    this.completeMainEvent(10, 0);
-                },
-            }
-        ]
-    }
-}
-
-//Evento de paso de nivel
-export class maxFaithEvent_0 extends eventScene {
-    constructor() {
-        super({ key: 'maxFaithEvent_0' });
-        //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
-        this.content = [
-            {
-                text: 'Tus acciones se ven recompensadas. Sientes como a medida que ayudas a otras personas tu fe ' +
-                    'aumenta. Y eso te hace feliz.'
-            },
-            {
-                text: 'Avanzar al siguiente nivel.',
-                cb: () => {
-                    this.completeEvent(0, 0);
-                    //este evento no cuenta para el numero de eventos completados
-                    this.info.player.numCompletedEvents--;
-                    this.scene.stop();
-                    this.scene.run('infoLevel', {
-                        obtainedFaith: this.info.player.faith, numEvents: this.info.player.numCompletedEvents, nextLevel: 'level1',
-                        mainText: 'Meter texto de fin de nivel.'
-                    })
-                },
-                end: true
-            }
-        ]
-    }
-}
-
-//Evento de paso de nivel
+//Eventos especiales
 export class deathEvent_0 extends eventScene {
     constructor() {
         super({ key: 'deathEvent_0' });
@@ -2195,12 +2109,4 @@ export class deathEvent_0 extends eventScene {
         ]
     }
 }
-
 //#endregion
-
-
-// condition: function (ref) {
-//     return (ref.info.player.inventory.contains('Rama enferma'))
-// },
-// failedText: 'Aún no has encontrado el árbol enfermo',
-
