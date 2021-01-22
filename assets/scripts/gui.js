@@ -1,7 +1,9 @@
+//clase que muestra información al jugador (interfaz)
 export default class GUI extends Phaser.GameObjects.Container {
     constructor(scene, x, y, player) {
         super(scene, x, y);
 
+        //hacemos que todos los objetos contenidos sigan a la cámara
         this.scene.add.existing(this);
         this.setScrollFactor(0);
         this.depth = 10;
@@ -10,10 +12,10 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.addTooltip('keybindSpace', 'VENDA', 743, 30, 715, 50, 0.5);
         this.addTooltip('keybindQ', 'INVENTARIO', 773, 95, 650, 85, 0.6);
         this.addTooltip('keybindE', 'INTERACTUAR', 773, 135, 635, 125, 0.6);
-        if (this.scene.scene.key !== 'level0') {
+        if (this.scene.scene.key !== 'level0') { //si estamos en nivel 1, cargamos los keybinds de la silueta
             this.silhouetteTooltip = this.addTooltip('ghostTooltip', '', 750, 500, 0, 0, 1.2);           
             this.addTooltip('keybindR', 'HABLA CON TU PADRE', 773, 175, 575, 165, 0.6);
-        }
+        } //si no, cargamos los del preludio
         else this.preludeTooltips();
 
         //Inventario
@@ -42,7 +44,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.faithBar = this.scene.add.image(150, 80, 'faithBar').setScrollFactor(0);
         this.add(this.faithBar);
 
-        //Fe maxima = 80*nivel completado + 20*evento secundario (3 por nivel) = 240 + 180 = 420 (noice)
+        //Fe maxima
         this.faithTop = 420;
         this.hideFaith();
     }
@@ -57,6 +59,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.isVisible = !this.isVisible;
         this.backgroundInventory.setVisible(this.isVisible);
         this.updateInventory();
+        //dependiendo de si se cierra o si se abre, ejecutamos un efecto de sonido u otro
         if (this.isVisible) this.scene.sound.play('sfxOpenInventory');
         else this.scene.sound.play('sfxCloseInventory');
     }
@@ -66,30 +69,29 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.faithBack.setVisible(true);
         this.faithBar.setVisible(true);
         this.faithBar.scaleX = faith / this.faithTop;
+        //tras 'x' tiempo, ocultamos la barra de fe
         this.scene.time.delayedCall(4000, this.hideFaith, null, this);
     }
 
+    //metodo para ocultar la barra de fe
     hideFaith() {
         this.faithBack.setVisible(false);
         this.faithBar.setVisible(false);
     }
 
-    //agregacion de un item añadido al inventario
+    //adicion de un item añadido al inventario en la interfaz
     addItem(item) {
         //se coloca en la interfaz
         item.setPosition(35 + ((this.inventoryRef.objects.length - 1) * 42), 560).setScrollFactor(0);
         //se hace interactuable
         item.setInteractive();
-        console.log(this.inventoryRef.objects.length, "elems array");
         this.updateInventory();
     }
 
     //actualizacion (dinamica) de items en la interfaz
     updateInventory() {
-        for (const item of this.inventoryRef.objects) {
-            console.log(item);
+        for (const item of this.inventoryRef.objects)
             item.setVisible(this.isVisible);
-        }
         this.itemText.setText('');
     }
 
@@ -108,7 +110,7 @@ export default class GUI extends Phaser.GameObjects.Container {
         this.sanityBar.scaleX = sanity / this.sanityTop;
     }
 
-    //metodo para crear tooltips en la intefaz
+    //metodo generalizado para crear tooltips en la intefaz
     addTooltip(keybind, text, x, y, xText, yText, scale) {
         let key = this.scene.add.image(x, y, keybind).setScrollFactor(0).setScale(scale);
         let keyText = this.scene.add.text(xText, yText, text, {

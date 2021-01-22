@@ -154,8 +154,6 @@ export default class Boot extends Phaser.Scene {
             repeat: -1
         });
 
-        //referencia a la escena
-        const ref = this;
         // Cargamos las webfonts que se van a usar
         WebFont.load({
             google: {

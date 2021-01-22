@@ -10,6 +10,7 @@ export default class options extends menuBasicScene{
     constructor(){
         super('optionsScene'); //constructora del menu basico
     }
+
     create(){
         this.scene.bringToTop(); //se pone la escena la primera en el orden para ver las escenas
         //variable para controlar el frame del boton de volumen
@@ -20,7 +21,7 @@ export default class options extends menuBasicScene{
         this.volume = this.volumeButton(this.cameras.main.centerX + this.cameras.main.width/3.3,
             this.cameras.main.centerY - (this.cameras.main.height/8), 0.8, i)
         this.volume.setFrame(i); //establecemos su frame con respecto a la variable i
-
+        //boton de menú para retornar a la escena anterior (menu principal)
         this.returnMenu = this.returnButton(this.cameras.main.centerX + this.cameras.main.width/3,
             this.cameras.main.centerY + (this.cameras.main.height/5), 0.5, this.info.prevSceneKey).setScale(0.5);
     }

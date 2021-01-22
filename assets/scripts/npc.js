@@ -44,7 +44,7 @@ export default class Npc extends EventHandler {
                 this.setVisible(false);
         }
 
-        //si esta en estado 'moiviendose', se mueve
+        //si esta en estado 'moviendose', se mueve
         if (this.state === 'moving') {
             this.move();
         }
