@@ -97,7 +97,7 @@ export class dad_Event_2 extends eventScene {
                     else {
                         this.content[1].next = [
                             {
-                                text: '¡Áh! Qué suerte que heredaste la belleza de tu madre. Que alegría poder ver esos ojos '
+                                text: '¡Ah! Qué suerte que heredaste la belleza de tu madre. Que alegría poder ver esos ojos '
                                     + 'por última vez. Cómo deseo que puedas observar las maravillas de este mundo ahora que puedes'
                                     + ' verlas por primera vez.\nCreo que ya ha llegado mi hora. María, quiero que sepas que siempre os he querido'
                                     + ' tanto a ti como a toda la familia con todas mis fuerzas. Espero que tengas una gran vida por delante.',
