@@ -585,7 +585,7 @@ export class painterEvent_0 extends eventScene {
     constructor() {
         super({ key: 'painterEvent_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
+        this.backgroundImage = 'secondaryEventMenu';
         this.event1 = [
             {
                 text: 'La pintora se queda incrédula un segundo, pero se alegra notablemente al darse cuenta de lo que ' +
@@ -688,7 +688,7 @@ export class painterEvent_1 extends eventScene {
     constructor() {
         super({ key: 'painterEvent_1' });
         //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
+        this.backgroundImage = 'secondaryEventMenu';
         this.content = [
             {
                 text: '-Creo que seguiré pintando hasta que anochezca.'
@@ -1127,7 +1127,7 @@ export class brother_Event_0 extends eventScene {
     constructor() {
         super({ key: 'brother_Event_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
+        this.backgroundImage = 'mainEventMenu';
 
         this.event4 = [
             {
@@ -1228,7 +1228,7 @@ export class doctor_Event_0 extends eventScene {
     constructor() {
         super({ key: 'doctor_Event_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
+        this.backgroundImage = 'mainEventMenu';
         this.adviceAccepted = [
             {
                 text: '-¿Ves? -responde el doctor- Realmente no necesitabas que te dijera yo esto, me imagino que habrías ' +
@@ -1528,7 +1528,7 @@ export class sickTree_Event_0 extends eventScene {
     constructor() {
         super({ key: 'sickTree_Event_0' });
         //array con los elementos de un evento
-        this.backgroundImage = 'eventMenu';
+        this.backgroundImage = 'mainEventMenu';
         this.content = [
             {
                 text: 'Este árbol desprende un extraño olor. Debe de ser el árbol infectado del que hablaba el leñador.\n'
@@ -1876,7 +1876,7 @@ export class lumberjack_Event_Idle extends eventScene {
     constructor() {
         super({ key: 'lumberjack_Event_Idle' });
         //array con los elementos de un evento
-        this.backgroundImage = 'mainEventMenu';
+        this.backgroundImage = 'eventMenu';
         this.content = [
             {
                 text: 'Parece que hay alguien trabajando aquí. Mejor no molestar.'
