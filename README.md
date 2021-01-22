@@ -1,5 +1,7 @@
 ![Veiled](./assets/media/headers/h_title_bg.png)
 
+[¡JUEGA AQUÍ!](https://srvonpsikerfy.github.io/Veiled/)
+
 **Emiliagos Aarabels (EAa) [2º GDV]**
 
 - Emile de Kadt ([edekadt@ucm.es](mailto:edekadt@ucm.es))
