@@ -52,7 +52,6 @@ export class PotionItem extends Item{
     doSomething(player) {
         player.sanity += 30;
         if(player.sanity > 100) player.sanity = 100;
-        console.log("pocion usada", player.sanity);
     }
 }
 
