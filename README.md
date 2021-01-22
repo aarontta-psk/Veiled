@@ -23,7 +23,7 @@ La protagonista se moverá en **8 direcciones**, siendo la velocidad de movimien
 
 El personaje tendrá un medidor que representa su **cordura**. Funcionará a modo de barra de vida, pues al agotarse toda la barra, el jugador se verá obligado a hacer un evento, en el cual, se le mostrrán varias opciones con distintos requisitos para salvarse y continuar el nivel.
 
-El progreso de la barra sigue una escala logarítmica tanto en positivo como en negativo, tal que cuando está baja las pérdidas son reducidas y cuando esté alta los incrementos son reducidos.
+El decremento de la barra es constante hasta que llega a un umbral definido. Por debajo de este, las pérdidas son logarítmicas, de forma que cuando está baja las pérdidas son reducidas.
 
 ![Cordura](./assets/media/features/sanity.gif)
 
@@ -35,29 +35,29 @@ El jugador tendrá puesta constantemente una **venda** , que le impide ver el ma
 
 #### Estímulos
 
-A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que muestran ayudan a localizar a los npc (pasos) y tambien muestran objetivos como en algunos eventos (olor de un arbol).
+A lo largo del mapa, habrá una serie de **estímulos sensoriales** (sonido, olfato) que ayudan a localizar a los npc (pasos) y también muestran objetivos como en algunos eventos (olor de un árbol).
 
 ### Fe
 
 La **fe** sirve como principal medidor de progreso del juego y se indicara mediante un barra durante el nivel (estilo barra True Jedi del Lego Star Wars).
 
-Al finalizar el nivel, se indicará la fe obtenida y cuantos eventos se han completado mediante una pantalla de información.
+Al finalizar el nivel, se indicará la fe obtenida y cuántos eventos se han completado mediante una pantalla de información.
 
 ### Eventos
 
-Mediante los npc y algunas situaciones concretas podremos acceder a una serie de **eventos de texto** que presentaran un problema o una historia al jugador y podrán ser resueltos siguiendo su árbol de diálogos correspondiente.
+Mediante los npcs y algunas situaciones concretas podremos acceder a una serie de **eventos de texto** que presentarán un problema o una historia al jugador y podrán ser resueltos siguiendo su árbol de diálogos correspondiente.
 
-- **Principales:** Serán aquellos que avanzarán la trama principal de juego. Estos serán activados por los diferentes NPCs del nivel (hermano, marido, etc), y serán recordados por la silueta, un ente que aparece solo al tener la venda puesta, y que recordará al jugador que evento debe hacer. Esta linea de eventos concluirá en un gran incremento de fe y desbloqueará el final del juego.
+- **Principales:** Serán aquellos que avanzarán la trama principal de juego. Estos serán activados por los diferentes NPCs del nivel (hermano, marido, etc), y serán recordados por la silueta, un ente que aparece solo al tener la venda puesta, y que recordará al jugador que evento debe hacer. Esta línea de eventos concluirá en un gran incremento de fe y desbloqueará el final del juego.
 
 - **Secundarios:** sirven para expandir la historia, obtener recompensas (cordura, fe, consumibles).
 
-- **Trigger:** se lanzan al cumplir ciertos objetivos, por ejemplo, alcanzar un _threshold_ de cordura (evento de "muerte").
+- **Trigger:** se lanzan al cumplir ciertos objetivos, por ejemplo, agotarse la barra de cordura (evento de "muerte").
 
 Algunos de estos eventos pueden tener requisitos para ser iniciados y completados, como haber progresado lo suficiente con otro npc o estar en posesión del objeto clave correspondiente.
 
 ### NPCs
 
-Los niveles contarán con varios NPCs interactuables, que recorren un camino prestablecido, y que al interactuar con ellos activarán algún tipo de evento, ya sea principal, secundario o simplemente dialogo.
+Los niveles contarán con varios NPCs interactuables, que recorren un camino preestablecido, y que al interactuar con ellos activarán algún tipo de evento, ya sea principal, secundario o simplemente diálogo.
 
 ![Veiledsss](./assets/media/features/npc.gif)
 
@@ -82,10 +82,6 @@ El **objetivo** del juego es ir completando los eventos principales del nivel (i
 
 Explorar con la venda puesta será más difícil, pero no drenará la cordura. Algunos objetos o pistas serán imposibles de encontrar con la venda puesta. Sin embargo, explorar sin la venda será mucho más rápido y eficiente, pero más arriesgado, ya que perderás cordura.
 
-Conforme se llena y vacía la barra de cordura, los cambios en la visión están destinados a que el jugador no comience ningún objetivo nuevo cuando esté muy bajo de cordura, y se centre en restaurarla.
-
-A lo largo del nivel la barra fluctúa bastante a lo largo de una jugada completa. La principal forma de obtener este efecto es una escala logarítmica que gobierna los cambios de nivel de la barra, de tal forma que cuando esté casi llena, la progresión se hace muy lenta, y cuando esté baja, se hace más rápida. Esto tiene dos consecuencias principales: comenzar el objetivo principal del nivel requiere tener la venda puesta durante un tiempo (para no perder cordura); y, aunque haya un nivel bajo de cordura, no implica una partida perdida, pues la escala permitirá recuperar cordura rápidamente.
-
 ### Comportamiento esperado
 
 La búsqueda de pistas y objetos que te ayuden implica más exploración, la cual puede ser realizada con o sin venda.
@@ -94,7 +90,7 @@ Cuando el jugador entre en un nivel, primero empezará a explorar un poco, proba
 
 Cuando complete el objetivo principal, el jugador puede quedarse por el nivel, completando algún objetivo secundario que quiera o necesite (si encuentra y completa muy rápido el objetivo principal, es posible que no tenga suficiente fe para progresar al siguiente nivel).
 
-El juego tiene una dificultad baja y una longitud relativamente corta. Se espera que cualquier jugador pueda completar el juego en menos de 2 horas (?).
+El juego tiene una dificultad baja y una longitud relativamente corta. Se espera que cualquier jugador pueda completar el juego en menos de 1 hora.
 
 ![Contenido](./assets/media/headers/h_contenido.png)
 
@@ -104,7 +100,7 @@ El juego tiene una dificultad baja y una longitud relativamente corta. Se espera
 
 - En el **Pueblo** María continuará explorando su pueblo natal interactuando con personajes de su infancia y otros nuevos conocidos. El nivel estará compuesto por una zona residencial y algunos edificios más alejados como la casa del doctor o el aserradero del leñador.
 
-- Durante el **Epílogo** y tras completar la línea de eventos principal en el pueblo, el jugador podra desbloquear la posibilidad de hablar con su abuela que le entregara una carta de su padre. El video final del juego donde se ve el contenido de la carta se puede consultar en este mismo [repositorio](https://github.com/SrVonPsikerfy/Veiled/blob/main/assets/media/ending.mp4).
+- Durante el **Epílogo** y tras completar la línea de eventos principal en el pueblo, el jugador podrá desbloquear la posibilidad de hablar con su abuela que le entregara una carta de su padre. El video final del juego donde se ve el contenido de la carta se puede consultar en este mismo [repositorio](https://github.com/SrVonPsikerfy/Veiled/blob/main/assets/media/ending.mp4).
 
 ![pueblo](./assets/media/level_01.png)
 
@@ -162,10 +158,10 @@ Ejemplo de un evento de texto.
 
 | Sprite | Nombre | Utilidad |
 |--------|--------|--------|
-| ![alt text](./assets/sprites/items/item_avoiddeath.png)| Figura tallada | Te Permite sobrevivir al evento de muerte |
+| ![alt text](./assets/sprites/items/item_avoiddeath.png)| Figura tallada | Te permite sobrevivir al evento de muerte |
 | ![alt text](./assets/sprites/items/item_baston.png)| Baston | Permite terminar el evento del vagabundo |
 | ![alt text](./assets/sprites/items/item_booze.png)| Botella | Permite terminar el evento de anciano |
-| ![alt text](./assets/sprites/items/item_emptybucket.png)| Cubo vacio | Permite iniciar el evento del pozo |
+| ![alt text](./assets/sprites/items/item_emptybucket.png)| Cubo vacío | Permite iniciar el evento del pozo |
 | ![alt text](./assets/sprites/items/item_waterbucket.png)| Cubo con agua | Permite terminar el evento del pozo |
 | ![alt text](./assets/sprites/items/item_flower.png)| Flor | Permite terminar el evento del cementerio |
 | ![alt text](./assets/sprites/items/item_food.png)| Comida | Permite terminar el evento del niño |
@@ -183,7 +179,7 @@ Ejemplo de un evento de texto.
 | ![alt text](./assets/sprites/items/item_blessing.png)| Bendición | Aumenta bastante la fe (+30) |
 | ![alt text](./assets/sprites/items/item_blindfold.png)| Venda de tela | Aumenta la cordura máxima (+30) |
 | ![alt text](./assets/sprites/items/item_sacredfire.png)| Fuego sagrado | Tu cordura maxima disminuye (-30), pero aumenta bastante tu fe |
-| ![alt text](./assets/sprites/items/item_lessdeath.png)| Láudano | Menos probabiblidad de morir durante la opcion RNG del evento de muerte |
+| ![alt text](./assets/sprites/items/item_lessdeath.png)| Láudano | Menos probabiblidad de morir durante la opción RNG del evento de muerte |
 
 ![Estética](./assets/media/headers/h_estetica.png)
 
@@ -201,7 +197,7 @@ Música Menu Principal: In The Light - David Renda
 
 ![Controles](./assets/media/headers/h_controles.png)
 
-Para jugar se necesitará el **teclado**, siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario y la R sera usada en ocasiones especiales para hablar con el fantasma de tu padre, la silueta. En los menus, eventos y para usar objetos de inventario se podrá interactuar utilizando el **ratón**.
+Para jugar se necesitará **teclado** y **ratón**, siendo el movimiento controlado con las teclas WASD, el uso de la venda será controlado con Espacio, la E servirá para interactuar con los elementos del entorno, Q para abrir el inventario y la R sera usada en ocasiones especiales para hablar con el fantasma de tu padre, la silueta. En los menús, eventos y para usar objetos de inventario se podrá interactuar utilizando el **ratón**.
 
 ![Keybinds](./assets/media/keybinds_gdd.png)
 
@@ -220,7 +216,7 @@ El juego ofrece tres menús al jugador: uno **principal** otro de **pausa** y un
 El juego ofrece varios indicadores de interfaz:
 
 - La **barra de cordura** indica la cantidad de cordura y se muestra siempre en pantalla.
-- La **barra de fé** indica la cantidad de fé y solo se muestra cuando este valor recibe cambios.
+- La **barra de fe** indica la cantidad de fe y solo se muestra cuando este valor recibe cambios.
 - Los **tooltips** se muestran al lado de los items y de los npcs y sirven de feedback al jugador.
 - Los **controles** se muestran siempre en la esquina superior derecha.
 - El **inventario** muestra los objetos que el jugador a recolectado durante la partida y solo se muestra al presionar la Q.
