@@ -141,7 +141,7 @@
  <objectgroup id="6" name="collectable">
   <object id="18" name="potion" x="1568" y="3616" width="32" height="32"/>
   <object id="94" name="sacredFire" x="4064" y="2768" width="32" height="32"/>
-  <object id="98" name="blessing" x="4512" y="1952" width="32" height="32"/>
+  <object id="98" name="blessing" x="4402.67" y="2070.67" width="32" height="32"/>
   <object id="107" name="totem" x="2208" y="2288" width="32" height="32"/>
   <object id="108" name="food" x="3152" y="2864" width="32" height="32"/>
   <object id="117" name="booze" x="2525.33" y="4337.33" width="32" height="32"/>
