@@ -164,7 +164,7 @@ export default class Level0 extends NewGameScene {
         //referencia al eventHandler con el que se está colisionando
         this.auxEventHandler = null;
         this.matter.world.on('collisionstart',
-            (cuerpo1, cuerpo2) => {
+            (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     if (cuerpo2.gameObject instanceof Item) {
                         this.item = cuerpo2.gameObject;
@@ -176,7 +176,7 @@ export default class Level0 extends NewGameScene {
             });
 
         this.matter.world.on('collisionend',
-            (cuerpo1, cuerpo2) => {
+            (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     if (cuerpo2.gameObject instanceof Item) {
                         //desasignamos el item en el que estuviese

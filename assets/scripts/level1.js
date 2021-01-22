@@ -77,6 +77,7 @@ export default class Level1 extends NewGameScene {
 
         //creación de estímulos
         this.smellParticle = this.add.particles('smellCloud');
+        this.soundParticle = this.add.particles('soundCircle');
         //creación de los eventos trigger, que pueden o no utilizar los estímulos 
         this.generateEventTriggers(this.smellParticle);
 
@@ -246,7 +247,7 @@ export default class Level1 extends NewGameScene {
         //referencia al eventHandler con el que se está colisionando
         this.auxEventHandler = null;
         this.matter.world.on('collisionstart',
-            (cuerpo1, cuerpo2) => {
+            (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     if (cuerpo2.gameObject instanceof Item) {
                         this.item = cuerpo2.gameObject;
@@ -258,7 +259,7 @@ export default class Level1 extends NewGameScene {
             });
 
         this.matter.world.on('collisionend',
-            (cuerpo1, cuerpo2) => {
+            (evento, cuerpo1, cuerpo2) => {
                 if (cuerpo1.gameObject === this.player) {
                     //desasignamos el item en el que estuviese (aunque no estuviese en ninguno)
                     this.item = undefined;

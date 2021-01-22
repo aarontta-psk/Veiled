@@ -7,7 +7,7 @@ import {
 } from './item.js'
 
 const LEVEL_FAITH_NEEDED = 100; //fe necesaria para completar el nivel
-const TOTAL_EVENTS = 20 //eventos totales que hay en el nivel
+const TOTAL_EVENTS = 25 //eventos totales que el jugador puede completar en el nivel (no cuentan aquellos que no se completan)
 
 //#region SilhouetteEvents
 export class testSilueta_0 extends eventScene{
