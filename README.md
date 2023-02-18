@@ -1,6 +1,6 @@
 ![Veiled](./assets/media/headers/h_title_bg.png)
 
-[¡JUEGA AQUÍ!](https://srvonpsikerfy.github.io/Veiled/)
+[¡JUEGA AQUÍ!](https://aarontta-psk.github.io/Veiled/)
 
 **Emiliagos Aarabels (EAa) [2º GDV]**
 
